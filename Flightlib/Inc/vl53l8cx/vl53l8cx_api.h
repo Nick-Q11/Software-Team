@@ -35,6 +35,13 @@
 #define VL53L8CX_DEFAULT_I2C_ADDRESS	        ((uint16_t)0x52)
 
 /**
+ * @brief Default SPI address of VL53L8CX sensor. Can be changed using function
+ * vl53l8cx_set_spi_address() function is called.
+ */
+
+#define VL53L8CX_DEFAULT_SPI_ADDRESS	        ((uint16_t)0x52)
+
+/**
  * @brief Macro VL53L8CX_RESOLUTION_4X4 or VL53L8CX_RESOLUTION_8X8 allows
  * setting sensor in 4x4 mode or 8x8 mode, using function
  * vl53l8cx_set_resolution().
@@ -406,6 +413,19 @@ uint8_t vl53l8cx_init(
 uint8_t vl53l8cx_set_i2c_address(
 		VL53L8CX_Configuration		*p_dev,
 		uint16_t			i2c_address);
+
+/**
+ * @brief This function is used to change the SPI address of the sensor. If
+ * multiple VL53L5 sensors are connected to the same SPI line, all other LPn
+ * pins needs to be set to Low. The default sensor address is 0x52.
+ * @param (VL53L8CX_Configuration) *p_dev : VL53L8CX configuration structure.
+ * @param (uint16_t) spi_address : New SPI address.
+ * @return (uint8_t) status : 0 if new address is OK
+ */
+
+uint8_t vl53l8cx_set_spi_address(
+		VL53L8CX_Configuration		*p_dev,
+		uint16_t			spi_address);
 
 /**
  * @brief This function is used to get the current sensor power mode.

@@ -422,6 +422,20 @@ uint8_t vl53l8cx_set_i2c_address(
 	return status;
 }
 
+uint8_t vl53l8cx_set_spi_address(
+		VL53L8CX_Configuration		*p_dev,
+		uint16_t		        spi_address)
+{
+	uint8_t status = VL53L8CX_STATUS_OK;
+
+	status |= VL53L8CX_WrByte(&(p_dev->platform), 0x7fff, 0x00);
+	status |= VL53L8CX_WrByte(&(p_dev->platform), 0x4, (uint8_t)(spi_address >> 1));
+	p_dev->platform.address = spi_address;
+	status |= VL53L8CX_WrByte(&(p_dev->platform), 0x7fff, 0x02);
+
+	return status;
+}
+
 uint8_t vl53l8cx_get_power_mode(
 		VL53L8CX_Configuration		*p_dev,
 		uint8_t				*p_power_mode)
