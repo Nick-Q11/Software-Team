@@ -22,8 +22,6 @@ int32_t VL53L8CX_WrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t data);
 int32_t VL53L8CX_RdByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data);
 int32_t VL53L8CX_WrMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count);
 int32_t VL53L8CX_RdMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count);
-int32_t VL53L8CX_WrMultiSPI(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count);
-int32_t VL53L8CX_RdMultiSPI(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count);
 void VL53L8CX_SwapBuffer(uint8_t *pbuffer, int size);
 int32_t VL53L8CX_WaitMs(VL53L8CX_Platform *p, int32_t wait_ms);
 
