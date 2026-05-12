@@ -55,6 +55,15 @@ int main()
 	
 	
 	printf("Empfangene Daten: Daten 2: 0x%02x \nDaten 3: 0x%02x\n", data[2], data[3]);
+
+	if(data[2] == 0x1C)
+	{
+		printf("Daten erfolgreich gesendet und bestätigt\n");
+	}
+	else
+	{
+		printf("Datenübertragung fehlgeschlagen oder nicht bestätigt\n");
+	}
 	
 	return 0;
 }
