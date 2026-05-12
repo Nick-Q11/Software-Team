@@ -16,7 +16,7 @@ def angle_to_pwm_us(angle_deg: float) -> int:
     return int(500 + (angle_deg / 180.0) * 2000)
 
 
-class ServoDriver:
+class Servo:
     def __init__(self, pi, pin):
         self.pi = pi
         self.pin = pin
@@ -28,8 +28,8 @@ class ServoDriver:
 
 class Scanner:
     def __init__(self, pi, yaw_pin, pitch_pin):
-        self.yaw = ServoDriver(pi, yaw_pin)
-        self.pitch = ServoDriver(pi, pitch_pin)
+        self.yaw = Servo(pi, yaw_pin)
+        self.pitch = Servo(pi, pitch_pin)
 
     def _serpentine_sweep(self, yaw_values, pitch_values, dwell_s=0.5):
         # Scan from upper rows to lower rows
