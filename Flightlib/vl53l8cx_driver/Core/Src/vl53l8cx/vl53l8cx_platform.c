@@ -14,7 +14,7 @@ int32_t VL53L8CX_RdByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data)
                                      I2C_MEMADD_SIZE_16BIT, data, 1, HAL_MAX_DELAY);
 }
 
-// Write multiple bytes I2C
+// Write multiple bytes
 int32_t VL53L8CX_WrMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
 {
     return (int32_t)HAL_I2C_Mem_Write(p->hi2c, p->address, reg,
@@ -25,20 +25,6 @@ int32_t VL53L8CX_WrMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uin
 int32_t VL53L8CX_RdMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
 {
     return (int32_t)HAL_I2C_Mem_Read(p->hi2c, p->address, reg,
-                                     I2C_MEMADD_SIZE_16BIT, pdata, count, HAL_MAX_DELAY);
-}
-
-// Write multiple bytes SPI
-int32_t VL53L8CX_WrMultiSPI(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
-{
-    return (int32_t)HAL_SPI_Mem_Write(p->hi2c, p->address, p->mode, p->speed, p->spi_fd, reg,
-                                      I2C_MEMADD_SIZE_16BIT, pdata, count, HAL_MAX_DELAY);
-}
-
-// Read multiple bytes SPI
-int32_t VL53L8CX_RdMultiSPI(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
-{
-    return (int32_t)HAL_SPI_Mem_Read(p->hi2c, p->address, p->mode, p->speed, p->spi_fd, reg,
                                      I2C_MEMADD_SIZE_16BIT, pdata, count, HAL_MAX_DELAY);
 }
 

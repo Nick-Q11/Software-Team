@@ -11,9 +11,6 @@
 typedef struct
 {
     I2C_HandleTypeDef *hi2c;
-    uint8_t spi_fd;
-    uint8_t speed;
-    uint8_t mode;
     uint8_t address;
 } VL53L8CX_Platform;
 
