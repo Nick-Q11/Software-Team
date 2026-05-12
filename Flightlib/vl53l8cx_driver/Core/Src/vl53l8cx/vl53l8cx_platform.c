@@ -1,10 +1,16 @@
-#include "vl53l8cx/vl53l8cx_platform.h"
+#include "Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
 
 // Write one byte
 int32_t VL53L8CX_WrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t data)
 {
     return (int32_t)HAL_I2C_Mem_Write(p->hi2c, p->address, reg,
                                       I2C_MEMADD_SIZE_16BIT, &data, 1, HAL_MAX_DELAY);
+}
+
+int32_t OwnSPI_RdWrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data, uint32_t count)
+{
+    
+    return 0; // Return 0 for success
 }
 
 // Read one byte
