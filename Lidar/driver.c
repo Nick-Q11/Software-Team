@@ -1,26 +1,63 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <wiringPiSPI.h>
+#include <errno.h>
 #include <wiringPi.h>
+#include <wiringPiSPI.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdint.h>
 #include <unistd.h>
 
-#define channel 0
-#define speed 5000000   //5MHz
+#define CHANNEL 0
+#define SPEED 3000000 //3MHz
+#define MODE 3 //Phase = 1, Polarity = 1
 
-if (wiringPiSetup(channel, speed) < 0){
-    printf("SPI setup Fehler!\n");
+
+int main()
+{
+	volatile int setup = 0;
+	volatile int connection = 0; 
+	unsigned char data[4];
+	unsigned short reg = 0x0055;
+	unsigned short read = reg | 0x8000;
+	unsigned short write = 0xa5a5;
+	setup = wiringPiSPISetupMode(CHANNEL, SPEED, MODE);
+	if (setup < 0)
+	{
+		perror("SPI Setup fehlgeschlagen");
+		setup = 0;
+		return -1;
+	}
+	
+	 
+	data[0] = (read >> 8) & 0xFF;
+	data[1] = read & 0xFF;
+	data[2] = 0x00;
+	data[3] = 0x00;
+	connection = wiringPiSPIDataRW(CHANNEL, data, 4);
+	if (connection < 0)
+	{
+		perror("SPI Connection fehlgeschlagen");
+		connection = 0;
+		return -1;
+	}
+	printf("Empfangene Daten: Daten 2: 0x%02x \nDaten 3: 0x%02x\n", data[2], data[3]);
+	sleep(5);
+	
+	data[0] = (write >> 8) & 0xFF;
+	data[1] = write & 0xFF;
+	data[2] = 0x1C; //gesendete Daten
+	data[3] = 0x00;
+	connection = wiringPiSPIDataRW(CHANNEL, data, 4);
+	if (connection < 0)
+	{
+		perror("SPI Connection fehlgeschlagen");
+		return -1;
+	}
+	
+	
+	printf("Empfangene Daten: Daten 2: 0x%02x \nDaten 3: 0x%02x\n", data[2], data[3]);
+	
+	return 0;
 }
 
-char buffer[2];
-buffer[0] = 0x00;
-buffer[1] = 0x00;
 
-//Registeradresse = buffer[0]
-//Daten = buffer[1]
-
-int check = wiringPiSPIDataRW(channel, buffer, 2);
-
-if (check == -1){
-    printf("SPI Communication Fehler!\n");
-}
 
