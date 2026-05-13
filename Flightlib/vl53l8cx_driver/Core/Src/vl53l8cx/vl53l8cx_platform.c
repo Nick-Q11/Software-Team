@@ -7,7 +7,7 @@ int32_t VL53L8CX_WrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t data)
                                       I2C_MEMADD_SIZE_16BIT, &data, 1, HAL_MAX_DELAY);
 }
 
-int32_t OwnSPI_RdWrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data, uint32_t count)
+int32_t OwnSPI_RdWrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data, uint32_t len, uint8_t read)
 {
     
     return 0; // Return 0 for success
