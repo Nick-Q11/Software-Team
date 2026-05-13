@@ -3,20 +3,16 @@
 
 int32_t VL53L8CX_Init(VL53L8CX_Platform *p)
 {
-        if (!bcm2835_init())
-        return -1;
-
-    if (!bcm2835_spi_begin())
-        return -1;
-
-    bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);
-    bcm2835_spi_setDataMode(BCM2835_SPI_MODE3);
-    bcm2835_spi_setClockDivider(VL53L8CX_SPI_SPEED);
-    bcm2835_spi_chipSelect(BCM53L8CX_SPI_CS);
-    bcm2835_spi_setChipSelectPolarity(VL53L8CX_SPI_CS, LOW);
-
     p->defined = 1;
-    p->speed = VL53L8CX_SPI_SPEED;
+    p->speed = 3000000;
+    p->channel = 0;
+    p->mode = 3;
+    p->fd = wiringPiSPISetupMode(p->channel, p->speed, p->mode);
+    if (p->fd < 0) {
+        fprintf(stderr, "Failed to initialize SPI device: %s\n", strerror(errno));
+        return -1; // Return -1 for failure
+    }
+    
 
     return 0;
 }

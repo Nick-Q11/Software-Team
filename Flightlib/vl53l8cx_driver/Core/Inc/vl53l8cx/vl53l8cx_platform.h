@@ -10,6 +10,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <string.h>
+#include <bcm2835.h>
 
 
 #ifndef VL53L8CX_NB_TARGET_PER_ZONE
@@ -22,6 +23,7 @@ typedef struct
     uint32_t speed;
     uint8_t channel;
     uint8_t mode;
+    uint8_t defined;
     //I2C_HandleTypeDef *hi2c;
     uint8_t address;
 } VL53L8CX_Platform;
