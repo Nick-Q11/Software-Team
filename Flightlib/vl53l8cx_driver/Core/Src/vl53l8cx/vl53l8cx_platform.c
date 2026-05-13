@@ -12,6 +12,7 @@ int32_t VL53L8CX_Init(VL53L8CX_Platform *p)
         perror("Failed to initialize SPI");
         return -1; // Return -1 for failure
     }
+    if(VL53L8CX_WaitMs(p,10) < 0) return -1; // Short delay after SPI setup
     return 0; // Return 0 for success
 }
 // Write one byte
@@ -35,7 +36,7 @@ int32_t VL53L8CX_WrMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uin
 
     uint8_t buffer[count + 2];
 
-    if (p->fd <= 0){
+    if (p->fd < 0){
         fprintf(stderr, "SPI device not initialized\n");
         return -1; // Return -1 for failure
     }
@@ -61,7 +62,7 @@ int32_t VL53L8CX_RdMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uin
         VL53L8CX_Init(p); // Initialize if not already done
     }
 
-    if (p->fd <= 0){
+    if (p->fd < 0){
         fprintf(stderr, "SPI device not initialized\n");
         return -1; // Return -1 for failure
     }
