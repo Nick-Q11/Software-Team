@@ -3,35 +3,62 @@
 // Write one byte
 int32_t VL53L8CX_WrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t data)
 {
-    return (int32_t)HAL_I2C_Mem_Write(p->hi2c, p->address, reg,
-                                      I2C_MEMADD_SIZE_16BIT, &data, 1, HAL_MAX_DELAY);
-}
-
-int32_t OwnSPI_RdWrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data, uint32_t len, uint8_t read)
-{
-    
-    return 0; // Return 0 for success
+    return VL53L8CX_WrMulti(p, reg, &data, 1); // Return 0 for success
 }
 
 // Read one byte
 int32_t VL53L8CX_RdByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data)
 {
-    return (int32_t)HAL_I2C_Mem_Read(p->hi2c, p->address, reg,
-                                     I2C_MEMADD_SIZE_16BIT, data, 1, HAL_MAX_DELAY);
+    return VL53L8CX_RdMulti(p, reg, data, 1);
 }
 
 // Write multiple bytes
 int32_t VL53L8CX_WrMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
 {
-    return (int32_t)HAL_I2C_Mem_Write(p->hi2c, p->address, reg,
-                                      I2C_MEMADD_SIZE_16BIT, pdata, count, HAL_MAX_DELAY);
+    uint8_t buffer[count + 2];
+
+    if (p->fd <= 0){
+        fprintf(stderr, "SPI device not initialized\n");
+        return -1; // Return -1 for failure
+    }
+
+    buffer[0] = (reg >> 8) & 0xFF; // High byte of register address
+    buffer[1] = reg & 0xFF;        // Low byte of register
+
+    memcpy(&buffer[2], pdata, count); // Copy data to buffer for write operation
+ 
+
+    if (wiringPiSPIDataRW(p->channel, buffer, count + 2) < 0) {
+        perror("Failed to read/write SPI data");
+        return -1; // Return -1 for failure
+    }
+
+    return 0;
 }
 
 // Read multiple bytes
 int32_t VL53L8CX_RdMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
 {
-    return (int32_t)HAL_I2C_Mem_Read(p->hi2c, p->address, reg,
-                                     I2C_MEMADD_SIZE_16BIT, pdata, count, HAL_MAX_DELAY);
+    if (p->fd <= 0){
+        fprintf(stderr, "SPI device not initialized\n");
+        return -1; // Return -1 for failure
+    }
+
+    uint8_t buffer[count + 2];
+
+    buffer[0] = (reg >> 8) & 0xFF; // High byte of register address
+    buffer[1] = reg & 0xFF;        // Low byte of register
+
+    memset(&buffer[2], 0x00, count); // Clear buffer for read operation
+ 
+
+    if(wiringPiSPIDataRW(p->channel, buffer, count + 2) < 0) {
+        perror("Failed to read/write SPI data");
+        return -1; // Return -1 for failure
+    }
+        memcpy(pdata, &buffer[2], count); // Copy data to buffer for write operation
+
+    return 0;
 }
 
 // Swap buffer (big-endian <-> little-endian, 4 bytes at a time)
@@ -45,9 +72,9 @@ void VL53L8CX_SwapBuffer(uint8_t *pbuffer, int size)
 }
 
 // Delay in milliseconds
-int32_t VL53L8CX_WaitMs(VL53L8CX_Platform *p, int32_t wait_ms)
+int32_t VL53L8CX_WaitMs(VL53L8CX_Platform *p, int wait_ms)
 {
     (void)p;  // unused
-    HAL_Delay(wait_ms);
+    usleep(wait_ms*1000); // usleep takes microseconds
     return 0;
 }
