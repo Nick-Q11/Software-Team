@@ -32,7 +32,7 @@ typedef struct
 
 // Functions called by VL53L8CX API
 
-int32_t VL53L8CX_Init(VL53L8CX_Platform *p);
+int32_t VL53L8CX_InitSPI(VL53L8CX_Platform *p);
 int32_t VL53L8CX_WrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t data);
 int32_t VL53L8CX_RdByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data);
 int32_t VL53L8CX_WrMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count);

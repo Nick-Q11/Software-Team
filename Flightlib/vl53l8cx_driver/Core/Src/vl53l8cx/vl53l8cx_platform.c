@@ -1,7 +1,7 @@
 #include "Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
 
 
-int32_t VL53L8CX_Init(VL53L8CX_Platform *p)
+int32_t VL53L8CX_InitSPI(VL53L8CX_Platform *p)
 {
     p->defined = 1;
     p->speed = 3000000;
