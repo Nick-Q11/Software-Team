@@ -9,7 +9,7 @@ int main()
     VL53L8CX_ResultsData results;
 
     uint8_t status;
-    status = VL53L8CX_Init(&dev);
+    status = vl53l8cx_init(&dev);
     if(status != VL53L8CX_STATUS_OK)
     {
         fprintf(stderr, "Failed to initialize VL53L8CX sensor\n");
