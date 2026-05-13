@@ -3,17 +3,22 @@
 
 int32_t VL53L8CX_Init(VL53L8CX_Platform *p)
 {
-    p->channel = 0; // Default SPI channel
-    p->speed = 3000000; // Default SPI speed (3 MHz)
-    p->mode = 3; // Default SPI mode (SPI_MODE3: CPOL=1, CPHA=1)   
-    p->defined = 1; // Mark as defined
-    p->fd = wiringPiSPISetupMode(p->channel, p->speed, p->mode);
-    if (p->fd < 0) {
-        perror("Failed to initialize SPI");
-        return -1; // Return -1 for failure
-    }
-    if(VL53L8CX_WaitMs(p,10) < 0) return -1; // Short delay after SPI setup
-    return 0; // Return 0 for success
+        if (!bcm2835_init())
+        return -1;
+
+    if (!bcm2835_spi_begin())
+        return -1;
+
+    bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);
+    bcm2835_spi_setDataMode(BCM2835_SPI_MODE3);
+    bcm2835_spi_setClockDivider(VL53L8CX_SPI_SPEED);
+    bcm2835_spi_chipSelect(BCM53L8CX_SPI_CS);
+    bcm2835_spi_setChipSelectPolarity(VL53L8CX_SPI_CS, LOW);
+
+    p->defined = 1;
+    p->speed = VL53L8CX_SPI_SPEED;
+
+    return 0;
 }
 // Write one byte
 int32_t VL53L8CX_WrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t data)
