@@ -1,5 +1,19 @@
 #include "Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
 
+
+int32_t VL53L8CX_Init(VL53L8CX_Platform *p)
+{
+    p->channel = 0; // Default SPI channel
+    p->speed = 3000000; // Default SPI speed (3 MHz)
+    p->mode = 3; // Default SPI mode (SPI_MODE3: CPOL=1, CPHA=1)   
+    p->defined = 1; // Mark as defined
+    p->fd = wiringPiSPISetupMode(p->channel, p->speed, p->mode);
+    if (p->fd < 0) {
+        perror("Failed to initialize SPI");
+        return -1; // Return -1 for failure
+    }
+    return 0; // Return 0 for success
+}
 // Write one byte
 int32_t VL53L8CX_WrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t data)
 {
@@ -15,6 +29,10 @@ int32_t VL53L8CX_RdByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data)
 // Write multiple bytes
 int32_t VL53L8CX_WrMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
 {
+    if(p->defined != 1){
+        VL53L8CX_Init(p); // Initialize if not already done
+    }
+
     uint8_t buffer[count + 2];
 
     if (p->fd <= 0){
@@ -39,6 +57,10 @@ int32_t VL53L8CX_WrMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uin
 // Read multiple bytes
 int32_t VL53L8CX_RdMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
 {
+    if(p->defined != 1){
+        VL53L8CX_Init(p); // Initialize if not already done
+    }
+
     if (p->fd <= 0){
         fprintf(stderr, "SPI device not initialized\n");
         return -1; // Return -1 for failure
