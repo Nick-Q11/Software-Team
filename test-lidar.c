@@ -1,14 +1,22 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <wiringPi.h>
 #include "Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h"
 
+#define LPN 13
+#define PWREN 15
+
+void powerON(void);
+volatile VL53L8CX_Configuration dev;
+
 int main()
-{
-    VL53L8CX_Configuration dev;
+{ 
     VL53L8CX_ResultsData results;
 
     uint8_t status;
+    powerON();
+
     status = vl53l8cx_init(&dev);
     if(status != VL53L8CX_STATUS_OK)
     {
@@ -60,6 +68,19 @@ int main()
    
     return 0;
 
+}
+
+void powerON(void){
+    wiringPiSetupPhys();
+    pinMode(LPN, OUTPUT);
+    digitalWrite(LPN, LOW);
+    pinMode(PWREN, OUTPUT);
+    digitalWrite(PWREN, LOW);
+    VL53L8CX_WaitMs(&dev, 100);
+    digitalWrite(PWREN, HIGH);
+    VL53L8CX_WaitMs(&dev, 50);
+    digitalWrite(LPN, HIGH);
+    VL53L8CX_WaitMs(&dev, 250);
 }
 
 
