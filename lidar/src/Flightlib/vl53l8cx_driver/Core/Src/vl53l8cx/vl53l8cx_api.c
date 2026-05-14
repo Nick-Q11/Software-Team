@@ -323,8 +323,7 @@ uint8_t vl53l8cx_init(
 	status |= VL53L8CX_WrMulti(&(p_dev->platform),0,
 		(uint8_t*)&VL53L8CX_FIRMWARE[0],0x8000);
 	status |= VL53L8CX_WrByte(&(p_dev->platform), 0x7fff, 0x0a);
-	status |= VL53L8CX_WrMulti(&(p_dev->platform),0,
-		(uint8_t*)&VL53L8CX_FIRMWARE[0x8000],0x8000);
+	status |= VL53L8CX_WrMulti(&(p_dev->platform),0, (uint8_t*)&VL53L8CX_FIRMWARE[0x8000],0x8000);
 	status |= VL53L8CX_WrByte(&(p_dev->platform), 0x7fff, 0x0b);
 	status |= VL53L8CX_WrMulti(&(p_dev->platform),0,
 		(uint8_t*)&VL53L8CX_FIRMWARE[0x10000],0x5000);
