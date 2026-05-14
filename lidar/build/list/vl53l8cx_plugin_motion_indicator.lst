@@ -1,0 +1,530 @@
+   1              		.arch armv8-a
+   2              		.file	"vl53l8cx_plugin_motion_indicator.c"
+   3              		.text
+   4              	.Ltext0:
+   5              		.file 1 "src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c"
+   6              		.section	.text.vl53l8cx_motion_indicator_init,"ax",@progbits
+   7              		.align	2
+   8              		.global	vl53l8cx_motion_indicator_init
+  10              	vl53l8cx_motion_indicator_init:
+  11              	.LFB0:
+   1:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** /**
+   2:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****   *
+   3:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****   * Copyright (c) 2021 STMicroelectronics.
+   4:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****   * All rights reserved.
+   5:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****   *
+   6:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****   * This software is licensed under terms that can be found in the LICENSE file
+   7:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****   * in the root directory of this software component.
+   8:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+   9:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****   *
+  10:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****   ******************************************************************************
+  11:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****   */
+  12:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  13:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** #include <math.h> 
+  14:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** #include "vl53l8cx_plugin_motion_indicator.h"
+  15:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  16:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** uint8_t vl53l8cx_motion_indicator_init(
+  17:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		VL53L8CX_Configuration		*p_dev,
+  18:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		VL53L8CX_Motion_Configuration	*p_motion_config,
+  19:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		uint8_t				resolution)
+  20:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** {
+  12              		.loc 1 20 1
+  13              		.cfi_startproc
+  14 0000 FD7BBCA9 		stp	x29, x30, [sp, -64]!
+  15              	.LCFI0:
+  16              		.cfi_def_cfa_offset 64
+  17              		.cfi_offset 29, -64
+  18              		.cfi_offset 30, -56
+  19 0004 FD030091 		mov	x29, sp
+  20 0008 E01700F9 		str	x0, [sp, 40]
+  21 000c E11300F9 		str	x1, [sp, 32]
+  22 0010 E27F0039 		strb	w2, [sp, 31]
+  21:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	uint8_t status = VL53L8CX_STATUS_OK;
+  23              		.loc 1 21 10
+  24 0014 FFFF0039 		strb	wzr, [sp, 63]
+  22:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  23:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	(void)memset(p_motion_config, 0, sizeof(VL53L8CX_Motion_Configuration));
+  25              		.loc 1 23 8
+  26 0018 821380D2 		mov	x2, 156
+  27 001c 01008052 		mov	w1, 0
+  28 0020 E01340F9 		ldr	x0, [sp, 32]
+  29 0024 00000094 		bl	memset
+  24:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  25:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->ref_bin_offset = 13633;
+  30              		.loc 1 25 34
+  31 0028 E01340F9 		ldr	x0, [sp, 32]
+  32 002c 21A88652 		mov	w1, 13633
+  33 0030 010000B9 		str	w1, [x0]
+  26:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->detection_threshold = 2883584;
+  34              		.loc 1 26 39
+  35 0034 E01340F9 		ldr	x0, [sp, 32]
+  36 0038 8105A052 		mov	w1, 2883584
+  37 003c 010400B9 		str	w1, [x0, 4]
+  27:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->extra_noise_sigma = 0;
+  38              		.loc 1 27 37
+  39 0040 E01340F9 		ldr	x0, [sp, 32]
+  40 0044 1F0800B9 		str	wzr, [x0, 8]
+  28:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->null_den_clip_value = 0;
+  41              		.loc 1 28 39
+  42 0048 E01340F9 		ldr	x0, [sp, 32]
+  43 004c 1F0C00B9 		str	wzr, [x0, 12]
+  29:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->mem_update_mode = 6;
+  44              		.loc 1 29 35
+  45 0050 E01340F9 		ldr	x0, [sp, 32]
+  46 0054 C1008052 		mov	w1, 6
+  47 0058 01400039 		strb	w1, [x0, 16]
+  30:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->mem_update_choice = 2;
+  48              		.loc 1 30 37
+  49 005c E01340F9 		ldr	x0, [sp, 32]
+  50 0060 41008052 		mov	w1, 2
+  51 0064 01440039 		strb	w1, [x0, 17]
+  31:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->sum_span = 4;
+  52              		.loc 1 31 28
+  53 0068 E01340F9 		ldr	x0, [sp, 32]
+  54 006c 81008052 		mov	w1, 4
+  55 0070 01480039 		strb	w1, [x0, 18]
+  32:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->feature_length = 9;
+  56              		.loc 1 32 34
+  57 0074 E01340F9 		ldr	x0, [sp, 32]
+  58 0078 21018052 		mov	w1, 9
+  59 007c 014C0039 		strb	w1, [x0, 19]
+  33:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->nb_of_aggregates = 16;
+  60              		.loc 1 33 36
+  61 0080 E01340F9 		ldr	x0, [sp, 32]
+  62 0084 01028052 		mov	w1, 16
+  63 0088 01500039 		strb	w1, [x0, 20]
+  34:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->nb_of_temporal_accumulations = 16;
+  64              		.loc 1 34 48
+  65 008c E01340F9 		ldr	x0, [sp, 32]
+  66 0090 01028052 		mov	w1, 16
+  67 0094 01540039 		strb	w1, [x0, 21]
+  35:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->min_nb_for_global_detection = 1;
+  68              		.loc 1 35 47
+  69 0098 E01340F9 		ldr	x0, [sp, 32]
+  70 009c 21008052 		mov	w1, 1
+  71 00a0 01580039 		strb	w1, [x0, 22]
+  36:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->global_indicator_format_1 = 8;
+  72              		.loc 1 36 45
+  73 00a4 E01340F9 		ldr	x0, [sp, 32]
+  74 00a8 01018052 		mov	w1, 8
+  75 00ac 015C0039 		strb	w1, [x0, 23]
+  37:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->global_indicator_format_2 = 0;
+  76              		.loc 1 37 45
+  77 00b0 E01340F9 		ldr	x0, [sp, 32]
+  78 00b4 1F600039 		strb	wzr, [x0, 24]
+  38:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->spare_1 = 0;
+  79              		.loc 1 38 27
+  80 00b8 E01340F9 		ldr	x0, [sp, 32]
+  81 00bc 1F640039 		strb	wzr, [x0, 25]
+  39:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->spare_2 = 0;
+  82              		.loc 1 39 27
+  83 00c0 E01340F9 		ldr	x0, [sp, 32]
+  84 00c4 1F680039 		strb	wzr, [x0, 26]
+  40:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	p_motion_config->spare_3 = 0;
+  85              		.loc 1 40 27
+  86 00c8 E01340F9 		ldr	x0, [sp, 32]
+  87 00cc 1F6C0039 		strb	wzr, [x0, 27]
+  41:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  42:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	status |= vl53l8cx_motion_indicator_set_resolution(p_dev,
+  88              		.loc 1 42 12
+  89 00d0 E27F4039 		ldrb	w2, [sp, 31]
+  90 00d4 E11340F9 		ldr	x1, [sp, 32]
+  91 00d8 E01740F9 		ldr	x0, [sp, 40]
+  92 00dc 00000094 		bl	vl53l8cx_motion_indicator_set_resolution
+  93 00e0 011C0012 		and	w1, w0, 255
+  94              		.loc 1 42 9 discriminator 1
+  95 00e4 E0FF4039 		ldrb	w0, [sp, 63]
+  96 00e8 2000002A 		orr	w0, w1, w0
+  97 00ec E0FF0039 		strb	w0, [sp, 63]
+  43:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			p_motion_config, resolution);
+  44:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  45:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	return status;
+  98              		.loc 1 45 9
+  99 00f0 E0FF4039 		ldrb	w0, [sp, 63]
+  46:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** }
+ 100              		.loc 1 46 1
+ 101 00f4 FD7BC4A8 		ldp	x29, x30, [sp], 64
+ 102              	.LCFI1:
+ 103              		.cfi_restore 30
+ 104              		.cfi_restore 29
+ 105              		.cfi_def_cfa_offset 0
+ 106 00f8 C0035FD6 		ret
+ 107              		.cfi_endproc
+ 108              	.LFE0:
+ 110              		.section	.text.vl53l8cx_motion_indicator_set_distance_motion,"ax",@progbits
+ 111              		.align	2
+ 112              		.global	vl53l8cx_motion_indicator_set_distance_motion
+ 114              	vl53l8cx_motion_indicator_set_distance_motion:
+ 115              	.LFB1:
+  47:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  48:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** uint8_t vl53l8cx_motion_indicator_set_distance_motion(
+  49:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		VL53L8CX_Configuration		*p_dev,
+  50:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		VL53L8CX_Motion_Configuration	*p_motion_config,
+  51:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		uint16_t			distance_min_mm,
+  52:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		uint16_t			distance_max_mm)
+  53:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** {
+ 116              		.loc 1 53 1
+ 117              		.cfi_startproc
+ 118 0000 FD7BBCA9 		stp	x29, x30, [sp, -64]!
+ 119              	.LCFI2:
+ 120              		.cfi_def_cfa_offset 64
+ 121              		.cfi_offset 29, -64
+ 122              		.cfi_offset 30, -56
+ 123 0004 FD030091 		mov	x29, sp
+ 124 0008 E01700F9 		str	x0, [sp, 40]
+ 125 000c E11300F9 		str	x1, [sp, 32]
+ 126 0010 E23F0079 		strh	w2, [sp, 30]
+ 127 0014 E33B0079 		strh	w3, [sp, 28]
+  54:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	uint8_t status = VL53L8CX_STATUS_OK;
+ 128              		.loc 1 54 10
+ 129 0018 FFFF0039 		strb	wzr, [sp, 63]
+  55:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	float_t tmp;
+  56:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  57:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	if(((distance_max_mm - distance_min_mm) > (uint16_t)1500)
+ 130              		.loc 1 57 23
+ 131 001c E13B4079 		ldrh	w1, [sp, 28]
+ 132 0020 E03F4079 		ldrh	w0, [sp, 30]
+ 133 0024 2000004B 		sub	w0, w1, w0
+ 134              		.loc 1 57 4
+ 135 0028 1F701771 		cmp	w0, 1500
+ 136 002c EC000054 		bgt	.L4
+  58:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			|| (distance_min_mm < (uint16_t)400)
+ 137              		.loc 1 58 4
+ 138 0030 E03F4079 		ldrh	w0, [sp, 30]
+ 139 0034 1F3C0671 		cmp	w0, 399
+ 140 0038 89000054 		bls	.L4
+  59:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                         || (distance_max_mm > (uint16_t)4000))
+ 141              		.loc 1 59 25
+ 142 003c E03B4079 		ldrh	w0, [sp, 28]
+ 143 0040 1F803E71 		cmp	w0, 4000
+ 144 0044 A9000054 		bls	.L5
+ 145              	.L4:
+  60:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	{
+  61:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		status |= VL53L8CX_STATUS_INVALID_PARAM;
+ 146              		.loc 1 61 10
+ 147 0048 E0FF4039 		ldrb	w0, [sp, 63]
+ 148 004c 00180032 		orr	w0, w0, 127
+ 149 0050 E0FF0039 		strb	w0, [sp, 63]
+ 150 0054 33000014 		b	.L6
+ 151              	.L5:
+  62:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	}
+  63:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	else
+  64:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	{           
+  65:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		tmp = (float_t)((((float_t)distance_min_mm/(float_t)37.5348)
+ 152              		.loc 1 65 21
+ 153 0058 FF3F407D 		ldr	h31, [sp, 30]
+ 154 005c FFDB217E 		ucvtf	s31, s31
+ 155              		.loc 1 65 45
+ 156 0060 60748452 		mov	w0, 9123
+ 157 0064 C042A872 		movk	w0, 0x4216, lsl 16
+ 158 0068 1E00271E 		fmov	s30, w0
+ 159 006c FE1B3E1E 		fdiv	s30, s31, s30
+  66:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                                -(float_t)4.0)*(float_t)2048.5);
+ 160              		.loc 1 66 32
+ 161 0070 1F10221E 		fmov	s31, 4.0e+0
+ 162 0074 DF3B3F1E 		fsub	s31, s30, s31
+  65:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                                -(float_t)4.0)*(float_t)2048.5);
+ 163              		.loc 1 65 7
+ 164 0078 00008152 		mov	w0, 2048
+ 165 007c 00A0A872 		movk	w0, 0x4500, lsl 16
+ 166 0080 1E00271E 		fmov	s30, w0
+ 167 0084 FF0B3E1E 		fmul	s31, s31, s30
+ 168 0088 FF3B00BD 		str	s31, [sp, 56]
+  67:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                 p_motion_config->ref_bin_offset = (int32_t)tmp;
+ 169              		.loc 1 67 51
+ 170 008c FF3B40BD 		ldr	s31, [sp, 56]
+ 171 0090 FFBBA15E 		fcvtzs	s31, s31
+ 172              		.loc 1 67 49
+ 173 0094 E01340F9 		ldr	x0, [sp, 32]
+ 174 0098 1F0000BD 		str	s31, [x0]
+  68:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                 
+  69:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                 tmp = (float_t)((((((float_t)distance_max_mm-
+ 175              		.loc 1 69 37
+ 176 009c FF3B407D 		ldr	h31, [sp, 28]
+ 177 00a0 FEDB217E 		ucvtf	s30, s31
+  70:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			(float_t)distance_min_mm)/(float_t)10.0)+(float_t)30.02784)
+ 178              		.loc 1 70 4
+ 179 00a4 FF3F407D 		ldr	h31, [sp, 30]
+ 180 00a8 FFDB217E 		ucvtf	s31, s31
+  69:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			(float_t)distance_min_mm)/(float_t)10.0)+(float_t)30.02784)
+ 181              		.loc 1 69 61
+ 182 00ac DE3B3F1E 		fsub	s30, s30, s31
+ 183              		.loc 1 70 29
+ 184 00b0 1F90241E 		fmov	s31, 1.0e+1
+ 185 00b4 DF1B3F1E 		fdiv	s31, s30, s31
+ 186              		.loc 1 70 44
+ 187 00b8 80208752 		mov	w0, 14596
+ 188 00bc 003EA872 		movk	w0, 0x41f0, lsl 16
+ 189 00c0 1E00271E 		fmov	s30, w0
+ 190 00c4 FF2B3E1E 		fadd	s31, s31, s30
+  71:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			/((float_t)15.01392))+(float_t)0.5);
+ 191              		.loc 1 71 4
+ 192 00c8 80208752 		mov	w0, 14596
+ 193 00cc 002EA872 		movk	w0, 0x4170, lsl 16
+ 194 00d0 1E00271E 		fmov	s30, w0
+ 195 00d4 FE1B3E1E 		fdiv	s30, s31, s30
+  69:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			(float_t)distance_min_mm)/(float_t)10.0)+(float_t)30.02784)
+ 196              		.loc 1 69 21
+ 197 00d8 1F102C1E 		fmov	s31, 5.0e-1
+ 198 00dc DF2B3F1E 		fadd	s31, s30, s31
+ 199 00e0 FF3B00BD 		str	s31, [sp, 56]
+  72:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		p_motion_config->feature_length = (uint8_t)tmp;
+ 200              		.loc 1 72 37
+ 201 00e4 FF3B40BD 		ldr	s31, [sp, 56]
+ 202 00e8 FFBBA17E 		fcvtzu	s31, s31
+ 203 00ec E03F010E 		umov	w0, v31.b[0]
+ 204 00f0 011C0012 		and	w1, w0, 255
+ 205              		.loc 1 72 35
+ 206 00f4 E01340F9 		ldr	x0, [sp, 32]
+ 207 00f8 014C0039 		strb	w1, [x0, 19]
+  73:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  74:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		status |= vl53l8cx_dci_write_data(p_dev,
+ 208              		.loc 1 74 13
+ 209 00fc 83138052 		mov	w3, 156
+ 210 0100 82F59752 		mov	w2, 49068
+ 211 0104 E11340F9 		ldr	x1, [sp, 32]
+ 212 0108 E01740F9 		ldr	x0, [sp, 40]
+ 213 010c 00000094 		bl	vl53l8cx_dci_write_data
+ 214 0110 011C0012 		and	w1, w0, 255
+ 215              		.loc 1 74 10 discriminator 1
+ 216 0114 E0FF4039 		ldrb	w0, [sp, 63]
+ 217 0118 2000002A 		orr	w0, w1, w0
+ 218 011c E0FF0039 		strb	w0, [sp, 63]
+ 219              	.L6:
+  75:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			(uint8_t*)(p_motion_config),
+  76:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			VL53L8CX_DCI_MOTION_DETECTOR_CFG,
+  77:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                         (uint16_t)sizeof(*p_motion_config));
+  78:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	}
+  79:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  80:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	return status;
+ 220              		.loc 1 80 9
+ 221 0120 E0FF4039 		ldrb	w0, [sp, 63]
+  81:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** }
+ 222              		.loc 1 81 1
+ 223 0124 FD7BC4A8 		ldp	x29, x30, [sp], 64
+ 224              	.LCFI3:
+ 225              		.cfi_restore 30
+ 226              		.cfi_restore 29
+ 227              		.cfi_def_cfa_offset 0
+ 228 0128 C0035FD6 		ret
+ 229              		.cfi_endproc
+ 230              	.LFE1:
+ 232              		.section	.text.vl53l8cx_motion_indicator_set_resolution,"ax",@progbits
+ 233              		.align	2
+ 234              		.global	vl53l8cx_motion_indicator_set_resolution
+ 236              	vl53l8cx_motion_indicator_set_resolution:
+ 237              	.LFB2:
+  82:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  83:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** uint8_t vl53l8cx_motion_indicator_set_resolution(
+  84:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		VL53L8CX_Configuration		*p_dev,
+  85:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		VL53L8CX_Motion_Configuration	*p_motion_config,
+  86:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		uint8_t				resolution)
+  87:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** {
+ 238              		.loc 1 87 1
+ 239              		.cfi_startproc
+ 240 0000 FD7BBCA9 		stp	x29, x30, [sp, -64]!
+ 241              	.LCFI4:
+ 242              		.cfi_def_cfa_offset 64
+ 243              		.cfi_offset 29, -64
+ 244              		.cfi_offset 30, -56
+ 245 0004 FD030091 		mov	x29, sp
+ 246 0008 E01700F9 		str	x0, [sp, 40]
+ 247 000c E11300F9 		str	x1, [sp, 32]
+ 248 0010 E27F0039 		strb	w2, [sp, 31]
+  88:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	uint8_t i, status = VL53L8CX_STATUS_OK;
+ 249              		.loc 1 88 13
+ 250 0014 FFFB0039 		strb	wzr, [sp, 62]
+  89:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+  90:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	switch(resolution)
+ 251              		.loc 1 90 2
+ 252 0018 E07F4039 		ldrb	w0, [sp, 31]
+ 253 001c 1F400071 		cmp	w0, 16
+ 254 0020 80000054 		beq	.L9
+ 255 0024 1F000171 		cmp	w0, 64
+ 256 0028 00030054 		beq	.L10
+ 257 002c 3D000014 		b	.L19
+ 258              	.L9:
+  91:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	{
+  92:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		case VL53L8CX_RESOLUTION_4X4:
+  93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			for(i = 0; i < (uint8_t)VL53L8CX_RESOLUTION_4X4; i++)
+ 259              		.loc 1 93 10
+ 260 0030 FFFF0039 		strb	wzr, [sp, 63]
+ 261              		.loc 1 93 4
+ 262 0034 0B000014 		b	.L12
+ 263              	.L13:
+  94:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			{
+  95:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 				p_motion_config->map_id[i] = (int8_t)i;
+ 264              		.loc 1 95 28
+ 265 0038 E0FF4039 		ldrb	w0, [sp, 63]
+ 266              		.loc 1 95 34
+ 267 003c E2FFC039 		ldrsb	w2, [sp, 63]
+ 268              		.loc 1 95 32
+ 269 0040 E11340F9 		ldr	x1, [sp, 32]
+ 270 0044 007C4093 		sxtw	x0, w0
+ 271 0048 2000008B 		add	x0, x1, x0
+ 272 004c E103022A 		mov	w1, w2
+ 273 0050 01700039 		strb	w1, [x0, 28]
+  93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			{
+ 274              		.loc 1 93 54 discriminator 3
+ 275 0054 E0FF4039 		ldrb	w0, [sp, 63]
+ 276 0058 00040011 		add	w0, w0, 1
+ 277 005c E0FF0039 		strb	w0, [sp, 63]
+ 278              	.L12:
+  93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			{
+ 279              		.loc 1 93 17 discriminator 1
+ 280 0060 E0FF4039 		ldrb	w0, [sp, 63]
+ 281 0064 1F3C0071 		cmp	w0, 15
+ 282 0068 89FEFF54 		bls	.L13
+  96:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			}
+  97:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		(void)memset(p_motion_config->map_id + 16, -1, 48);
+ 283              		.loc 1 97 16
+ 284 006c E01340F9 		ldr	x0, [sp, 32]
+ 285 0070 00700091 		add	x0, x0, 28
+ 286              		.loc 1 97 9
+ 287 0074 00400091 		add	x0, x0, 16
+ 288 0078 020680D2 		mov	x2, 48
+ 289 007c 01008012 		mov	w1, -1
+ 290 0080 00000094 		bl	memset
+  98:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		break;
+ 291              		.loc 1 98 3
+ 292 0084 2A000014 		b	.L14
+ 293              	.L10:
+  99:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+ 100:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		case VL53L8CX_RESOLUTION_8X8:
+ 101:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			for(i = 0; i < (uint8_t)VL53L8CX_RESOLUTION_8X8; i++)
+ 294              		.loc 1 101 10
+ 295 0088 FFFF0039 		strb	wzr, [sp, 63]
+ 296              		.loc 1 101 4
+ 297 008c 21000014 		b	.L15
+ 298              	.L16:
+ 102:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			{
+ 103:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                                p_motion_config->map_id[i] = (int8_t)((((int8_t)
+ 299              		.loc 1 103 72
+ 300 0090 E0FFC039 		ldrsb	w0, [sp, 63]
+ 104:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                                i % 8)/2) + (4*((int8_t)i/16)));
+ 301              		.loc 1 104 42
+ 302 0094 E103006B 		negs	w1, w0
+ 303 0098 00080012 		and	w0, w0, 7
+ 304 009c 21080012 		and	w1, w1, 7
+ 305 00a0 0044815A 		csneg	w0, w0, w1, mi
+ 306 00a4 001C0013 		sxtb	w0, w0
+ 307 00a8 017C1F53 		lsr	w1, w0, 31
+ 308 00ac 2000000B 		add	w0, w1, w0
+ 309 00b0 007C0113 		asr	w0, w0, 1
+ 310 00b4 001C0013 		sxtb	w0, w0
+ 311 00b8 011C0012 		and	w1, w0, 255
+ 312              		.loc 1 104 48
+ 313 00bc E0FFC039 		ldrsb	w0, [sp, 63]
+ 314              		.loc 1 104 46
+ 315 00c0 023C0011 		add	w2, w0, 15
+ 316 00c4 1F000071 		cmp	w0, 0
+ 317 00c8 40B0801A 		csel	w0, w2, w0, lt
+ 318 00cc 007C0413 		asr	w0, w0, 4
+ 319 00d0 001C0013 		sxtb	w0, w0
+ 320 00d4 001C0012 		and	w0, w0, 255
+ 321 00d8 00141E53 		ubfiz	w0, w0, 2, 6
+ 322 00dc 001C0012 		and	w0, w0, 255
+ 323              		.loc 1 104 42
+ 324 00e0 2000000B 		add	w0, w1, w0
+ 325 00e4 011C0012 		and	w1, w0, 255
+ 103:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                                i % 8)/2) + (4*((int8_t)i/16)));
+ 326              		.loc 1 103 55
+ 327 00e8 E0FF4039 		ldrb	w0, [sp, 63]
+ 103:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                                i % 8)/2) + (4*((int8_t)i/16)));
+ 328              		.loc 1 103 61
+ 329 00ec 221C0013 		sxtb	w2, w1
+ 103:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                                i % 8)/2) + (4*((int8_t)i/16)));
+ 330              		.loc 1 103 59
+ 331 00f0 E11340F9 		ldr	x1, [sp, 32]
+ 332 00f4 007C4093 		sxtw	x0, w0
+ 333 00f8 2000008B 		add	x0, x1, x0
+ 334 00fc E103022A 		mov	w1, w2
+ 335 0100 01700039 		strb	w1, [x0, 28]
+ 101:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			{
+ 336              		.loc 1 101 54 discriminator 3
+ 337 0104 E0FF4039 		ldrb	w0, [sp, 63]
+ 338 0108 00040011 		add	w0, w0, 1
+ 339 010c E0FF0039 		strb	w0, [sp, 63]
+ 340              	.L15:
+ 101:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			{
+ 341              		.loc 1 101 17 discriminator 1
+ 342 0110 E0FF4039 		ldrb	w0, [sp, 63]
+ 343 0114 1FFC0071 		cmp	w0, 63
+ 344 0118 C9FBFF54 		bls	.L16
+ 105:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			}
+ 106:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		break;
+ 345              		.loc 1 106 3
+ 346 011c 04000014 		b	.L14
+ 347              	.L19:
+ 107:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+ 108:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		default:
+ 109:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 			status |= VL53L8CX_STATUS_ERROR;
+ 348              		.loc 1 109 11
+ 349 0120 00008012 		mov	w0, -1
+ 350 0124 E0FB0039 		strb	w0, [sp, 62]
+ 110:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		break;
+ 351              		.loc 1 110 3
+ 352 0128 1F2003D5 		nop
+ 353              	.L14:
+ 111:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	}
+ 112:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+ 113:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	if(status == VL53L8CX_STATUS_OK)
+ 354              		.loc 1 113 4
+ 355 012c E0FB4039 		ldrb	w0, [sp, 62]
+ 356 0130 1F000071 		cmp	w0, 0
+ 357 0134 41010054 		bne	.L17
+ 114:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	{
+ 115:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 		status |= vl53l8cx_dci_write_data(p_dev,
+ 358              		.loc 1 115 13
+ 359 0138 83138052 		mov	w3, 156
+ 360 013c 82F59752 		mov	w2, 49068
+ 361 0140 E11340F9 		ldr	x1, [sp, 32]
+ 362 0144 E01740F9 		ldr	x0, [sp, 40]
+ 363 0148 00000094 		bl	vl53l8cx_dci_write_data
+ 364 014c 011C0012 		and	w1, w0, 255
+ 365              		.loc 1 115 10 discriminator 1
+ 366 0150 E0FB4039 		ldrb	w0, [sp, 62]
+ 367 0154 2000002A 		orr	w0, w1, w0
+ 368 0158 E0FB0039 		strb	w0, [sp, 62]
+ 369              	.L17:
+ 116:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 				(uint8_t*)(p_motion_config),
+ 117:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 				VL53L8CX_DCI_MOTION_DETECTOR_CFG,
+ 118:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c ****                                 (uint16_t)sizeof(*p_motion_config));
+ 119:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	}
+ 120:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 
+ 121:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** 	return status;
+ 370              		.loc 1 121 9
+ 371 015c E0FB4039 		ldrb	w0, [sp, 62]
+ 122:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c **** }
+ 372              		.loc 1 122 1
+ 373 0160 FD7BC4A8 		ldp	x29, x30, [sp], 64
+ 374              	.LCFI5:
+ 375              		.cfi_restore 30
+ 376              		.cfi_restore 29
+ 377              		.cfi_def_cfa_offset 0
+ 378 0164 C0035FD6 		ret
+ 379              		.cfi_endproc
+ 380              	.LFE2:
+ 382              		.text
+ 383              	.Letext0:
+ 384              		.file 2 "/usr/include/aarch64-linux-gnu/bits/types.h"
+ 385              		.file 3 "/usr/include/math.h"
+ 386              		.file 4 "/usr/include/aarch64-linux-gnu/bits/stdint-intn.h"
+ 387              		.file 5 "/usr/include/aarch64-linux-gnu/bits/stdint-uintn.h"
+ 388              		.file 6 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
+ 389              		.file 7 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h"
+ 390              		.file 8 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_plugin_motion_indicator.h"
+ 391              		.file 9 "/usr/include/string.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 vl53l8cx_plugin_motion_indicator.c
+     /tmp/ccierFQh.s:7      .text.vl53l8cx_motion_indicator_init:0000000000000000 $x
+     /tmp/ccierFQh.s:10     .text.vl53l8cx_motion_indicator_init:0000000000000000 vl53l8cx_motion_indicator_init
+     /tmp/ccierFQh.s:236    .text.vl53l8cx_motion_indicator_set_resolution:0000000000000000 vl53l8cx_motion_indicator_set_resolution
+     /tmp/ccierFQh.s:111    .text.vl53l8cx_motion_indicator_set_distance_motion:0000000000000000 $x
+     /tmp/ccierFQh.s:114    .text.vl53l8cx_motion_indicator_set_distance_motion:0000000000000000 vl53l8cx_motion_indicator_set_distance_motion
+     /tmp/ccierFQh.s:233    .text.vl53l8cx_motion_indicator_set_resolution:0000000000000000 $x
+                        .eh_frame:0000000000000014 $d
+
+UNDEFINED SYMBOLS
+memset
+vl53l8cx_dci_write_data

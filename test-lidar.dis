@@ -1,0 +1,149 @@
+
+test-lidar:     file format elf64-littleaarch64
+
+
+Disassembly of section .text:
+
+0000000000000000 <main>:
+   0:	d282060c 	mov	x12, #0x1030                	// #4144
+   4:	cb2c63ff 	sub	sp, sp, x12
+   8:	a9007bfd 	stp	x29, x30, [sp]
+   c:	910003fd 	mov	x29, sp
+  10:	911583e0 	add	x0, sp, #0x560
+  14:	94000000 	bl	0 <vl53l8cx_init>
+  18:	914007e1 	add	x1, sp, #0x1, lsl #12
+  1c:	3900ac20 	strb	w0, [x1, #43]
+  20:	914007e0 	add	x0, sp, #0x1, lsl #12
+  24:	3940ac00 	ldrb	w0, [x0, #43]
+  28:	7100001f 	cmp	w0, #0x0
+  2c:	54000180 	b.eq	5c <main+0x5c>  // b.none
+  30:	90000000 	adrp	x0, 0 <stderr>
+  34:	f9400000 	ldr	x0, [x0]
+  38:	f9400000 	ldr	x0, [x0]
+  3c:	aa0003e3 	mov	x3, x0
+  40:	d28004a2 	mov	x2, #0x25                  	// #37
+  44:	d2800021 	mov	x1, #0x1                   	// #1
+  48:	90000000 	adrp	x0, 0 <main>
+  4c:	91000000 	add	x0, x0, #0x0
+  50:	94000000 	bl	0 <fwrite>
+  54:	12800000 	mov	w0, #0xffffffff            	// #-1
+  58:	14000074 	b	228 <main+0x228>
+  5c:	911583e0 	add	x0, sp, #0x560
+  60:	52800801 	mov	w1, #0x40                  	// #64
+  64:	94000000 	bl	0 <vl53l8cx_set_resolution>
+  68:	914007e1 	add	x1, sp, #0x1, lsl #12
+  6c:	3900ac20 	strb	w0, [x1, #43]
+  70:	914007e0 	add	x0, sp, #0x1, lsl #12
+  74:	3940ac00 	ldrb	w0, [x0, #43]
+  78:	7100001f 	cmp	w0, #0x0
+  7c:	54000180 	b.eq	ac <main+0xac>  // b.none
+  80:	90000000 	adrp	x0, 0 <stderr>
+  84:	f9400000 	ldr	x0, [x0]
+  88:	f9400000 	ldr	x0, [x0]
+  8c:	aa0003e3 	mov	x3, x0
+  90:	d2800322 	mov	x2, #0x19                  	// #25
+  94:	d2800021 	mov	x1, #0x1                   	// #1
+  98:	90000000 	adrp	x0, 0 <main>
+  9c:	91000000 	add	x0, x0, #0x0
+  a0:	94000000 	bl	0 <fwrite>
+  a4:	12800000 	mov	w0, #0xffffffff            	// #-1
+  a8:	14000060 	b	228 <main+0x228>
+  ac:	911583e0 	add	x0, sp, #0x560
+  b0:	52800141 	mov	w1, #0xa                   	// #10
+  b4:	94000000 	bl	0 <vl53l8cx_set_ranging_frequency_hz>
+  b8:	914007e1 	add	x1, sp, #0x1, lsl #12
+  bc:	3900ac20 	strb	w0, [x1, #43]
+  c0:	914007e0 	add	x0, sp, #0x1, lsl #12
+  c4:	3940ac00 	ldrb	w0, [x0, #43]
+  c8:	7100001f 	cmp	w0, #0x0
+  cc:	54000180 	b.eq	fc <main+0xfc>  // b.none
+  d0:	90000000 	adrp	x0, 0 <stderr>
+  d4:	f9400000 	ldr	x0, [x0]
+  d8:	f9400000 	ldr	x0, [x0]
+  dc:	aa0003e3 	mov	x3, x0
+  e0:	d2800402 	mov	x2, #0x20                  	// #32
+  e4:	d2800021 	mov	x1, #0x1                   	// #1
+  e8:	90000000 	adrp	x0, 0 <main>
+  ec:	91000000 	add	x0, x0, #0x0
+  f0:	94000000 	bl	0 <fwrite>
+  f4:	12800000 	mov	w0, #0xffffffff            	// #-1
+  f8:	1400004c 	b	228 <main+0x228>
+  fc:	911583e0 	add	x0, sp, #0x560
+ 100:	52800281 	mov	w1, #0x14                  	// #20
+ 104:	94000000 	bl	0 <vl53l8cx_set_integration_time_ms>
+ 108:	914007e1 	add	x1, sp, #0x1, lsl #12
+ 10c:	3900ac20 	strb	w0, [x1, #43]
+ 110:	914007e0 	add	x0, sp, #0x1, lsl #12
+ 114:	3940ac00 	ldrb	w0, [x0, #43]
+ 118:	7100001f 	cmp	w0, #0x0
+ 11c:	54000180 	b.eq	14c <main+0x14c>  // b.none
+ 120:	90000000 	adrp	x0, 0 <stderr>
+ 124:	f9400000 	ldr	x0, [x0]
+ 128:	f9400000 	ldr	x0, [x0]
+ 12c:	aa0003e3 	mov	x3, x0
+ 130:	d28003e2 	mov	x2, #0x1f                  	// #31
+ 134:	d2800021 	mov	x1, #0x1                   	// #1
+ 138:	90000000 	adrp	x0, 0 <main>
+ 13c:	91000000 	add	x0, x0, #0x0
+ 140:	94000000 	bl	0 <fwrite>
+ 144:	12800000 	mov	w0, #0xffffffff            	// #-1
+ 148:	14000038 	b	228 <main+0x228>
+ 14c:	910043e1 	add	x1, sp, #0x10
+ 150:	911583e0 	add	x0, sp, #0x560
+ 154:	94000000 	bl	0 <vl53l8cx_get_ranging_data>
+ 158:	914007e1 	add	x1, sp, #0x1, lsl #12
+ 15c:	3900ac20 	strb	w0, [x1, #43]
+ 160:	914007e0 	add	x0, sp, #0x1, lsl #12
+ 164:	3940ac00 	ldrb	w0, [x0, #43]
+ 168:	7100001f 	cmp	w0, #0x0
+ 16c:	54000180 	b.eq	19c <main+0x19c>  // b.none
+ 170:	90000000 	adrp	x0, 0 <stderr>
+ 174:	f9400000 	ldr	x0, [x0]
+ 178:	f9400000 	ldr	x0, [x0]
+ 17c:	aa0003e3 	mov	x3, x0
+ 180:	d2800342 	mov	x2, #0x1a                  	// #26
+ 184:	d2800021 	mov	x1, #0x1                   	// #1
+ 188:	90000000 	adrp	x0, 0 <main>
+ 18c:	91000000 	add	x0, x0, #0x0
+ 190:	94000000 	bl	0 <fwrite>
+ 194:	12800000 	mov	w0, #0xffffffff            	// #-1
+ 198:	14000024 	b	228 <main+0x228>
+ 19c:	b9102fff 	str	wzr, [sp, #4140]
+ 1a0:	1400001e 	b	218 <main+0x218>
+ 1a4:	b9902fe0 	ldrsw	x0, [sp, #4140]
+ 1a8:	91078000 	add	x0, x0, #0x1e0
+ 1ac:	d37ff800 	lsl	x0, x0, #1
+ 1b0:	910053e1 	add	x1, sp, #0x14
+ 1b4:	78e06820 	ldrsh	w0, [x1, x0]
+ 1b8:	2a0003e6 	mov	w6, w0
+ 1bc:	b9902fe0 	ldrsw	x0, [sp, #4140]
+ 1c0:	91024000 	add	x0, x0, #0x90
+ 1c4:	d37ef400 	lsl	x0, x0, #2
+ 1c8:	910053e1 	add	x1, sp, #0x14
+ 1cc:	b8606822 	ldr	w2, [x1, x0]
+ 1d0:	b9902fe0 	ldrsw	x0, [sp, #4140]
+ 1d4:	d37ef400 	lsl	x0, x0, #2
+ 1d8:	910053e1 	add	x1, sp, #0x14
+ 1dc:	b8606823 	ldr	w3, [x1, x0]
+ 1e0:	b9902fe0 	ldrsw	x0, [sp, #4140]
+ 1e4:	911153e1 	add	x1, sp, #0x454
+ 1e8:	38606820 	ldrb	w0, [x1, x0]
+ 1ec:	2a0003e5 	mov	w5, w0
+ 1f0:	2a0303e4 	mov	w4, w3
+ 1f4:	2a0203e3 	mov	w3, w2
+ 1f8:	2a0603e2 	mov	w2, w6
+ 1fc:	b9502fe1 	ldr	w1, [sp, #4140]
+ 200:	90000000 	adrp	x0, 0 <main>
+ 204:	91000000 	add	x0, x0, #0x0
+ 208:	94000000 	bl	0 <printf>
+ 20c:	b9502fe0 	ldr	w0, [sp, #4140]
+ 210:	11000400 	add	w0, w0, #0x1
+ 214:	b9102fe0 	str	w0, [sp, #4140]
+ 218:	b9502fe0 	ldr	w0, [sp, #4140]
+ 21c:	7100fc1f 	cmp	w0, #0x3f
+ 220:	54fffc2d 	b.le	1a4 <main+0x1a4>
+ 224:	52800000 	mov	w0, #0x0                   	// #0
+ 228:	a9407bfd 	ldp	x29, x30, [sp]
+ 22c:	d282060c 	mov	x12, #0x1030                	// #4144
+ 230:	8b2c63ff 	add	sp, sp, x12
+ 234:	d65f03c0 	ret

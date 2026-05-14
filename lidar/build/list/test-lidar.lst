@@ -1,0 +1,330 @@
+   1              		.arch armv8-a
+   2              		.file	"test-lidar.c"
+   3              		.text
+   4              	.Ltext0:
+   5              		.file 1 "src/./test-lidar.c"
+   6              		.section	.rodata
+   7              		.align	3
+   8              	.LC0:
+   9 0000 4661696C 		.string	"Failed to initialize VL53L8CX sensor\n"
+   9      65642074 
+   9      6F20696E 
+   9      69746961 
+   9      6C697A65 
+  10 0026 0000     		.align	3
+  11              	.LC1:
+  12 0028 4661696C 		.string	"Failed to set resolution\n"
+  12      65642074 
+  12      6F207365 
+  12      74207265 
+  12      736F6C75 
+  13 0042 00000000 		.align	3
+  13      0000
+  14              	.LC2:
+  15 0048 4661696C 		.string	"Failed to set ranging frequency\n"
+  15      65642074 
+  15      6F207365 
+  15      74207261 
+  15      6E67696E 
+  16 0069 00000000 		.align	3
+  16      000000
+  17              	.LC3:
+  18 0070 4661696C 		.string	"Failed to set integration time\n"
+  18      65642074 
+  18      6F207365 
+  18      7420696E 
+  18      74656772 
+  19              		.align	3
+  20              	.LC4:
+  21 0090 4661696C 		.string	"Failed to get ranging data"
+  21      65642074 
+  21      6F206765 
+  21      74207261 
+  21      6E67696E 
+  22 00ab 00000000 		.align	3
+  22      00
+  23              	.LC5:
+  24 00b0 5A6F6E65 		.string	"Zone %d: Distance = %d mm, Signal = %d kcps/spad\nAmbient = %d kcps/spad, Reflectance = %
+  24      2025643A 
+  24      20446973 
+  24      74616E63 
+  24      65203D20 
+  25              		.section	.text.main,"ax",@progbits
+  26              		.align	2
+  27              		.global	main
+  29              	main:
+  30              	.LFB0:
+   1:src/./test-lidar.c **** #include <stdio.h>
+   2:src/./test-lidar.c **** #include <unistd.h>
+   3:src/./test-lidar.c **** #include <string.h>
+   4:src/./test-lidar.c **** #include "Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h"
+   5:src/./test-lidar.c **** 
+   6:src/./test-lidar.c **** int main()
+   7:src/./test-lidar.c **** {
+  31              		.loc 1 7 1
+  32              		.cfi_startproc
+  33 0000 0C0682D2 		mov	x12, 4144
+  34 0004 FF632CCB 		sub	sp, sp, x12
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 4144
+  37 0008 FD7B00A9 		stp	x29, x30, [sp]
+  38              		.cfi_offset 29, -4144
+  39              		.cfi_offset 30, -4136
+  40 000c FD030091 		mov	x29, sp
+   8:src/./test-lidar.c ****     VL53L8CX_Configuration dev;
+   9:src/./test-lidar.c ****     VL53L8CX_ResultsData results;
+  10:src/./test-lidar.c **** 
+  11:src/./test-lidar.c ****     uint8_t status;
+  12:src/./test-lidar.c ****     status = vl53l8cx_init(&dev);
+  41              		.loc 1 12 14
+  42 0010 E0831591 		add	x0, sp, 1376
+  43 0014 00000094 		bl	vl53l8cx_init
+  44 0018 E1074091 		add	x1, sp, 4096
+  45 001c 20AC0039 		strb	w0, [x1, 43]
+  13:src/./test-lidar.c ****     if(status != VL53L8CX_STATUS_OK)
+  46              		.loc 1 13 7
+  47 0020 E0074091 		add	x0, sp, 4096
+  48 0024 00AC4039 		ldrb	w0, [x0, 43]
+  49 0028 1F000071 		cmp	w0, 0
+  50 002c 80010054 		beq	.L2
+  14:src/./test-lidar.c ****     {
+  15:src/./test-lidar.c ****         fprintf(stderr, "Failed to initialize VL53L8CX sensor\n");
+  51              		.loc 1 15 9
+  52 0030 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
+  52      000040F9 
+  53 0038 000040F9 		ldr	x0, [x0]
+  54 003c E30300AA 		mov	x3, x0
+  55 0040 A20480D2 		mov	x2, 37
+  56 0044 210080D2 		mov	x1, 1
+  57 0048 00000090 		adrp	x0, .LC0
+  58 004c 00000091 		add	x0, x0, :lo12:.LC0
+  59 0050 00000094 		bl	fwrite
+  16:src/./test-lidar.c ****         return -1;
+  60              		.loc 1 16 16
+  61 0054 00008012 		mov	w0, -1
+  62 0058 74000014 		b	.L10
+  63              	.L2:
+  17:src/./test-lidar.c ****     }
+  18:src/./test-lidar.c ****     status = vl53l8cx_set_resolution(&dev, VL53L8CX_RESOLUTION_8X8);
+  64              		.loc 1 18 14
+  65 005c E0831591 		add	x0, sp, 1376
+  66 0060 01088052 		mov	w1, 64
+  67 0064 00000094 		bl	vl53l8cx_set_resolution
+  68 0068 E1074091 		add	x1, sp, 4096
+  69 006c 20AC0039 		strb	w0, [x1, 43]
+  19:src/./test-lidar.c ****     if(status != VL53L8CX_STATUS_OK)
+  70              		.loc 1 19 7
+  71 0070 E0074091 		add	x0, sp, 4096
+  72 0074 00AC4039 		ldrb	w0, [x0, 43]
+  73 0078 1F000071 		cmp	w0, 0
+  74 007c 80010054 		beq	.L4
+  20:src/./test-lidar.c ****     {
+  21:src/./test-lidar.c ****         fprintf(stderr, "Failed to set resolution\n");
+  75              		.loc 1 21 9
+  76 0080 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
+  76      000040F9 
+  77 0088 000040F9 		ldr	x0, [x0]
+  78 008c E30300AA 		mov	x3, x0
+  79 0090 220380D2 		mov	x2, 25
+  80 0094 210080D2 		mov	x1, 1
+  81 0098 00000090 		adrp	x0, .LC1
+  82 009c 00000091 		add	x0, x0, :lo12:.LC1
+  83 00a0 00000094 		bl	fwrite
+  22:src/./test-lidar.c ****         return -1;
+  84              		.loc 1 22 16
+  85 00a4 00008012 		mov	w0, -1
+  86 00a8 60000014 		b	.L10
+  87              	.L4:
+  23:src/./test-lidar.c ****     }
+  24:src/./test-lidar.c ****     status = vl53l8cx_set_ranging_frequency_hz(&dev, 10);
+  88              		.loc 1 24 14
+  89 00ac E0831591 		add	x0, sp, 1376
+  90 00b0 41018052 		mov	w1, 10
+  91 00b4 00000094 		bl	vl53l8cx_set_ranging_frequency_hz
+  92 00b8 E1074091 		add	x1, sp, 4096
+  93 00bc 20AC0039 		strb	w0, [x1, 43]
+  25:src/./test-lidar.c ****     if(status != VL53L8CX_STATUS_OK)
+  94              		.loc 1 25 7
+  95 00c0 E0074091 		add	x0, sp, 4096
+  96 00c4 00AC4039 		ldrb	w0, [x0, 43]
+  97 00c8 1F000071 		cmp	w0, 0
+  98 00cc 80010054 		beq	.L5
+  26:src/./test-lidar.c ****     {
+  27:src/./test-lidar.c ****         fprintf(stderr, "Failed to set ranging frequency\n");
+  99              		.loc 1 27 9
+ 100 00d0 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
+ 100      000040F9 
+ 101 00d8 000040F9 		ldr	x0, [x0]
+ 102 00dc E30300AA 		mov	x3, x0
+ 103 00e0 020480D2 		mov	x2, 32
+ 104 00e4 210080D2 		mov	x1, 1
+ 105 00e8 00000090 		adrp	x0, .LC2
+ 106 00ec 00000091 		add	x0, x0, :lo12:.LC2
+ 107 00f0 00000094 		bl	fwrite
+  28:src/./test-lidar.c ****         return -1;
+ 108              		.loc 1 28 16
+ 109 00f4 00008012 		mov	w0, -1
+ 110 00f8 4C000014 		b	.L10
+ 111              	.L5:
+  29:src/./test-lidar.c ****     }
+  30:src/./test-lidar.c ****     status = vl53l8cx_set_integration_time_ms(&dev, 20);
+ 112              		.loc 1 30 14
+ 113 00fc E0831591 		add	x0, sp, 1376
+ 114 0100 81028052 		mov	w1, 20
+ 115 0104 00000094 		bl	vl53l8cx_set_integration_time_ms
+ 116 0108 E1074091 		add	x1, sp, 4096
+ 117 010c 20AC0039 		strb	w0, [x1, 43]
+  31:src/./test-lidar.c ****     if(status != VL53L8CX_STATUS_OK)
+ 118              		.loc 1 31 7
+ 119 0110 E0074091 		add	x0, sp, 4096
+ 120 0114 00AC4039 		ldrb	w0, [x0, 43]
+ 121 0118 1F000071 		cmp	w0, 0
+ 122 011c 80010054 		beq	.L6
+  32:src/./test-lidar.c ****     {
+  33:src/./test-lidar.c ****         fprintf(stderr, "Failed to set integration time\n");
+ 123              		.loc 1 33 9
+ 124 0120 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
+ 124      000040F9 
+ 125 0128 000040F9 		ldr	x0, [x0]
+ 126 012c E30300AA 		mov	x3, x0
+ 127 0130 E20380D2 		mov	x2, 31
+ 128 0134 210080D2 		mov	x1, 1
+ 129 0138 00000090 		adrp	x0, .LC3
+ 130 013c 00000091 		add	x0, x0, :lo12:.LC3
+ 131 0140 00000094 		bl	fwrite
+  34:src/./test-lidar.c ****         return -1;
+ 132              		.loc 1 34 16
+ 133 0144 00008012 		mov	w0, -1
+ 134 0148 38000014 		b	.L10
+ 135              	.L6:
+  35:src/./test-lidar.c ****     }
+  36:src/./test-lidar.c ****     status = vl53l8cx_get_ranging_data(&dev, &results);
+ 136              		.loc 1 36 14
+ 137 014c E1430091 		add	x1, sp, 16
+ 138 0150 E0831591 		add	x0, sp, 1376
+ 139 0154 00000094 		bl	vl53l8cx_get_ranging_data
+ 140 0158 E1074091 		add	x1, sp, 4096
+ 141 015c 20AC0039 		strb	w0, [x1, 43]
+  37:src/./test-lidar.c ****     if (status != VL53L8CX_STATUS_OK){
+ 142              		.loc 1 37 8
+ 143 0160 E0074091 		add	x0, sp, 4096
+ 144 0164 00AC4039 		ldrb	w0, [x0, 43]
+ 145 0168 1F000071 		cmp	w0, 0
+ 146 016c 80010054 		beq	.L7
+  38:src/./test-lidar.c ****         fprintf(stderr, "Failed to get ranging data");
+ 147              		.loc 1 38 9
+ 148 0170 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
+ 148      000040F9 
+ 149 0178 000040F9 		ldr	x0, [x0]
+ 150 017c E30300AA 		mov	x3, x0
+ 151 0180 420380D2 		mov	x2, 26
+ 152 0184 210080D2 		mov	x1, 1
+ 153 0188 00000090 		adrp	x0, .LC4
+ 154 018c 00000091 		add	x0, x0, :lo12:.LC4
+ 155 0190 00000094 		bl	fwrite
+  39:src/./test-lidar.c ****         return -1;
+ 156              		.loc 1 39 16
+ 157 0194 00008012 		mov	w0, -1
+ 158 0198 24000014 		b	.L10
+ 159              	.L7:
+ 160              	.LBB2:
+  40:src/./test-lidar.c ****     }
+  41:src/./test-lidar.c ****     for(int i = 0; i < 64; i++)    {
+ 161              		.loc 1 41 13
+ 162 019c FF2F10B9 		str	wzr, [sp, 4140]
+ 163              		.loc 1 41 5
+ 164 01a0 1E000014 		b	.L8
+ 165              	.L9:
+  42:src/./test-lidar.c ****         printf("Zone %d: Distance = %d mm, Signal = %d kcps/spad\nAmbient = %d kcps/spad, Reflectan
+  43:src/./test-lidar.c ****                i,
+  44:src/./test-lidar.c ****                results.distance_mm[i],
+ 166              		.loc 1 44 35
+ 167 01a4 E02F90B9 		ldrsw	x0, [sp, 4140]
+ 168 01a8 00800791 		add	x0, x0, 480
+ 169 01ac 00F87FD3 		lsl	x0, x0, 1
+ 170 01b0 E1530091 		add	x1, sp, 20
+ 171 01b4 2068E078 		ldrsh	w0, [x1, x0]
+  42:src/./test-lidar.c ****         printf("Zone %d: Distance = %d mm, Signal = %d kcps/spad\nAmbient = %d kcps/spad, Reflectan
+ 172              		.loc 1 42 9
+ 173 01b8 E603002A 		mov	w6, w0
+ 174 01bc E02F90B9 		ldrsw	x0, [sp, 4140]
+ 175 01c0 00400291 		add	x0, x0, 144
+ 176 01c4 00F47ED3 		lsl	x0, x0, 2
+ 177 01c8 E1530091 		add	x1, sp, 20
+ 178 01cc 226860B8 		ldr	w2, [x1, x0]
+ 179 01d0 E02F90B9 		ldrsw	x0, [sp, 4140]
+ 180 01d4 00F47ED3 		lsl	x0, x0, 2
+ 181 01d8 E1530091 		add	x1, sp, 20
+ 182 01dc 236860B8 		ldr	w3, [x1, x0]
+  45:src/./test-lidar.c ****                results.signal_per_spad[i],
+  46:src/./test-lidar.c ****                results.ambient_per_spad[i],
+  47:src/./test-lidar.c ****                results.reflectance[i]);
+ 183              		.loc 1 47 35
+ 184 01e0 E02F90B9 		ldrsw	x0, [sp, 4140]
+ 185 01e4 E1531191 		add	x1, sp, 1108
+ 186 01e8 20686038 		ldrb	w0, [x1, x0]
+  42:src/./test-lidar.c ****         printf("Zone %d: Distance = %d mm, Signal = %d kcps/spad\nAmbient = %d kcps/spad, Reflectan
+ 187              		.loc 1 42 9
+ 188 01ec E503002A 		mov	w5, w0
+ 189 01f0 E403032A 		mov	w4, w3
+ 190 01f4 E303022A 		mov	w3, w2
+ 191 01f8 E203062A 		mov	w2, w6
+ 192 01fc E12F50B9 		ldr	w1, [sp, 4140]
+ 193 0200 00000090 		adrp	x0, .LC5
+ 194 0204 00000091 		add	x0, x0, :lo12:.LC5
+ 195 0208 00000094 		bl	printf
+  41:src/./test-lidar.c ****         printf("Zone %d: Distance = %d mm, Signal = %d kcps/spad\nAmbient = %d kcps/spad, Reflectan
+ 196              		.loc 1 41 29 discriminator 3
+ 197 020c E02F50B9 		ldr	w0, [sp, 4140]
+ 198 0210 00040011 		add	w0, w0, 1
+ 199 0214 E02F10B9 		str	w0, [sp, 4140]
+ 200              	.L8:
+  41:src/./test-lidar.c ****         printf("Zone %d: Distance = %d mm, Signal = %d kcps/spad\nAmbient = %d kcps/spad, Reflectan
+ 201              		.loc 1 41 22 discriminator 1
+ 202 0218 E02F50B9 		ldr	w0, [sp, 4140]
+ 203 021c 1FFC0071 		cmp	w0, 63
+ 204 0220 2DFCFF54 		ble	.L9
+ 205              	.LBE2:
+ 206 0224 00008052 		mov	w0, 0
+ 207              	.L10:
+  48:src/./test-lidar.c ****     }
+  49:src/./test-lidar.c **** 
+  50:src/./test-lidar.c **** 
+  51:src/./test-lidar.c **** }
+ 208              		.loc 1 51 1
+ 209 0228 FD7B40A9 		ldp	x29, x30, [sp]
+ 210 022c 0C0682D2 		mov	x12, 4144
+ 211 0230 FF632C8B 		add	sp, sp, x12
+ 212              	.LCFI1:
+ 213              		.cfi_restore 29
+ 214              		.cfi_restore 30
+ 215              		.cfi_def_cfa_offset 0
+ 216 0234 C0035FD6 		ret
+ 217              		.cfi_endproc
+ 218              	.LFE0:
+ 220              		.text
+ 221              	.Letext0:
+ 222              		.file 2 "/usr/include/aarch64-linux-gnu/bits/types.h"
+ 223              		.file 3 "/usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h"
+ 224              		.file 4 "/usr/include/aarch64-linux-gnu/bits/types/FILE.h"
+ 225              		.file 5 "/usr/include/aarch64-linux-gnu/bits/stdint-intn.h"
+ 226              		.file 6 "/usr/include/aarch64-linux-gnu/bits/stdint-uintn.h"
+ 227              		.file 7 "src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
+ 228              		.file 8 "src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h"
+ 229              		.file 9 "/usr/include/stdio.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 test-lidar.c
+     /tmp/ccWCBrLk.s:7      .rodata:0000000000000000 $d
+     /tmp/ccWCBrLk.s:26     .text.main:0000000000000000 $x
+     /tmp/ccWCBrLk.s:29     .text.main:0000000000000000 main
+                        .eh_frame:0000000000000014 $d
+
+UNDEFINED SYMBOLS
+vl53l8cx_init
+stderr
+fwrite
+vl53l8cx_set_resolution
+vl53l8cx_set_ranging_frequency_hz
+vl53l8cx_set_integration_time_ms
+vl53l8cx_get_ranging_data
+printf
