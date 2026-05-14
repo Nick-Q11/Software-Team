@@ -31,7 +31,8 @@ build/obj/test-lidar.o: src/./test-lidar.c /usr/include/stdc-predef.h \
  /usr/include/aarch64-linux-gnu/bits/unistd_ext.h /usr/include/string.h \
  /usr/include/aarch64-linux-gnu/bits/types/locale_t.h \
  /usr/include/aarch64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/strings.h \
+ /usr/include/strings.h /usr/local/include/wiringPi.h \
+ /usr/lib/gcc/aarch64-linux-gnu/14/include/stdbool.h \
  src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h \
  src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h \
  /usr/lib/gcc/aarch64-linux-gnu/14/include/stdint.h /usr/include/stdint.h \
@@ -39,8 +40,6 @@ build/obj/test-lidar.o: src/./test-lidar.c /usr/include/stdc-predef.h \
  /usr/include/aarch64-linux-gnu/bits/stdint-intn.h \
  /usr/include/aarch64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/aarch64-linux-gnu/bits/stdint-least.h \
- /usr/local/include/wiringPi.h \
- /usr/lib/gcc/aarch64-linux-gnu/14/include/stdbool.h \
  /usr/local/include/wiringPiSPI.h /usr/include/errno.h \
  /usr/include/aarch64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/lib/linux/uapi/arm64/asm/errno.h /usr/include/asm-generic/errno.h \
@@ -82,6 +81,8 @@ build/obj/test-lidar.o: src/./test-lidar.c /usr/include/stdc-predef.h \
 /usr/include/aarch64-linux-gnu/bits/types/locale_t.h:
 /usr/include/aarch64-linux-gnu/bits/types/__locale_t.h:
 /usr/include/strings.h:
+/usr/local/include/wiringPi.h:
+/usr/lib/gcc/aarch64-linux-gnu/14/include/stdbool.h:
 src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h:
 src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h:
 /usr/lib/gcc/aarch64-linux-gnu/14/include/stdint.h:
@@ -90,8 +91,6 @@ src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h:
 /usr/include/aarch64-linux-gnu/bits/stdint-intn.h:
 /usr/include/aarch64-linux-gnu/bits/stdint-uintn.h:
 /usr/include/aarch64-linux-gnu/bits/stdint-least.h:
-/usr/local/include/wiringPi.h:
-/usr/lib/gcc/aarch64-linux-gnu/14/include/stdbool.h:
 /usr/local/include/wiringPiSPI.h:
 /usr/include/errno.h:
 /usr/include/aarch64-linux-gnu/bits/errno.h:

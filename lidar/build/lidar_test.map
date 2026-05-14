@@ -9,7 +9,7 @@ Removed property 0xc0000000 to merge /usr/lib/gcc/aarch64-linux-gnu/14/../../../
 As-needed library included to satisfy reference by file (symbol)
 
 libc.so.6                     build/obj/vl53l8cx_platform.o (perror@@GLIBC_2.17)
-libwiringPi.so                build/obj/vl53l8cx_platform.o (wiringPiSPISetupMode)
+libwiringPi.so                build/obj/test-lidar.o (pinMode)
 
 Discarded input sections
 
@@ -89,384 +89,388 @@ LOAD /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
  *(.gnu.hash)
  .gnu.hash      0x00000000000002b0       0x1c /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
 
-.dynsym         0x00000000000002d0      0x1f8
+.dynsym         0x00000000000002d0      0x258
  *(.dynsym)
- .dynsym        0x00000000000002d0      0x1f8 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .dynsym        0x00000000000002d0      0x258 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
 
-.dynstr         0x00000000000004c8      0x10f
+.dynstr         0x0000000000000528      0x13e
  *(.dynstr)
- .dynstr        0x00000000000004c8      0x10f /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .dynstr        0x0000000000000528      0x13e /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
 
-.gnu.version    0x00000000000005d8       0x2a
+.gnu.version    0x0000000000000666       0x32
  *(.gnu.version)
- .gnu.version   0x00000000000005d8       0x2a /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .gnu.version   0x0000000000000666       0x32 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
 
-.gnu.version_d  0x0000000000000608        0x0
+.gnu.version_d  0x0000000000000698        0x0
  *(.gnu.version_d)
  .gnu.version_d
-                0x0000000000000608        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x0000000000000698        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
 
-.gnu.version_r  0x0000000000000608       0x30
+.gnu.version_r  0x0000000000000698       0x30
  *(.gnu.version_r)
  .gnu.version_r
-                0x0000000000000608       0x30 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x0000000000000698       0x30 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
 
-.rela.dyn       0x0000000000000638      0x228
+.rela.dyn       0x00000000000006c8      0x228
  *(.rela.init)
  *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
  *(.rela.fini)
  *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
  *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
  .rela.data.rel.ro
-                0x0000000000000638        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x00000000000006c8        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  .rela.data.rel.local
-                0x0000000000000638       0x18 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x00000000000006c8       0x18 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  .rela.data.rel.local.VL53L8CX_RANGING_SENSOR_Driver
-                0x0000000000000650      0x150 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x00000000000006e0      0x150 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
  *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
  *(.rela.ctors)
  *(.rela.dtors)
  *(.rela.got)
- .rela.got      0x00000000000007a0       0x90 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .rela.got      0x0000000000000830       0x90 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
- .rela.bss      0x0000000000000830        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .rela.bss      0x00000000000008c0        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  *(.rela.ifunc)
- .rela.ifunc    0x0000000000000830        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .rela.ifunc    0x00000000000008c0        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  .rela.fini_array
-                0x0000000000000830       0x18 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x00000000000008c0       0x18 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  .rela.init_array
-                0x0000000000000848       0x18 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x00000000000008d8       0x18 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
 
-.rela.plt       0x0000000000000860      0x168
+.rela.plt       0x00000000000008f0      0x1c8
  *(.rela.plt)
- .rela.plt      0x0000000000000860      0x168 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .rela.plt      0x00000000000008f0      0x1c8 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  *(.rela.iplt)
 
 .relr.dyn
  *(.relr.dyn)
 
-.init           0x00000000000009c8       0x1c
+.init           0x0000000000000ab8       0x1c
  *(SORT_NONE(.init))
- .init          0x00000000000009c8       0x10 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
-                0x00000000000009c8                _init
- .init          0x00000000000009d8        0xc /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
+ .init          0x0000000000000ab8       0x10 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
+                0x0000000000000ab8                _init
+ .init          0x0000000000000ac8        0xc /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
 
-.plt            0x00000000000009f0      0x110
+.plt            0x0000000000000ae0      0x150
  *(.plt)
- .plt           0x00000000000009f0      0x110 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .plt           0x0000000000000ae0      0x150 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  *(.iplt)
 
-.text           0x0000000000000b00     0x6f8c
+.text           0x0000000000000c40     0x7014
  *(.text.unlikely .text.*_unlikely .text.unlikely.*)
  *(.text.exit .text.exit.*)
  *(.text.startup .text.startup.*)
  *(.text.hot .text.hot.*)
  *(SORT_BY_NAME(.text.sorted.*))
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x0000000000000b00       0x34 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
-                0x0000000000000b00                _start
- .text          0x0000000000000b34       0x14 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
- *fill*         0x0000000000000b48       0x18 1f2003d5
- .text          0x0000000000000b60       0xc8 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
- .text          0x0000000000000c28        0x0 build/obj/test-lidar.o
- .text.main     0x0000000000000c28      0x238 build/obj/test-lidar.o
-                0x0000000000000c28                main
- .text          0x0000000000000e60        0x0 build/obj/vl53l8cx_api.o
+ .text          0x0000000000000c40       0x34 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x0000000000000c40                _start
+ .text          0x0000000000000c74       0x14 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
+ *fill*         0x0000000000000c88       0x18 1f2003d5
+ .text          0x0000000000000ca0       0xc8 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
+ .text          0x0000000000000d68        0x0 build/obj/test-lidar.o
+ .text.main     0x0000000000000d68      0x1f0 build/obj/test-lidar.o
+                0x0000000000000d68                main
+ .text.powerON  0x0000000000000f58       0x80 build/obj/test-lidar.o
+                0x0000000000000f58                powerON
+ .text.failure  0x0000000000000fd8       0x50 build/obj/test-lidar.o
+                0x0000000000000fd8                failure
+ .text          0x0000000000001028        0x0 build/obj/vl53l8cx_api.o
  .text._vl53l8cx_poll_for_answer
-                0x0000000000000e60      0x110 build/obj/vl53l8cx_api.o
+                0x0000000000001028      0x110 build/obj/vl53l8cx_api.o
  .text._vl53l8cx_poll_for_mcu_boot
-                0x0000000000000f70       0xd4 build/obj/vl53l8cx_api.o
+                0x0000000000001138       0xd4 build/obj/vl53l8cx_api.o
  .text._vl53l8cx_send_offset_data
-                0x0000000000001044      0x3d8 build/obj/vl53l8cx_api.o
+                0x000000000000120c      0x3d8 build/obj/vl53l8cx_api.o
  .text._vl53l8cx_send_xtalk_data
-                0x000000000000141c      0x294 build/obj/vl53l8cx_api.o
+                0x00000000000015e4      0x294 build/obj/vl53l8cx_api.o
  .text.vl53l8cx_is_alive
-                0x00000000000016b0       0xe8 build/obj/vl53l8cx_api.o
-                0x00000000000016b0                vl53l8cx_is_alive
+                0x0000000000001878       0xe8 build/obj/vl53l8cx_api.o
+                0x0000000000001878                vl53l8cx_is_alive
  .text.vl53l8cx_init
-                0x0000000000001798      0xce8 build/obj/vl53l8cx_api.o
-                0x0000000000001798                vl53l8cx_init
+                0x0000000000001960      0xce8 build/obj/vl53l8cx_api.o
+                0x0000000000001960                vl53l8cx_init
  .text.vl53l8cx_set_i2c_address
-                0x0000000000002480       0xb0 build/obj/vl53l8cx_api.o
-                0x0000000000002480                vl53l8cx_set_i2c_address
+                0x0000000000002648       0xb0 build/obj/vl53l8cx_api.o
+                0x0000000000002648                vl53l8cx_set_i2c_address
  .text.vl53l8cx_get_power_mode
-                0x0000000000002530      0x118 build/obj/vl53l8cx_api.o
-                0x0000000000002530                vl53l8cx_get_power_mode
+                0x00000000000026f8      0x118 build/obj/vl53l8cx_api.o
+                0x00000000000026f8                vl53l8cx_get_power_mode
  .text.vl53l8cx_set_power_mode
-                0x0000000000002648      0x2b0 build/obj/vl53l8cx_api.o
-                0x0000000000002648                vl53l8cx_set_power_mode
+                0x0000000000002810      0x2b0 build/obj/vl53l8cx_api.o
+                0x0000000000002810                vl53l8cx_set_power_mode
  .text.vl53l8cx_start_ranging
-                0x00000000000028f8      0x4a4 build/obj/vl53l8cx_api.o
-                0x00000000000028f8                vl53l8cx_start_ranging
+                0x0000000000002ac0      0x4a4 build/obj/vl53l8cx_api.o
+                0x0000000000002ac0                vl53l8cx_start_ranging
  .text.vl53l8cx_stop_ranging
-                0x0000000000002d9c      0x2a0 build/obj/vl53l8cx_api.o
-                0x0000000000002d9c                vl53l8cx_stop_ranging
+                0x0000000000002f64      0x2a0 build/obj/vl53l8cx_api.o
+                0x0000000000002f64                vl53l8cx_stop_ranging
  .text.vl53l8cx_check_data_ready
-                0x000000000000303c      0x10c build/obj/vl53l8cx_api.o
-                0x000000000000303c                vl53l8cx_check_data_ready
+                0x0000000000003204      0x10c build/obj/vl53l8cx_api.o
+                0x0000000000003204                vl53l8cx_check_data_ready
  .text.vl53l8cx_get_ranging_data
-                0x0000000000003148      0x740 build/obj/vl53l8cx_api.o
-                0x0000000000003148                vl53l8cx_get_ranging_data
+                0x0000000000003310      0x740 build/obj/vl53l8cx_api.o
+                0x0000000000003310                vl53l8cx_get_ranging_data
  .text.vl53l8cx_get_resolution
-                0x0000000000003888       0x6c build/obj/vl53l8cx_api.o
-                0x0000000000003888                vl53l8cx_get_resolution
+                0x0000000000003a50       0x6c build/obj/vl53l8cx_api.o
+                0x0000000000003a50                vl53l8cx_get_resolution
  .text.vl53l8cx_set_resolution
-                0x00000000000038f4      0x28c build/obj/vl53l8cx_api.o
-                0x00000000000038f4                vl53l8cx_set_resolution
+                0x0000000000003abc      0x28c build/obj/vl53l8cx_api.o
+                0x0000000000003abc                vl53l8cx_set_resolution
  .text.vl53l8cx_get_ranging_frequency_hz
-                0x0000000000003b80       0x5c build/obj/vl53l8cx_api.o
-                0x0000000000003b80                vl53l8cx_get_ranging_frequency_hz
+                0x0000000000003d48       0x5c build/obj/vl53l8cx_api.o
+                0x0000000000003d48                vl53l8cx_get_ranging_frequency_hz
  .text.vl53l8cx_set_ranging_frequency_hz
-                0x0000000000003bdc       0x5c build/obj/vl53l8cx_api.o
-                0x0000000000003bdc                vl53l8cx_set_ranging_frequency_hz
+                0x0000000000003da4       0x5c build/obj/vl53l8cx_api.o
+                0x0000000000003da4                vl53l8cx_set_ranging_frequency_hz
  .text.vl53l8cx_get_integration_time_ms
-                0x0000000000003c38       0x84 build/obj/vl53l8cx_api.o
-                0x0000000000003c38                vl53l8cx_get_integration_time_ms
+                0x0000000000003e00       0x84 build/obj/vl53l8cx_api.o
+                0x0000000000003e00                vl53l8cx_get_integration_time_ms
  .text.vl53l8cx_set_integration_time_ms
-                0x0000000000003cbc       0x9c build/obj/vl53l8cx_api.o
-                0x0000000000003cbc                vl53l8cx_set_integration_time_ms
+                0x0000000000003e84       0x9c build/obj/vl53l8cx_api.o
+                0x0000000000003e84                vl53l8cx_set_integration_time_ms
  .text.vl53l8cx_get_sharpener_percent
-                0x0000000000003d58       0x8c build/obj/vl53l8cx_api.o
-                0x0000000000003d58                vl53l8cx_get_sharpener_percent
+                0x0000000000003f20       0x8c build/obj/vl53l8cx_api.o
+                0x0000000000003f20                vl53l8cx_get_sharpener_percent
  .text.vl53l8cx_set_sharpener_percent
-                0x0000000000003de4       0xac build/obj/vl53l8cx_api.o
-                0x0000000000003de4                vl53l8cx_set_sharpener_percent
+                0x0000000000003fac       0xac build/obj/vl53l8cx_api.o
+                0x0000000000003fac                vl53l8cx_set_sharpener_percent
  .text.vl53l8cx_get_target_order
-                0x0000000000003e90       0x5c build/obj/vl53l8cx_api.o
-                0x0000000000003e90                vl53l8cx_get_target_order
+                0x0000000000004058       0x5c build/obj/vl53l8cx_api.o
+                0x0000000000004058                vl53l8cx_get_target_order
  .text.vl53l8cx_set_target_order
-                0x0000000000003eec       0x84 build/obj/vl53l8cx_api.o
-                0x0000000000003eec                vl53l8cx_set_target_order
+                0x00000000000040b4       0x84 build/obj/vl53l8cx_api.o
+                0x00000000000040b4                vl53l8cx_set_target_order
  .text.vl53l8cx_get_ranging_mode
-                0x0000000000003f70       0x78 build/obj/vl53l8cx_api.o
-                0x0000000000003f70                vl53l8cx_get_ranging_mode
+                0x0000000000004138       0x78 build/obj/vl53l8cx_api.o
+                0x0000000000004138                vl53l8cx_get_ranging_mode
  .text.vl53l8cx_set_ranging_mode
-                0x0000000000003fe8      0x10c build/obj/vl53l8cx_api.o
-                0x0000000000003fe8                vl53l8cx_set_ranging_mode
+                0x00000000000041b0      0x10c build/obj/vl53l8cx_api.o
+                0x00000000000041b0                vl53l8cx_set_ranging_mode
  .text.vl53l8cx_get_external_sync_pin_enable
-                0x00000000000040f4       0x78 build/obj/vl53l8cx_api.o
-                0x00000000000040f4                vl53l8cx_get_external_sync_pin_enable
+                0x00000000000042bc       0x78 build/obj/vl53l8cx_api.o
+                0x00000000000042bc                vl53l8cx_get_external_sync_pin_enable
  .text.vl53l8cx_set_external_sync_pin_enable
-                0x000000000000416c       0xbc build/obj/vl53l8cx_api.o
-                0x000000000000416c                vl53l8cx_set_external_sync_pin_enable
+                0x0000000000004334       0xbc build/obj/vl53l8cx_api.o
+                0x0000000000004334                vl53l8cx_set_external_sync_pin_enable
  .text.vl53l8cx_get_VHV_repeat_count
-                0x0000000000004228       0x8c build/obj/vl53l8cx_api.o
-                0x0000000000004228                vl53l8cx_get_VHV_repeat_count
+                0x00000000000043f0       0x8c build/obj/vl53l8cx_api.o
+                0x00000000000043f0                vl53l8cx_get_VHV_repeat_count
  .text.vl53l8cx_set_VHV_repeat_count
-                0x00000000000042b4       0x5c build/obj/vl53l8cx_api.o
-                0x00000000000042b4                vl53l8cx_set_VHV_repeat_count
+                0x000000000000447c       0x5c build/obj/vl53l8cx_api.o
+                0x000000000000447c                vl53l8cx_set_VHV_repeat_count
  .text.vl53l8cx_dci_read_data
-                0x0000000000004310      0x1a4 build/obj/vl53l8cx_api.o
-                0x0000000000004310                vl53l8cx_dci_read_data
+                0x00000000000044d8      0x1a4 build/obj/vl53l8cx_api.o
+                0x00000000000044d8                vl53l8cx_dci_read_data
  .text.vl53l8cx_dci_write_data
-                0x00000000000044b4      0x1fc build/obj/vl53l8cx_api.o
-                0x00000000000044b4                vl53l8cx_dci_write_data
+                0x000000000000467c      0x1fc build/obj/vl53l8cx_api.o
+                0x000000000000467c                vl53l8cx_dci_write_data
  .text.vl53l8cx_dci_replace_data
-                0x00000000000046b0       0x98 build/obj/vl53l8cx_api.o
-                0x00000000000046b0                vl53l8cx_dci_replace_data
- .text          0x0000000000004748        0x0 build/obj/vl53l8cx.o
+                0x0000000000004878       0x98 build/obj/vl53l8cx_api.o
+                0x0000000000004878                vl53l8cx_dci_replace_data
+ .text          0x0000000000004910        0x0 build/obj/vl53l8cx.o
  .text.VL53L8CX_RegisterBusIO
-                0x0000000000004748       0xe0 build/obj/vl53l8cx.o
-                0x0000000000004748                VL53L8CX_RegisterBusIO
+                0x0000000000004910       0xe0 build/obj/vl53l8cx.o
+                0x0000000000004910                VL53L8CX_RegisterBusIO
  .text.VL53L8CX_Init
-                0x0000000000004828       0xa8 build/obj/vl53l8cx.o
-                0x0000000000004828                VL53L8CX_Init
+                0x00000000000049f0       0xa8 build/obj/vl53l8cx.o
+                0x00000000000049f0                VL53L8CX_Init
  .text.VL53L8CX_DeInit
-                0x00000000000048d0       0x78 build/obj/vl53l8cx.o
-                0x00000000000048d0                VL53L8CX_DeInit
+                0x0000000000004a98       0x78 build/obj/vl53l8cx.o
+                0x0000000000004a98                VL53L8CX_DeInit
  .text.VL53L8CX_ReadID
-                0x0000000000004948      0x130 build/obj/vl53l8cx.o
-                0x0000000000004948                VL53L8CX_ReadID
+                0x0000000000004b10      0x130 build/obj/vl53l8cx.o
+                0x0000000000004b10                VL53L8CX_ReadID
  .text.VL53L8CX_GetCapabilities
-                0x0000000000004a78       0x6c build/obj/vl53l8cx.o
-                0x0000000000004a78                VL53L8CX_GetCapabilities
+                0x0000000000004c40       0x6c build/obj/vl53l8cx.o
+                0x0000000000004c40                VL53L8CX_GetCapabilities
  .text.VL53L8CX_ConfigProfile
-                0x0000000000004ae4      0x1f8 build/obj/vl53l8cx.o
-                0x0000000000004ae4                VL53L8CX_ConfigProfile
+                0x0000000000004cac      0x1f8 build/obj/vl53l8cx.o
+                0x0000000000004cac                VL53L8CX_ConfigProfile
  .text.VL53L8CX_ConfigROI
-                0x0000000000004cdc       0x18 build/obj/vl53l8cx.o
-                0x0000000000004cdc                VL53L8CX_ConfigROI
+                0x0000000000004ea4       0x18 build/obj/vl53l8cx.o
+                0x0000000000004ea4                VL53L8CX_ConfigROI
  .text.VL53L8CX_ConfigIT
-                0x0000000000004cf4      0x2a8 build/obj/vl53l8cx.o
-                0x0000000000004cf4                VL53L8CX_ConfigIT
+                0x0000000000004ebc      0x2a8 build/obj/vl53l8cx.o
+                0x0000000000004ebc                VL53L8CX_ConfigIT
  .text.VL53L8CX_GetDistance
-                0x0000000000004f9c       0xb8 build/obj/vl53l8cx.o
-                0x0000000000004f9c                VL53L8CX_GetDistance
+                0x0000000000005164       0xb8 build/obj/vl53l8cx.o
+                0x0000000000005164                VL53L8CX_GetDistance
  .text.VL53L8CX_Start
-                0x0000000000005054      0x124 build/obj/vl53l8cx.o
-                0x0000000000005054                VL53L8CX_Start
+                0x000000000000521c      0x124 build/obj/vl53l8cx.o
+                0x000000000000521c                VL53L8CX_Start
  .text.VL53L8CX_Stop
-                0x0000000000005178       0x7c build/obj/vl53l8cx.o
-                0x0000000000005178                VL53L8CX_Stop
+                0x0000000000005340       0x7c build/obj/vl53l8cx.o
+                0x0000000000005340                VL53L8CX_Stop
  .text.VL53L8CX_SetAddress
-                0x00000000000051f4       0x78 build/obj/vl53l8cx.o
-                0x00000000000051f4                VL53L8CX_SetAddress
+                0x00000000000053bc       0x78 build/obj/vl53l8cx.o
+                0x00000000000053bc                VL53L8CX_SetAddress
  .text.VL53L8CX_GetAddress
-                0x000000000000526c       0x54 build/obj/vl53l8cx.o
-                0x000000000000526c                VL53L8CX_GetAddress
+                0x0000000000005434       0x54 build/obj/vl53l8cx.o
+                0x0000000000005434                VL53L8CX_GetAddress
  .text.VL53L8CX_SetPowerMode
-                0x00000000000052c0       0x88 build/obj/vl53l8cx.o
-                0x00000000000052c0                VL53L8CX_SetPowerMode
+                0x0000000000005488       0x88 build/obj/vl53l8cx.o
+                0x0000000000005488                VL53L8CX_SetPowerMode
  .text.VL53L8CX_GetPowerMode
-                0x0000000000005348       0x84 build/obj/vl53l8cx.o
-                0x0000000000005348                VL53L8CX_GetPowerMode
+                0x0000000000005510       0x84 build/obj/vl53l8cx.o
+                0x0000000000005510                VL53L8CX_GetPowerMode
  .text.VL53L8CX_XTalkCalibration
-                0x00000000000053cc       0x60 build/obj/vl53l8cx.o
-                0x00000000000053cc                VL53L8CX_XTalkCalibration
+                0x0000000000005594       0x60 build/obj/vl53l8cx.o
+                0x0000000000005594                VL53L8CX_XTalkCalibration
  .text.vl53l8cx_poll_for_measurement
-                0x000000000000542c       0x98 build/obj/vl53l8cx.o
+                0x00000000000055f4       0x98 build/obj/vl53l8cx.o
  .text.vl53l8cx_get_result
-                0x00000000000054c4      0x344 build/obj/vl53l8cx.o
+                0x000000000000568c      0x344 build/obj/vl53l8cx.o
  .text.vl53l8cx_map_target_status
-                0x0000000000005808       0x54 build/obj/vl53l8cx.o
- .text          0x000000000000585c        0x0 build/obj/vl53l8cx_platform.o
+                0x00000000000059d0       0x54 build/obj/vl53l8cx.o
+ .text          0x0000000000005a24        0x0 build/obj/vl53l8cx_platform.o
  .text.VL53L8CX_InitSPI
-                0x000000000000585c       0xcc build/obj/vl53l8cx_platform.o
-                0x000000000000585c                VL53L8CX_InitSPI
+                0x0000000000005a24       0xcc build/obj/vl53l8cx_platform.o
+                0x0000000000005a24                VL53L8CX_InitSPI
  .text.VL53L8CX_WrByte
-                0x0000000000005928       0x34 build/obj/vl53l8cx_platform.o
-                0x0000000000005928                VL53L8CX_WrByte
+                0x0000000000005af0       0x34 build/obj/vl53l8cx_platform.o
+                0x0000000000005af0                VL53L8CX_WrByte
  .text.VL53L8CX_RdByte
-                0x000000000000595c       0x30 build/obj/vl53l8cx_platform.o
-                0x000000000000595c                VL53L8CX_RdByte
+                0x0000000000005b24       0x30 build/obj/vl53l8cx_platform.o
+                0x0000000000005b24                VL53L8CX_RdByte
  .text.VL53L8CX_WrMulti
-                0x000000000000598c      0x198 build/obj/vl53l8cx_platform.o
-                0x000000000000598c                VL53L8CX_WrMulti
+                0x0000000000005b54      0x198 build/obj/vl53l8cx_platform.o
+                0x0000000000005b54                VL53L8CX_WrMulti
  .text.VL53L8CX_RdMulti
-                0x0000000000005b24      0x1b4 build/obj/vl53l8cx_platform.o
-                0x0000000000005b24                VL53L8CX_RdMulti
+                0x0000000000005cec      0x1b4 build/obj/vl53l8cx_platform.o
+                0x0000000000005cec                VL53L8CX_RdMulti
  .text.VL53L8CX_SwapBuffer
-                0x0000000000005cd8       0xe8 build/obj/vl53l8cx_platform.o
-                0x0000000000005cd8                VL53L8CX_SwapBuffer
+                0x0000000000005ea0       0xe8 build/obj/vl53l8cx_platform.o
+                0x0000000000005ea0                VL53L8CX_SwapBuffer
  .text.VL53L8CX_WaitMs
-                0x0000000000005dc0       0x2c build/obj/vl53l8cx_platform.o
-                0x0000000000005dc0                VL53L8CX_WaitMs
- .text          0x0000000000005dec        0x0 build/obj/vl53l8cx_plugin_detection_thresholds.o
+                0x0000000000005f88       0x2c build/obj/vl53l8cx_platform.o
+                0x0000000000005f88                VL53L8CX_WaitMs
+ .text          0x0000000000005fb4        0x0 build/obj/vl53l8cx_plugin_detection_thresholds.o
  .text.vl53l8cx_get_detection_thresholds_enable
-                0x0000000000005dec       0x5c build/obj/vl53l8cx_plugin_detection_thresholds.o
-                0x0000000000005dec                vl53l8cx_get_detection_thresholds_enable
+                0x0000000000005fb4       0x5c build/obj/vl53l8cx_plugin_detection_thresholds.o
+                0x0000000000005fb4                vl53l8cx_get_detection_thresholds_enable
  .text.vl53l8cx_set_detection_thresholds_enable
-                0x0000000000005e48       0xcc build/obj/vl53l8cx_plugin_detection_thresholds.o
-                0x0000000000005e48                vl53l8cx_set_detection_thresholds_enable
+                0x0000000000006010       0xcc build/obj/vl53l8cx_plugin_detection_thresholds.o
+                0x0000000000006010                vl53l8cx_set_detection_thresholds_enable
  .text.vl53l8cx_get_detection_thresholds
-                0x0000000000005f14      0x560 build/obj/vl53l8cx_plugin_detection_thresholds.o
-                0x0000000000005f14                vl53l8cx_get_detection_thresholds
+                0x00000000000060dc      0x560 build/obj/vl53l8cx_plugin_detection_thresholds.o
+                0x00000000000060dc                vl53l8cx_get_detection_thresholds
  .text.vl53l8cx_set_detection_thresholds
-                0x0000000000006474      0x4b4 build/obj/vl53l8cx_plugin_detection_thresholds.o
-                0x0000000000006474                vl53l8cx_set_detection_thresholds
+                0x000000000000663c      0x4b4 build/obj/vl53l8cx_plugin_detection_thresholds.o
+                0x000000000000663c                vl53l8cx_set_detection_thresholds
  .text.vl53l8cx_get_detection_thresholds_auto_stop
-                0x0000000000006928       0x5c build/obj/vl53l8cx_plugin_detection_thresholds.o
-                0x0000000000006928                vl53l8cx_get_detection_thresholds_auto_stop
+                0x0000000000006af0       0x5c build/obj/vl53l8cx_plugin_detection_thresholds.o
+                0x0000000000006af0                vl53l8cx_get_detection_thresholds_auto_stop
  .text.vl53l8cx_set_detection_thresholds_auto_stop
-                0x0000000000006984       0x68 build/obj/vl53l8cx_plugin_detection_thresholds.o
-                0x0000000000006984                vl53l8cx_set_detection_thresholds_auto_stop
- .text          0x00000000000069ec        0x0 build/obj/vl53l8cx_plugin_motion_indicator.o
+                0x0000000000006b4c       0x68 build/obj/vl53l8cx_plugin_detection_thresholds.o
+                0x0000000000006b4c                vl53l8cx_set_detection_thresholds_auto_stop
+ .text          0x0000000000006bb4        0x0 build/obj/vl53l8cx_plugin_motion_indicator.o
  .text.vl53l8cx_motion_indicator_init
-                0x00000000000069ec       0xfc build/obj/vl53l8cx_plugin_motion_indicator.o
-                0x00000000000069ec                vl53l8cx_motion_indicator_init
+                0x0000000000006bb4       0xfc build/obj/vl53l8cx_plugin_motion_indicator.o
+                0x0000000000006bb4                vl53l8cx_motion_indicator_init
  .text.vl53l8cx_motion_indicator_set_distance_motion
-                0x0000000000006ae8      0x12c build/obj/vl53l8cx_plugin_motion_indicator.o
-                0x0000000000006ae8                vl53l8cx_motion_indicator_set_distance_motion
+                0x0000000000006cb0      0x12c build/obj/vl53l8cx_plugin_motion_indicator.o
+                0x0000000000006cb0                vl53l8cx_motion_indicator_set_distance_motion
  .text.vl53l8cx_motion_indicator_set_resolution
-                0x0000000000006c14      0x168 build/obj/vl53l8cx_plugin_motion_indicator.o
-                0x0000000000006c14                vl53l8cx_motion_indicator_set_resolution
- .text          0x0000000000006d7c        0x0 build/obj/vl53l8cx_plugin_xtalk.o
+                0x0000000000006ddc      0x168 build/obj/vl53l8cx_plugin_motion_indicator.o
+                0x0000000000006ddc                vl53l8cx_motion_indicator_set_resolution
+ .text          0x0000000000006f44        0x0 build/obj/vl53l8cx_plugin_xtalk.o
  .text._vl53l8cx_poll_for_answer
-                0x0000000000006d7c       0xcc build/obj/vl53l8cx_plugin_xtalk.o
+                0x0000000000006f44       0xcc build/obj/vl53l8cx_plugin_xtalk.o
  .text._vl53l8cx_program_output_config
-                0x0000000000006e48      0x2cc build/obj/vl53l8cx_plugin_xtalk.o
+                0x0000000000007010      0x2cc build/obj/vl53l8cx_plugin_xtalk.o
  .text.vl53l8cx_calibrate_xtalk
-                0x0000000000007114      0x688 build/obj/vl53l8cx_plugin_xtalk.o
-                0x0000000000007114                vl53l8cx_calibrate_xtalk
+                0x00000000000072dc      0x688 build/obj/vl53l8cx_plugin_xtalk.o
+                0x00000000000072dc                vl53l8cx_calibrate_xtalk
  .text.vl53l8cx_get_caldata_xtalk
-                0x000000000000779c      0x178 build/obj/vl53l8cx_plugin_xtalk.o
-                0x000000000000779c                vl53l8cx_get_caldata_xtalk
+                0x0000000000007964      0x178 build/obj/vl53l8cx_plugin_xtalk.o
+                0x0000000000007964                vl53l8cx_get_caldata_xtalk
  .text.vl53l8cx_set_caldata_xtalk
-                0x0000000000007914       0x74 build/obj/vl53l8cx_plugin_xtalk.o
-                0x0000000000007914                vl53l8cx_set_caldata_xtalk
+                0x0000000000007adc       0x74 build/obj/vl53l8cx_plugin_xtalk.o
+                0x0000000000007adc                vl53l8cx_set_caldata_xtalk
  .text.vl53l8cx_get_xtalk_margin
-                0x0000000000007988       0x74 build/obj/vl53l8cx_plugin_xtalk.o
-                0x0000000000007988                vl53l8cx_get_xtalk_margin
+                0x0000000000007b50       0x74 build/obj/vl53l8cx_plugin_xtalk.o
+                0x0000000000007b50                vl53l8cx_get_xtalk_margin
  .text.vl53l8cx_set_xtalk_margin
-                0x00000000000079fc       0x90 build/obj/vl53l8cx_plugin_xtalk.o
-                0x00000000000079fc                vl53l8cx_set_xtalk_margin
- .text          0x0000000000007a8c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
- .text          0x0000000000007a8c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
+                0x0000000000007bc4       0x90 build/obj/vl53l8cx_plugin_xtalk.o
+                0x0000000000007bc4                vl53l8cx_set_xtalk_margin
+ .text          0x0000000000007c54        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
+ .text          0x0000000000007c54        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
  *(.gnu.warning)
 
-.fini           0x0000000000007a8c       0x18
+.fini           0x0000000000007c54       0x18
  *(SORT_NONE(.fini))
- .fini          0x0000000000007a8c        0xc /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
-                0x0000000000007a8c                _fini
- .fini          0x0000000000007a98        0xc /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
+ .fini          0x0000000000007c54        0xc /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
+                0x0000000000007c54                _fini
+ .fini          0x0000000000007c60        0xc /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
                 [!provide]                        PROVIDE (__etext = .)
                 [!provide]                        PROVIDE (_etext = .)
                 [!provide]                        PROVIDE (etext = .)
 
-.rodata         0x0000000000007aa8    0x1614c
+.rodata         0x0000000000007c70    0x16104
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata.cst4   0x0000000000007aa8        0x4 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
-                0x0000000000007aa8                _IO_stdin_used
- *fill*         0x0000000000007aac        0x4 
- .rodata        0x0000000000007ab0      0x111 build/obj/test-lidar.o
- *fill*         0x0000000000007bc1        0x7 
+ .rodata.cst4   0x0000000000007c70        0x4 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x0000000000007c70                _IO_stdin_used
+ *fill*         0x0000000000007c74        0x4 
+ .rodata        0x0000000000007c78       0xcc build/obj/test-lidar.o
+ *fill*         0x0000000000007d44        0x4 
  .rodata.VL53L8CX_FIRMWARE
-                0x0000000000007bc8    0x15000 build/obj/vl53l8cx_api.o
-                0x0000000000007bc8                VL53L8CX_FIRMWARE
+                0x0000000000007d48    0x15000 build/obj/vl53l8cx_api.o
+                0x0000000000007d48                VL53L8CX_FIRMWARE
  .rodata.VL53L8CX_DEFAULT_CONFIGURATION
-                0x000000000001cbc8      0x3cc build/obj/vl53l8cx_api.o
-                0x000000000001cbc8                VL53L8CX_DEFAULT_CONFIGURATION
- *fill*         0x000000000001cf94        0x4 
+                0x000000000001cd48      0x3cc build/obj/vl53l8cx_api.o
+                0x000000000001cd48                VL53L8CX_DEFAULT_CONFIGURATION
+ *fill*         0x000000000001d114        0x4 
  .rodata.VL53L8CX_DEFAULT_XTALK
-                0x000000000001cf98      0x308 build/obj/vl53l8cx_api.o
-                0x000000000001cf98                VL53L8CX_DEFAULT_XTALK
+                0x000000000001d118      0x308 build/obj/vl53l8cx_api.o
+                0x000000000001d118                VL53L8CX_DEFAULT_XTALK
  .rodata.VL53L8CX_GET_NVM_CMD
-                0x000000000001d2a0       0x28 build/obj/vl53l8cx_api.o
-                0x000000000001d2a0                VL53L8CX_GET_NVM_CMD
- .rodata        0x000000000001d2c8       0x3c build/obj/vl53l8cx_api.o
- *fill*         0x000000000001d304        0x4 
+                0x000000000001d420       0x28 build/obj/vl53l8cx_api.o
+                0x000000000001d420                VL53L8CX_GET_NVM_CMD
+ .rodata        0x000000000001d448       0x3c build/obj/vl53l8cx_api.o
+ *fill*         0x000000000001d484        0x4 
  .rodata.VL53L8CX_GET_XTALK_CMD
-                0x000000000001d308       0x48 build/obj/vl53l8cx.o
+                0x000000000001d488       0x48 build/obj/vl53l8cx.o
  .rodata.VL53L8CX_CALIBRATE_XTALK
-                0x000000000001d350      0x3d8 build/obj/vl53l8cx.o
- .rodata        0x000000000001d728       0x66 build/obj/vl53l8cx_platform.o
- *fill*         0x000000000001d78e        0x2 
+                0x000000000001d4d0      0x3d8 build/obj/vl53l8cx.o
+ .rodata        0x000000000001d8a8       0x66 build/obj/vl53l8cx_platform.o
+ *fill*         0x000000000001d90e        0x2 
  .rodata.VL53L8CX_GET_XTALK_CMD
-                0x000000000001d790       0x48 build/obj/vl53l8cx_plugin_xtalk.o
+                0x000000000001d910       0x48 build/obj/vl53l8cx_plugin_xtalk.o
  .rodata.VL53L8CX_CALIBRATE_XTALK
-                0x000000000001d7d8      0x3d8 build/obj/vl53l8cx_plugin_xtalk.o
- .rodata        0x000000000001dbb0       0x44 build/obj/vl53l8cx_plugin_xtalk.o
+                0x000000000001d958      0x3d8 build/obj/vl53l8cx_plugin_xtalk.o
+ .rodata        0x000000000001dd30       0x44 build/obj/vl53l8cx_plugin_xtalk.o
 
 .rodata1
  *(.rodata1)
 
-.eh_frame_hdr   0x000000000001dbf4      0x28c
+.eh_frame_hdr   0x000000000001dd74      0x29c
  *(.eh_frame_hdr)
- .eh_frame_hdr  0x000000000001dbf4      0x28c /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
-                0x000000000001dbf4                __GNU_EH_FRAME_HDR
+ .eh_frame_hdr  0x000000000001dd74      0x29c /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x000000000001dd74                __GNU_EH_FRAME_HDR
  *(.eh_frame_entry .eh_frame_entry.*)
 
-.eh_frame       0x000000000001de80      0xa1c
+.eh_frame       0x000000000001e010      0xa5c
  *(.eh_frame)
- .eh_frame      0x000000000001de80       0x28 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
- .eh_frame      0x000000000001dea8       0x68 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
+ .eh_frame      0x000000000001e010       0x28 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .eh_frame      0x000000000001e038       0x68 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
                                          0x78 (size before relaxing)
- .eh_frame      0x000000000001df10       0x28 build/obj/test-lidar.o
-                                         0x38 (size before relaxing)
- .eh_frame      0x000000000001df38      0x400 build/obj/vl53l8cx_api.o
+ .eh_frame      0x000000000001e0a0       0x68 build/obj/test-lidar.o
+                                         0x78 (size before relaxing)
+ .eh_frame      0x000000000001e108      0x400 build/obj/vl53l8cx_api.o
                                         0x418 (size before relaxing)
- .eh_frame      0x000000000001e338      0x240 build/obj/vl53l8cx.o
+ .eh_frame      0x000000000001e508      0x240 build/obj/vl53l8cx.o
                                         0x258 (size before relaxing)
- .eh_frame      0x000000000001e578      0x120 build/obj/vl53l8cx_platform.o
+ .eh_frame      0x000000000001e748      0x120 build/obj/vl53l8cx_platform.o
                                         0x130 (size before relaxing)
- .eh_frame      0x000000000001e698       0xc0 build/obj/vl53l8cx_plugin_detection_thresholds.o
+ .eh_frame      0x000000000001e868       0xc0 build/obj/vl53l8cx_plugin_detection_thresholds.o
                                          0xd8 (size before relaxing)
- .eh_frame      0x000000000001e758       0x60 build/obj/vl53l8cx_plugin_motion_indicator.o
+ .eh_frame      0x000000000001e928       0x60 build/obj/vl53l8cx_plugin_motion_indicator.o
                                          0x78 (size before relaxing)
- .eh_frame      0x000000000001e7b8       0xe0 build/obj/vl53l8cx_plugin_xtalk.o
+ .eh_frame      0x000000000001e988       0xe0 build/obj/vl53l8cx_plugin_xtalk.o
                                          0xf8 (size before relaxing)
- .eh_frame      0x000000000001e898        0x4 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
+ .eh_frame      0x000000000001ea68        0x4 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
  *(.eh_frame.*)
 
 .sframe
@@ -486,39 +490,39 @@ LOAD /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
  *(.note.build-id)
 
 .note.GNU-stack
-                0x000000000001e89c        0x0
+                0x000000000001ea6c        0x0
  *(.note.GNU-stack)
  .note.GNU-stack
-                0x000000000001e89c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x000000000001ea6c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
+                0x000000000001ea6c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
+                0x000000000001ea6c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 build/obj/test-lidar.o
+                0x000000000001ea6c        0x0 build/obj/test-lidar.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 build/obj/vl53l8cx_api.o
+                0x000000000001ea6c        0x0 build/obj/vl53l8cx_api.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 build/obj/vl53l8cx.o
+                0x000000000001ea6c        0x0 build/obj/vl53l8cx.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 build/obj/vl53l8cx_platform.o
+                0x000000000001ea6c        0x0 build/obj/vl53l8cx_platform.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 build/obj/vl53l8cx_plugin_detection_thresholds.o
+                0x000000000001ea6c        0x0 build/obj/vl53l8cx_plugin_detection_thresholds.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 build/obj/vl53l8cx_plugin_motion_indicator.o
+                0x000000000001ea6c        0x0 build/obj/vl53l8cx_plugin_motion_indicator.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 build/obj/vl53l8cx_plugin_xtalk.o
+                0x000000000001ea6c        0x0 build/obj/vl53l8cx_plugin_xtalk.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
+                0x000000000001ea6c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
  .note.GNU-stack
-                0x000000000001e89c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
+                0x000000000001ea6c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
 
 .note.gnu-property
  *(.note.gnu-property)
 
-.note.ABI-tag   0x000000000001e89c       0x20
+.note.ABI-tag   0x000000000001ea6c       0x20
  *(.note.ABI-tag)
- .note.ABI-tag  0x000000000001e89c       0x20 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .note.ABI-tag  0x000000000001ea6c       0x20 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
 
 .note.package
  *(.note.package)
@@ -611,82 +615,82 @@ LOAD /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
  *(.igot)
                 0x000000000002ffe8                . = DATA_SEGMENT_RELRO_END (., 0x18)
 
-.got.plt        0x000000000002ffe8       0x90
+.got.plt        0x000000000002ffe8       0xb0
  *(.got.plt)
- .got.plt       0x000000000002ffe8       0x90 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .got.plt       0x000000000002ffe8       0xb0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  *(.igot.plt)
 
-.data           0x0000000000030078       0x80
+.data           0x0000000000030098       0x80
                 [!provide]                        PROVIDE (__data_start = .)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x0000000000030078        0x4 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
-                0x0000000000030078                data_start
-                0x0000000000030078                __data_start
- .data          0x000000000003007c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
- .data          0x000000000003007c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
- *fill*         0x000000000003007c        0x4 
+ .data          0x0000000000030098        0x4 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+                0x0000000000030098                data_start
+                0x0000000000030098                __data_start
+ .data          0x000000000003009c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
+ .data          0x000000000003009c        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
+ *fill*         0x000000000003009c        0x4 
  .data.rel.local
-                0x0000000000030080        0x8 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
-                0x0000000000030080                __dso_handle
- .data          0x0000000000030088        0x0 build/obj/test-lidar.o
- .data          0x0000000000030088        0x0 build/obj/vl53l8cx_api.o
- .data          0x0000000000030088        0x0 build/obj/vl53l8cx.o
+                0x00000000000300a0        0x8 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
+                0x00000000000300a0                __dso_handle
+ .data          0x00000000000300a8        0x0 build/obj/test-lidar.o
+ .data          0x00000000000300a8        0x0 build/obj/vl53l8cx_api.o
+ .data          0x00000000000300a8        0x0 build/obj/vl53l8cx.o
  .data.rel.local.VL53L8CX_RANGING_SENSOR_Driver
-                0x0000000000030088       0x70 build/obj/vl53l8cx.o
-                0x0000000000030088                VL53L8CX_RANGING_SENSOR_Driver
- .data          0x00000000000300f8        0x0 build/obj/vl53l8cx_platform.o
- .data          0x00000000000300f8        0x0 build/obj/vl53l8cx_plugin_detection_thresholds.o
- .data          0x00000000000300f8        0x0 build/obj/vl53l8cx_plugin_motion_indicator.o
- .data          0x00000000000300f8        0x0 build/obj/vl53l8cx_plugin_xtalk.o
- .data          0x00000000000300f8        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
- .data          0x00000000000300f8        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
+                0x00000000000300a8       0x70 build/obj/vl53l8cx.o
+                0x00000000000300a8                VL53L8CX_RANGING_SENSOR_Driver
+ .data          0x0000000000030118        0x0 build/obj/vl53l8cx_platform.o
+ .data          0x0000000000030118        0x0 build/obj/vl53l8cx_plugin_detection_thresholds.o
+ .data          0x0000000000030118        0x0 build/obj/vl53l8cx_plugin_motion_indicator.o
+ .data          0x0000000000030118        0x0 build/obj/vl53l8cx_plugin_xtalk.o
+ .data          0x0000000000030118        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
+ .data          0x0000000000030118        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
 
 .tm_clone_table
-                0x00000000000300f8        0x0
+                0x0000000000030118        0x0
  .tm_clone_table
-                0x00000000000300f8        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
+                0x0000000000030118        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
  .tm_clone_table
-                0x00000000000300f8        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
+                0x0000000000030118        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
 
 .data1
  *(.data1)
-                0x00000000000300f8                _edata = .
+                0x0000000000030118                _edata = .
                 [!provide]                        PROVIDE (edata = .)
-                0x00000000000300f8                . = ALIGN (ALIGNOF (NEXT_SECTION))
-                0x00000000000300f8                __bss_start = .
-                0x00000000000300f8                __bss_start__ = .
+                0x0000000000030118                . = ALIGN (ALIGNOF (NEXT_SECTION))
+                0x0000000000030118                __bss_start = .
+                0x0000000000030118                __bss_start__ = .
 
-.bss            0x00000000000300f8      0x858
+.bss            0x0000000000030118      0x858
  *(.dynbss)
- .dynbss        0x00000000000300f8        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .dynbss        0x0000000000030118        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x00000000000300f8        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
- .bss           0x00000000000300f8        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
- .bss           0x00000000000300f8        0x1 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
- .bss           0x00000000000300f9        0x0 build/obj/test-lidar.o
- .bss           0x00000000000300f9        0x0 build/obj/vl53l8cx_api.o
- .bss           0x00000000000300f9        0x0 build/obj/vl53l8cx.o
- *fill*         0x00000000000300f9        0x7 
+ .bss           0x0000000000030118        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/Scrt1.o
+ .bss           0x0000000000030118        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crti.o
+ .bss           0x0000000000030118        0x1 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o
+ .bss           0x0000000000030119        0x0 build/obj/test-lidar.o
+ .bss           0x0000000000030119        0x0 build/obj/vl53l8cx_api.o
+ .bss           0x0000000000030119        0x0 build/obj/vl53l8cx.o
+ *fill*         0x0000000000030119        0x7 
  .bss.thresholds.1
-                0x0000000000030100      0x300 build/obj/vl53l8cx.o
- .bss.data.0    0x0000000000030400      0x550 build/obj/vl53l8cx.o
- .bss           0x0000000000030950        0x0 build/obj/vl53l8cx_platform.o
- .bss           0x0000000000030950        0x0 build/obj/vl53l8cx_plugin_detection_thresholds.o
- .bss           0x0000000000030950        0x0 build/obj/vl53l8cx_plugin_motion_indicator.o
- .bss           0x0000000000030950        0x0 build/obj/vl53l8cx_plugin_xtalk.o
- .bss           0x0000000000030950        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
- .bss           0x0000000000030950        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
+                0x0000000000030120      0x300 build/obj/vl53l8cx.o
+ .bss.data.0    0x0000000000030420      0x550 build/obj/vl53l8cx.o
+ .bss           0x0000000000030970        0x0 build/obj/vl53l8cx_platform.o
+ .bss           0x0000000000030970        0x0 build/obj/vl53l8cx_plugin_detection_thresholds.o
+ .bss           0x0000000000030970        0x0 build/obj/vl53l8cx_plugin_motion_indicator.o
+ .bss           0x0000000000030970        0x0 build/obj/vl53l8cx_plugin_xtalk.o
+ .bss           0x0000000000030970        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o
+ .bss           0x0000000000030970        0x0 /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
  *(COMMON)
-                0x0000000000030950                . = ALIGN ((. != 0x0)?0x8:0x1)
-                0x0000000000030950                _bss_end__ = .
-                0x0000000000030950                __bss_end__ = .
-                0x0000000000030950                . = ALIGN (0x8)
-                0x0000000000030950                . = SEGMENT_START ("ldata-segment", .)
-                0x0000000000030950                . = ALIGN (0x8)
-                0x0000000000030950                __end__ = .
-                0x0000000000030950                _end = .
+                0x0000000000030970                . = ALIGN ((. != 0x0)?0x8:0x1)
+                0x0000000000030970                _bss_end__ = .
+                0x0000000000030970                __bss_end__ = .
+                0x0000000000030970                . = ALIGN (0x8)
+                0x0000000000030970                . = SEGMENT_START ("ldata-segment", .)
+                0x0000000000030970                . = ALIGN (0x8)
+                0x0000000000030970                __end__ = .
+                0x0000000000030970                _end = .
                 [!provide]                        PROVIDE (end = .)
-                0x0000000000030950                . = DATA_SEGMENT_END (.)
+                0x0000000000030970                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)
@@ -734,79 +738,79 @@ LOAD /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x590
+.debug_aranges  0x0000000000000000      0x5b0
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x30 build/obj/test-lidar.o
+                0x0000000000000000       0x50 build/obj/test-lidar.o
  .debug_aranges
-                0x0000000000000030      0x220 build/obj/vl53l8cx_api.o
+                0x0000000000000050      0x220 build/obj/vl53l8cx_api.o
  .debug_aranges
-                0x0000000000000250      0x150 build/obj/vl53l8cx.o
+                0x0000000000000270      0x150 build/obj/vl53l8cx.o
  .debug_aranges
-                0x00000000000003a0       0x90 build/obj/vl53l8cx_platform.o
+                0x00000000000003c0       0x90 build/obj/vl53l8cx_platform.o
  .debug_aranges
-                0x0000000000000430       0x80 build/obj/vl53l8cx_plugin_detection_thresholds.o
+                0x0000000000000450       0x80 build/obj/vl53l8cx_plugin_detection_thresholds.o
  .debug_aranges
-                0x00000000000004b0       0x50 build/obj/vl53l8cx_plugin_motion_indicator.o
+                0x00000000000004d0       0x50 build/obj/vl53l8cx_plugin_motion_indicator.o
  .debug_aranges
-                0x0000000000000500       0x90 build/obj/vl53l8cx_plugin_xtalk.o
+                0x0000000000000520       0x90 build/obj/vl53l8cx_plugin_xtalk.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x4e17
+.debug_info     0x0000000000000000     0x4f33
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x0000000000000000      0x786 build/obj/test-lidar.o
- .debug_info    0x0000000000000786     0x158c build/obj/vl53l8cx_api.o
- .debug_info    0x0000000000001d12     0x1470 build/obj/vl53l8cx.o
- .debug_info    0x0000000000003182      0x7a6 build/obj/vl53l8cx_platform.o
- .debug_info    0x0000000000003928      0x593 build/obj/vl53l8cx_plugin_detection_thresholds.o
- .debug_info    0x0000000000003ebb      0x565 build/obj/vl53l8cx_plugin_motion_indicator.o
- .debug_info    0x0000000000004420      0x9f7 build/obj/vl53l8cx_plugin_xtalk.o
+ .debug_info    0x0000000000000000      0x8a2 build/obj/test-lidar.o
+ .debug_info    0x00000000000008a2     0x158c build/obj/vl53l8cx_api.o
+ .debug_info    0x0000000000001e2e     0x1470 build/obj/vl53l8cx.o
+ .debug_info    0x000000000000329e      0x7a6 build/obj/vl53l8cx_platform.o
+ .debug_info    0x0000000000003a44      0x593 build/obj/vl53l8cx_plugin_detection_thresholds.o
+ .debug_info    0x0000000000003fd7      0x565 build/obj/vl53l8cx_plugin_motion_indicator.o
+ .debug_info    0x000000000000453c      0x9f7 build/obj/vl53l8cx_plugin_xtalk.o
 
-.debug_abbrev   0x0000000000000000      0xd8f
+.debug_abbrev   0x0000000000000000      0xe02
  *(.debug_abbrev)
- .debug_abbrev  0x0000000000000000      0x195 build/obj/test-lidar.o
- .debug_abbrev  0x0000000000000195      0x2a2 build/obj/vl53l8cx_api.o
- .debug_abbrev  0x0000000000000437      0x276 build/obj/vl53l8cx.o
- .debug_abbrev  0x00000000000006ad      0x1fb build/obj/vl53l8cx_platform.o
- .debug_abbrev  0x00000000000008a8      0x14a build/obj/vl53l8cx_plugin_detection_thresholds.o
- .debug_abbrev  0x00000000000009f2      0x168 build/obj/vl53l8cx_plugin_motion_indicator.o
- .debug_abbrev  0x0000000000000b5a      0x235 build/obj/vl53l8cx_plugin_xtalk.o
+ .debug_abbrev  0x0000000000000000      0x208 build/obj/test-lidar.o
+ .debug_abbrev  0x0000000000000208      0x2a2 build/obj/vl53l8cx_api.o
+ .debug_abbrev  0x00000000000004aa      0x276 build/obj/vl53l8cx.o
+ .debug_abbrev  0x0000000000000720      0x1fb build/obj/vl53l8cx_platform.o
+ .debug_abbrev  0x000000000000091b      0x14a build/obj/vl53l8cx_plugin_detection_thresholds.o
+ .debug_abbrev  0x0000000000000a65      0x168 build/obj/vl53l8cx_plugin_motion_indicator.o
+ .debug_abbrev  0x0000000000000bcd      0x235 build/obj/vl53l8cx_plugin_xtalk.o
 
-.debug_line     0x0000000000000000     0x2d9d
+.debug_line     0x0000000000000000     0x2e39
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x0000000000000000      0x1ae build/obj/test-lidar.o
- .debug_line    0x00000000000001ae     0x13f3 build/obj/vl53l8cx_api.o
- .debug_line    0x00000000000015a1      0x835 build/obj/vl53l8cx.o
- .debug_line    0x0000000000001dd6      0x36a build/obj/vl53l8cx_platform.o
- .debug_line    0x0000000000002140      0x414 build/obj/vl53l8cx_plugin_detection_thresholds.o
- .debug_line    0x0000000000002554      0x2a3 build/obj/vl53l8cx_plugin_motion_indicator.o
- .debug_line    0x00000000000027f7      0x5a6 build/obj/vl53l8cx_plugin_xtalk.o
+ .debug_line    0x0000000000000000      0x24a build/obj/test-lidar.o
+ .debug_line    0x000000000000024a     0x13f3 build/obj/vl53l8cx_api.o
+ .debug_line    0x000000000000163d      0x835 build/obj/vl53l8cx.o
+ .debug_line    0x0000000000001e72      0x36a build/obj/vl53l8cx_platform.o
+ .debug_line    0x00000000000021dc      0x414 build/obj/vl53l8cx_plugin_detection_thresholds.o
+ .debug_line    0x00000000000025f0      0x2a3 build/obj/vl53l8cx_plugin_motion_indicator.o
+ .debug_line    0x0000000000002893      0x5a6 build/obj/vl53l8cx_plugin_xtalk.o
 
 .debug_frame
  *(.debug_frame)
 
-.debug_str      0x0000000000000000     0x16ce
+.debug_str      0x0000000000000000     0x170d
  *(.debug_str)
- .debug_str     0x0000000000000000     0x16ce build/obj/test-lidar.o
-                                        0x5b4 (size before relaxing)
- .debug_str     0x00000000000016ce      0xacf build/obj/vl53l8cx_api.o
- .debug_str     0x00000000000016ce      0xc05 build/obj/vl53l8cx.o
- .debug_str     0x00000000000016ce      0x4a6 build/obj/vl53l8cx_platform.o
- .debug_str     0x00000000000016ce      0x49b build/obj/vl53l8cx_plugin_detection_thresholds.o
- .debug_str     0x00000000000016ce      0x4fa build/obj/vl53l8cx_plugin_motion_indicator.o
- .debug_str     0x00000000000016ce      0x6a8 build/obj/vl53l8cx_plugin_xtalk.o
+ .debug_str     0x0000000000000000     0x170d build/obj/test-lidar.o
+                                        0x60f (size before relaxing)
+ .debug_str     0x000000000000170d      0xacf build/obj/vl53l8cx_api.o
+ .debug_str     0x000000000000170d      0xc05 build/obj/vl53l8cx.o
+ .debug_str     0x000000000000170d      0x4a6 build/obj/vl53l8cx_platform.o
+ .debug_str     0x000000000000170d      0x49b build/obj/vl53l8cx_plugin_detection_thresholds.o
+ .debug_str     0x000000000000170d      0x4fa build/obj/vl53l8cx_plugin_motion_indicator.o
+ .debug_str     0x000000000000170d      0x6a8 build/obj/vl53l8cx_plugin_xtalk.o
 
-.debug_loc      0x0000000000000000     0x167d
+.debug_loc      0x0000000000000000     0x1715
  *(.debug_loc)
- .debug_loc     0x0000000000000000       0x4d build/obj/test-lidar.o
- .debug_loc     0x000000000000004d      0x987 build/obj/vl53l8cx_api.o
- .debug_loc     0x00000000000009d4      0x5a4 build/obj/vl53l8cx.o
- .debug_loc     0x0000000000000f78      0x240 build/obj/vl53l8cx_platform.o
- .debug_loc     0x00000000000011b8      0x1c8 build/obj/vl53l8cx_plugin_detection_thresholds.o
- .debug_loc     0x0000000000001380       0xe7 build/obj/vl53l8cx_plugin_motion_indicator.o
- .debug_loc     0x0000000000001467      0x216 build/obj/vl53l8cx_plugin_xtalk.o
+ .debug_loc     0x0000000000000000       0xe5 build/obj/test-lidar.o
+ .debug_loc     0x00000000000000e5      0x987 build/obj/vl53l8cx_api.o
+ .debug_loc     0x0000000000000a6c      0x5a4 build/obj/vl53l8cx.o
+ .debug_loc     0x0000000000001010      0x240 build/obj/vl53l8cx_platform.o
+ .debug_loc     0x0000000000001250      0x1c8 build/obj/vl53l8cx_plugin_detection_thresholds.o
+ .debug_loc     0x0000000000001418       0xe7 build/obj/vl53l8cx_plugin_motion_indicator.o
+ .debug_loc     0x00000000000014ff      0x216 build/obj/vl53l8cx_plugin_xtalk.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -826,15 +830,15 @@ LOAD /usr/lib/gcc/aarch64-linux-gnu/14/../../../aarch64-linux-gnu/crtn.o
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000      0x520
+.debug_ranges   0x0000000000000000      0x540
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x20 build/obj/test-lidar.o
- .debug_ranges  0x0000000000000020      0x210 build/obj/vl53l8cx_api.o
- .debug_ranges  0x0000000000000230      0x140 build/obj/vl53l8cx.o
- .debug_ranges  0x0000000000000370       0x80 build/obj/vl53l8cx_platform.o
- .debug_ranges  0x00000000000003f0       0x70 build/obj/vl53l8cx_plugin_detection_thresholds.o
- .debug_ranges  0x0000000000000460       0x40 build/obj/vl53l8cx_plugin_motion_indicator.o
- .debug_ranges  0x00000000000004a0       0x80 build/obj/vl53l8cx_plugin_xtalk.o
+ .debug_ranges  0x0000000000000000       0x40 build/obj/test-lidar.o
+ .debug_ranges  0x0000000000000040      0x210 build/obj/vl53l8cx_api.o
+ .debug_ranges  0x0000000000000250      0x140 build/obj/vl53l8cx.o
+ .debug_ranges  0x0000000000000390       0x80 build/obj/vl53l8cx_platform.o
+ .debug_ranges  0x0000000000000410       0x70 build/obj/vl53l8cx_plugin_detection_thresholds.o
+ .debug_ranges  0x0000000000000480       0x40 build/obj/vl53l8cx_plugin_motion_indicator.o
+ .debug_ranges  0x00000000000004c0       0x80 build/obj/vl53l8cx_plugin_xtalk.o
 
 .debug_addr
  *(.debug_addr)
@@ -2765,6 +2769,7 @@ fadd@GLIBC_2.28                                   /lib/aarch64-linux-gnu/libm.so
 faddl                                             /lib/aarch64-linux-gnu/libm.so.6
 faddl@@GLIBC_2.28                                 /lib/aarch64-linux-gnu/libm.so.6
 faddl@GLIBC_2.28                                  /lib/aarch64-linux-gnu/libm.so.6
+failure                                           build/obj/test-lidar.o
 fallocate                                         /lib/aarch64-linux-gnu/libc.so.6
 fallocate@@GLIBC_2.17                             /lib/aarch64-linux-gnu/libc.so.6
 fallocate@GLIBC_2.17                              /lib/aarch64-linux-gnu/libc.so.6
@@ -3493,7 +3498,6 @@ fwprintf@@GLIBC_2.17                              /lib/aarch64-linux-gnu/libc.so
 fwprintf@GLIBC_2.17                               /lib/aarch64-linux-gnu/libc.so.6
 fwrite                                            /lib/aarch64-linux-gnu/libc.so.6
                                                   build/obj/vl53l8cx_platform.o
-                                                  build/obj/test-lidar.o
 fwrite@@GLIBC_2.17                                /lib/aarch64-linux-gnu/libc.so.6
 fwrite@GLIBC_2.17                                 /lib/aarch64-linux-gnu/libc.so.6
                                                   /lib/aarch64-linux-gnu/libm.so.6
@@ -4857,6 +4861,7 @@ posix_spawnattr_setsigdefault@GLIBC_2.17          /lib/aarch64-linux-gnu/libc.so
 posix_spawnattr_setsigmask                        /lib/aarch64-linux-gnu/libc.so.6
 posix_spawnattr_setsigmask@@GLIBC_2.17            /lib/aarch64-linux-gnu/libc.so.6
 posix_spawnattr_setsigmask@GLIBC_2.17             /lib/aarch64-linux-gnu/libc.so.6
+powerON                                           build/obj/test-lidar.o
 powf128                                           /lib/aarch64-linux-gnu/libm.so.6
 powf128@@GLIBC_2.27                               /lib/aarch64-linux-gnu/libm.so.6
 powf128@GLIBC_2.27                                /lib/aarch64-linux-gnu/libm.so.6
