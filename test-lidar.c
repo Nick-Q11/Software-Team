@@ -7,6 +7,7 @@
 #define LPN 13
 #define PWREN 15
 
+int failure(int status, const char* message);
 void powerON(void);
 volatile VL53L8CX_Configuration dev;
 
@@ -18,37 +19,22 @@ int main()
     powerON();
 
     status = vl53l8cx_init(&dev);
-    if(status != VL53L8CX_STATUS_OK)
-    {
-        fprintf(stderr, "Failed to initialize VL53L8CX sensor\n");
-        return -1;
-    }
+    failure(status, "Failed to initialize VL53L8CX sensor");
+
     status = vl53l8cx_set_resolution(&dev, VL53L8CX_RESOLUTION_8X8);
-    if(status != VL53L8CX_STATUS_OK)
-    {
-        fprintf(stderr, "Failed to set resolution\n");
-        return -1;
-    }
+    failure(status, "Failed to set resolution");
+    
     status = vl53l8cx_set_ranging_frequency_hz(&dev, 10);
-    if(status != VL53L8CX_STATUS_OK)
-    {
-        fprintf(stderr, "Failed to set ranging frequency\n");
-        return -1;
-    }
+    failure(status, "Failed to set ranging frequency");
+    
     status = vl53l8cx_set_integration_time_ms(&dev, 20);
-    if(status != VL53L8CX_STATUS_OK)
-    {
-        fprintf(stderr, "Failed to set integration time\n");
-        return -1;
-    }
+    failure(status, "Failed to set integration time");
+
     int y = 0;
     do
     {
         status = vl53l8cx_get_ranging_data(&dev, &results);
-        if (status != VL53L8CX_STATUS_OK){
-            fprintf(stderr, "Failed to get ranging data");
-            return -1;
-        }
+        failure(status, "Failed to get ranging data");
         VL53L8CX_WaitMs(&dev, 1000);
         
         for(int i = 0; i < 8; i++)    {
@@ -81,6 +67,14 @@ void powerON(void){
     VL53L8CX_WaitMs(&dev, 50);
     digitalWrite(LPN, HIGH);
     VL53L8CX_WaitMs(&dev, 250);
+}
+
+int failure(int status, const char* message) {
+    if (status != VL53L8CX_STATUS_OK) {
+        fprintf(stderr, "%s\n", message);
+        return -1;
+    }
+    return 0;
 }
 
 
