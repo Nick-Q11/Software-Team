@@ -9,12 +9,12 @@
 
 int failure(int status, const char* message);
 void powerON(void);
-volatile VL53L8CX_Configuration dev;
+
 
 int main()
 { 
     VL53L8CX_ResultsData results;
-
+    VL53L8CX_Configuration dev;
     uint8_t status;
     powerON();
 
@@ -35,7 +35,7 @@ int main()
     {
         status = vl53l8cx_get_ranging_data(&dev, &results);
         failure(status, "Failed to get ranging data");
-        VL53L8CX_WaitMs(&dev, 1000);
+        usleep(1000000);
         
         for(int i = 0; i < 8; i++)    {
             for(int j = 0; j < 8; j++){
@@ -62,11 +62,11 @@ void powerON(void){
     digitalWrite(LPN, LOW);
     pinMode(PWREN, OUTPUT);
     digitalWrite(PWREN, LOW);
-    VL53L8CX_WaitMs(&dev, 100);
+    usleep(100 * 1000); // usleep takes microseconds
     digitalWrite(PWREN, HIGH);
-    VL53L8CX_WaitMs(&dev, 50);
+    usleep(50 * 1000); // usleep takes microseconds
     digitalWrite(LPN, HIGH);
-    VL53L8CX_WaitMs(&dev, 250);
+    usleep(250 * 1000); // usleep takes microseconds
 }
 
 int failure(int status, const char* message) {
