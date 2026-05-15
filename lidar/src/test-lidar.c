@@ -30,7 +30,11 @@ int main()
     status = vl53l8cx_set_integration_time_ms(&dev, 20);
     failure(status, "Failed to set integration time");
 
+    status = vl53l8cx_start_ranging(&dev);
+    failure(status, "Failed to start ranging");
+
     int y = 0;
+    int increment = 0;
     do
     {
         status = vl53l8cx_get_ranging_data(&dev, &results);
@@ -40,17 +44,17 @@ int main()
         for(int i = 0; i < 8; i++)    {
             for(int j = 0; j < 8; j++){
                 y = i*8 + j;
-                printf("%d: %dmm,%ds,%da,%dr || ",
+                printf("%d:\t%d mm\t%d c\t|\t",
                 y,
                 results.distance_mm[y],
-                results.signal_per_spad[y],
-                results.ambient_per_spad[y],
                 results.reflectance[y]);
             }
             printf("\n");
         }
+        printf("\n");
         y = 0;
-    }  while(results.distance_mm[0] < 50 && results.distance_mm[0] > 0);
+        increment++;
+    }  while(increment < 10);
    
     return 0;
 

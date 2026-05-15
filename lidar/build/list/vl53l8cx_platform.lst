@@ -18,11 +18,13 @@
   15              	.LFB0:
    1:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** #include "vl53l8cx/vl53l8cx_platform.h"
    2:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-   3:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** #define MAX_BYTES 4094
-   4:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-   5:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_InitSPI(VL53L8CX_Platform *p)
-   6:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
-  16              		.loc 1 6 1
+   3:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+   4:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** #define DATA_BLOCK_LEN	128
+   5:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** #define MIN(a, b) ((a > b) ? b : a)
+   6:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+   7:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_InitSPI(VL53L8CX_Platform *p)
+   8:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
+  16              		.loc 1 8 1
   17              		.cfi_startproc
   18 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
   19              	.LCFI0:
@@ -33,85 +35,85 @@
   24 0008 F30B00F9 		str	x19, [sp, 16]
   25              		.cfi_offset 19, -32
   26 000c E01700F9 		str	x0, [sp, 40]
-   7:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     p->defined = 1;
-  27              		.loc 1 7 16
+   9:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     p->defined = 1;
+  27              		.loc 1 9 16
   28 0010 E01740F9 		ldr	x0, [sp, 40]
   29 0014 21008052 		mov	w1, 1
   30 0018 01280039 		strb	w1, [x0, 10]
-   8:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     p->speed = 3000000;
-  31              		.loc 1 8 14
+  10:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     p->speed = 3000000;
+  31              		.loc 1 10 14
   32 001c E01740F9 		ldr	x0, [sp, 40]
   33 0020 01D89852 		mov	w1, 50880
   34 0024 A105A072 		movk	w1, 0x2d, lsl 16
   35 0028 010400B9 		str	w1, [x0, 4]
-   9:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     p->channel = 0;
-  36              		.loc 1 9 16
+  11:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     p->channel = 0;
+  36              		.loc 1 11 16
   37 002c E01740F9 		ldr	x0, [sp, 40]
   38 0030 1F200039 		strb	wzr, [x0, 8]
-  10:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     p->mode = 3;
-  39              		.loc 1 10 13
+  12:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     p->mode = 3;
+  39              		.loc 1 12 13
   40 0034 E01740F9 		ldr	x0, [sp, 40]
   41 0038 61008052 		mov	w1, 3
   42 003c 01240039 		strb	w1, [x0, 9]
-  11:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     p->fd = wiringPiSPISetupMode(p->channel, p->speed, p->mode);
-  43              		.loc 1 11 35
+  13:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     p->fd = wiringPiSPISetupMode(p->channel, p->speed, p->mode);
+  43              		.loc 1 13 35
   44 0040 E01740F9 		ldr	x0, [sp, 40]
   45 0044 00204039 		ldrb	w0, [x0, 8]
-  46              		.loc 1 11 13
+  46              		.loc 1 13 13
   47 0048 E303002A 		mov	w3, w0
-  48              		.loc 1 11 47
+  48              		.loc 1 13 47
   49 004c E01740F9 		ldr	x0, [sp, 40]
   50 0050 000440B9 		ldr	w0, [x0, 4]
-  51              		.loc 1 11 13
+  51              		.loc 1 13 13
   52 0054 E103002A 		mov	w1, w0
-  53              		.loc 1 11 57
+  53              		.loc 1 13 57
   54 0058 E01740F9 		ldr	x0, [sp, 40]
   55 005c 00244039 		ldrb	w0, [x0, 9]
-  56              		.loc 1 11 13
+  56              		.loc 1 13 13
   57 0060 E203002A 		mov	w2, w0
   58 0064 E003032A 		mov	w0, w3
   59 0068 00000094 		bl	wiringPiSPISetupMode
   60 006c E103002A 		mov	w1, w0
-  61              		.loc 1 11 11 discriminator 1
+  61              		.loc 1 13 11 discriminator 1
   62 0070 E01740F9 		ldr	x0, [sp, 40]
   63 0074 010000B9 		str	w1, [x0]
-  12:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if (p->fd < 0) {
-  64              		.loc 1 12 10
+  14:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if (p->fd < 0) {
+  64              		.loc 1 14 10
   65 0078 E01740F9 		ldr	x0, [sp, 40]
   66 007c 000040B9 		ldr	w0, [x0]
-  67              		.loc 1 12 8
+  67              		.loc 1 14 8
   68 0080 1F000071 		cmp	w0, 0
   69 0084 CA010054 		bge	.L2
-  13:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         fprintf(stderr, "Failed to initialize SPI device: %s\n", strerror(errno));
-  70              		.loc 1 13 9
+  15:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         fprintf(stderr, "Failed to initialize SPI device: %s\n", strerror(errno));
+  70              		.loc 1 15 9
   71 0088 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
   71      000040F9 
   72 0090 130040F9 		ldr	x19, [x0]
-  73              		.loc 1 13 75
+  73              		.loc 1 15 75
   74 0094 00000094 		bl	__errno_location
-  75              		.loc 1 13 9 discriminator 1
+  75              		.loc 1 15 9 discriminator 1
   76 0098 000040B9 		ldr	w0, [x0]
   77 009c 00000094 		bl	strerror
-  78              		.loc 1 13 9 is_stmt 0 discriminator 2
+  78              		.loc 1 15 9 is_stmt 0 discriminator 2
   79 00a0 E20300AA 		mov	x2, x0
   80 00a4 00000090 		adrp	x0, .LC0
   81 00a8 01000091 		add	x1, x0, :lo12:.LC0
   82 00ac E00313AA 		mov	x0, x19
   83 00b0 00000094 		bl	fprintf
-  14:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         return -1; // Return -1 for failure
-  84              		.loc 1 14 16 is_stmt 1
+  16:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         return -1; // Return -1 for failure
+  84              		.loc 1 16 16 is_stmt 1
   85 00b4 00008012 		mov	w0, -1
   86 00b8 02000014 		b	.L3
   87              	.L2:
-  15:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
-  16:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     
-  17:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  18:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return 0;
-  88              		.loc 1 18 12
+  17:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
+  18:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     
+  19:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+  20:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return 0;
+  88              		.loc 1 20 12
   89 00bc 00008052 		mov	w0, 0
   90              	.L3:
-  19:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
-  91              		.loc 1 19 1
+  21:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
+  91              		.loc 1 21 1
   92 00c0 F30B40F9 		ldr	x19, [sp, 16]
   93 00c4 FD7BC3A8 		ldp	x29, x30, [sp], 48
   94              	.LCFI1:
@@ -127,10 +129,10 @@
  105              		.global	VL53L8CX_WrByte
  107              	VL53L8CX_WrByte:
  108              	.LFB1:
-  20:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Write one byte
-  21:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_WrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t data)
-  22:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
- 109              		.loc 1 22 1
+  22:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Write one byte
+  23:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_WrByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t data)
+  24:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
+ 109              		.loc 1 24 1
  110              		.cfi_startproc
  111 0000 FD7BBEA9 		stp	x29, x30, [sp, -32]!
  112              	.LCFI2:
@@ -141,16 +143,16 @@
  117 0008 E00F00F9 		str	x0, [sp, 24]
  118 000c E12F0079 		strh	w1, [sp, 22]
  119 0010 E2570039 		strb	w2, [sp, 21]
-  23:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return VL53L8CX_WrMulti(p, reg, &data, 1); // Return 0 for success
- 120              		.loc 1 23 12
+  25:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return VL53L8CX_WrMulti(p, reg, &data, 1); // Return 0 for success
+ 120              		.loc 1 25 12
  121 0014 E0570091 		add	x0, sp, 21
  122 0018 23008052 		mov	w3, 1
  123 001c E20300AA 		mov	x2, x0
  124 0020 E12F4079 		ldrh	w1, [sp, 22]
  125 0024 E00F40F9 		ldr	x0, [sp, 24]
  126 0028 00000094 		bl	VL53L8CX_WrMulti
-  24:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
- 127              		.loc 1 24 1
+  26:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
+ 127              		.loc 1 26 1
  128 002c FD7BC2A8 		ldp	x29, x30, [sp], 32
  129              	.LCFI3:
  130              		.cfi_restore 30
@@ -164,11 +166,11 @@
  139              		.global	VL53L8CX_RdByte
  141              	VL53L8CX_RdByte:
  142              	.LFB2:
-  25:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  26:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Read one byte
-  27:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_RdByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data)
-  28:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
- 143              		.loc 1 28 1
+  27:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+  28:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Read one byte
+  29:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_RdByte(VL53L8CX_Platform *p, uint16_t reg, uint8_t *data)
+  30:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
+ 143              		.loc 1 30 1
  144              		.cfi_startproc
  145 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
  146              	.LCFI4:
@@ -179,15 +181,15 @@
  151 0008 E01700F9 		str	x0, [sp, 40]
  152 000c E14F0079 		strh	w1, [sp, 38]
  153 0010 E20F00F9 		str	x2, [sp, 24]
-  29:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return VL53L8CX_RdMulti(p, reg, data, 1);
- 154              		.loc 1 29 12
+  31:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return VL53L8CX_RdMulti(p, reg, data, 1);
+ 154              		.loc 1 31 12
  155 0014 23008052 		mov	w3, 1
  156 0018 E20F40F9 		ldr	x2, [sp, 24]
  157 001c E14F4079 		ldrh	w1, [sp, 38]
  158 0020 E01740F9 		ldr	x0, [sp, 40]
  159 0024 00000094 		bl	VL53L8CX_RdMulti
-  30:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
- 160              		.loc 1 30 1
+  32:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
+ 160              		.loc 1 32 1
  161 0028 FD7BC3A8 		ldp	x29, x30, [sp], 48
  162              	.LCFI5:
  163              		.cfi_restore 30
@@ -206,691 +208,563 @@
  173      6E697469 
  174 0044 00000000 		.align	3
  175              	.LC2:
- 176 0048 4661696C 		.string	"Failed to read/write SPI data"
+ 176 0048 4661696C 		.string	"Failed to write SPI data"
  176      65642074 
- 176      6F207265 
- 176      61642F77 
- 176      72697465 
+ 176      6F207772 
+ 176      69746520 
+ 176      53504920 
  177              		.section	.text.VL53L8CX_WrMulti,"ax",@progbits
  178              		.align	2
  179              		.global	VL53L8CX_WrMulti
  181              	VL53L8CX_WrMulti:
  182              	.LFB3:
-  31:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  32:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Write multiple bytes
-  33:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_WrMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
-  34:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
- 183              		.loc 1 34 1
+  33:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+  34:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Write multiple bytes
+  35:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_WrMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
+  36:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
+ 183              		.loc 1 36 1
  184              		.cfi_startproc
- 185 0000 FD7BB6A9 		stp	x29, x30, [sp, -160]!
+ 185 0000 FD7BB4A9 		stp	x29, x30, [sp, -192]!
  186              	.LCFI6:
- 187              		.cfi_def_cfa_offset 160
- 188              		.cfi_offset 29, -160
- 189              		.cfi_offset 30, -152
+ 187              		.cfi_def_cfa_offset 192
+ 188              		.cfi_offset 29, -192
+ 189              		.cfi_offset 30, -184
  190 0004 FD030091 		mov	x29, sp
- 191              	.LCFI7:
- 192              		.cfi_def_cfa_register 29
- 193 0008 F35301A9 		stp	x19, x20, [sp, 16]
- 194 000c F55B02A9 		stp	x21, x22, [sp, 32]
- 195 0010 F76303A9 		stp	x23, x24, [sp, 48]
- 196 0014 F96B04A9 		stp	x25, x26, [sp, 64]
- 197 0018 FB2B00F9 		str	x27, [sp, 80]
- 198              		.cfi_offset 19, -144
- 199              		.cfi_offset 20, -136
- 200              		.cfi_offset 21, -128
- 201              		.cfi_offset 22, -120
- 202              		.cfi_offset 23, -112
- 203              		.cfi_offset 24, -104
- 204              		.cfi_offset 25, -96
- 205              		.cfi_offset 26, -88
- 206              		.cfi_offset 27, -80
- 207 001c A03F00F9 		str	x0, [x29, 120]
- 208 0020 A1EF0079 		strh	w1, [x29, 118]
- 209 0024 A23700F9 		str	x2, [x29, 104]
- 210 0028 A37300B9 		str	w3, [x29, 112]
- 211              		.loc 1 34 1
- 212 002c E0030091 		mov	x0, sp
- 213 0030 F30300AA 		mov	x19, x0
-  35:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint32_t count2 = 0;
- 214              		.loc 1 35 11
- 215 0034 BF9F00B9 		str	wzr, [x29, 156]
-  36:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint16_t reg2 = 0;
- 216              		.loc 1 36 11
- 217 0038 BF370179 		strh	wzr, [x29, 154]
-  37:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint8_t *pdata2;
-  38:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if(p->defined != 1){
- 218              		.loc 1 38 9
- 219 003c A03F40F9 		ldr	x0, [x29, 120]
- 220 0040 00284039 		ldrb	w0, [x0, 10]
- 221              		.loc 1 38 7
- 222 0044 1F040071 		cmp	w0, 1
- 223 0048 60000054 		beq	.L9
-  39:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         VL53L8CX_InitSPI(p); // Initialize if not already done
- 224              		.loc 1 39 9
- 225 004c A03F40F9 		ldr	x0, [x29, 120]
- 226 0050 00000094 		bl	VL53L8CX_InitSPI
- 227              	.L9:
-  40:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
-  41:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  42:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if(count > MAX_BYTES){
- 228              		.loc 1 42 7
- 229 0054 A07340B9 		ldr	w0, [x29, 112]
- 230 0058 1FF83F71 		cmp	w0, 4094
- 231 005c 89010054 		bls	.L10
-  43:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     	count2 = (count - MAX_BYTES);
- 232              		.loc 1 43 13
- 233 0060 A07340B9 		ldr	w0, [x29, 112]
- 234 0064 00F83F51 		sub	w0, w0, #4094
- 235 0068 A09F00B9 		str	w0, [x29, 156]
-  44:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     	reg2 = (reg + MAX_BYTES);
- 236              		.loc 1 44 11
- 237 006c A0EF4079 		ldrh	w0, [x29, 118]
- 238 0070 00F83F11 		add	w0, w0, 4094
- 239 0074 A0370179 		strh	w0, [x29, 154]
-  45:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     	pdata2 = (pdata + MAX_BYTES);
- 240              		.loc 1 45 13
- 241 0078 A03740F9 		ldr	x0, [x29, 104]
- 242 007c 00F83F91 		add	x0, x0, 4094
- 243 0080 A04B00F9 		str	x0, [x29, 144]
-  46:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     	count = MAX_BYTES;
- 244              		.loc 1 46 12
- 245 0084 C0FF8152 		mov	w0, 4094
- 246 0088 A07300B9 		str	w0, [x29, 112]
- 247              	.L10:
-  47:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
-  48:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  49:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if (p->fd < 0){
- 248              		.loc 1 49 10
- 249 008c A03F40F9 		ldr	x0, [x29, 120]
- 250 0090 000040B9 		ldr	w0, [x0]
- 251              		.loc 1 49 8
- 252 0094 1F000071 		cmp	w0, 0
- 253 0098 8A010054 		bge	.L11
-  50:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         fprintf(stderr, "SPI device not initialized\n");
- 254              		.loc 1 50 9
- 255 009c 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
- 255      000040F9 
- 256 00a4 000040F9 		ldr	x0, [x0]
- 257 00a8 E30300AA 		mov	x3, x0
- 258 00ac 620380D2 		mov	x2, 27
- 259 00b0 210080D2 		mov	x1, 1
- 260 00b4 00000090 		adrp	x0, .LC1
- 261 00b8 00000091 		add	x0, x0, :lo12:.LC1
- 262 00bc 00000094 		bl	fwrite
-  51:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         return -1; // Return -1 for failure
- 263              		.loc 1 51 16
- 264 00c0 00008012 		mov	w0, -1
- 265 00c4 47000014 		b	.L12
- 266              	.L11:
-  52:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
-  53:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     uint8_t buffer[count + 2];
- 267              		.loc 1 53 26
- 268 00c8 A07340B9 		ldr	w0, [x29, 112]
- 269 00cc 00080011 		add	w0, w0, 2
- 270 00d0 E103002A 		uxtw	x1, w0
- 271              		.loc 1 53 13
- 272 00d4 210400D1 		sub	x1, x1, #1
- 273 00d8 A14700F9 		str	x1, [x29, 136]
- 274 00dc E103002A 		uxtw	x1, w0
- 275 00e0 F60301AA 		mov	x22, x1
- 276 00e4 170080D2 		mov	x23, 0
- 277 00e8 C1FE7DD3 		lsr	x1, x22, 61
- 278 00ec FBF27DD3 		lsl	x27, x23, 3
- 279 00f0 3B001BAA 		orr	x27, x1, x27
- 280 00f4 DAF27DD3 		lsl	x26, x22, 3
- 281 00f8 E103002A 		uxtw	x1, w0
- 282 00fc F40301AA 		mov	x20, x1
- 283 0100 150080D2 		mov	x21, 0
- 284 0104 81FE7DD3 		lsr	x1, x20, 61
- 285 0108 B9F27DD3 		lsl	x25, x21, 3
- 286 010c 390019AA 		orr	x25, x1, x25
- 287 0110 98F27DD3 		lsl	x24, x20, 3
- 288 0114 E003002A 		uxtw	x0, w0
- 289 0118 003C0091 		add	x0, x0, 15
- 290 011c 00FC44D3 		lsr	x0, x0, 4
- 291 0120 00EC7CD3 		lsl	x0, x0, 4
- 292 0124 FF6320CB 		sub	sp, sp, x0
- 293 0128 E0030091 		mov	x0, sp
- 294 012c A04300F9 		str	x0, [x29, 128]
-  54:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     buffer[0] = ((reg >> 8) & 0xFF) | (1 << 7); // High byte of register address
- 295              		.loc 1 54 37
- 296 0130 A0EF4079 		ldrh	w0, [x29, 118]
- 297 0134 007C0853 		lsr	w0, w0, 8
- 298 0138 003C0012 		and	w0, w0, 65535
- 299 013c 001C0013 		sxtb	w0, w0
- 300 0140 00601932 		orr	w0, w0, -128
- 301 0144 001C0013 		sxtb	w0, w0
- 302 0148 011C0012 		and	w1, w0, 255
- 303              		.loc 1 54 15
- 304 014c A04340F9 		ldr	x0, [x29, 128]
- 305 0150 01000039 		strb	w1, [x0]
-  55:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     buffer[1] = reg & 0xFF;        				// Low byte of register
- 306              		.loc 1 55 15
- 307 0154 A0EF4079 		ldrh	w0, [x29, 118]
- 308 0158 011C0012 		and	w1, w0, 255
- 309 015c A04340F9 		ldr	x0, [x29, 128]
- 310 0160 01040039 		strb	w1, [x0, 1]
-  56:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  57:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     memcpy(&buffer[2], pdata, count); // Copy data to buffer for write operation
- 311              		.loc 1 57 12
- 312 0164 A04340F9 		ldr	x0, [x29, 128]
- 313 0168 00080091 		add	x0, x0, 2
- 314              		.loc 1 57 5
- 315 016c A17340B9 		ldr	w1, [x29, 112]
- 316 0170 E20301AA 		mov	x2, x1
- 317 0174 A13740F9 		ldr	x1, [x29, 104]
- 318 0178 00000094 		bl	memcpy
-  58:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****  
-  59:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  60:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if (wiringPiSPIDataRW(p->channel, buffer, count + 2) < 0) {
- 319              		.loc 1 60 28
- 320 017c A03F40F9 		ldr	x0, [x29, 120]
- 321 0180 00204039 		ldrb	w0, [x0, 8]
- 322              		.loc 1 60 9
- 323 0184 E303002A 		mov	w3, w0
- 324              		.loc 1 60 53
- 325 0188 A07340B9 		ldr	w0, [x29, 112]
- 326 018c 00080011 		add	w0, w0, 2
- 327              		.loc 1 60 9
- 328 0190 E203002A 		mov	w2, w0
- 329 0194 A14340F9 		ldr	x1, [x29, 128]
- 330 0198 E003032A 		mov	w0, w3
- 331 019c 00000094 		bl	wiringPiSPIDataRW
- 332              		.loc 1 60 8 discriminator 1
- 333 01a0 1F000071 		cmp	w0, 0
- 334 01a4 CA000054 		bge	.L13
-  61:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         perror("Failed to read/write SPI data");
- 335              		.loc 1 61 9
- 336 01a8 00000090 		adrp	x0, .LC2
- 337 01ac 00000091 		add	x0, x0, :lo12:.LC2
- 338 01b0 00000094 		bl	perror
-  62:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         return -1; // Return -1 for failure
- 339              		.loc 1 62 16
- 340 01b4 00008012 		mov	w0, -1
- 341 01b8 0A000014 		b	.L12
- 342              	.L13:
-  63:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
-  64:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if(count2 != 0){
- 343              		.loc 1 64 7
- 344 01bc A09F40B9 		ldr	w0, [x29, 156]
- 345 01c0 1F000071 		cmp	w0, 0
- 346 01c4 C0000054 		beq	.L14
-  65:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     	VL53L8CX_WrMulti(p, reg2, pdata2, count2);
- 347              		.loc 1 65 6
- 348 01c8 A39F40B9 		ldr	w3, [x29, 156]
- 349 01cc A24B40F9 		ldr	x2, [x29, 144]
- 350 01d0 A1374179 		ldrh	w1, [x29, 154]
- 351 01d4 A03F40F9 		ldr	x0, [x29, 120]
- 352 01d8 00000094 		bl	VL53L8CX_WrMulti
- 353              	.L14:
-  66:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
-  67:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return 0;
- 354              		.loc 1 67 12
- 355 01dc 00008052 		mov	w0, 0
- 356              	.L12:
- 357 01e0 7F020091 		mov	sp, x19
-  68:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
- 358              		.loc 1 68 1
- 359 01e4 BF030091 		mov	sp, x29
- 360 01e8 F35341A9 		ldp	x19, x20, [sp, 16]
- 361 01ec F55B42A9 		ldp	x21, x22, [sp, 32]
- 362 01f0 F76343A9 		ldp	x23, x24, [sp, 48]
- 363 01f4 F96B44A9 		ldp	x25, x26, [sp, 64]
- 364 01f8 FB2B40F9 		ldr	x27, [sp, 80]
- 365 01fc FD7BCAA8 		ldp	x29, x30, [sp], 160
- 366              	.LCFI8:
- 367              		.cfi_restore 30
- 368              		.cfi_restore 29
- 369              		.cfi_restore 27
- 370              		.cfi_restore 25
- 371              		.cfi_restore 26
- 372              		.cfi_restore 23
- 373              		.cfi_restore 24
- 374              		.cfi_restore 21
- 375              		.cfi_restore 22
- 376              		.cfi_restore 19
- 377              		.cfi_restore 20
- 378              		.cfi_def_cfa 31, 0
- 379 0200 C0035FD6 		ret
- 380              		.cfi_endproc
- 381              	.LFE3:
- 383              		.section	.text.VL53L8CX_RdMulti,"ax",@progbits
- 384              		.align	2
- 385              		.global	VL53L8CX_RdMulti
- 387              	VL53L8CX_RdMulti:
- 388              	.LFB4:
-  69:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  70:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Read multiple bytes
-  71:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_RdMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
-  72:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
- 389              		.loc 1 72 1
- 390              		.cfi_startproc
- 391 0000 FD7BB6A9 		stp	x29, x30, [sp, -160]!
- 392              	.LCFI9:
- 393              		.cfi_def_cfa_offset 160
- 394              		.cfi_offset 29, -160
- 395              		.cfi_offset 30, -152
- 396 0004 FD030091 		mov	x29, sp
- 397              	.LCFI10:
- 398              		.cfi_def_cfa_register 29
- 399 0008 F35301A9 		stp	x19, x20, [sp, 16]
- 400 000c F55B02A9 		stp	x21, x22, [sp, 32]
- 401 0010 F76303A9 		stp	x23, x24, [sp, 48]
- 402 0014 F96B04A9 		stp	x25, x26, [sp, 64]
- 403 0018 FB2B00F9 		str	x27, [sp, 80]
- 404              		.cfi_offset 19, -144
- 405              		.cfi_offset 20, -136
- 406              		.cfi_offset 21, -128
- 407              		.cfi_offset 22, -120
- 408              		.cfi_offset 23, -112
- 409              		.cfi_offset 24, -104
- 410              		.cfi_offset 25, -96
- 411              		.cfi_offset 26, -88
- 412              		.cfi_offset 27, -80
- 413 001c A03F00F9 		str	x0, [x29, 120]
- 414 0020 A1EF0079 		strh	w1, [x29, 118]
- 415 0024 A23700F9 		str	x2, [x29, 104]
- 416 0028 A37300B9 		str	w3, [x29, 112]
- 417              		.loc 1 72 1
- 418 002c E0030091 		mov	x0, sp
- 419 0030 F30300AA 		mov	x19, x0
-  73:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint32_t count2 = 0;
- 420              		.loc 1 73 11
- 421 0034 BF9F00B9 		str	wzr, [x29, 156]
-  74:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint16_t reg2 = 0;
- 422              		.loc 1 74 11
- 423 0038 BF370179 		strh	wzr, [x29, 154]
-  75:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint8_t *pdata2;
-  76:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  77:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	if(p->defined != 1){
- 424              		.loc 1 77 6
- 425 003c A03F40F9 		ldr	x0, [x29, 120]
- 426 0040 00284039 		ldrb	w0, [x0, 10]
- 427              		.loc 1 77 4
- 428 0044 1F040071 		cmp	w0, 1
- 429 0048 60000054 		beq	.L17
-  78:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         VL53L8CX_InitSPI(p); // Initialize if not already done
- 430              		.loc 1 78 9
- 431 004c A03F40F9 		ldr	x0, [x29, 120]
- 432 0050 00000094 		bl	VL53L8CX_InitSPI
- 433              	.L17:
-  79:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
-  80:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  81:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if(count > MAX_BYTES){
- 434              		.loc 1 81 7
- 435 0054 A07340B9 		ldr	w0, [x29, 112]
- 436 0058 1FF83F71 		cmp	w0, 4094
- 437 005c 89010054 		bls	.L18
-  82:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         	count2 = (count - MAX_BYTES);
- 438              		.loc 1 82 17
- 439 0060 A07340B9 		ldr	w0, [x29, 112]
- 440 0064 00F83F51 		sub	w0, w0, #4094
- 441 0068 A09F00B9 		str	w0, [x29, 156]
-  83:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         	reg2 = (reg + MAX_BYTES);
- 442              		.loc 1 83 15
- 443 006c A0EF4079 		ldrh	w0, [x29, 118]
- 444 0070 00F83F11 		add	w0, w0, 4094
- 445 0074 A0370179 		strh	w0, [x29, 154]
-  84:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         	pdata2 = (pdata + MAX_BYTES);
- 446              		.loc 1 84 17
- 447 0078 A03740F9 		ldr	x0, [x29, 104]
- 448 007c 00F83F91 		add	x0, x0, 4094
- 449 0080 A04B00F9 		str	x0, [x29, 144]
-  85:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         	count = MAX_BYTES;
- 450              		.loc 1 85 16
- 451 0084 C0FF8152 		mov	w0, 4094
- 452 0088 A07300B9 		str	w0, [x29, 112]
- 453              	.L18:
-  86:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         }
-  87:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  88:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if (p->fd < 0){
- 454              		.loc 1 88 10
- 455 008c A03F40F9 		ldr	x0, [x29, 120]
- 456 0090 000040B9 		ldr	w0, [x0]
- 457              		.loc 1 88 8
- 458 0094 1F000071 		cmp	w0, 0
- 459 0098 8A010054 		bge	.L19
-  89:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         fprintf(stderr, "SPI device not initialized\n");
- 460              		.loc 1 89 9
- 461 009c 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
- 461      000040F9 
- 462 00a4 000040F9 		ldr	x0, [x0]
- 463 00a8 E30300AA 		mov	x3, x0
- 464 00ac 620380D2 		mov	x2, 27
- 465 00b0 210080D2 		mov	x1, 1
- 466 00b4 00000090 		adrp	x0, .LC1
- 467 00b8 00000091 		add	x0, x0, :lo12:.LC1
- 468 00bc 00000094 		bl	fwrite
-  90:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         return -1; // Return -1 for failure
- 469              		.loc 1 90 16
- 470 00c0 00008012 		mov	w0, -1
- 471 00c4 4D000014 		b	.L20
- 472              	.L19:
-  91:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
-  92:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     uint8_t buffer[count + 2];
- 473              		.loc 1 93 26
- 474 00c8 A07340B9 		ldr	w0, [x29, 112]
- 475 00cc 00080011 		add	w0, w0, 2
- 476 00d0 E103002A 		uxtw	x1, w0
- 477              		.loc 1 93 13
- 478 00d4 210400D1 		sub	x1, x1, #1
- 479 00d8 A14700F9 		str	x1, [x29, 136]
- 480 00dc E103002A 		uxtw	x1, w0
- 481 00e0 F60301AA 		mov	x22, x1
- 482 00e4 170080D2 		mov	x23, 0
- 483 00e8 C1FE7DD3 		lsr	x1, x22, 61
- 484 00ec FBF27DD3 		lsl	x27, x23, 3
- 485 00f0 3B001BAA 		orr	x27, x1, x27
- 486 00f4 DAF27DD3 		lsl	x26, x22, 3
- 487 00f8 E103002A 		uxtw	x1, w0
- 488 00fc F40301AA 		mov	x20, x1
- 489 0100 150080D2 		mov	x21, 0
- 490 0104 81FE7DD3 		lsr	x1, x20, 61
- 491 0108 B9F27DD3 		lsl	x25, x21, 3
- 492 010c 390019AA 		orr	x25, x1, x25
- 493 0110 98F27DD3 		lsl	x24, x20, 3
- 494 0114 E003002A 		uxtw	x0, w0
- 495 0118 003C0091 		add	x0, x0, 15
- 496 011c 00FC44D3 		lsr	x0, x0, 4
- 497 0120 00EC7CD3 		lsl	x0, x0, 4
- 498 0124 FF6320CB 		sub	sp, sp, x0
- 499 0128 E0030091 		mov	x0, sp
- 500 012c A04300F9 		str	x0, [x29, 128]
-  94:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  95:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     buffer[0] = ((reg >> 8) & 0xFF) & (~(1 << 7)); // High byte of register address
- 501              		.loc 1 95 37
- 502 0130 A0EF4079 		ldrh	w0, [x29, 118]
- 503 0134 007C0853 		lsr	w0, w0, 8
- 504 0138 003C0012 		and	w0, w0, 65535
- 505 013c 001C0012 		and	w0, w0, 255
- 506 0140 00180012 		and	w0, w0, 127
- 507 0144 011C0012 		and	w1, w0, 255
- 508              		.loc 1 95 15
- 509 0148 A04340F9 		ldr	x0, [x29, 128]
- 510 014c 01000039 		strb	w1, [x0]
-  96:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     buffer[1] = reg & 0xFF;        // Low byte of register
- 511              		.loc 1 96 15
- 512 0150 A0EF4079 		ldrh	w0, [x29, 118]
- 513 0154 011C0012 		and	w1, w0, 255
- 514 0158 A04340F9 		ldr	x0, [x29, 128]
- 515 015c 01040039 		strb	w1, [x0, 1]
-  97:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
-  98:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     memset(&buffer[2], 0x00, count); // Clear buffer for read operation
- 516              		.loc 1 98 12
- 517 0160 A04340F9 		ldr	x0, [x29, 128]
- 518 0164 00080091 		add	x0, x0, 2
- 519              		.loc 1 98 5
- 520 0168 A17340B9 		ldr	w1, [x29, 112]
- 521 016c E20301AA 		mov	x2, x1
- 522 0170 01008052 		mov	w1, 0
- 523 0174 00000094 		bl	memset
-  99:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****  
- 100:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
- 101:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if(wiringPiSPIDataRW(p->channel, buffer, count + 2) < 0) {
- 524              		.loc 1 101 27
- 525 0178 A03F40F9 		ldr	x0, [x29, 120]
- 526 017c 00204039 		ldrb	w0, [x0, 8]
- 527              		.loc 1 101 8
- 528 0180 E303002A 		mov	w3, w0
- 529              		.loc 1 101 52
- 530 0184 A07340B9 		ldr	w0, [x29, 112]
- 531 0188 00080011 		add	w0, w0, 2
- 532              		.loc 1 101 8
- 533 018c E203002A 		mov	w2, w0
- 534 0190 A14340F9 		ldr	x1, [x29, 128]
- 535 0194 E003032A 		mov	w0, w3
- 536 0198 00000094 		bl	wiringPiSPIDataRW
- 537              		.loc 1 101 7 discriminator 1
- 538 019c 1F000071 		cmp	w0, 0
- 539 01a0 CA000054 		bge	.L21
- 102:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         perror("Failed to read/write SPI data");
- 540              		.loc 1 102 9
- 541 01a4 00000090 		adrp	x0, .LC2
- 542 01a8 00000091 		add	x0, x0, :lo12:.LC2
- 543 01ac 00000094 		bl	perror
- 103:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         return -1; // Return -1 for failure
- 544              		.loc 1 103 16
- 545 01b0 00008012 		mov	w0, -1
- 546 01b4 11000014 		b	.L20
- 547              	.L21:
- 104:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
- 105:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     memcpy(pdata, &buffer[2], count); // Copy data to buffer for write operation
- 548              		.loc 1 105 19
- 549 01b8 A04340F9 		ldr	x0, [x29, 128]
- 550 01bc 00080091 		add	x0, x0, 2
- 551              		.loc 1 105 5
- 552 01c0 A17340B9 		ldr	w1, [x29, 112]
- 553 01c4 E20301AA 		mov	x2, x1
- 554 01c8 E10300AA 		mov	x1, x0
- 555 01cc A03740F9 		ldr	x0, [x29, 104]
- 556 01d0 00000094 		bl	memcpy
- 106:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
- 107:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if(count2 != 0){
- 557              		.loc 1 107 7
- 558 01d4 A09F40B9 		ldr	w0, [x29, 156]
- 559 01d8 1F000071 		cmp	w0, 0
- 560 01dc C0000054 		beq	.L22
- 108:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     	VL53L8CX_WrMulti(p, reg2, pdata2, count2);
- 561              		.loc 1 108 6
- 562 01e0 A39F40B9 		ldr	w3, [x29, 156]
- 563 01e4 A24B40F9 		ldr	x2, [x29, 144]
- 564 01e8 A1374179 		ldrh	w1, [x29, 154]
- 565 01ec A03F40F9 		ldr	x0, [x29, 120]
- 566 01f0 00000094 		bl	VL53L8CX_WrMulti
- 567              	.L22:
- 109:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
- 110:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
- 111:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return 0;
- 568              		.loc 1 111 12
- 569 01f4 00008052 		mov	w0, 0
- 570              	.L20:
- 571 01f8 7F020091 		mov	sp, x19
- 112:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
- 572              		.loc 1 112 1
- 573 01fc BF030091 		mov	sp, x29
- 574 0200 F35341A9 		ldp	x19, x20, [sp, 16]
- 575 0204 F55B42A9 		ldp	x21, x22, [sp, 32]
- 576 0208 F76343A9 		ldp	x23, x24, [sp, 48]
- 577 020c F96B44A9 		ldp	x25, x26, [sp, 64]
- 578 0210 FB2B40F9 		ldr	x27, [sp, 80]
- 579 0214 FD7BCAA8 		ldp	x29, x30, [sp], 160
- 580              	.LCFI11:
- 581              		.cfi_restore 30
- 582              		.cfi_restore 29
- 583              		.cfi_restore 27
- 584              		.cfi_restore 25
- 585              		.cfi_restore 26
- 586              		.cfi_restore 23
- 587              		.cfi_restore 24
- 588              		.cfi_restore 21
- 589              		.cfi_restore 22
- 590              		.cfi_restore 19
- 591              		.cfi_restore 20
- 592              		.cfi_def_cfa 31, 0
- 593 0218 C0035FD6 		ret
- 594              		.cfi_endproc
- 595              	.LFE4:
- 597              		.section	.text.VL53L8CX_SwapBuffer,"ax",@progbits
- 598              		.align	2
- 599              		.global	VL53L8CX_SwapBuffer
- 601              	VL53L8CX_SwapBuffer:
- 602              	.LFB5:
- 113:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
- 114:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Swap buffer (big-endian <-> little-endian, 4 bytes at a time)
- 115:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** void VL53L8CX_SwapBuffer(uint8_t *pbuffer, int size)
- 116:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
- 603              		.loc 1 116 1
- 604              		.cfi_startproc
- 605 0000 FF8300D1 		sub	sp, sp, #32
- 606              	.LCFI12:
- 607              		.cfi_def_cfa_offset 32
- 608 0004 E00700F9 		str	x0, [sp, 8]
- 609 0008 E10700B9 		str	w1, [sp, 4]
- 610              	.LBB2:
- 117:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     for (int i = 0; i < size; i += 4) {
- 611              		.loc 1 117 14
- 612 000c FF1F00B9 		str	wzr, [sp, 28]
- 613              		.loc 1 117 5
- 614 0010 2E000014 		b	.L25
- 615              	.L26:
- 616              	.LBB3:
- 118:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         uint8_t tmp;
- 119:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         tmp = pbuffer[i];     pbuffer[i]   = pbuffer[i+3]; pbuffer[i+3] = tmp;
- 617              		.loc 1 119 22
- 618 0014 E01F80B9 		ldrsw	x0, [sp, 28]
- 619 0018 E10740F9 		ldr	x1, [sp, 8]
- 620 001c 2000008B 		add	x0, x1, x0
- 621              		.loc 1 119 13
- 622 0020 00004039 		ldrb	w0, [x0]
- 623 0024 E06F0039 		strb	w0, [sp, 27]
- 624              		.loc 1 119 53
- 625 0028 E01F80B9 		ldrsw	x0, [sp, 28]
- 626 002c 000C0091 		add	x0, x0, 3
- 627 0030 E10740F9 		ldr	x1, [sp, 8]
- 628 0034 2100008B 		add	x1, x1, x0
- 629              		.loc 1 119 38
- 630 0038 E01F80B9 		ldrsw	x0, [sp, 28]
- 631 003c E20740F9 		ldr	x2, [sp, 8]
- 632 0040 4000008B 		add	x0, x2, x0
- 633              		.loc 1 119 53
- 634 0044 21004039 		ldrb	w1, [x1]
- 635              		.loc 1 119 44
- 636 0048 01000039 		strb	w1, [x0]
- 637              		.loc 1 119 67
- 638 004c E01F80B9 		ldrsw	x0, [sp, 28]
- 639 0050 000C0091 		add	x0, x0, 3
- 640 0054 E10740F9 		ldr	x1, [sp, 8]
- 641 0058 2000008B 		add	x0, x1, x0
- 642              		.loc 1 119 73
- 643 005c E16F4039 		ldrb	w1, [sp, 27]
- 644 0060 01000039 		strb	w1, [x0]
- 120:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         tmp = pbuffer[i+1];   pbuffer[i+1] = pbuffer[i+2]; pbuffer[i+2] = tmp;
- 645              		.loc 1 120 22
- 646 0064 E01F80B9 		ldrsw	x0, [sp, 28]
- 647 0068 00040091 		add	x0, x0, 1
- 648 006c E10740F9 		ldr	x1, [sp, 8]
- 649 0070 2000008B 		add	x0, x1, x0
- 650              		.loc 1 120 13
- 651 0074 00004039 		ldrb	w0, [x0]
- 652 0078 E06F0039 		strb	w0, [sp, 27]
- 653              		.loc 1 120 53
- 654 007c E01F80B9 		ldrsw	x0, [sp, 28]
- 655 0080 00080091 		add	x0, x0, 2
- 656 0084 E10740F9 		ldr	x1, [sp, 8]
- 657 0088 2100008B 		add	x1, x1, x0
- 658              		.loc 1 120 38
- 659 008c E01F80B9 		ldrsw	x0, [sp, 28]
- 660 0090 00040091 		add	x0, x0, 1
- 661 0094 E20740F9 		ldr	x2, [sp, 8]
- 662 0098 4000008B 		add	x0, x2, x0
- 663              		.loc 1 120 53
- 664 009c 21004039 		ldrb	w1, [x1]
- 665              		.loc 1 120 44
- 666 00a0 01000039 		strb	w1, [x0]
- 667              		.loc 1 120 67
- 668 00a4 E01F80B9 		ldrsw	x0, [sp, 28]
- 669 00a8 00080091 		add	x0, x0, 2
- 670 00ac E10740F9 		ldr	x1, [sp, 8]
- 671 00b0 2000008B 		add	x0, x1, x0
- 672              		.loc 1 120 73
- 673 00b4 E16F4039 		ldrb	w1, [sp, 27]
- 674 00b8 01000039 		strb	w1, [x0]
- 675              	.LBE3:
- 117:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     for (int i = 0; i < size; i += 4) {
- 676              		.loc 1 117 33 discriminator 3
- 677 00bc E01F40B9 		ldr	w0, [sp, 28]
- 678 00c0 00100011 		add	w0, w0, 4
- 679 00c4 E01F00B9 		str	w0, [sp, 28]
- 680              	.L25:
- 117:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     for (int i = 0; i < size; i += 4) {
- 681              		.loc 1 117 23 discriminator 1
- 682 00c8 E11F40B9 		ldr	w1, [sp, 28]
- 683 00cc E00740B9 		ldr	w0, [sp, 4]
- 684 00d0 3F00006B 		cmp	w1, w0
- 685 00d4 0BFAFF54 		blt	.L26
- 686              	.LBE2:
- 121:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
- 122:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
- 687              		.loc 1 122 1
- 688 00d8 1F2003D5 		nop
- 689 00dc 1F2003D5 		nop
- 690 00e0 FF830091 		add	sp, sp, 32
- 691              	.LCFI13:
- 692              		.cfi_def_cfa_offset 0
- 693 00e4 C0035FD6 		ret
- 694              		.cfi_endproc
- 695              	.LFE5:
- 697              		.section	.text.VL53L8CX_WaitMs,"ax",@progbits
- 698              		.align	2
- 699              		.global	VL53L8CX_WaitMs
- 701              	VL53L8CX_WaitMs:
- 702              	.LFB6:
- 123:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
- 124:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Delay in milliseconds
- 125:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_WaitMs(VL53L8CX_Platform *p, int wait_ms)
- 126:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
- 703              		.loc 1 126 1
- 704              		.cfi_startproc
- 705 0000 FD7BBEA9 		stp	x29, x30, [sp, -32]!
- 706              	.LCFI14:
- 707              		.cfi_def_cfa_offset 32
- 708              		.cfi_offset 29, -32
- 709              		.cfi_offset 30, -24
- 710 0004 FD030091 		mov	x29, sp
- 711 0008 E00F00F9 		str	x0, [sp, 24]
- 712 000c E11700B9 		str	w1, [sp, 20]
- 127:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     (void)p;  // unused
- 128:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     usleep(wait_ms*1000); // usleep takes microseconds
- 713              		.loc 1 128 19
- 714 0010 E11740B9 		ldr	w1, [sp, 20]
- 715 0014 007D8052 		mov	w0, 1000
- 716 0018 207C001B 		mul	w0, w1, w0
- 717              		.loc 1 128 5
- 718 001c 00000094 		bl	usleep
- 129:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return 0;
- 719              		.loc 1 129 12
- 720 0020 00008052 		mov	w0, 0
- 130:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
- 721              		.loc 1 130 1
- 722 0024 FD7BC2A8 		ldp	x29, x30, [sp], 32
- 723              	.LCFI15:
- 724              		.cfi_restore 30
- 725              		.cfi_restore 29
- 726              		.cfi_def_cfa_offset 0
- 727 0028 C0035FD6 		ret
- 728              		.cfi_endproc
- 729              	.LFE6:
- 731              		.text
- 732              	.Letext0:
- 733              		.file 2 "/usr/include/aarch64-linux-gnu/bits/types.h"
- 734              		.file 3 "/usr/include/aarch64-linux-gnu/bits/stdint-intn.h"
- 735              		.file 4 "/usr/include/aarch64-linux-gnu/bits/stdint-uintn.h"
- 736              		.file 5 "/usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h"
- 737              		.file 6 "/usr/include/aarch64-linux-gnu/bits/types/FILE.h"
- 738              		.file 7 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
- 739              		.file 8 "/usr/include/unistd.h"
- 740              		.file 9 "/usr/include/string.h"
- 741              		.file 10 "/usr/local/include/wiringPiSPI.h"
- 742              		.file 11 "/usr/include/stdio.h"
- 743              		.file 12 "/usr/include/errno.h"
+ 191 0008 E01700F9 		str	x0, [sp, 40]
+ 192 000c E14F0079 		strh	w1, [sp, 38]
+ 193 0010 E20F00F9 		str	x2, [sp, 24]
+ 194 0014 E32300B9 		str	w3, [sp, 32]
+  37:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint8_t buffer[DATA_BLOCK_LEN + 2];
+  38:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint32_t len = MIN(count, DATA_BLOCK_LEN);
+ 195              		.loc 1 38 11
+ 196 0018 E22340B9 		ldr	w2, [sp, 32]
+ 197 001c E12340B9 		ldr	w1, [sp, 32]
+ 198 0020 00108052 		mov	w0, 128
+ 199 0024 5F000271 		cmp	w2, 128
+ 200 0028 2090801A 		csel	w0, w1, w0, ls
+ 201 002c E0BF00B9 		str	w0, [sp, 188]
+  39:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint16_t r = reg;
+ 202              		.loc 1 39 11
+ 203 0030 E04F4079 		ldrh	w0, [sp, 38]
+ 204 0034 E0770179 		strh	w0, [sp, 186]
+  40:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+  41:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if(p->defined != 1){
+ 205              		.loc 1 41 9
+ 206 0038 E01740F9 		ldr	x0, [sp, 40]
+ 207 003c 00284039 		ldrb	w0, [x0, 10]
+ 208              		.loc 1 41 7
+ 209 0040 1F040071 		cmp	w0, 1
+ 210 0044 60000054 		beq	.L9
+  42:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         VL53L8CX_InitSPI(p); // Initialize if not already done
+ 211              		.loc 1 42 9
+ 212 0048 E01740F9 		ldr	x0, [sp, 40]
+ 213 004c 00000094 		bl	VL53L8CX_InitSPI
+ 214              	.L9:
+  43:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
+  44:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+  45:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if (p->fd < 0){
+ 215              		.loc 1 45 10
+ 216 0050 E01740F9 		ldr	x0, [sp, 40]
+ 217 0054 000040B9 		ldr	w0, [x0]
+ 218              		.loc 1 45 8
+ 219 0058 1F000071 		cmp	w0, 0
+ 220 005c 8A010054 		bge	.L10
+  46:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         fprintf(stderr, "SPI device not initialized\n");
+ 221              		.loc 1 46 9
+ 222 0060 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
+ 222      000040F9 
+ 223 0068 000040F9 		ldr	x0, [x0]
+ 224 006c E30300AA 		mov	x3, x0
+ 225 0070 620380D2 		mov	x2, 27
+ 226 0074 210080D2 		mov	x1, 1
+ 227 0078 00000090 		adrp	x0, .LC1
+ 228 007c 00000091 		add	x0, x0, :lo12:.LC1
+ 229 0080 00000094 		bl	fwrite
+  47:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         return -1; // Return -1 for failure
+ 230              		.loc 1 47 16
+ 231 0084 00008012 		mov	w0, -1
+ 232 0088 3A000014 		b	.L14
+ 233              	.L10:
+  48:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
+  49:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     do {
+  50:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         buffer[0] = ((r >> 8) & 0xFF) | (1 << 7); // High byte of register address
+ 234              		.loc 1 50 39
+ 235 008c E0774179 		ldrh	w0, [sp, 186]
+ 236 0090 007C0853 		lsr	w0, w0, 8
+ 237 0094 003C0012 		and	w0, w0, 65535
+ 238 0098 001C0013 		sxtb	w0, w0
+ 239 009c 00601932 		orr	w0, w0, -128
+ 240 00a0 001C0013 		sxtb	w0, w0
+ 241 00a4 001C0012 		and	w0, w0, 255
+ 242              		.loc 1 50 19
+ 243 00a8 E0E30039 		strb	w0, [sp, 56]
+  51:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         buffer[1] = r & 0xFF;        // Low byte of register
+ 244              		.loc 1 51 19
+ 245 00ac E0774179 		ldrh	w0, [sp, 186]
+ 246 00b0 001C0012 		and	w0, w0, 255
+ 247 00b4 E0E70039 		strb	w0, [sp, 57]
+  52:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         memcpy(&buffer[2], pdata, len); // Copy data to buffer for write operation
+ 248              		.loc 1 52 9
+ 249 00b8 E1BF40B9 		ldr	w1, [sp, 188]
+ 250 00bc E0E30091 		add	x0, sp, 56
+ 251 00c0 00080091 		add	x0, x0, 2
+ 252 00c4 E20301AA 		mov	x2, x1
+ 253 00c8 E10F40F9 		ldr	x1, [sp, 24]
+ 254 00cc 00000094 		bl	memcpy
+  53:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         if(wiringPiSPIDataRW(p->channel, buffer, len + 2) < 0) {
+ 255              		.loc 1 53 31
+ 256 00d0 E01740F9 		ldr	x0, [sp, 40]
+ 257 00d4 00204039 		ldrb	w0, [x0, 8]
+ 258              		.loc 1 53 12
+ 259 00d8 E303002A 		mov	w3, w0
+ 260              		.loc 1 53 54
+ 261 00dc E0BF40B9 		ldr	w0, [sp, 188]
+ 262 00e0 00080011 		add	w0, w0, 2
+ 263              		.loc 1 53 12
+ 264 00e4 E103002A 		mov	w1, w0
+ 265 00e8 E0E30091 		add	x0, sp, 56
+ 266 00ec E203012A 		mov	w2, w1
+ 267 00f0 E10300AA 		mov	x1, x0
+ 268 00f4 E003032A 		mov	w0, w3
+ 269 00f8 00000094 		bl	wiringPiSPIDataRW
+ 270              		.loc 1 53 11 discriminator 1
+ 271 00fc 1F000071 		cmp	w0, 0
+ 272 0100 CA000054 		bge	.L12
+  54:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****              perror("Failed to write SPI data");
+ 273              		.loc 1 54 14
+ 274 0104 00000090 		adrp	x0, .LC2
+ 275 0108 00000091 		add	x0, x0, :lo12:.LC2
+ 276 010c 00000094 		bl	perror
+  55:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****              return -1; // Return -1 for failure
+ 277              		.loc 1 55 21
+ 278 0110 00008012 		mov	w0, -1
+ 279 0114 17000014 		b	.L14
+ 280              	.L12:
+  56:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         }
+  57:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         pdata+=len;
+ 281              		.loc 1 57 14
+ 282 0118 E0BF40B9 		ldr	w0, [sp, 188]
+ 283 011c E10F40F9 		ldr	x1, [sp, 24]
+ 284 0120 2000008B 		add	x0, x1, x0
+ 285 0124 E00F00F9 		str	x0, [sp, 24]
+  58:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         count -= len;
+ 286              		.loc 1 58 15
+ 287 0128 E12340B9 		ldr	w1, [sp, 32]
+ 288 012c E0BF40B9 		ldr	w0, [sp, 188]
+ 289 0130 2000004B 		sub	w0, w1, w0
+ 290 0134 E02300B9 		str	w0, [sp, 32]
+  59:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         r += len;
+ 291              		.loc 1 59 11
+ 292 0138 E0BF40B9 		ldr	w0, [sp, 188]
+ 293 013c 003C0012 		and	w0, w0, 65535
+ 294 0140 E1774179 		ldrh	w1, [sp, 186]
+ 295 0144 0000010B 		add	w0, w0, w1
+ 296 0148 E0770179 		strh	w0, [sp, 186]
+  60:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         if (count < DATA_BLOCK_LEN) {
+ 297              		.loc 1 60 12
+ 298 014c E02340B9 		ldr	w0, [sp, 32]
+ 299 0150 1FFC0171 		cmp	w0, 127
+ 300 0154 68000054 		bhi	.L13
+  61:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         	len = count;
+ 301              		.loc 1 61 14
+ 302 0158 E02340B9 		ldr	w0, [sp, 32]
+ 303 015c E0BF00B9 		str	w0, [sp, 188]
+ 304              	.L13:
+  62:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         }
+  63:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     } while (count > 0);
+ 305              		.loc 1 63 20
+ 306 0160 E02340B9 		ldr	w0, [sp, 32]
+ 307 0164 1F000071 		cmp	w0, 0
+ 308 0168 21F9FF54 		bne	.L10
+  64:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+  65:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return 0;
+ 309              		.loc 1 65 12
+ 310 016c 00008052 		mov	w0, 0
+ 311              	.L14:
+  66:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
+ 312              		.loc 1 66 1
+ 313 0170 FD7BCCA8 		ldp	x29, x30, [sp], 192
+ 314              	.LCFI7:
+ 315              		.cfi_restore 30
+ 316              		.cfi_restore 29
+ 317              		.cfi_def_cfa_offset 0
+ 318 0174 C0035FD6 		ret
+ 319              		.cfi_endproc
+ 320              	.LFE3:
+ 322              		.section	.rodata
+ 323 0061 00000000 		.align	3
+ 323      000000
+ 324              	.LC3:
+ 325 0068 4661696C 		.string	"Failed to read/write SPI data"
+ 325      65642074 
+ 325      6F207265 
+ 325      61642F77 
+ 325      72697465 
+ 326              		.section	.text.VL53L8CX_RdMulti,"ax",@progbits
+ 327              		.align	2
+ 328              		.global	VL53L8CX_RdMulti
+ 330              	VL53L8CX_RdMulti:
+ 331              	.LFB4:
+  67:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+  68:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Read multiple bytes
+  69:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_RdMulti(VL53L8CX_Platform *p, uint16_t reg, uint8_t *pdata, uint32_t count)
+  70:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
+ 332              		.loc 1 70 1
+ 333              		.cfi_startproc
+ 334 0000 FD7BB4A9 		stp	x29, x30, [sp, -192]!
+ 335              	.LCFI8:
+ 336              		.cfi_def_cfa_offset 192
+ 337              		.cfi_offset 29, -192
+ 338              		.cfi_offset 30, -184
+ 339 0004 FD030091 		mov	x29, sp
+ 340 0008 E01700F9 		str	x0, [sp, 40]
+ 341 000c E14F0079 		strh	w1, [sp, 38]
+ 342 0010 E20F00F9 		str	x2, [sp, 24]
+ 343 0014 E32300B9 		str	w3, [sp, 32]
+  71:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint8_t buffer[DATA_BLOCK_LEN + 2];
+  72:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint32_t len = MIN(count, DATA_BLOCK_LEN);
+ 344              		.loc 1 72 11
+ 345 0018 E22340B9 		ldr	w2, [sp, 32]
+ 346 001c E12340B9 		ldr	w1, [sp, 32]
+ 347 0020 00108052 		mov	w0, 128
+ 348 0024 5F000271 		cmp	w2, 128
+ 349 0028 2090801A 		csel	w0, w1, w0, ls
+ 350 002c E0BF00B9 		str	w0, [sp, 188]
+  73:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 	uint16_t r = reg;
+ 351              		.loc 1 73 11
+ 352 0030 E04F4079 		ldrh	w0, [sp, 38]
+ 353 0034 E0770179 		strh	w0, [sp, 186]
+  74:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+  75:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if(p->defined != 1){
+ 354              		.loc 1 75 9
+ 355 0038 E01740F9 		ldr	x0, [sp, 40]
+ 356 003c 00284039 		ldrb	w0, [x0, 10]
+ 357              		.loc 1 75 7
+ 358 0040 1F040071 		cmp	w0, 1
+ 359 0044 60000054 		beq	.L16
+  76:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         VL53L8CX_InitSPI(p); // Initialize if not already done
+ 360              		.loc 1 76 9
+ 361 0048 E01740F9 		ldr	x0, [sp, 40]
+ 362 004c 00000094 		bl	VL53L8CX_InitSPI
+ 363              	.L16:
+  77:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
+  78:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+  79:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     if (p->fd < 0){
+ 364              		.loc 1 79 10
+ 365 0050 E01740F9 		ldr	x0, [sp, 40]
+ 366 0054 000040B9 		ldr	w0, [x0]
+ 367              		.loc 1 79 8
+ 368 0058 1F000071 		cmp	w0, 0
+ 369 005c 8A010054 		bge	.L17
+  80:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         fprintf(stderr, "SPI device not initialized\n");
+ 370              		.loc 1 80 9
+ 371 0060 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
+ 371      000040F9 
+ 372 0068 000040F9 		ldr	x0, [x0]
+ 373 006c E30300AA 		mov	x3, x0
+ 374 0070 620380D2 		mov	x2, 27
+ 375 0074 210080D2 		mov	x1, 1
+ 376 0078 00000090 		adrp	x0, .LC1
+ 377 007c 00000091 		add	x0, x0, :lo12:.LC1
+ 378 0080 00000094 		bl	fwrite
+  81:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         return -1; // Return -1 for failure
+ 379              		.loc 1 81 16
+ 380 0084 00008012 		mov	w0, -1
+ 381 0088 3F000014 		b	.L21
+ 382              	.L17:
+  82:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
+  83:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+  84:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     do {
+  85:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         buffer[0] = ((r >> 8) & 0xFF) & (~(1 << 7)); // High byte of register address
+ 383              		.loc 1 85 39
+ 384 008c E0774179 		ldrh	w0, [sp, 186]
+ 385 0090 007C0853 		lsr	w0, w0, 8
+ 386 0094 003C0012 		and	w0, w0, 65535
+ 387 0098 001C0012 		and	w0, w0, 255
+ 388 009c 00180012 		and	w0, w0, 127
+ 389 00a0 001C0012 		and	w0, w0, 255
+ 390              		.loc 1 85 19
+ 391 00a4 E0E30039 		strb	w0, [sp, 56]
+  86:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         buffer[1] = r & 0xFF;        // Low byte of register
+ 392              		.loc 1 86 19
+ 393 00a8 E0774179 		ldrh	w0, [sp, 186]
+ 394 00ac 001C0012 		and	w0, w0, 255
+ 395 00b0 E0E70039 		strb	w0, [sp, 57]
+  87:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         memset(&buffer[2], 0x00, DATA_BLOCK_LEN); // Clear buffer for read operation
+ 396              		.loc 1 87 9
+ 397 00b4 E0E30091 		add	x0, sp, 56
+ 398 00b8 00080091 		add	x0, x0, 2
+ 399 00bc 021080D2 		mov	x2, 128
+ 400 00c0 01008052 		mov	w1, 0
+ 401 00c4 00000094 		bl	memset
+  88:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         if(wiringPiSPIDataRW(p->channel, buffer, len + 2) < 0) {
+ 402              		.loc 1 88 31
+ 403 00c8 E01740F9 		ldr	x0, [sp, 40]
+ 404 00cc 00204039 		ldrb	w0, [x0, 8]
+ 405              		.loc 1 88 12
+ 406 00d0 E303002A 		mov	w3, w0
+ 407              		.loc 1 88 54
+ 408 00d4 E0BF40B9 		ldr	w0, [sp, 188]
+ 409 00d8 00080011 		add	w0, w0, 2
+ 410              		.loc 1 88 12
+ 411 00dc E103002A 		mov	w1, w0
+ 412 00e0 E0E30091 		add	x0, sp, 56
+ 413 00e4 E203012A 		mov	w2, w1
+ 414 00e8 E10300AA 		mov	x1, x0
+ 415 00ec E003032A 		mov	w0, w3
+ 416 00f0 00000094 		bl	wiringPiSPIDataRW
+ 417              		.loc 1 88 11 discriminator 1
+ 418 00f4 1F000071 		cmp	w0, 0
+ 419 00f8 CA000054 		bge	.L19
+  89:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****              perror("Failed to read/write SPI data");
+ 420              		.loc 1 89 14
+ 421 00fc 00000090 		adrp	x0, .LC3
+ 422 0100 00000091 		add	x0, x0, :lo12:.LC3
+ 423 0104 00000094 		bl	perror
+  90:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****              return -1; // Return -1 for failure
+ 424              		.loc 1 90 21
+ 425 0108 00008012 		mov	w0, -1
+ 426 010c 1E000014 		b	.L21
+ 427              	.L19:
+  91:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         }
+  92:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         memcpy(pdata, &buffer[2], len); // Copy data to buffer for write operation
+ 428              		.loc 1 92 9
+ 429 0110 E1BF40B9 		ldr	w1, [sp, 188]
+ 430 0114 E0E30091 		add	x0, sp, 56
+ 431 0118 00080091 		add	x0, x0, 2
+ 432 011c E20301AA 		mov	x2, x1
+ 433 0120 E10300AA 		mov	x1, x0
+ 434 0124 E00F40F9 		ldr	x0, [sp, 24]
+ 435 0128 00000094 		bl	memcpy
+  93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         pdata+=len;
+ 436              		.loc 1 93 14
+ 437 012c E0BF40B9 		ldr	w0, [sp, 188]
+ 438 0130 E10F40F9 		ldr	x1, [sp, 24]
+ 439 0134 2000008B 		add	x0, x1, x0
+ 440 0138 E00F00F9 		str	x0, [sp, 24]
+  94:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         count -= len;
+ 441              		.loc 1 94 15
+ 442 013c E12340B9 		ldr	w1, [sp, 32]
+ 443 0140 E0BF40B9 		ldr	w0, [sp, 188]
+ 444 0144 2000004B 		sub	w0, w1, w0
+ 445 0148 E02300B9 		str	w0, [sp, 32]
+  95:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         r += len;
+ 446              		.loc 1 95 11
+ 447 014c E0BF40B9 		ldr	w0, [sp, 188]
+ 448 0150 003C0012 		and	w0, w0, 65535
+ 449 0154 E1774179 		ldrh	w1, [sp, 186]
+ 450 0158 0000010B 		add	w0, w0, w1
+ 451 015c E0770179 		strh	w0, [sp, 186]
+  96:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         if (count < DATA_BLOCK_LEN) {
+ 452              		.loc 1 96 12
+ 453 0160 E02340B9 		ldr	w0, [sp, 32]
+ 454 0164 1FFC0171 		cmp	w0, 127
+ 455 0168 68000054 		bhi	.L20
+  97:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         	len = count;
+ 456              		.loc 1 97 14
+ 457 016c E02340B9 		ldr	w0, [sp, 32]
+ 458 0170 E0BF00B9 		str	w0, [sp, 188]
+ 459              	.L20:
+  98:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         }
+  99:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     } while (count > 0);
+ 460              		.loc 1 99 20
+ 461 0174 E02340B9 		ldr	w0, [sp, 32]
+ 462 0178 1F000071 		cmp	w0, 0
+ 463 017c 81F8FF54 		bne	.L17
+ 100:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return 0;
+ 464              		.loc 1 100 12
+ 465 0180 00008052 		mov	w0, 0
+ 466              	.L21:
+ 101:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
+ 467              		.loc 1 101 1
+ 468 0184 FD7BCCA8 		ldp	x29, x30, [sp], 192
+ 469              	.LCFI9:
+ 470              		.cfi_restore 30
+ 471              		.cfi_restore 29
+ 472              		.cfi_def_cfa_offset 0
+ 473 0188 C0035FD6 		ret
+ 474              		.cfi_endproc
+ 475              	.LFE4:
+ 477              		.section	.text.VL53L8CX_SwapBuffer,"ax",@progbits
+ 478              		.align	2
+ 479              		.global	VL53L8CX_SwapBuffer
+ 481              	VL53L8CX_SwapBuffer:
+ 482              	.LFB5:
+ 102:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+ 103:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Swap buffer (big-endian <-> little-endian, 4 bytes at a time)
+ 104:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** void VL53L8CX_SwapBuffer(uint8_t *pbuffer, int size)
+ 105:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
+ 483              		.loc 1 105 1
+ 484              		.cfi_startproc
+ 485 0000 FF8300D1 		sub	sp, sp, #32
+ 486              	.LCFI10:
+ 487              		.cfi_def_cfa_offset 32
+ 488 0004 E00700F9 		str	x0, [sp, 8]
+ 489 0008 E10700B9 		str	w1, [sp, 4]
+ 490              	.LBB2:
+ 106:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     for (int i = 0; i < size; i += 4) {
+ 491              		.loc 1 106 14
+ 492 000c FF1F00B9 		str	wzr, [sp, 28]
+ 493              		.loc 1 106 5
+ 494 0010 2E000014 		b	.L23
+ 495              	.L24:
+ 496              	.LBB3:
+ 107:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         uint8_t tmp;
+ 108:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         tmp = pbuffer[i];     pbuffer[i]   = pbuffer[i+3]; pbuffer[i+3] = tmp;
+ 497              		.loc 1 108 22
+ 498 0014 E01F80B9 		ldrsw	x0, [sp, 28]
+ 499 0018 E10740F9 		ldr	x1, [sp, 8]
+ 500 001c 2000008B 		add	x0, x1, x0
+ 501              		.loc 1 108 13
+ 502 0020 00004039 		ldrb	w0, [x0]
+ 503 0024 E06F0039 		strb	w0, [sp, 27]
+ 504              		.loc 1 108 53
+ 505 0028 E01F80B9 		ldrsw	x0, [sp, 28]
+ 506 002c 000C0091 		add	x0, x0, 3
+ 507 0030 E10740F9 		ldr	x1, [sp, 8]
+ 508 0034 2100008B 		add	x1, x1, x0
+ 509              		.loc 1 108 38
+ 510 0038 E01F80B9 		ldrsw	x0, [sp, 28]
+ 511 003c E20740F9 		ldr	x2, [sp, 8]
+ 512 0040 4000008B 		add	x0, x2, x0
+ 513              		.loc 1 108 53
+ 514 0044 21004039 		ldrb	w1, [x1]
+ 515              		.loc 1 108 44
+ 516 0048 01000039 		strb	w1, [x0]
+ 517              		.loc 1 108 67
+ 518 004c E01F80B9 		ldrsw	x0, [sp, 28]
+ 519 0050 000C0091 		add	x0, x0, 3
+ 520 0054 E10740F9 		ldr	x1, [sp, 8]
+ 521 0058 2000008B 		add	x0, x1, x0
+ 522              		.loc 1 108 73
+ 523 005c E16F4039 		ldrb	w1, [sp, 27]
+ 524 0060 01000039 		strb	w1, [x0]
+ 109:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****         tmp = pbuffer[i+1];   pbuffer[i+1] = pbuffer[i+2]; pbuffer[i+2] = tmp;
+ 525              		.loc 1 109 22
+ 526 0064 E01F80B9 		ldrsw	x0, [sp, 28]
+ 527 0068 00040091 		add	x0, x0, 1
+ 528 006c E10740F9 		ldr	x1, [sp, 8]
+ 529 0070 2000008B 		add	x0, x1, x0
+ 530              		.loc 1 109 13
+ 531 0074 00004039 		ldrb	w0, [x0]
+ 532 0078 E06F0039 		strb	w0, [sp, 27]
+ 533              		.loc 1 109 53
+ 534 007c E01F80B9 		ldrsw	x0, [sp, 28]
+ 535 0080 00080091 		add	x0, x0, 2
+ 536 0084 E10740F9 		ldr	x1, [sp, 8]
+ 537 0088 2100008B 		add	x1, x1, x0
+ 538              		.loc 1 109 38
+ 539 008c E01F80B9 		ldrsw	x0, [sp, 28]
+ 540 0090 00040091 		add	x0, x0, 1
+ 541 0094 E20740F9 		ldr	x2, [sp, 8]
+ 542 0098 4000008B 		add	x0, x2, x0
+ 543              		.loc 1 109 53
+ 544 009c 21004039 		ldrb	w1, [x1]
+ 545              		.loc 1 109 44
+ 546 00a0 01000039 		strb	w1, [x0]
+ 547              		.loc 1 109 67
+ 548 00a4 E01F80B9 		ldrsw	x0, [sp, 28]
+ 549 00a8 00080091 		add	x0, x0, 2
+ 550 00ac E10740F9 		ldr	x1, [sp, 8]
+ 551 00b0 2000008B 		add	x0, x1, x0
+ 552              		.loc 1 109 73
+ 553 00b4 E16F4039 		ldrb	w1, [sp, 27]
+ 554 00b8 01000039 		strb	w1, [x0]
+ 555              	.LBE3:
+ 106:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     for (int i = 0; i < size; i += 4) {
+ 556              		.loc 1 106 33 discriminator 3
+ 557 00bc E01F40B9 		ldr	w0, [sp, 28]
+ 558 00c0 00100011 		add	w0, w0, 4
+ 559 00c4 E01F00B9 		str	w0, [sp, 28]
+ 560              	.L23:
+ 106:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     for (int i = 0; i < size; i += 4) {
+ 561              		.loc 1 106 23 discriminator 1
+ 562 00c8 E11F40B9 		ldr	w1, [sp, 28]
+ 563 00cc E00740B9 		ldr	w0, [sp, 4]
+ 564 00d0 3F00006B 		cmp	w1, w0
+ 565 00d4 0BFAFF54 		blt	.L24
+ 566              	.LBE2:
+ 110:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     }
+ 111:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
+ 567              		.loc 1 111 1
+ 568 00d8 1F2003D5 		nop
+ 569 00dc 1F2003D5 		nop
+ 570 00e0 FF830091 		add	sp, sp, 32
+ 571              	.LCFI11:
+ 572              		.cfi_def_cfa_offset 0
+ 573 00e4 C0035FD6 		ret
+ 574              		.cfi_endproc
+ 575              	.LFE5:
+ 577              		.section	.text.VL53L8CX_WaitMs,"ax",@progbits
+ 578              		.align	2
+ 579              		.global	VL53L8CX_WaitMs
+ 581              	VL53L8CX_WaitMs:
+ 582              	.LFB6:
+ 112:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** 
+ 113:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** // Delay in milliseconds
+ 114:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** int32_t VL53L8CX_WaitMs(VL53L8CX_Platform *p, int wait_ms)
+ 115:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** {
+ 583              		.loc 1 115 1
+ 584              		.cfi_startproc
+ 585 0000 FD7BBEA9 		stp	x29, x30, [sp, -32]!
+ 586              	.LCFI12:
+ 587              		.cfi_def_cfa_offset 32
+ 588              		.cfi_offset 29, -32
+ 589              		.cfi_offset 30, -24
+ 590 0004 FD030091 		mov	x29, sp
+ 591 0008 E00F00F9 		str	x0, [sp, 24]
+ 592 000c E11700B9 		str	w1, [sp, 20]
+ 116:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     (void)p;  // unused
+ 117:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     usleep(wait_ms*1000); // usleep takes microseconds
+ 593              		.loc 1 117 19
+ 594 0010 E11740B9 		ldr	w1, [sp, 20]
+ 595 0014 007D8052 		mov	w0, 1000
+ 596 0018 207C001B 		mul	w0, w1, w0
+ 597              		.loc 1 117 5
+ 598 001c 00000094 		bl	usleep
+ 118:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c ****     return 0;
+ 599              		.loc 1 118 12
+ 600 0020 00008052 		mov	w0, 0
+ 119:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c **** }
+ 601              		.loc 1 119 1
+ 602 0024 FD7BC2A8 		ldp	x29, x30, [sp], 32
+ 603              	.LCFI13:
+ 604              		.cfi_restore 30
+ 605              		.cfi_restore 29
+ 606              		.cfi_def_cfa_offset 0
+ 607 0028 C0035FD6 		ret
+ 608              		.cfi_endproc
+ 609              	.LFE6:
+ 611              		.text
+ 612              	.Letext0:
+ 613              		.file 2 "/usr/include/aarch64-linux-gnu/bits/types.h"
+ 614              		.file 3 "/usr/include/aarch64-linux-gnu/bits/stdint-intn.h"
+ 615              		.file 4 "/usr/include/aarch64-linux-gnu/bits/stdint-uintn.h"
+ 616              		.file 5 "/usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h"
+ 617              		.file 6 "/usr/include/aarch64-linux-gnu/bits/types/FILE.h"
+ 618              		.file 7 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
+ 619              		.file 8 "/usr/include/unistd.h"
+ 620              		.file 9 "/usr/include/string.h"
+ 621              		.file 10 "/usr/local/include/wiringPiSPI.h"
+ 622              		.file 11 "/usr/include/stdio.h"
+ 623              		.file 12 "/usr/include/errno.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 vl53l8cx_platform.c
-     /tmp/cca67i5e.s:7      .rodata:0000000000000000 $d
-     /tmp/cca67i5e.s:11     .text.VL53L8CX_InitSPI:0000000000000000 $x
-     /tmp/cca67i5e.s:14     .text.VL53L8CX_InitSPI:0000000000000000 VL53L8CX_InitSPI
-     /tmp/cca67i5e.s:104    .text.VL53L8CX_WrByte:0000000000000000 $x
-     /tmp/cca67i5e.s:107    .text.VL53L8CX_WrByte:0000000000000000 VL53L8CX_WrByte
-     /tmp/cca67i5e.s:181    .text.VL53L8CX_WrMulti:0000000000000000 VL53L8CX_WrMulti
-     /tmp/cca67i5e.s:138    .text.VL53L8CX_RdByte:0000000000000000 $x
-     /tmp/cca67i5e.s:141    .text.VL53L8CX_RdByte:0000000000000000 VL53L8CX_RdByte
-     /tmp/cca67i5e.s:387    .text.VL53L8CX_RdMulti:0000000000000000 VL53L8CX_RdMulti
-     /tmp/cca67i5e.s:178    .text.VL53L8CX_WrMulti:0000000000000000 $x
-     /tmp/cca67i5e.s:384    .text.VL53L8CX_RdMulti:0000000000000000 $x
-     /tmp/cca67i5e.s:598    .text.VL53L8CX_SwapBuffer:0000000000000000 $x
-     /tmp/cca67i5e.s:601    .text.VL53L8CX_SwapBuffer:0000000000000000 VL53L8CX_SwapBuffer
-     /tmp/cca67i5e.s:698    .text.VL53L8CX_WaitMs:0000000000000000 $x
-     /tmp/cca67i5e.s:701    .text.VL53L8CX_WaitMs:0000000000000000 VL53L8CX_WaitMs
+     /tmp/ccRK16TN.s:7      .rodata:0000000000000000 $d
+     /tmp/ccRK16TN.s:11     .text.VL53L8CX_InitSPI:0000000000000000 $x
+     /tmp/ccRK16TN.s:14     .text.VL53L8CX_InitSPI:0000000000000000 VL53L8CX_InitSPI
+     /tmp/ccRK16TN.s:104    .text.VL53L8CX_WrByte:0000000000000000 $x
+     /tmp/ccRK16TN.s:107    .text.VL53L8CX_WrByte:0000000000000000 VL53L8CX_WrByte
+     /tmp/ccRK16TN.s:181    .text.VL53L8CX_WrMulti:0000000000000000 VL53L8CX_WrMulti
+     /tmp/ccRK16TN.s:138    .text.VL53L8CX_RdByte:0000000000000000 $x
+     /tmp/ccRK16TN.s:141    .text.VL53L8CX_RdByte:0000000000000000 VL53L8CX_RdByte
+     /tmp/ccRK16TN.s:330    .text.VL53L8CX_RdMulti:0000000000000000 VL53L8CX_RdMulti
+     /tmp/ccRK16TN.s:178    .text.VL53L8CX_WrMulti:0000000000000000 $x
+     /tmp/ccRK16TN.s:327    .text.VL53L8CX_RdMulti:0000000000000000 $x
+     /tmp/ccRK16TN.s:478    .text.VL53L8CX_SwapBuffer:0000000000000000 $x
+     /tmp/ccRK16TN.s:481    .text.VL53L8CX_SwapBuffer:0000000000000000 VL53L8CX_SwapBuffer
+     /tmp/ccRK16TN.s:578    .text.VL53L8CX_WaitMs:0000000000000000 $x
+     /tmp/ccRK16TN.s:581    .text.VL53L8CX_WaitMs:0000000000000000 VL53L8CX_WaitMs
                         .eh_frame:0000000000000014 $d
 
 UNDEFINED SYMBOLS
