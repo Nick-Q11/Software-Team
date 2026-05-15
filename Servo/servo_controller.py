@@ -45,7 +45,7 @@ class Scanner:
                 time.sleep(dwell_s)
 
     def coarse_scan(self):
-        self._serpentine_sweep([-30, 0, 30], [-35, -10])
+        self._serpentine_sweep([-90, 0, 90], [-90, -45, 0])
 
     def fine_scan(self):
         pass
