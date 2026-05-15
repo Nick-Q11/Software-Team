@@ -46,7 +46,7 @@ int main()
         for(int i = 0; i < 8; i++)    {
             for(int j = 0; j < 8; j++){
                 y = i*8 + j;
-                printf("%d:\t%d mm\t%d c\t|\t",
+                printf("%d:%d mm, %d c\t|",
                 y,
                 results.distance_mm[y],
                 results.reflectance[y]);
