@@ -6,6 +6,8 @@
 
 #define LPN 13
 #define PWREN 15
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 int failure(int status, const char* message);
 void powerON(void);
@@ -16,6 +18,8 @@ int main()
     VL53L8CX_ResultsData results;
     VL53L8CX_Configuration dev;
     uint8_t status;
+    int nearest_distance = 100000000;
+    int most_reflectance = 0;
     powerON();
 
     status = vl53l8cx_init(&dev);
@@ -32,7 +36,8 @@ int main()
 
     status = vl53l8cx_start_ranging(&dev);
     failure(status, "Failed to start ranging");
-
+    status = vl53l8cx_get_ranging_data(&dev, &results);
+    failure(status, "Failed to get ranging data");
     usleep(100000); // usleep takes microseconds
 
     int y = 0;
@@ -50,14 +55,17 @@ int main()
                 y,
                 results.distance_mm[y],
                 results.reflectance[y]);
+                nearest_distance = MIN(nearest_distance, results.distance_mm[y]);
+                most_reflectance = MAX(most_reflectance, results.reflectance[y]);
             }
             printf("\n");
         }
         printf("\n");
         y = 0;
         increment++;
-    }  while(increment < 10);
-   
+    }  while(nearest_distance < 50 && nearest_distance > 0 || increment < 30);
+    printf("Nearest distance: %d mm\n", nearest_distance);
+    printf("Most reflectance: %d p\n", most_reflectance);
     return 0;
 
 }
