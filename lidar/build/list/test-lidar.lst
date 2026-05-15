@@ -50,16 +50,32 @@
   25 00bb 00000000 		.align	3
   25      00
   26              	.LC6:
-  27 00c0 25643A25 		.string	"%d:%d mm, %d c\t|"
+  27 00c0 25643A25 		.string	"%d:%d mm, %d p\t|"
   27      64206D6D 
   27      2C202564 
-  27      2063097C 
+  27      2070097C 
   27      00
-  28              		.section	.text.main,"ax",@progbits
-  29              		.align	2
-  30              		.global	main
-  32              	main:
-  33              	.LFB0:
+  28 00d1 00000000 		.align	3
+  28      000000
+  29              	.LC7:
+  30 00d8 4E656172 		.string	"Nearest distance: %d mm\n"
+  30      65737420 
+  30      64697374 
+  30      616E6365 
+  30      3A202564 
+  31 00f1 00000000 		.align	3
+  31      000000
+  32              	.LC8:
+  33 00f8 4D6F7374 		.string	"Most reflectance: %d p\n"
+  33      20726566 
+  33      6C656374 
+  33      616E6365 
+  33      3A202564 
+  34              		.section	.text.main,"ax",@progbits
+  35              		.align	2
+  36              		.global	main
+  38              	main:
+  39              	.LFB0:
    1:src/./test-lidar.c **** #include <stdio.h>
    2:src/./test-lidar.c **** #include <unistd.h>
    3:src/./test-lidar.c **** #include <string.h>
@@ -68,405 +84,472 @@
    6:src/./test-lidar.c **** 
    7:src/./test-lidar.c **** #define LPN 13
    8:src/./test-lidar.c **** #define PWREN 15
-   9:src/./test-lidar.c **** 
-  10:src/./test-lidar.c **** int failure(int status, const char* message);
-  11:src/./test-lidar.c **** void powerON(void);
-  12:src/./test-lidar.c **** 
-  13:src/./test-lidar.c **** 
-  14:src/./test-lidar.c **** int main()
-  15:src/./test-lidar.c **** { 
-  34              		.loc 1 15 1
-  35              		.cfi_startproc
-  36 0000 0C0882D2 		mov	x12, 4160
-  37 0004 FF632CCB 		sub	sp, sp, x12
-  38              	.LCFI0:
-  39              		.cfi_def_cfa_offset 4160
-  40 0008 FD7B00A9 		stp	x29, x30, [sp]
-  41              		.cfi_offset 29, -4160
-  42              		.cfi_offset 30, -4152
-  43 000c FD030091 		mov	x29, sp
-  16:src/./test-lidar.c ****     VL53L8CX_ResultsData results;
-  17:src/./test-lidar.c ****     VL53L8CX_Configuration dev;
-  18:src/./test-lidar.c ****     uint8_t status;
-  19:src/./test-lidar.c ****     powerON();
-  44              		.loc 1 19 5
-  45 0010 00000094 		bl	powerON
-  20:src/./test-lidar.c **** 
-  21:src/./test-lidar.c ****     status = vl53l8cx_init(&dev);
-  46              		.loc 1 21 14
-  47 0014 E0430091 		add	x0, sp, 16
-  48 0018 00000094 		bl	vl53l8cx_init
-  49 001c E1074091 		add	x1, sp, 4096
-  50 0020 20CC0039 		strb	w0, [x1, 51]
-  22:src/./test-lidar.c ****     failure(status, "Failed to initialize VL53L8CX sensor");
-  51              		.loc 1 22 5
-  52 0024 E0074091 		add	x0, sp, 4096
-  53 0028 02CC4039 		ldrb	w2, [x0, 51]
-  54 002c 00000090 		adrp	x0, .LC0
-  55 0030 01000091 		add	x1, x0, :lo12:.LC0
-  56 0034 E003022A 		mov	w0, w2
-  57 0038 00000094 		bl	failure
-  23:src/./test-lidar.c **** 
-  24:src/./test-lidar.c ****     status = vl53l8cx_set_resolution(&dev, VL53L8CX_RESOLUTION_8X8);
-  58              		.loc 1 24 14
-  59 003c E0430091 		add	x0, sp, 16
-  60 0040 01088052 		mov	w1, 64
-  61 0044 00000094 		bl	vl53l8cx_set_resolution
-  62 0048 E1074091 		add	x1, sp, 4096
-  63 004c 20CC0039 		strb	w0, [x1, 51]
-  25:src/./test-lidar.c ****     failure(status, "Failed to set resolution");
-  64              		.loc 1 25 5
-  65 0050 E0074091 		add	x0, sp, 4096
-  66 0054 02CC4039 		ldrb	w2, [x0, 51]
-  67 0058 00000090 		adrp	x0, .LC1
-  68 005c 01000091 		add	x1, x0, :lo12:.LC1
-  69 0060 E003022A 		mov	w0, w2
-  70 0064 00000094 		bl	failure
-  26:src/./test-lidar.c ****     
-  27:src/./test-lidar.c ****     status = vl53l8cx_set_ranging_frequency_hz(&dev, 10);
-  71              		.loc 1 27 14
-  72 0068 E0430091 		add	x0, sp, 16
-  73 006c 41018052 		mov	w1, 10
-  74 0070 00000094 		bl	vl53l8cx_set_ranging_frequency_hz
-  75 0074 E1074091 		add	x1, sp, 4096
-  76 0078 20CC0039 		strb	w0, [x1, 51]
-  28:src/./test-lidar.c ****     failure(status, "Failed to set ranging frequency");
-  77              		.loc 1 28 5
-  78 007c E0074091 		add	x0, sp, 4096
-  79 0080 02CC4039 		ldrb	w2, [x0, 51]
-  80 0084 00000090 		adrp	x0, .LC2
-  81 0088 01000091 		add	x1, x0, :lo12:.LC2
-  82 008c E003022A 		mov	w0, w2
-  83 0090 00000094 		bl	failure
-  29:src/./test-lidar.c ****     
-  30:src/./test-lidar.c ****     status = vl53l8cx_set_integration_time_ms(&dev, 20);
-  84              		.loc 1 30 14
-  85 0094 E0430091 		add	x0, sp, 16
-  86 0098 81028052 		mov	w1, 20
-  87 009c 00000094 		bl	vl53l8cx_set_integration_time_ms
-  88 00a0 E1074091 		add	x1, sp, 4096
-  89 00a4 20CC0039 		strb	w0, [x1, 51]
-  31:src/./test-lidar.c ****     failure(status, "Failed to set integration time");
-  90              		.loc 1 31 5
-  91 00a8 E0074091 		add	x0, sp, 4096
-  92 00ac 02CC4039 		ldrb	w2, [x0, 51]
-  93 00b0 00000090 		adrp	x0, .LC3
-  94 00b4 01000091 		add	x1, x0, :lo12:.LC3
-  95 00b8 E003022A 		mov	w0, w2
-  96 00bc 00000094 		bl	failure
-  32:src/./test-lidar.c **** 
-  33:src/./test-lidar.c ****     status = vl53l8cx_start_ranging(&dev);
-  97              		.loc 1 33 14
-  98 00c0 E0430091 		add	x0, sp, 16
-  99 00c4 00000094 		bl	vl53l8cx_start_ranging
- 100 00c8 E1074091 		add	x1, sp, 4096
- 101 00cc 20CC0039 		strb	w0, [x1, 51]
-  34:src/./test-lidar.c ****     failure(status, "Failed to start ranging");
- 102              		.loc 1 34 5
- 103 00d0 E0074091 		add	x0, sp, 4096
- 104 00d4 02CC4039 		ldrb	w2, [x0, 51]
- 105 00d8 00000090 		adrp	x0, .LC4
- 106 00dc 01000091 		add	x1, x0, :lo12:.LC4
- 107 00e0 E003022A 		mov	w0, w2
- 108 00e4 00000094 		bl	failure
-  35:src/./test-lidar.c **** 
-  36:src/./test-lidar.c ****     usleep(100000); // usleep takes microseconds
- 109              		.loc 1 36 5
- 110 00e8 00D49052 		mov	w0, 34464
- 111 00ec 2000A072 		movk	w0, 0x1, lsl 16
- 112 00f0 00000094 		bl	usleep
-  37:src/./test-lidar.c **** 
-  38:src/./test-lidar.c ****     int y = 0;
- 113              		.loc 1 38 9
- 114 00f4 FF2F10B9 		str	wzr, [sp, 4140]
-  39:src/./test-lidar.c ****     int increment = 0;
- 115              		.loc 1 39 9
- 116 00f8 FF3F10B9 		str	wzr, [sp, 4156]
- 117              	.L6:
-  40:src/./test-lidar.c ****     do
-  41:src/./test-lidar.c ****     {
-  42:src/./test-lidar.c ****         status = vl53l8cx_get_ranging_data(&dev, &results);
- 118              		.loc 1 42 18
- 119 00fc E1632B91 		add	x1, sp, 2776
- 120 0100 E0430091 		add	x0, sp, 16
- 121 0104 00000094 		bl	vl53l8cx_get_ranging_data
- 122 0108 E1074091 		add	x1, sp, 4096
- 123 010c 20CC0039 		strb	w0, [x1, 51]
-  43:src/./test-lidar.c ****         failure(status, "Failed to get ranging data");
- 124              		.loc 1 43 9
- 125 0110 E0074091 		add	x0, sp, 4096
- 126 0114 02CC4039 		ldrb	w2, [x0, 51]
- 127 0118 00000090 		adrp	x0, .LC5
- 128 011c 01000091 		add	x1, x0, :lo12:.LC5
- 129 0120 E003022A 		mov	w0, w2
- 130 0124 00000094 		bl	failure
-  44:src/./test-lidar.c ****         usleep(1000000);
- 131              		.loc 1 44 9
- 132 0128 00488852 		mov	w0, 16960
- 133 012c E001A072 		movk	w0, 0xf, lsl 16
- 134 0130 00000094 		bl	usleep
- 135              	.LBB2:
-  45:src/./test-lidar.c ****         
-  46:src/./test-lidar.c ****         for(int i = 0; i < 8; i++)    {
- 136              		.loc 1 46 17
- 137 0134 FF3B10B9 		str	wzr, [sp, 4152]
- 138              		.loc 1 46 9
- 139 0138 21000014 		b	.L2
- 140              	.L5:
- 141              	.LBB3:
-  47:src/./test-lidar.c ****             for(int j = 0; j < 8; j++){
- 142              		.loc 1 47 21
- 143 013c FF3710B9 		str	wzr, [sp, 4148]
- 144              		.loc 1 47 13
- 145 0140 17000014 		b	.L3
- 146              	.L4:
-  48:src/./test-lidar.c ****                 y = i*8 + j;
- 147              		.loc 1 48 22
- 148 0144 E03B50B9 		ldr	w0, [sp, 4152]
- 149 0148 00701D53 		lsl	w0, w0, 3
- 150              		.loc 1 48 19
- 151 014c E13750B9 		ldr	w1, [sp, 4148]
- 152 0150 2000000B 		add	w0, w1, w0
- 153 0154 E02F10B9 		str	w0, [sp, 4140]
-  49:src/./test-lidar.c ****                 printf("%d:%d mm, %d c\t|",
-  50:src/./test-lidar.c ****                 y,
-  51:src/./test-lidar.c ****                 results.distance_mm[y],
- 154              		.loc 1 51 36
- 155 0158 E02F90B9 		ldrsw	x0, [sp, 4140]
- 156 015c 00800791 		add	x0, x0, 480
- 157 0160 00F87FD3 		lsl	x0, x0, 1
- 158 0164 E1732B91 		add	x1, sp, 2780
- 159 0168 2068E078 		ldrsh	w0, [x1, x0]
-  49:src/./test-lidar.c ****                 printf("%d:%d mm, %d c\t|",
- 160              		.loc 1 49 17
- 161 016c E203002A 		mov	w2, w0
-  52:src/./test-lidar.c ****                 results.reflectance[y]);
- 162              		.loc 1 52 36
- 163 0170 E02F90B9 		ldrsw	x0, [sp, 4140]
- 164 0174 E1733C91 		add	x1, sp, 3868
- 165 0178 20686038 		ldrb	w0, [x1, x0]
-  49:src/./test-lidar.c ****                 printf("%d:%d mm, %d c\t|",
- 166              		.loc 1 49 17
- 167 017c E303002A 		mov	w3, w0
- 168 0180 E12F50B9 		ldr	w1, [sp, 4140]
- 169 0184 00000090 		adrp	x0, .LC6
- 170 0188 00000091 		add	x0, x0, :lo12:.LC6
- 171 018c 00000094 		bl	printf
-  47:src/./test-lidar.c ****                 y = i*8 + j;
- 172              		.loc 1 47 36 discriminator 3
- 173 0190 E03750B9 		ldr	w0, [sp, 4148]
- 174 0194 00040011 		add	w0, w0, 1
- 175 0198 E03710B9 		str	w0, [sp, 4148]
- 176              	.L3:
-  47:src/./test-lidar.c ****                 y = i*8 + j;
- 177              		.loc 1 47 30 discriminator 1
- 178 019c E03750B9 		ldr	w0, [sp, 4148]
- 179 01a0 1F1C0071 		cmp	w0, 7
- 180 01a4 0DFDFF54 		ble	.L4
- 181              	.LBE3:
-  53:src/./test-lidar.c ****             }
-  54:src/./test-lidar.c ****             printf("\n");
- 182              		.loc 1 54 13
- 183 01a8 40018052 		mov	w0, 10
- 184 01ac 00000094 		bl	putchar
-  46:src/./test-lidar.c ****             for(int j = 0; j < 8; j++){
- 185              		.loc 1 46 32 discriminator 2
- 186 01b0 E03B50B9 		ldr	w0, [sp, 4152]
- 187 01b4 00040011 		add	w0, w0, 1
- 188 01b8 E03B10B9 		str	w0, [sp, 4152]
- 189              	.L2:
-  46:src/./test-lidar.c ****             for(int j = 0; j < 8; j++){
- 190              		.loc 1 46 26 discriminator 1
- 191 01bc E03B50B9 		ldr	w0, [sp, 4152]
- 192 01c0 1F1C0071 		cmp	w0, 7
- 193 01c4 CDFBFF54 		ble	.L5
- 194              	.LBE2:
-  55:src/./test-lidar.c ****         }
-  56:src/./test-lidar.c ****         printf("\n");
- 195              		.loc 1 56 9
- 196 01c8 40018052 		mov	w0, 10
- 197 01cc 00000094 		bl	putchar
-  57:src/./test-lidar.c ****         y = 0;
- 198              		.loc 1 57 11
- 199 01d0 FF2F10B9 		str	wzr, [sp, 4140]
-  58:src/./test-lidar.c ****         increment++;
- 200              		.loc 1 58 18
- 201 01d4 E03F50B9 		ldr	w0, [sp, 4156]
- 202 01d8 00040011 		add	w0, w0, 1
- 203 01dc E03F10B9 		str	w0, [sp, 4156]
-  59:src/./test-lidar.c ****     }  while(increment < 10);
- 204              		.loc 1 59 24
- 205 01e0 E03F50B9 		ldr	w0, [sp, 4156]
- 206 01e4 1F240071 		cmp	w0, 9
- 207 01e8 ADF8FF54 		ble	.L6
-  60:src/./test-lidar.c ****    
-  61:src/./test-lidar.c ****     return 0;
- 208              		.loc 1 61 12
- 209 01ec 00008052 		mov	w0, 0
-  62:src/./test-lidar.c **** 
-  63:src/./test-lidar.c **** }
- 210              		.loc 1 63 1
- 211 01f0 FD7B40A9 		ldp	x29, x30, [sp]
- 212 01f4 0C0882D2 		mov	x12, 4160
- 213 01f8 FF632C8B 		add	sp, sp, x12
- 214              	.LCFI1:
- 215              		.cfi_restore 29
- 216              		.cfi_restore 30
- 217              		.cfi_def_cfa_offset 0
- 218 01fc C0035FD6 		ret
- 219              		.cfi_endproc
- 220              	.LFE0:
- 222              		.section	.text.powerON,"ax",@progbits
- 223              		.align	2
- 224              		.global	powerON
- 226              	powerON:
- 227              	.LFB1:
-  64:src/./test-lidar.c **** 
-  65:src/./test-lidar.c **** void powerON(void){
- 228              		.loc 1 65 19
- 229              		.cfi_startproc
- 230 0000 FD7BBFA9 		stp	x29, x30, [sp, -16]!
- 231              	.LCFI2:
- 232              		.cfi_def_cfa_offset 16
- 233              		.cfi_offset 29, -16
- 234              		.cfi_offset 30, -8
- 235 0004 FD030091 		mov	x29, sp
-  66:src/./test-lidar.c ****     wiringPiSetupPhys();
- 236              		.loc 1 66 5
- 237 0008 00000094 		bl	wiringPiSetupPhys
-  67:src/./test-lidar.c ****     pinMode(LPN, OUTPUT);
- 238              		.loc 1 67 5
- 239 000c 21008052 		mov	w1, 1
- 240 0010 A0018052 		mov	w0, 13
- 241 0014 00000094 		bl	pinMode
-  68:src/./test-lidar.c ****     digitalWrite(LPN, LOW);
- 242              		.loc 1 68 5
- 243 0018 01008052 		mov	w1, 0
- 244 001c A0018052 		mov	w0, 13
- 245 0020 00000094 		bl	digitalWrite
-  69:src/./test-lidar.c ****     pinMode(PWREN, OUTPUT);
- 246              		.loc 1 69 5
- 247 0024 21008052 		mov	w1, 1
- 248 0028 E0018052 		mov	w0, 15
- 249 002c 00000094 		bl	pinMode
-  70:src/./test-lidar.c ****     digitalWrite(PWREN, LOW);
- 250              		.loc 1 70 5
- 251 0030 01008052 		mov	w1, 0
- 252 0034 E0018052 		mov	w0, 15
- 253 0038 00000094 		bl	digitalWrite
-  71:src/./test-lidar.c ****     usleep(100 * 1000); // usleep takes microseconds
- 254              		.loc 1 71 5
- 255 003c 00D49052 		mov	w0, 34464
- 256 0040 2000A072 		movk	w0, 0x1, lsl 16
- 257 0044 00000094 		bl	usleep
-  72:src/./test-lidar.c ****     digitalWrite(PWREN, HIGH);
- 258              		.loc 1 72 5
- 259 0048 21008052 		mov	w1, 1
- 260 004c E0018052 		mov	w0, 15
- 261 0050 00000094 		bl	digitalWrite
-  73:src/./test-lidar.c ****     usleep(50 * 1000); // usleep takes microseconds
- 262              		.loc 1 73 5
- 263 0054 006A9852 		mov	w0, 50000
- 264 0058 00000094 		bl	usleep
-  74:src/./test-lidar.c ****     digitalWrite(LPN, HIGH);
- 265              		.loc 1 74 5
- 266 005c 21008052 		mov	w1, 1
- 267 0060 A0018052 		mov	w0, 13
- 268 0064 00000094 		bl	digitalWrite
-  75:src/./test-lidar.c ****     usleep(250 * 1000); // usleep takes microseconds
- 269              		.loc 1 75 5
- 270 0068 00129A52 		mov	w0, 53392
- 271 006c 6000A072 		movk	w0, 0x3, lsl 16
- 272 0070 00000094 		bl	usleep
-  76:src/./test-lidar.c **** }
- 273              		.loc 1 76 1
- 274 0074 1F2003D5 		nop
- 275 0078 FD7BC1A8 		ldp	x29, x30, [sp], 16
- 276              	.LCFI3:
- 277              		.cfi_restore 30
- 278              		.cfi_restore 29
- 279              		.cfi_def_cfa_offset 0
- 280 007c C0035FD6 		ret
- 281              		.cfi_endproc
- 282              	.LFE1:
- 284              		.section	.rodata
- 285 00d1 00000000 		.align	3
- 285      000000
- 286              	.LC7:
- 287 00d8 25730A00 		.string	"%s\n"
- 288              		.section	.text.failure,"ax",@progbits
+   9:src/./test-lidar.c **** #define MAX(a, b) ((a) > (b) ? (a) : (b))
+  10:src/./test-lidar.c **** #define MIN(a, b) ((a) < (b) ? (a) : (b))
+  11:src/./test-lidar.c **** 
+  12:src/./test-lidar.c **** int failure(int status, const char* message);
+  13:src/./test-lidar.c **** void powerON(void);
+  14:src/./test-lidar.c **** 
+  15:src/./test-lidar.c **** 
+  16:src/./test-lidar.c **** int main()
+  17:src/./test-lidar.c **** { 
+  40              		.loc 1 17 1
+  41              		.cfi_startproc
+  42 0000 0C0A82D2 		mov	x12, 4176
+  43 0004 FF632CCB 		sub	sp, sp, x12
+  44              	.LCFI0:
+  45              		.cfi_def_cfa_offset 4176
+  46 0008 FD7B00A9 		stp	x29, x30, [sp]
+  47              		.cfi_offset 29, -4176
+  48              		.cfi_offset 30, -4168
+  49 000c FD030091 		mov	x29, sp
+  18:src/./test-lidar.c ****     VL53L8CX_ResultsData results;
+  19:src/./test-lidar.c ****     VL53L8CX_Configuration dev;
+  20:src/./test-lidar.c ****     uint8_t status;
+  21:src/./test-lidar.c ****     int nearest_distance = 100000000;
+  50              		.loc 1 21 9
+  51 0010 00209C52 		mov	w0, 57600
+  52 0014 A0BEA072 		movk	w0, 0x5f5, lsl 16
+  53 0018 E04F10B9 		str	w0, [sp, 4172]
+  22:src/./test-lidar.c ****     int most_reflectance = 0;
+  54              		.loc 1 22 9
+  55 001c FF4B10B9 		str	wzr, [sp, 4168]
+  23:src/./test-lidar.c ****     powerON();
+  56              		.loc 1 23 5
+  57 0020 00000094 		bl	powerON
+  24:src/./test-lidar.c **** 
+  25:src/./test-lidar.c ****     status = vl53l8cx_init(&dev);
+  58              		.loc 1 25 14
+  59 0024 E0630091 		add	x0, sp, 24
+  60 0028 00000094 		bl	vl53l8cx_init
+  61 002c E1074091 		add	x1, sp, 4096
+  62 0030 20EC0039 		strb	w0, [x1, 59]
+  26:src/./test-lidar.c ****     failure(status, "Failed to initialize VL53L8CX sensor");
+  63              		.loc 1 26 5
+  64 0034 E0074091 		add	x0, sp, 4096
+  65 0038 02EC4039 		ldrb	w2, [x0, 59]
+  66 003c 00000090 		adrp	x0, .LC0
+  67 0040 01000091 		add	x1, x0, :lo12:.LC0
+  68 0044 E003022A 		mov	w0, w2
+  69 0048 00000094 		bl	failure
+  27:src/./test-lidar.c **** 
+  28:src/./test-lidar.c ****     status = vl53l8cx_set_resolution(&dev, VL53L8CX_RESOLUTION_8X8);
+  70              		.loc 1 28 14
+  71 004c E0630091 		add	x0, sp, 24
+  72 0050 01088052 		mov	w1, 64
+  73 0054 00000094 		bl	vl53l8cx_set_resolution
+  74 0058 E1074091 		add	x1, sp, 4096
+  75 005c 20EC0039 		strb	w0, [x1, 59]
+  29:src/./test-lidar.c ****     failure(status, "Failed to set resolution");
+  76              		.loc 1 29 5
+  77 0060 E0074091 		add	x0, sp, 4096
+  78 0064 02EC4039 		ldrb	w2, [x0, 59]
+  79 0068 00000090 		adrp	x0, .LC1
+  80 006c 01000091 		add	x1, x0, :lo12:.LC1
+  81 0070 E003022A 		mov	w0, w2
+  82 0074 00000094 		bl	failure
+  30:src/./test-lidar.c ****     
+  31:src/./test-lidar.c ****     status = vl53l8cx_set_ranging_frequency_hz(&dev, 10);
+  83              		.loc 1 31 14
+  84 0078 E0630091 		add	x0, sp, 24
+  85 007c 41018052 		mov	w1, 10
+  86 0080 00000094 		bl	vl53l8cx_set_ranging_frequency_hz
+  87 0084 E1074091 		add	x1, sp, 4096
+  88 0088 20EC0039 		strb	w0, [x1, 59]
+  32:src/./test-lidar.c ****     failure(status, "Failed to set ranging frequency");
+  89              		.loc 1 32 5
+  90 008c E0074091 		add	x0, sp, 4096
+  91 0090 02EC4039 		ldrb	w2, [x0, 59]
+  92 0094 00000090 		adrp	x0, .LC2
+  93 0098 01000091 		add	x1, x0, :lo12:.LC2
+  94 009c E003022A 		mov	w0, w2
+  95 00a0 00000094 		bl	failure
+  33:src/./test-lidar.c ****     
+  34:src/./test-lidar.c ****     status = vl53l8cx_set_integration_time_ms(&dev, 20);
+  96              		.loc 1 34 14
+  97 00a4 E0630091 		add	x0, sp, 24
+  98 00a8 81028052 		mov	w1, 20
+  99 00ac 00000094 		bl	vl53l8cx_set_integration_time_ms
+ 100 00b0 E1074091 		add	x1, sp, 4096
+ 101 00b4 20EC0039 		strb	w0, [x1, 59]
+  35:src/./test-lidar.c ****     failure(status, "Failed to set integration time");
+ 102              		.loc 1 35 5
+ 103 00b8 E0074091 		add	x0, sp, 4096
+ 104 00bc 02EC4039 		ldrb	w2, [x0, 59]
+ 105 00c0 00000090 		adrp	x0, .LC3
+ 106 00c4 01000091 		add	x1, x0, :lo12:.LC3
+ 107 00c8 E003022A 		mov	w0, w2
+ 108 00cc 00000094 		bl	failure
+  36:src/./test-lidar.c **** 
+  37:src/./test-lidar.c ****     status = vl53l8cx_start_ranging(&dev);
+ 109              		.loc 1 37 14
+ 110 00d0 E0630091 		add	x0, sp, 24
+ 111 00d4 00000094 		bl	vl53l8cx_start_ranging
+ 112 00d8 E1074091 		add	x1, sp, 4096
+ 113 00dc 20EC0039 		strb	w0, [x1, 59]
+  38:src/./test-lidar.c ****     failure(status, "Failed to start ranging");
+ 114              		.loc 1 38 5
+ 115 00e0 E0074091 		add	x0, sp, 4096
+ 116 00e4 02EC4039 		ldrb	w2, [x0, 59]
+ 117 00e8 00000090 		adrp	x0, .LC4
+ 118 00ec 01000091 		add	x1, x0, :lo12:.LC4
+ 119 00f0 E003022A 		mov	w0, w2
+ 120 00f4 00000094 		bl	failure
+  39:src/./test-lidar.c ****     status = vl53l8cx_get_ranging_data(&dev, &results);
+ 121              		.loc 1 39 14
+ 122 00f8 E1832B91 		add	x1, sp, 2784
+ 123 00fc E0630091 		add	x0, sp, 24
+ 124 0100 00000094 		bl	vl53l8cx_get_ranging_data
+ 125 0104 E1074091 		add	x1, sp, 4096
+ 126 0108 20EC0039 		strb	w0, [x1, 59]
+  40:src/./test-lidar.c ****     failure(status, "Failed to get ranging data");
+ 127              		.loc 1 40 5
+ 128 010c E0074091 		add	x0, sp, 4096
+ 129 0110 02EC4039 		ldrb	w2, [x0, 59]
+ 130 0114 00000090 		adrp	x0, .LC5
+ 131 0118 01000091 		add	x1, x0, :lo12:.LC5
+ 132 011c E003022A 		mov	w0, w2
+ 133 0120 00000094 		bl	failure
+  41:src/./test-lidar.c ****     usleep(100000); // usleep takes microseconds
+ 134              		.loc 1 41 5
+ 135 0124 00D49052 		mov	w0, 34464
+ 136 0128 2000A072 		movk	w0, 0x1, lsl 16
+ 137 012c 00000094 		bl	usleep
+  42:src/./test-lidar.c **** 
+  43:src/./test-lidar.c ****     int y = 0;
+ 138              		.loc 1 43 9
+ 139 0130 FF3710B9 		str	wzr, [sp, 4148]
+  44:src/./test-lidar.c ****     int increment = 0;
+ 140              		.loc 1 44 9
+ 141 0134 FF4710B9 		str	wzr, [sp, 4164]
+ 142              	.L2:
+  45:src/./test-lidar.c ****     do
+  46:src/./test-lidar.c ****     {
+  47:src/./test-lidar.c ****         status = vl53l8cx_get_ranging_data(&dev, &results);
+ 143              		.loc 1 47 18
+ 144 0138 E1832B91 		add	x1, sp, 2784
+ 145 013c E0630091 		add	x0, sp, 24
+ 146 0140 00000094 		bl	vl53l8cx_get_ranging_data
+ 147 0144 E1074091 		add	x1, sp, 4096
+ 148 0148 20EC0039 		strb	w0, [x1, 59]
+  48:src/./test-lidar.c ****         failure(status, "Failed to get ranging data");
+ 149              		.loc 1 48 9
+ 150 014c E0074091 		add	x0, sp, 4096
+ 151 0150 02EC4039 		ldrb	w2, [x0, 59]
+ 152 0154 00000090 		adrp	x0, .LC5
+ 153 0158 01000091 		add	x1, x0, :lo12:.LC5
+ 154 015c E003022A 		mov	w0, w2
+ 155 0160 00000094 		bl	failure
+  49:src/./test-lidar.c ****         usleep(1000000);
+ 156              		.loc 1 49 9
+ 157 0164 00488852 		mov	w0, 16960
+ 158 0168 E001A072 		movk	w0, 0xf, lsl 16
+ 159 016c 00000094 		bl	usleep
+ 160              	.LBB2:
+  50:src/./test-lidar.c ****         
+  51:src/./test-lidar.c ****         for(int i = 0; i < 8; i++)    {
+ 161              		.loc 1 51 17
+ 162 0170 FF4310B9 		str	wzr, [sp, 4160]
+ 163              		.loc 1 51 9
+ 164 0174 33000014 		b	.L3
+ 165              	.L6:
+ 166              	.LBB3:
+  52:src/./test-lidar.c ****             for(int j = 0; j < 8; j++){
+ 167              		.loc 1 52 21
+ 168 0178 FF3F10B9 		str	wzr, [sp, 4156]
+ 169              		.loc 1 52 13
+ 170 017c 29000014 		b	.L4
+ 171              	.L5:
+  53:src/./test-lidar.c ****                 y = i*8 + j;
+ 172              		.loc 1 53 22
+ 173 0180 E04350B9 		ldr	w0, [sp, 4160]
+ 174 0184 00701D53 		lsl	w0, w0, 3
+ 175              		.loc 1 53 19
+ 176 0188 E13F50B9 		ldr	w1, [sp, 4156]
+ 177 018c 2000000B 		add	w0, w1, w0
+ 178 0190 E03710B9 		str	w0, [sp, 4148]
+  54:src/./test-lidar.c ****                 printf("%d:%d mm, %d p\t|",
+  55:src/./test-lidar.c ****                 y,
+  56:src/./test-lidar.c ****                 results.distance_mm[y],
+ 179              		.loc 1 56 36
+ 180 0194 E03790B9 		ldrsw	x0, [sp, 4148]
+ 181 0198 00800791 		add	x0, x0, 480
+ 182 019c 00F87FD3 		lsl	x0, x0, 1
+ 183 01a0 E1932B91 		add	x1, sp, 2788
+ 184 01a4 2068E078 		ldrsh	w0, [x1, x0]
+  54:src/./test-lidar.c ****                 printf("%d:%d mm, %d p\t|",
+ 185              		.loc 1 54 17
+ 186 01a8 E203002A 		mov	w2, w0
+  57:src/./test-lidar.c ****                 results.reflectance[y]);
+ 187              		.loc 1 57 36
+ 188 01ac E03790B9 		ldrsw	x0, [sp, 4148]
+ 189 01b0 E1933C91 		add	x1, sp, 3876
+ 190 01b4 20686038 		ldrb	w0, [x1, x0]
+  54:src/./test-lidar.c ****                 printf("%d:%d mm, %d p\t|",
+ 191              		.loc 1 54 17
+ 192 01b8 E303002A 		mov	w3, w0
+ 193 01bc E13750B9 		ldr	w1, [sp, 4148]
+ 194 01c0 00000090 		adrp	x0, .LC6
+ 195 01c4 00000091 		add	x0, x0, :lo12:.LC6
+ 196 01c8 00000094 		bl	printf
+  58:src/./test-lidar.c ****                 nearest_distance = MIN(nearest_distance, results.distance_mm[y]);
+ 197              		.loc 1 58 36
+ 198 01cc E03790B9 		ldrsw	x0, [sp, 4148]
+ 199 01d0 00800791 		add	x0, x0, 480
+ 200 01d4 00F87FD3 		lsl	x0, x0, 1
+ 201 01d8 E1932B91 		add	x1, sp, 2788
+ 202 01dc 2068E078 		ldrsh	w0, [x1, x0]
+ 203              		.loc 1 58 34
+ 204 01e0 E24F50B9 		ldr	w2, [sp, 4172]
+ 205 01e4 E14F50B9 		ldr	w1, [sp, 4172]
+ 206 01e8 5F00006B 		cmp	w2, w0
+ 207 01ec 20D0801A 		csel	w0, w1, w0, le
+ 208 01f0 E04F10B9 		str	w0, [sp, 4172]
+  59:src/./test-lidar.c ****                 most_reflectance = MAX(most_reflectance, results.reflectance[y]);
+ 209              		.loc 1 59 36
+ 210 01f4 E03790B9 		ldrsw	x0, [sp, 4148]
+ 211 01f8 E1933C91 		add	x1, sp, 3876
+ 212 01fc 20686038 		ldrb	w0, [x1, x0]
+ 213              		.loc 1 59 34
+ 214 0200 E24B50B9 		ldr	w2, [sp, 4168]
+ 215 0204 E14B50B9 		ldr	w1, [sp, 4168]
+ 216 0208 5F00006B 		cmp	w2, w0
+ 217 020c 20A0801A 		csel	w0, w1, w0, ge
+ 218 0210 E04B10B9 		str	w0, [sp, 4168]
+  52:src/./test-lidar.c ****                 y = i*8 + j;
+ 219              		.loc 1 52 36 discriminator 3
+ 220 0214 E03F50B9 		ldr	w0, [sp, 4156]
+ 221 0218 00040011 		add	w0, w0, 1
+ 222 021c E03F10B9 		str	w0, [sp, 4156]
+ 223              	.L4:
+  52:src/./test-lidar.c ****                 y = i*8 + j;
+ 224              		.loc 1 52 30 discriminator 1
+ 225 0220 E03F50B9 		ldr	w0, [sp, 4156]
+ 226 0224 1F1C0071 		cmp	w0, 7
+ 227 0228 CDFAFF54 		ble	.L5
+ 228              	.LBE3:
+  60:src/./test-lidar.c ****             }
+  61:src/./test-lidar.c ****             printf("\n");
+ 229              		.loc 1 61 13
+ 230 022c 40018052 		mov	w0, 10
+ 231 0230 00000094 		bl	putchar
+  51:src/./test-lidar.c ****             for(int j = 0; j < 8; j++){
+ 232              		.loc 1 51 32 discriminator 2
+ 233 0234 E04350B9 		ldr	w0, [sp, 4160]
+ 234 0238 00040011 		add	w0, w0, 1
+ 235 023c E04310B9 		str	w0, [sp, 4160]
+ 236              	.L3:
+  51:src/./test-lidar.c ****             for(int j = 0; j < 8; j++){
+ 237              		.loc 1 51 26 discriminator 1
+ 238 0240 E04350B9 		ldr	w0, [sp, 4160]
+ 239 0244 1F1C0071 		cmp	w0, 7
+ 240 0248 8DF9FF54 		ble	.L6
+ 241              	.LBE2:
+  62:src/./test-lidar.c ****         }
+  63:src/./test-lidar.c ****         printf("\n");
+ 242              		.loc 1 63 9
+ 243 024c 40018052 		mov	w0, 10
+ 244 0250 00000094 		bl	putchar
+  64:src/./test-lidar.c ****         y = 0;
+ 245              		.loc 1 64 11
+ 246 0254 FF3710B9 		str	wzr, [sp, 4148]
+  65:src/./test-lidar.c ****         increment++;
+ 247              		.loc 1 65 18
+ 248 0258 E04750B9 		ldr	w0, [sp, 4164]
+ 249 025c 00040011 		add	w0, w0, 1
+ 250 0260 E04710B9 		str	w0, [sp, 4164]
+  66:src/./test-lidar.c ****     }  while(((nearest_distance < 50) && (nearest_distance > 0)) || (increment < 30));
+ 251              		.loc 1 66 66
+ 252 0264 E04F50B9 		ldr	w0, [sp, 4172]
+ 253 0268 1FC40071 		cmp	w0, 49
+ 254 026c 8C000054 		bgt	.L7
+ 255              		.loc 1 66 39 discriminator 1
+ 256 0270 E04F50B9 		ldr	w0, [sp, 4172]
+ 257 0274 1F000071 		cmp	w0, 0
+ 258 0278 0CF6FF54 		bgt	.L2
+ 259              	.L7:
+ 260              		.loc 1 66 66 discriminator 3
+ 261 027c E04750B9 		ldr	w0, [sp, 4164]
+ 262 0280 1F740071 		cmp	w0, 29
+ 263 0284 ADF5FF54 		ble	.L2
+  67:src/./test-lidar.c ****     printf("Nearest distance: %d mm\n", nearest_distance);
+ 264              		.loc 1 67 5
+ 265 0288 E14F50B9 		ldr	w1, [sp, 4172]
+ 266 028c 00000090 		adrp	x0, .LC7
+ 267 0290 00000091 		add	x0, x0, :lo12:.LC7
+ 268 0294 00000094 		bl	printf
+  68:src/./test-lidar.c ****     printf("Most reflectance: %d p\n", most_reflectance);
+ 269              		.loc 1 68 5
+ 270 0298 E14B50B9 		ldr	w1, [sp, 4168]
+ 271 029c 00000090 		adrp	x0, .LC8
+ 272 02a0 00000091 		add	x0, x0, :lo12:.LC8
+ 273 02a4 00000094 		bl	printf
+  69:src/./test-lidar.c ****     return 0;
+ 274              		.loc 1 69 12
+ 275 02a8 00008052 		mov	w0, 0
+  70:src/./test-lidar.c **** 
+  71:src/./test-lidar.c **** }
+ 276              		.loc 1 71 1
+ 277 02ac FD7B40A9 		ldp	x29, x30, [sp]
+ 278 02b0 0C0A82D2 		mov	x12, 4176
+ 279 02b4 FF632C8B 		add	sp, sp, x12
+ 280              	.LCFI1:
+ 281              		.cfi_restore 29
+ 282              		.cfi_restore 30
+ 283              		.cfi_def_cfa_offset 0
+ 284 02b8 C0035FD6 		ret
+ 285              		.cfi_endproc
+ 286              	.LFE0:
+ 288              		.section	.text.powerON,"ax",@progbits
  289              		.align	2
- 290              		.global	failure
- 292              	failure:
- 293              	.LFB2:
-  77:src/./test-lidar.c **** 
-  78:src/./test-lidar.c **** int failure(int status, const char* message) {
- 294              		.loc 1 78 46
+ 290              		.global	powerON
+ 292              	powerON:
+ 293              	.LFB1:
+  72:src/./test-lidar.c **** 
+  73:src/./test-lidar.c **** void powerON(void){
+ 294              		.loc 1 73 19
  295              		.cfi_startproc
- 296 0000 FD7BBEA9 		stp	x29, x30, [sp, -32]!
- 297              	.LCFI4:
- 298              		.cfi_def_cfa_offset 32
- 299              		.cfi_offset 29, -32
- 300              		.cfi_offset 30, -24
+ 296 0000 FD7BBFA9 		stp	x29, x30, [sp, -16]!
+ 297              	.LCFI2:
+ 298              		.cfi_def_cfa_offset 16
+ 299              		.cfi_offset 29, -16
+ 300              		.cfi_offset 30, -8
  301 0004 FD030091 		mov	x29, sp
- 302 0008 E01F00B9 		str	w0, [sp, 28]
- 303 000c E10B00F9 		str	x1, [sp, 16]
-  79:src/./test-lidar.c ****     if (status != VL53L8CX_STATUS_OK) {
- 304              		.loc 1 79 8
- 305 0010 E01F40B9 		ldr	w0, [sp, 28]
- 306 0014 1F000071 		cmp	w0, 0
- 307 0018 60010054 		beq	.L10
-  80:src/./test-lidar.c ****         fprintf(stderr, "%s\n", message);
- 308              		.loc 1 80 9
- 309 001c 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
- 309      000040F9 
- 310 0024 030040F9 		ldr	x3, [x0]
- 311 0028 E20B40F9 		ldr	x2, [sp, 16]
- 312 002c 00000090 		adrp	x0, .LC7
- 313 0030 01000091 		add	x1, x0, :lo12:.LC7
- 314 0034 E00303AA 		mov	x0, x3
- 315 0038 00000094 		bl	fprintf
-  81:src/./test-lidar.c ****         return -1;
- 316              		.loc 1 81 16
- 317 003c 00008012 		mov	w0, -1
- 318 0040 02000014 		b	.L11
- 319              	.L10:
-  82:src/./test-lidar.c ****     }
-  83:src/./test-lidar.c ****     return 0;
- 320              		.loc 1 83 12
- 321 0044 00008052 		mov	w0, 0
- 322              	.L11:
+  74:src/./test-lidar.c ****     wiringPiSetupPhys();
+ 302              		.loc 1 74 5
+ 303 0008 00000094 		bl	wiringPiSetupPhys
+  75:src/./test-lidar.c ****     pinMode(LPN, OUTPUT);
+ 304              		.loc 1 75 5
+ 305 000c 21008052 		mov	w1, 1
+ 306 0010 A0018052 		mov	w0, 13
+ 307 0014 00000094 		bl	pinMode
+  76:src/./test-lidar.c ****     digitalWrite(LPN, LOW);
+ 308              		.loc 1 76 5
+ 309 0018 01008052 		mov	w1, 0
+ 310 001c A0018052 		mov	w0, 13
+ 311 0020 00000094 		bl	digitalWrite
+  77:src/./test-lidar.c ****     pinMode(PWREN, OUTPUT);
+ 312              		.loc 1 77 5
+ 313 0024 21008052 		mov	w1, 1
+ 314 0028 E0018052 		mov	w0, 15
+ 315 002c 00000094 		bl	pinMode
+  78:src/./test-lidar.c ****     digitalWrite(PWREN, LOW);
+ 316              		.loc 1 78 5
+ 317 0030 01008052 		mov	w1, 0
+ 318 0034 E0018052 		mov	w0, 15
+ 319 0038 00000094 		bl	digitalWrite
+  79:src/./test-lidar.c ****     usleep(100 * 1000); // usleep takes microseconds
+ 320              		.loc 1 79 5
+ 321 003c 00D49052 		mov	w0, 34464
+ 322 0040 2000A072 		movk	w0, 0x1, lsl 16
+ 323 0044 00000094 		bl	usleep
+  80:src/./test-lidar.c ****     digitalWrite(PWREN, HIGH);
+ 324              		.loc 1 80 5
+ 325 0048 21008052 		mov	w1, 1
+ 326 004c E0018052 		mov	w0, 15
+ 327 0050 00000094 		bl	digitalWrite
+  81:src/./test-lidar.c ****     usleep(50 * 1000); // usleep takes microseconds
+ 328              		.loc 1 81 5
+ 329 0054 006A9852 		mov	w0, 50000
+ 330 0058 00000094 		bl	usleep
+  82:src/./test-lidar.c ****     digitalWrite(LPN, HIGH);
+ 331              		.loc 1 82 5
+ 332 005c 21008052 		mov	w1, 1
+ 333 0060 A0018052 		mov	w0, 13
+ 334 0064 00000094 		bl	digitalWrite
+  83:src/./test-lidar.c ****     usleep(250 * 1000); // usleep takes microseconds
+ 335              		.loc 1 83 5
+ 336 0068 00129A52 		mov	w0, 53392
+ 337 006c 6000A072 		movk	w0, 0x3, lsl 16
+ 338 0070 00000094 		bl	usleep
   84:src/./test-lidar.c **** }
- 323              		.loc 1 84 1
- 324 0048 FD7BC2A8 		ldp	x29, x30, [sp], 32
- 325              	.LCFI5:
- 326              		.cfi_restore 30
- 327              		.cfi_restore 29
- 328              		.cfi_def_cfa_offset 0
- 329 004c C0035FD6 		ret
- 330              		.cfi_endproc
- 331              	.LFE2:
- 333              		.text
- 334              	.Letext0:
- 335              		.file 2 "/usr/include/aarch64-linux-gnu/bits/types.h"
- 336              		.file 3 "/usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h"
- 337              		.file 4 "/usr/include/aarch64-linux-gnu/bits/types/FILE.h"
- 338              		.file 5 "/usr/include/aarch64-linux-gnu/bits/stdint-intn.h"
- 339              		.file 6 "/usr/include/aarch64-linux-gnu/bits/stdint-uintn.h"
- 340              		.file 7 "src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
- 341              		.file 8 "src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h"
- 342              		.file 9 "/usr/local/include/wiringPi.h"
- 343              		.file 10 "/usr/include/stdio.h"
- 344              		.file 11 "/usr/include/unistd.h"
+ 339              		.loc 1 84 1
+ 340 0074 1F2003D5 		nop
+ 341 0078 FD7BC1A8 		ldp	x29, x30, [sp], 16
+ 342              	.LCFI3:
+ 343              		.cfi_restore 30
+ 344              		.cfi_restore 29
+ 345              		.cfi_def_cfa_offset 0
+ 346 007c C0035FD6 		ret
+ 347              		.cfi_endproc
+ 348              	.LFE1:
+ 350              		.section	.rodata
+ 351              		.align	3
+ 352              	.LC9:
+ 353 0110 25730A00 		.string	"%s\n"
+ 354              		.section	.text.failure,"ax",@progbits
+ 355              		.align	2
+ 356              		.global	failure
+ 358              	failure:
+ 359              	.LFB2:
+  85:src/./test-lidar.c **** 
+  86:src/./test-lidar.c **** int failure(int status, const char* message) {
+ 360              		.loc 1 86 46
+ 361              		.cfi_startproc
+ 362 0000 FD7BBEA9 		stp	x29, x30, [sp, -32]!
+ 363              	.LCFI4:
+ 364              		.cfi_def_cfa_offset 32
+ 365              		.cfi_offset 29, -32
+ 366              		.cfi_offset 30, -24
+ 367 0004 FD030091 		mov	x29, sp
+ 368 0008 E01F00B9 		str	w0, [sp, 28]
+ 369 000c E10B00F9 		str	x1, [sp, 16]
+  87:src/./test-lidar.c ****     if (status != VL53L8CX_STATUS_OK) {
+ 370              		.loc 1 87 8
+ 371 0010 E01F40B9 		ldr	w0, [sp, 28]
+ 372 0014 1F000071 		cmp	w0, 0
+ 373 0018 60010054 		beq	.L12
+  88:src/./test-lidar.c ****         fprintf(stderr, "%s\n", message);
+ 374              		.loc 1 88 9
+ 375 001c 00000090 		adrp	x0, :got:stderr;ldr	x0, [x0, :got_lo12:stderr]
+ 375      000040F9 
+ 376 0024 030040F9 		ldr	x3, [x0]
+ 377 0028 E20B40F9 		ldr	x2, [sp, 16]
+ 378 002c 00000090 		adrp	x0, .LC9
+ 379 0030 01000091 		add	x1, x0, :lo12:.LC9
+ 380 0034 E00303AA 		mov	x0, x3
+ 381 0038 00000094 		bl	fprintf
+  89:src/./test-lidar.c ****         return -1;
+ 382              		.loc 1 89 16
+ 383 003c 00008012 		mov	w0, -1
+ 384 0040 02000014 		b	.L13
+ 385              	.L12:
+  90:src/./test-lidar.c ****     }
+  91:src/./test-lidar.c ****     return 0;
+ 386              		.loc 1 91 12
+ 387 0044 00008052 		mov	w0, 0
+ 388              	.L13:
+  92:src/./test-lidar.c **** }
+ 389              		.loc 1 92 1
+ 390 0048 FD7BC2A8 		ldp	x29, x30, [sp], 32
+ 391              	.LCFI5:
+ 392              		.cfi_restore 30
+ 393              		.cfi_restore 29
+ 394              		.cfi_def_cfa_offset 0
+ 395 004c C0035FD6 		ret
+ 396              		.cfi_endproc
+ 397              	.LFE2:
+ 399              		.text
+ 400              	.Letext0:
+ 401              		.file 2 "/usr/include/aarch64-linux-gnu/bits/types.h"
+ 402              		.file 3 "/usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h"
+ 403              		.file 4 "/usr/include/aarch64-linux-gnu/bits/types/FILE.h"
+ 404              		.file 5 "/usr/include/aarch64-linux-gnu/bits/stdint-intn.h"
+ 405              		.file 6 "/usr/include/aarch64-linux-gnu/bits/stdint-uintn.h"
+ 406              		.file 7 "src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
+ 407              		.file 8 "src/./Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h"
+ 408              		.file 9 "/usr/local/include/wiringPi.h"
+ 409              		.file 10 "/usr/include/stdio.h"
+ 410              		.file 11 "/usr/include/unistd.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 test-lidar.c
-     /tmp/ccrKWkOO.s:7      .rodata:0000000000000000 $d
-     /tmp/ccrKWkOO.s:29     .text.main:0000000000000000 $x
-     /tmp/ccrKWkOO.s:32     .text.main:0000000000000000 main
-     /tmp/ccrKWkOO.s:226    .text.powerON:0000000000000000 powerON
-     /tmp/ccrKWkOO.s:292    .text.failure:0000000000000000 failure
-     /tmp/ccrKWkOO.s:223    .text.powerON:0000000000000000 $x
-     /tmp/ccrKWkOO.s:289    .text.failure:0000000000000000 $x
+     /tmp/ccNRhmhg.s:7      .rodata:0000000000000000 $d
+     /tmp/ccNRhmhg.s:35     .text.main:0000000000000000 $x
+     /tmp/ccNRhmhg.s:38     .text.main:0000000000000000 main
+     /tmp/ccNRhmhg.s:292    .text.powerON:0000000000000000 powerON
+     /tmp/ccNRhmhg.s:358    .text.failure:0000000000000000 failure
+     /tmp/ccNRhmhg.s:289    .text.powerON:0000000000000000 $x
+     /tmp/ccNRhmhg.s:355    .text.failure:0000000000000000 $x
                         .eh_frame:0000000000000014 $d
 
 UNDEFINED SYMBOLS
@@ -475,8 +558,8 @@ vl53l8cx_set_resolution
 vl53l8cx_set_ranging_frequency_hz
 vl53l8cx_set_integration_time_ms
 vl53l8cx_start_ranging
-usleep
 vl53l8cx_get_ranging_data
+usleep
 printf
 putchar
 wiringPiSetupPhys

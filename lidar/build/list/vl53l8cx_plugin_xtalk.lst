@@ -2288,25 +2288,25 @@
  1875              		.file 8 "/usr/include/string.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 vl53l8cx_plugin_xtalk.c
-     /tmp/cc353fSe.s:7      .rodata.VL53L8CX_GET_XTALK_CMD:0000000000000000 $d
-     /tmp/cc353fSe.s:10     .rodata.VL53L8CX_GET_XTALK_CMD:0000000000000000 VL53L8CX_GET_XTALK_CMD
-     /tmp/cc353fSe.s:31     .rodata.VL53L8CX_CALIBRATE_XTALK:0000000000000000 $d
-     /tmp/cc353fSe.s:34     .rodata.VL53L8CX_CALIBRATE_XTALK:0000000000000000 VL53L8CX_CALIBRATE_XTALK
-     /tmp/cc353fSe.s:604    .text._vl53l8cx_poll_for_answer:0000000000000000 $x
-     /tmp/cc353fSe.s:606    .text._vl53l8cx_poll_for_answer:0000000000000000 _vl53l8cx_poll_for_answer
-     /tmp/cc353fSe.s:695    .text._vl53l8cx_program_output_config:0000000000000000 $x
-     /tmp/cc353fSe.s:697    .text._vl53l8cx_program_output_config:0000000000000000 _vl53l8cx_program_output_config
-     /tmp/cc353fSe.s:956    .rodata:0000000000000000 $d
-     /tmp/cc353fSe.s:977    .text.vl53l8cx_calibrate_xtalk:0000000000000000 $x
-     /tmp/cc353fSe.s:980    .text.vl53l8cx_calibrate_xtalk:0000000000000000 vl53l8cx_calibrate_xtalk
-     /tmp/cc353fSe.s:1743   .text.vl53l8cx_get_xtalk_margin:0000000000000000 vl53l8cx_get_xtalk_margin
-     /tmp/cc353fSe.s:1802   .text.vl53l8cx_set_xtalk_margin:0000000000000000 vl53l8cx_set_xtalk_margin
-     /tmp/cc353fSe.s:1544   .text.vl53l8cx_get_caldata_xtalk:0000000000000000 $x
-     /tmp/cc353fSe.s:1547   .text.vl53l8cx_get_caldata_xtalk:0000000000000000 vl53l8cx_get_caldata_xtalk
-     /tmp/cc353fSe.s:1683   .text.vl53l8cx_set_caldata_xtalk:0000000000000000 $x
-     /tmp/cc353fSe.s:1686   .text.vl53l8cx_set_caldata_xtalk:0000000000000000 vl53l8cx_set_caldata_xtalk
-     /tmp/cc353fSe.s:1740   .text.vl53l8cx_get_xtalk_margin:0000000000000000 $x
-     /tmp/cc353fSe.s:1799   .text.vl53l8cx_set_xtalk_margin:0000000000000000 $x
+     /tmp/ccSJQCrc.s:7      .rodata.VL53L8CX_GET_XTALK_CMD:0000000000000000 $d
+     /tmp/ccSJQCrc.s:10     .rodata.VL53L8CX_GET_XTALK_CMD:0000000000000000 VL53L8CX_GET_XTALK_CMD
+     /tmp/ccSJQCrc.s:31     .rodata.VL53L8CX_CALIBRATE_XTALK:0000000000000000 $d
+     /tmp/ccSJQCrc.s:34     .rodata.VL53L8CX_CALIBRATE_XTALK:0000000000000000 VL53L8CX_CALIBRATE_XTALK
+     /tmp/ccSJQCrc.s:604    .text._vl53l8cx_poll_for_answer:0000000000000000 $x
+     /tmp/ccSJQCrc.s:606    .text._vl53l8cx_poll_for_answer:0000000000000000 _vl53l8cx_poll_for_answer
+     /tmp/ccSJQCrc.s:695    .text._vl53l8cx_program_output_config:0000000000000000 $x
+     /tmp/ccSJQCrc.s:697    .text._vl53l8cx_program_output_config:0000000000000000 _vl53l8cx_program_output_config
+     /tmp/ccSJQCrc.s:956    .rodata:0000000000000000 $d
+     /tmp/ccSJQCrc.s:977    .text.vl53l8cx_calibrate_xtalk:0000000000000000 $x
+     /tmp/ccSJQCrc.s:980    .text.vl53l8cx_calibrate_xtalk:0000000000000000 vl53l8cx_calibrate_xtalk
+     /tmp/ccSJQCrc.s:1743   .text.vl53l8cx_get_xtalk_margin:0000000000000000 vl53l8cx_get_xtalk_margin
+     /tmp/ccSJQCrc.s:1802   .text.vl53l8cx_set_xtalk_margin:0000000000000000 vl53l8cx_set_xtalk_margin
+     /tmp/ccSJQCrc.s:1544   .text.vl53l8cx_get_caldata_xtalk:0000000000000000 $x
+     /tmp/ccSJQCrc.s:1547   .text.vl53l8cx_get_caldata_xtalk:0000000000000000 vl53l8cx_get_caldata_xtalk
+     /tmp/ccSJQCrc.s:1683   .text.vl53l8cx_set_caldata_xtalk:0000000000000000 $x
+     /tmp/ccSJQCrc.s:1686   .text.vl53l8cx_set_caldata_xtalk:0000000000000000 vl53l8cx_set_caldata_xtalk
+     /tmp/ccSJQCrc.s:1740   .text.vl53l8cx_get_xtalk_margin:0000000000000000 $x
+     /tmp/ccSJQCrc.s:1799   .text.vl53l8cx_set_xtalk_margin:0000000000000000 $x
                         .eh_frame:0000000000000014 $d
 
 UNDEFINED SYMBOLS

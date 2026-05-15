@@ -750,21 +750,21 @@
  623              		.file 12 "/usr/include/errno.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 vl53l8cx_platform.c
-     /tmp/ccLIuNXb.s:7      .rodata:0000000000000000 $d
-     /tmp/ccLIuNXb.s:11     .text.VL53L8CX_InitSPI:0000000000000000 $x
-     /tmp/ccLIuNXb.s:14     .text.VL53L8CX_InitSPI:0000000000000000 VL53L8CX_InitSPI
-     /tmp/ccLIuNXb.s:104    .text.VL53L8CX_WrByte:0000000000000000 $x
-     /tmp/ccLIuNXb.s:107    .text.VL53L8CX_WrByte:0000000000000000 VL53L8CX_WrByte
-     /tmp/ccLIuNXb.s:181    .text.VL53L8CX_WrMulti:0000000000000000 VL53L8CX_WrMulti
-     /tmp/ccLIuNXb.s:138    .text.VL53L8CX_RdByte:0000000000000000 $x
-     /tmp/ccLIuNXb.s:141    .text.VL53L8CX_RdByte:0000000000000000 VL53L8CX_RdByte
-     /tmp/ccLIuNXb.s:330    .text.VL53L8CX_RdMulti:0000000000000000 VL53L8CX_RdMulti
-     /tmp/ccLIuNXb.s:178    .text.VL53L8CX_WrMulti:0000000000000000 $x
-     /tmp/ccLIuNXb.s:327    .text.VL53L8CX_RdMulti:0000000000000000 $x
-     /tmp/ccLIuNXb.s:478    .text.VL53L8CX_SwapBuffer:0000000000000000 $x
-     /tmp/ccLIuNXb.s:481    .text.VL53L8CX_SwapBuffer:0000000000000000 VL53L8CX_SwapBuffer
-     /tmp/ccLIuNXb.s:578    .text.VL53L8CX_WaitMs:0000000000000000 $x
-     /tmp/ccLIuNXb.s:581    .text.VL53L8CX_WaitMs:0000000000000000 VL53L8CX_WaitMs
+     /tmp/cc6dR5En.s:7      .rodata:0000000000000000 $d
+     /tmp/cc6dR5En.s:11     .text.VL53L8CX_InitSPI:0000000000000000 $x
+     /tmp/cc6dR5En.s:14     .text.VL53L8CX_InitSPI:0000000000000000 VL53L8CX_InitSPI
+     /tmp/cc6dR5En.s:104    .text.VL53L8CX_WrByte:0000000000000000 $x
+     /tmp/cc6dR5En.s:107    .text.VL53L8CX_WrByte:0000000000000000 VL53L8CX_WrByte
+     /tmp/cc6dR5En.s:181    .text.VL53L8CX_WrMulti:0000000000000000 VL53L8CX_WrMulti
+     /tmp/cc6dR5En.s:138    .text.VL53L8CX_RdByte:0000000000000000 $x
+     /tmp/cc6dR5En.s:141    .text.VL53L8CX_RdByte:0000000000000000 VL53L8CX_RdByte
+     /tmp/cc6dR5En.s:330    .text.VL53L8CX_RdMulti:0000000000000000 VL53L8CX_RdMulti
+     /tmp/cc6dR5En.s:178    .text.VL53L8CX_WrMulti:0000000000000000 $x
+     /tmp/cc6dR5En.s:327    .text.VL53L8CX_RdMulti:0000000000000000 $x
+     /tmp/cc6dR5En.s:478    .text.VL53L8CX_SwapBuffer:0000000000000000 $x
+     /tmp/cc6dR5En.s:481    .text.VL53L8CX_SwapBuffer:0000000000000000 VL53L8CX_SwapBuffer
+     /tmp/cc6dR5En.s:578    .text.VL53L8CX_WaitMs:0000000000000000 $x
+     /tmp/cc6dR5En.s:581    .text.VL53L8CX_WaitMs:0000000000000000 VL53L8CX_WaitMs
                         .eh_frame:0000000000000014 $d
 
 UNDEFINED SYMBOLS

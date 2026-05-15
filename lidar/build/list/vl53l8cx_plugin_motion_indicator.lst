@@ -517,12 +517,12 @@
  391              		.file 9 "/usr/include/string.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 vl53l8cx_plugin_motion_indicator.c
-     /tmp/cczgsrl4.s:7      .text.vl53l8cx_motion_indicator_init:0000000000000000 $x
-     /tmp/cczgsrl4.s:10     .text.vl53l8cx_motion_indicator_init:0000000000000000 vl53l8cx_motion_indicator_init
-     /tmp/cczgsrl4.s:236    .text.vl53l8cx_motion_indicator_set_resolution:0000000000000000 vl53l8cx_motion_indicator_set_resolution
-     /tmp/cczgsrl4.s:111    .text.vl53l8cx_motion_indicator_set_distance_motion:0000000000000000 $x
-     /tmp/cczgsrl4.s:114    .text.vl53l8cx_motion_indicator_set_distance_motion:0000000000000000 vl53l8cx_motion_indicator_set_distance_motion
-     /tmp/cczgsrl4.s:233    .text.vl53l8cx_motion_indicator_set_resolution:0000000000000000 $x
+     /tmp/cc5JBEEc.s:7      .text.vl53l8cx_motion_indicator_init:0000000000000000 $x
+     /tmp/cc5JBEEc.s:10     .text.vl53l8cx_motion_indicator_init:0000000000000000 vl53l8cx_motion_indicator_init
+     /tmp/cc5JBEEc.s:236    .text.vl53l8cx_motion_indicator_set_resolution:0000000000000000 vl53l8cx_motion_indicator_set_resolution
+     /tmp/cc5JBEEc.s:111    .text.vl53l8cx_motion_indicator_set_distance_motion:0000000000000000 $x
+     /tmp/cc5JBEEc.s:114    .text.vl53l8cx_motion_indicator_set_distance_motion:0000000000000000 vl53l8cx_motion_indicator_set_distance_motion
+     /tmp/cc5JBEEc.s:233    .text.vl53l8cx_motion_indicator_set_resolution:0000000000000000 $x
                         .eh_frame:0000000000000014 $d
 
 UNDEFINED SYMBOLS

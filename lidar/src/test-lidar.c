@@ -63,7 +63,7 @@ int main()
         printf("\n");
         y = 0;
         increment++;
-    }  while(nearest_distance < 50 && nearest_distance > 0 || increment < 30);
+    }  while(((nearest_distance < 50) && (nearest_distance > 0)) || (increment < 30));
     printf("Nearest distance: %d mm\n", nearest_distance);
     printf("Most reflectance: %d p\n", most_reflectance);
     return 0;
