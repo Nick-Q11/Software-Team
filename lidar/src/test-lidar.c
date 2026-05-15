@@ -33,6 +33,8 @@ int main()
     status = vl53l8cx_start_ranging(&dev);
     failure(status, "Failed to start ranging");
 
+    usleep(100000); // usleep takes microseconds
+
     int y = 0;
     int increment = 0;
     do
