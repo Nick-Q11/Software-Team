@@ -1380,18 +1380,18 @@
  1093              		.file 7 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_plugin_detection_thresholds.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 vl53l8cx_plugin_detection_thresholds.c
-     /tmp/cc13ekM9.s:7      .text.vl53l8cx_get_detection_thresholds_enable:0000000000000000 $x
-     /tmp/cc13ekM9.s:10     .text.vl53l8cx_get_detection_thresholds_enable:0000000000000000 vl53l8cx_get_detection_thresholds_enable
-     /tmp/cc13ekM9.s:57     .text.vl53l8cx_set_detection_thresholds_enable:0000000000000000 $x
-     /tmp/cc13ekM9.s:60     .text.vl53l8cx_set_detection_thresholds_enable:0000000000000000 vl53l8cx_set_detection_thresholds_enable
-     /tmp/cc13ekM9.s:144    .text.vl53l8cx_get_detection_thresholds:0000000000000000 $x
-     /tmp/cc13ekM9.s:147    .text.vl53l8cx_get_detection_thresholds:0000000000000000 vl53l8cx_get_detection_thresholds
-     /tmp/cc13ekM9.s:585    .text.vl53l8cx_set_detection_thresholds:0000000000000000 $x
-     /tmp/cc13ekM9.s:588    .text.vl53l8cx_set_detection_thresholds:0000000000000000 vl53l8cx_set_detection_thresholds
-     /tmp/cc13ekM9.s:985    .text.vl53l8cx_get_detection_thresholds_auto_stop:0000000000000000 $x
-     /tmp/cc13ekM9.s:988    .text.vl53l8cx_get_detection_thresholds_auto_stop:0000000000000000 vl53l8cx_get_detection_thresholds_auto_stop
-     /tmp/cc13ekM9.s:1035   .text.vl53l8cx_set_detection_thresholds_auto_stop:0000000000000000 $x
-     /tmp/cc13ekM9.s:1038   .text.vl53l8cx_set_detection_thresholds_auto_stop:0000000000000000 vl53l8cx_set_detection_thresholds_auto_stop
+     /tmp/ccOEKGH4.s:7      .text.vl53l8cx_get_detection_thresholds_enable:0000000000000000 $x
+     /tmp/ccOEKGH4.s:10     .text.vl53l8cx_get_detection_thresholds_enable:0000000000000000 vl53l8cx_get_detection_thresholds_enable
+     /tmp/ccOEKGH4.s:57     .text.vl53l8cx_set_detection_thresholds_enable:0000000000000000 $x
+     /tmp/ccOEKGH4.s:60     .text.vl53l8cx_set_detection_thresholds_enable:0000000000000000 vl53l8cx_set_detection_thresholds_enable
+     /tmp/ccOEKGH4.s:144    .text.vl53l8cx_get_detection_thresholds:0000000000000000 $x
+     /tmp/ccOEKGH4.s:147    .text.vl53l8cx_get_detection_thresholds:0000000000000000 vl53l8cx_get_detection_thresholds
+     /tmp/ccOEKGH4.s:585    .text.vl53l8cx_set_detection_thresholds:0000000000000000 $x
+     /tmp/ccOEKGH4.s:588    .text.vl53l8cx_set_detection_thresholds:0000000000000000 vl53l8cx_set_detection_thresholds
+     /tmp/ccOEKGH4.s:985    .text.vl53l8cx_get_detection_thresholds_auto_stop:0000000000000000 $x
+     /tmp/ccOEKGH4.s:988    .text.vl53l8cx_get_detection_thresholds_auto_stop:0000000000000000 vl53l8cx_get_detection_thresholds_auto_stop
+     /tmp/ccOEKGH4.s:1035   .text.vl53l8cx_set_detection_thresholds_auto_stop:0000000000000000 $x
+     /tmp/ccOEKGH4.s:1038   .text.vl53l8cx_set_detection_thresholds_auto_stop:0000000000000000 vl53l8cx_set_detection_thresholds_auto_stop
                         .eh_frame:0000000000000014 $d
 
 UNDEFINED SYMBOLS
