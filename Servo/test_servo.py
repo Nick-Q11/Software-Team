@@ -28,7 +28,7 @@ def main():
         pi.set_servo_pulsewidth(YAW_PIN, 0)
         pi.set_servo_pulsewidth(PITCH_PIN, 0)
 
-        pi.stop()  # Servos going back to 0 degree
+        pi.stop()  # Servos offline
 
 
 if __name__ == "__main__":
