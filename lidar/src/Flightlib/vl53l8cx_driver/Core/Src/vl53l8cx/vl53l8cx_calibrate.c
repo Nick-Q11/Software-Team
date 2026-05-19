@@ -30,23 +30,37 @@ int calibrate(VL53L8CX_calibrate *calib)
 
     do{
         sleep_ms(100);
+        status = vl53l8cx_check_data_ready(&calib->conf, calib->data_is_ready);
         i--;
-    }while((vl53l8cx_check_data_ready(&calib->conf, calib->data_is_ready) == 0 || i < 1));
+    }while(status == 0 || i < 1);
     if(i < 1){
-        failure(-1, "Data not ready after waiting");
+        failure(status, "Data not ready after waiting");
     }
 
     calib->calibrated = 1;
     return 0;
 }
 
-int printInfo(VL53L8CX_calibrate *calib)
+int printInfoSingle(VL53L8CX_calibrate *calib)
 {
+    int status = 0;
     if(calib->calibrated != 1){
         calibrate(calib);
     }
-    
-    
+    int y = 0;
+    status = vl53l8cx_get_ranging_data(&calib->conf, &calib->results);
+    failure(status, "Failed to get ranging data");
+    for(int i = 0; i < 8; i++){
+        for(int j = 0; j < 8; j++){
+            y = i*8 + j;
+            printf("%d:%d mm, %d s, %d t\t|",
+            y,
+            calib->results.distance_mm[y],
+            calib->results.signal_per_spad[y],
+            calib->results.target_status[y]);
+        }
+        printf("\n");
+    }
     return 0;
 }
 

@@ -17,6 +17,7 @@
 #define PWREN 15
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define ABS(a) ((a) < 0 ? -(a) : (a))
 
 
 typedef struct
@@ -24,6 +25,7 @@ typedef struct
     VL53L8CX_Configuration conf;
     VL53L8CX_Motion_Configuration motion_conf;
     VL53L8CX_DetectionThresholds detection_thresholds;
+    VL53L8CX_ResultsData results;
     uint8_t calibrated;
     int ranging_frequency;
     int integration_time;
@@ -37,7 +39,9 @@ typedef struct
 
 int calibrate(VL53L8CX_calibrate *calib);
 
-int printInfo(VL53L8CX_calibrate *calib);
+int printInfoSingle(VL53L8CX_calibrate *calib);
+
+int printInfoMultiple(VL53L8CX_calibrate *calib, int times);
 
 void powerON(void);
 
