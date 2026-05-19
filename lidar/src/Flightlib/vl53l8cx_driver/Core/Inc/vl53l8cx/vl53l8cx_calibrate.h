@@ -43,6 +43,14 @@ int printInfoSingle(VL53L8CX_calibrate *calib);
 
 int printInfoMultiple(VL53L8CX_calibrate *calib, int times);
 
+int getClosestDistance(VL53L8CX_calibrate *calib);
+
+int getStrongestReflectance(VL53L8CX_calibrate *calib);
+
+int getDistance(VL53L8CX_calibrate *calib, int zone);
+
+int getReflectance(VL53L8CX_calibrate *calib, int zone);
+
 void powerON(void);
 
 int failure(int status, const char* message);
