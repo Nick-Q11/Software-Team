@@ -1,1 +1,1 @@
-from "mechsys-uav" import UAV
+from mechsys_uav import UAV
