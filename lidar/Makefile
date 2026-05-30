@@ -6,7 +6,7 @@ OPT_LEVEL = 0
 endif
 #**************************************#
 #Define the used toolchain
-TCHAIN =
+TCHAIN = arm-none-eabi
 
 #make with V=1 will enable verbose messages
 ifeq ($(V), 1)
@@ -44,23 +44,22 @@ LISTDIR = $(OUTDIR)/list
 #define source files and linker script
 
 #Add sources from spiffs
-FLIGHT_SRC = Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_api.c
-FLIGHT_SRC+= Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx.c
-FLIGHT_SRC+= Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_platform.c
-FLIGHT_SRC+= Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c
-FLIGHT_SRC+= Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_motion_indicator.c
-FLIGHT_SRC+= Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c
+FLIGHT_SRC = vl53l8cx_api.c
+FLIGHT_SRC+= vl53l8cx.c
+FLIGHT_SRC+= vl53l8cx_platform.c
+FLIGHT_SRC+= vl53l8cx_plugin_detection_thresholds.c
+FLIGHT_SRC+= vl53l8cx_plugin_motion_indicator.c
+FLIGHT_SRC+= vl53l8cx_plugin_xtalk.c
 
 
-TARGET = lidar_test
+TARGET = interface_calibrate
 
 CSRC = test-lidar.c
-CSRC+= $(FLIGHT_SRC)
+CSRC+= $(addprefix Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/, $(FLIGHT_SRC))
 
 #**************************************#
 #define additional include directories
-ADDINCDIRS = . Flightlib/vl53l8cx_driver/Core/Inc/
-ADDINCDIRS+= Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/
+ADDINCDIRS = . inc/ Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/ Flightlib/vl53l8cx_driver/Core/Inc/
 EXTRAINCDIR = $(addprefix $(SRCDIR)/, $(ADDINCDIRS))
 
 #**************************************#
@@ -107,7 +106,7 @@ LDFLAGS += -lc -lgcc
 LDFLAGS += $(patsubst %,-L%,$(EXTRA_LIBDIRS))
 LDFLAGS += $(patsubst %,-l%,$(EXTRA_LIBS))
 ifeq ($(V), 1)
-LDFLAGS += -Wl,--verbose
+LDFLAGS += -Wl,
 endif
 
 #**************************************#

@@ -1,13 +1,11 @@
-   1              		.arch armv8-a
-   2              		.file	"vl53l8cx_plugin_detection_thresholds.c"
-   3              		.text
-   4              	.Ltext0:
-   5              		.file 1 "src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c"
-   6              		.section	.text.vl53l8cx_get_detection_thresholds_enable,"ax",@progbits
-   7              		.align	2
-   8              		.global	vl53l8cx_get_detection_thresholds_enable
-  10              	vl53l8cx_get_detection_thresholds_enable:
-  11              	.LFB0:
+   1              		.file	"vl53l8cx_plugin_detection_thresholds.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.file 1 "src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c"
+   5              		.section	.text.vl53l8cx_get_detection_thresholds_enable,"ax",@progbits
+   6              		.globl	vl53l8cx_get_detection_thresholds_enable
+   8              	vl53l8cx_get_detection_thresholds_enable:
+   9              	.LFB0:
    1:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** /**
    2:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c ****   *
    3:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c ****   * Copyright (c) 2021 STMicroelectronics.
@@ -26,1375 +24,1393 @@
   16:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		VL53L8CX_Configuration		*p_dev,
   17:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		uint8_t				*p_enabled)
   18:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** {
-  12              		.loc 1 18 1
-  13              		.cfi_startproc
-  14 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
-  15              	.LCFI0:
-  16              		.cfi_def_cfa_offset 48
-  17              		.cfi_offset 29, -48
-  18              		.cfi_offset 30, -40
-  19 0004 FD030091 		mov	x29, sp
-  20 0008 E00F00F9 		str	x0, [sp, 24]
-  21 000c E10B00F9 		str	x1, [sp, 16]
+  10              		.loc 1 18 1
+  11              		.cfi_startproc
+  12 0000 F30F1EFA 		endbr64
+  13 0004 55       		pushq	%rbp
+  14              	.LCFI0:
+  15              		.cfi_def_cfa_offset 16
+  16              		.cfi_offset 6, -16
+  17 0005 4889E5   		movq	%rsp, %rbp
+  18              	.LCFI1:
+  19              		.cfi_def_cfa_register 6
+  20 0008 4883EC20 		subq	$32, %rsp
+  21 000c 48897DE8 		movq	%rdi, -24(%rbp)
+  22 0010 488975E0 		movq	%rsi, -32(%rbp)
   19:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	uint8_t status = VL53L8CX_STATUS_OK;
-  22              		.loc 1 19 10
-  23 0010 FFBF0039 		strb	wzr, [sp, 47]
+  23              		.loc 1 19 10
+  24 0014 C645FF00 		movb	$0, -1(%rbp)
   20:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
   21:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	status |= vl53l8cx_dci_read_data(p_dev, (uint8_t*)p_dev->temp_buffer,
-  24              		.loc 1 21 52
-  25 0014 E00F40F9 		ldr	x0, [sp, 24]
-  26 0018 00601491 		add	x0, x0, 1304
-  27              		.loc 1 21 12
-  28 001c 03018052 		mov	w3, 8
-  29 0020 02DC9652 		mov	w2, 46816
-  30 0024 E10300AA 		mov	x1, x0
-  31 0028 E00F40F9 		ldr	x0, [sp, 24]
-  32 002c 00000094 		bl	vl53l8cx_dci_read_data
-  33 0030 011C0012 		and	w1, w0, 255
+  25              		.loc 1 21 52
+  26 0018 488B45E8 		movq	-24(%rbp), %rax
+  27 001c 488DB018 		leaq	1304(%rax), %rsi
+  27      050000
+  28              		.loc 1 21 12
+  29 0023 488B45E8 		movq	-24(%rbp), %rax
+  30 0027 B9080000 		movl	$8, %ecx
+  30      00
+  31 002c BAE0B600 		movl	$46816, %edx
+  31      00
+  32 0031 4889C7   		movq	%rax, %rdi
+  33 0034 E8000000 		call	vl53l8cx_dci_read_data@PLT
+  33      00
   34              		.loc 1 21 9 discriminator 1
-  35 0034 E0BF4039 		ldrb	w0, [sp, 47]
-  36 0038 2000002A 		orr	w0, w1, w0
-  37 003c E0BF0039 		strb	w0, [sp, 47]
+  35 0039 0845FF   		orb	%al, -1(%rbp)
   22:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			VL53L8CX_DCI_DET_THRESH_GLOBAL_CONFIG, 8);
   23:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	*p_enabled = p_dev->temp_buffer[0x1];
-  38              		.loc 1 23 33
-  39 0040 E00F40F9 		ldr	x0, [sp, 24]
-  40 0044 01645439 		ldrb	w1, [x0, 1305]
-  41              		.loc 1 23 13
-  42 0048 E00B40F9 		ldr	x0, [sp, 16]
-  43 004c 01000039 		strb	w1, [x0]
+  36              		.loc 1 23 33
+  37 003c 488B45E8 		movq	-24(%rbp), %rax
+  38 0040 0FB69019 		movzbl	1305(%rax), %edx
+  38      050000
+  39              		.loc 1 23 13
+  40 0047 488B45E0 		movq	-32(%rbp), %rax
+  41 004b 8810     		movb	%dl, (%rax)
   24:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
   25:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	return status;
-  44              		.loc 1 25 9
-  45 0050 E0BF4039 		ldrb	w0, [sp, 47]
+  42              		.loc 1 25 9
+  43 004d 0FB645FF 		movzbl	-1(%rbp), %eax
   26:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** }
-  46              		.loc 1 26 1
-  47 0054 FD7BC3A8 		ldp	x29, x30, [sp], 48
-  48              	.LCFI1:
-  49              		.cfi_restore 30
-  50              		.cfi_restore 29
-  51              		.cfi_def_cfa_offset 0
-  52 0058 C0035FD6 		ret
-  53              		.cfi_endproc
-  54              	.LFE0:
-  56              		.section	.text.vl53l8cx_set_detection_thresholds_enable,"ax",@progbits
-  57              		.align	2
-  58              		.global	vl53l8cx_set_detection_thresholds_enable
-  60              	vl53l8cx_set_detection_thresholds_enable:
-  61              	.LFB1:
+  44              		.loc 1 26 1
+  45 0051 C9       		leave
+  46              	.LCFI2:
+  47              		.cfi_def_cfa 7, 8
+  48 0052 C3       		ret
+  49              		.cfi_endproc
+  50              	.LFE0:
+  52              		.section	.text.vl53l8cx_set_detection_thresholds_enable,"ax",@progbits
+  53              		.globl	vl53l8cx_set_detection_thresholds_enable
+  55              	vl53l8cx_set_detection_thresholds_enable:
+  56              	.LFB1:
   27:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
   28:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** uint8_t vl53l8cx_set_detection_thresholds_enable(
   29:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		VL53L8CX_Configuration		*p_dev,
   30:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		uint8_t				enabled)
   31:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** {
-  62              		.loc 1 31 1
-  63              		.cfi_startproc
-  64 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
-  65              	.LCFI2:
-  66              		.cfi_def_cfa_offset 48
-  67              		.cfi_offset 29, -48
-  68              		.cfi_offset 30, -40
-  69 0004 FD030091 		mov	x29, sp
-  70 0008 E00F00F9 		str	x0, [sp, 24]
-  71 000c E15F0039 		strb	w1, [sp, 23]
+  57              		.loc 1 31 1
+  58              		.cfi_startproc
+  59 0000 F30F1EFA 		endbr64
+  60 0004 55       		pushq	%rbp
+  61              	.LCFI3:
+  62              		.cfi_def_cfa_offset 16
+  63              		.cfi_offset 6, -16
+  64 0005 4889E5   		movq	%rsp, %rbp
+  65              	.LCFI4:
+  66              		.cfi_def_cfa_register 6
+  67 0008 4883EC20 		subq	$32, %rsp
+  68 000c 48897DE8 		movq	%rdi, -24(%rbp)
+  69 0010 89F0     		movl	%esi, %eax
+  70 0012 8845E4   		movb	%al, -28(%rbp)
+  71              		.loc 1 31 1
+  72 0015 64488B04 		movq	%fs:40, %rax
+  72      25280000 
+  72      00
+  73 001e 488945F8 		movq	%rax, -8(%rbp)
+  74 0022 31C0     		xorl	%eax, %eax
   32:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	uint8_t tmp, status = VL53L8CX_STATUS_OK;
-  72              		.loc 1 32 15
-  73 0010 FFBF0039 		strb	wzr, [sp, 47]
+  75              		.loc 1 32 15
+  76 0024 C645F300 		movb	$0, -13(%rbp)
   33:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	uint8_t grp_global_config[] = {0x01, 0x00, 0x01, 0x00};
-  74              		.loc 1 33 10
-  75 0014 E0830032 		mov	w0, 65537
-  76 0018 E02B00B9 		str	w0, [sp, 40]
+  77              		.loc 1 33 10
+  78 0028 C745F401 		movl	$65537, -12(%rbp)
+  78      000100
   34:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
   35:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	if(enabled == (uint8_t)1)
-  77              		.loc 1 35 4
-  78 001c E05F4039 		ldrb	w0, [sp, 23]
-  79 0020 1F040071 		cmp	w0, 1
-  80 0024 C1000054 		bne	.L4
+  79              		.loc 1 35 4
+  80 002f 807DE401 		cmpb	$1, -28(%rbp)
+  81 0033 750A     		jne	.L4
   36:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	{
   37:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		grp_global_config[0x01] = 0x01;
-  81              		.loc 1 37 27
-  82 0028 20008052 		mov	w0, 1
-  83 002c E0A70039 		strb	w0, [sp, 41]
+  82              		.loc 1 37 27
+  83 0035 C645F501 		movb	$1, -11(%rbp)
   38:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		tmp = 0x04;
   84              		.loc 1 38 7
-  85 0030 80008052 		mov	w0, 4
-  86 0034 E0BB0039 		strb	w0, [sp, 46]
-  87 0038 04000014 		b	.L5
-  88              	.L4:
+  85 0039 C645F204 		movb	$4, -14(%rbp)
+  86 003d EB08     		jmp	.L5
+  87              	.L4:
   39:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	}
   40:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	else
   41:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	{
   42:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		grp_global_config[0x01] = 0x00;
-  89              		.loc 1 42 27
-  90 003c FFA70039 		strb	wzr, [sp, 41]
+  88              		.loc 1 42 27
+  89 003f C645F500 		movb	$0, -11(%rbp)
   43:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		tmp = 0x0C;
-  91              		.loc 1 43 7
-  92 0040 80018052 		mov	w0, 12
-  93 0044 E0BB0039 		strb	w0, [sp, 46]
-  94              	.L5:
+  90              		.loc 1 43 7
+  91 0043 C645F20C 		movb	$12, -14(%rbp)
+  92              	.L5:
   44:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	}
   45:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
   46:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	/* Set global interrupt config */
   47:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	status |= vl53l8cx_dci_replace_data(p_dev, p_dev->temp_buffer,
-  95              		.loc 1 47 50
-  96 0048 E00F40F9 		ldr	x0, [sp, 24]
-  97 004c 00601491 		add	x0, x0, 1304
-  98              		.loc 1 47 12
-  99 0050 E1A30091 		add	x1, sp, 40
- 100 0054 06008052 		mov	w6, 0
- 101 0058 85008052 		mov	w5, 4
- 102 005c E40301AA 		mov	x4, x1
- 103 0060 03018052 		mov	w3, 8
- 104 0064 02DC9652 		mov	w2, 46816
- 105 0068 E10300AA 		mov	x1, x0
- 106 006c E00F40F9 		ldr	x0, [sp, 24]
- 107 0070 00000094 		bl	vl53l8cx_dci_replace_data
- 108 0074 011C0012 		and	w1, w0, 255
- 109              		.loc 1 47 9 discriminator 1
- 110 0078 E0BF4039 		ldrb	w0, [sp, 47]
- 111 007c 2000002A 		orr	w0, w1, w0
- 112 0080 E0BF0039 		strb	w0, [sp, 47]
+  93              		.loc 1 47 50
+  94 0047 488B45E8 		movq	-24(%rbp), %rax
+  95 004b 488DB018 		leaq	1304(%rax), %rsi
+  95      050000
+  96              		.loc 1 47 12
+  97 0052 488D55F4 		leaq	-12(%rbp), %rdx
+  98 0056 488B45E8 		movq	-24(%rbp), %rax
+  99 005a 4883EC08 		subq	$8, %rsp
+ 100 005e 6A00     		pushq	$0
+ 101 0060 41B90400 		movl	$4, %r9d
+ 101      0000
+ 102 0066 4989D0   		movq	%rdx, %r8
+ 103 0069 B9080000 		movl	$8, %ecx
+ 103      00
+ 104 006e BAE0B600 		movl	$46816, %edx
+ 104      00
+ 105 0073 4889C7   		movq	%rax, %rdi
+ 106 0076 E8000000 		call	vl53l8cx_dci_replace_data@PLT
+ 106      00
+ 107 007b 4883C410 		addq	$16, %rsp
+ 108              		.loc 1 47 9 discriminator 1
+ 109 007f 0845F3   		orb	%al, -13(%rbp)
   48:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			VL53L8CX_DCI_DET_THRESH_GLOBAL_CONFIG, 8,
   49:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			(uint8_t*)&grp_global_config, 4, 0x00);
   50:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
   51:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	/* Update interrupt config */
   52:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	status |= vl53l8cx_dci_replace_data(p_dev, p_dev->temp_buffer,
- 113              		.loc 1 52 50
- 114 0084 E00F40F9 		ldr	x0, [sp, 24]
- 115 0088 00601491 		add	x0, x0, 1304
- 116              		.loc 1 52 12
- 117 008c E1BB0091 		add	x1, sp, 46
- 118 0090 26028052 		mov	w6, 17
- 119 0094 25008052 		mov	w5, 1
- 120 0098 E40301AA 		mov	x4, x1
- 121 009c 83028052 		mov	w3, 20
- 122 00a0 02918A52 		mov	w2, 21640
- 123 00a4 E10300AA 		mov	x1, x0
- 124 00a8 E00F40F9 		ldr	x0, [sp, 24]
- 125 00ac 00000094 		bl	vl53l8cx_dci_replace_data
- 126 00b0 011C0012 		and	w1, w0, 255
- 127              		.loc 1 52 9 discriminator 1
- 128 00b4 E0BF4039 		ldrb	w0, [sp, 47]
- 129 00b8 2000002A 		orr	w0, w1, w0
- 130 00bc E0BF0039 		strb	w0, [sp, 47]
+ 110              		.loc 1 52 50
+ 111 0082 488B45E8 		movq	-24(%rbp), %rax
+ 112 0086 488DB018 		leaq	1304(%rax), %rsi
+ 112      050000
+ 113              		.loc 1 52 12
+ 114 008d 488D55F2 		leaq	-14(%rbp), %rdx
+ 115 0091 488B45E8 		movq	-24(%rbp), %rax
+ 116 0095 4883EC08 		subq	$8, %rsp
+ 117 0099 6A11     		pushq	$17
+ 118 009b 41B90100 		movl	$1, %r9d
+ 118      0000
+ 119 00a1 4989D0   		movq	%rdx, %r8
+ 120 00a4 B9140000 		movl	$20, %ecx
+ 120      00
+ 121 00a9 BA885400 		movl	$21640, %edx
+ 121      00
+ 122 00ae 4889C7   		movq	%rax, %rdi
+ 123 00b1 E8000000 		call	vl53l8cx_dci_replace_data@PLT
+ 123      00
+ 124 00b6 4883C410 		addq	$16, %rsp
+ 125              		.loc 1 52 9 discriminator 1
+ 126 00ba 0845F3   		orb	%al, -13(%rbp)
   53:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			VL53L8CX_DCI_DET_THRESH_CONFIG, 20,
   54:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			(uint8_t*)&tmp, 1, 0x11);
   55:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
   56:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	return status;
- 131              		.loc 1 56 9
- 132 00c0 E0BF4039 		ldrb	w0, [sp, 47]
+ 127              		.loc 1 56 9
+ 128 00bd 0FB645F3 		movzbl	-13(%rbp), %eax
   57:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** }
- 133              		.loc 1 57 1
- 134 00c4 FD7BC3A8 		ldp	x29, x30, [sp], 48
- 135              	.LCFI3:
- 136              		.cfi_restore 30
- 137              		.cfi_restore 29
- 138              		.cfi_def_cfa_offset 0
- 139 00c8 C0035FD6 		ret
- 140              		.cfi_endproc
- 141              	.LFE1:
- 143              		.section	.text.vl53l8cx_get_detection_thresholds,"ax",@progbits
- 144              		.align	2
- 145              		.global	vl53l8cx_get_detection_thresholds
- 147              	vl53l8cx_get_detection_thresholds:
- 148              	.LFB2:
+ 129              		.loc 1 57 1
+ 130 00c1 488B55F8 		movq	-8(%rbp), %rdx
+ 131 00c5 64482B14 		subq	%fs:40, %rdx
+ 131      25280000 
+ 131      00
+ 132 00ce 7405     		je	.L7
+ 133 00d0 E8000000 		call	__stack_chk_fail@PLT
+ 133      00
+ 134              	.L7:
+ 135 00d5 C9       		leave
+ 136              	.LCFI5:
+ 137              		.cfi_def_cfa 7, 8
+ 138 00d6 C3       		ret
+ 139              		.cfi_endproc
+ 140              	.LFE1:
+ 142              		.section	.text.vl53l8cx_get_detection_thresholds,"ax",@progbits
+ 143              		.globl	vl53l8cx_get_detection_thresholds
+ 145              	vl53l8cx_get_detection_thresholds:
+ 146              	.LFB2:
   58:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
   59:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** uint8_t vl53l8cx_get_detection_thresholds(
   60:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		VL53L8CX_Configuration			*p_dev,
   61:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		VL53L8CX_DetectionThresholds	*p_thresholds)
   62:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** {
- 149              		.loc 1 62 1
- 150              		.cfi_startproc
- 151 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
- 152              	.LCFI4:
- 153              		.cfi_def_cfa_offset 48
- 154              		.cfi_offset 29, -48
- 155              		.cfi_offset 30, -40
- 156 0004 FD030091 		mov	x29, sp
- 157 0008 E00F00F9 		str	x0, [sp, 24]
- 158 000c E10B00F9 		str	x1, [sp, 16]
+ 147              		.loc 1 62 1
+ 148              		.cfi_startproc
+ 149 0000 F30F1EFA 		endbr64
+ 150 0004 55       		pushq	%rbp
+ 151              	.LCFI6:
+ 152              		.cfi_def_cfa_offset 16
+ 153              		.cfi_offset 6, -16
+ 154 0005 4889E5   		movq	%rsp, %rbp
+ 155              	.LCFI7:
+ 156              		.cfi_def_cfa_register 6
+ 157 0008 4883EC20 		subq	$32, %rsp
+ 158 000c 48897DE8 		movq	%rdi, -24(%rbp)
+ 159 0010 488975E0 		movq	%rsi, -32(%rbp)
   63:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	uint8_t i, status = VL53L8CX_STATUS_OK;
- 159              		.loc 1 63 13
- 160 0010 FFBB0039 		strb	wzr, [sp, 46]
+ 160              		.loc 1 63 13
+ 161 0014 C645FF00 		movb	$0, -1(%rbp)
   64:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
   65:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	/* Get thresholds configuration */
   66:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	status |= vl53l8cx_dci_read_data(p_dev, (uint8_t*)p_thresholds,
- 161              		.loc 1 66 12
- 162 0014 03608052 		mov	w3, 768
- 163 0018 02DD9652 		mov	w2, 46824
- 164 001c E10B40F9 		ldr	x1, [sp, 16]
- 165 0020 E00F40F9 		ldr	x0, [sp, 24]
- 166 0024 00000094 		bl	vl53l8cx_dci_read_data
- 167 0028 011C0012 		and	w1, w0, 255
- 168              		.loc 1 66 9 discriminator 1
- 169 002c E0BB4039 		ldrb	w0, [sp, 46]
- 170 0030 2000002A 		orr	w0, w1, w0
- 171 0034 E0BB0039 		strb	w0, [sp, 46]
+ 162              		.loc 1 66 12
+ 163 0018 488B75E0 		movq	-32(%rbp), %rsi
+ 164 001c 488B45E8 		movq	-24(%rbp), %rax
+ 165 0020 B9000300 		movl	$768, %ecx
+ 165      00
+ 166 0025 BAE8B600 		movl	$46824, %edx
+ 166      00
+ 167 002a 4889C7   		movq	%rax, %rdi
+ 168 002d E8000000 		call	vl53l8cx_dci_read_data@PLT
+ 168      00
+ 169              		.loc 1 66 9 discriminator 1
+ 170 0032 0845FF   		orb	%al, -1(%rbp)
   67:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			VL53L8CX_DCI_DET_THRESH_START,
   68:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c ****                         (uint16_t)VL53L8CX_NB_THRESHOLDS
   69:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			*(uint16_t)sizeof(VL53L8CX_DetectionThresholds));
   70:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
   71:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	for(i = 0; i < (uint8_t)VL53L8CX_NB_THRESHOLDS; i++)
- 172              		.loc 1 71 8
- 173 0038 FFBF0039 		strb	wzr, [sp, 47]
- 174              		.loc 1 71 2
- 175 003c 43010014 		b	.L8
- 176              	.L17:
+ 171              		.loc 1 71 8
+ 172 0035 C645FE00 		movb	$0, -2(%rbp)
+ 173              		.loc 1 71 2
+ 174 0039 E9080400 		jmp	.L9
+ 174      00
+ 175              	.L19:
   72:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	{
   73:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		switch(p_thresholds[i].measurement)
- 177              		.loc 1 73 22
- 178 0040 E1BF4039 		ldrb	w1, [sp, 47]
- 179 0044 E00301AA 		mov	x0, x1
- 180 0048 00F87FD3 		lsl	x0, x0, 1
- 181 004c 0000018B 		add	x0, x0, x1
- 182 0050 00F47ED3 		lsl	x0, x0, 2
- 183 0054 E10300AA 		mov	x1, x0
- 184 0058 E00B40F9 		ldr	x0, [sp, 16]
- 185 005c 0000018B 		add	x0, x0, x1
- 186              		.loc 1 73 25
- 187 0060 00204039 		ldrb	w0, [x0, 8]
+ 176              		.loc 1 73 22
+ 177 003e 0FB655FE 		movzbl	-2(%rbp), %edx
+ 178 0042 4889D0   		movq	%rdx, %rax
+ 179 0045 4801C0   		addq	%rax, %rax
+ 180 0048 4801D0   		addq	%rdx, %rax
+ 181 004b 48C1E002 		salq	$2, %rax
+ 182 004f 4889C2   		movq	%rax, %rdx
+ 183 0052 488B45E0 		movq	-32(%rbp), %rax
+ 184 0056 4801D0   		addq	%rdx, %rax
+ 185              		.loc 1 73 25
+ 186 0059 0FB64008 		movzbl	8(%rax), %eax
+ 187 005d 0FB6C0   		movzbl	%al, %eax
  188              		.loc 1 73 3
- 189 0064 1F4C0071 		cmp	w0, 19
- 190 0068 E01F0054 		beq	.L9
- 191 006c 1F4C0071 		cmp	w0, 19
- 192 0070 4C260054 		bgt	.L19
- 193 0074 1F340071 		cmp	w0, 13
- 194 0078 80190054 		beq	.L11
- 195 007c 1F340071 		cmp	w0, 13
- 196 0080 CC250054 		bgt	.L19
- 197 0084 1F200071 		cmp	w0, 8
- 198 0088 20130054 		beq	.L12
- 199 008c 1F200071 		cmp	w0, 8
- 200 0090 4C250054 		bgt	.L19
- 201 0094 1F100071 		cmp	w0, 4
- 202 0098 C00C0054 		beq	.L13
- 203 009c 1F100071 		cmp	w0, 4
- 204 00a0 CC240054 		bgt	.L19
- 205 00a4 1F040071 		cmp	w0, 1
- 206 00a8 80000054 		beq	.L14
- 207 00ac 1F080071 		cmp	w0, 2
- 208 00b0 20060054 		beq	.L15
+ 189 0060 83F813   		cmpl	$19, %eax
+ 190 0063 0F87D203 		ja	.L21
+ 190      0000
+ 191 0069 89C0     		movl	%eax, %eax
+ 192 006b 488D1485 		leaq	0(,%rax,4), %rdx
+ 192      00000000 
+ 193 0073 488D0500 		leaq	.L12(%rip), %rax
+ 193      000000
+ 194 007a 8B0402   		movl	(%rdx,%rax), %eax
+ 195 007d 4898     		cltq
+ 196 007f 488D1500 		leaq	.L12(%rip), %rdx
+ 196      000000
+ 197 0086 4801D0   		addq	%rdx, %rax
+ 198 0089 3EFFE0   		notrack jmp	*%rax
+ 199              		.section	.rodata.vl53l8cx_get_detection_thresholds,"a",@progbits
+ 200              		.align 4
+ 201              		.align 4
+ 202              	.L12:
+ 203 0000 00000000 		.long	.L21-.L12
+ 204 0004 00000000 		.long	.L17-.L12
+ 205 0008 00000000 		.long	.L16-.L12
+ 206 000c 00000000 		.long	.L21-.L12
+ 207 0010 00000000 		.long	.L15-.L12
+ 208 0014 00000000 		.long	.L21-.L12
+ 209 0018 00000000 		.long	.L21-.L12
+ 210 001c 00000000 		.long	.L21-.L12
+ 211 0020 00000000 		.long	.L14-.L12
+ 212 0024 00000000 		.long	.L21-.L12
+ 213 0028 00000000 		.long	.L21-.L12
+ 214 002c 00000000 		.long	.L21-.L12
+ 215 0030 00000000 		.long	.L21-.L12
+ 216 0034 00000000 		.long	.L13-.L12
+ 217 0038 00000000 		.long	.L21-.L12
+ 218 003c 00000000 		.long	.L21-.L12
+ 219 0040 00000000 		.long	.L21-.L12
+ 220 0044 00000000 		.long	.L21-.L12
+ 221 0048 00000000 		.long	.L21-.L12
+ 222 004c 00000000 		.long	.L11-.L12
+ 223              		.section	.text.vl53l8cx_get_detection_thresholds
+ 224              	.L17:
   74:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		{
   75:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_DISTANCE_MM:
   76:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  /= 4;
+ 225              		.loc 1 76 17
+ 226 008c 0FB655FE 		movzbl	-2(%rbp), %edx
+ 227 0090 4889D0   		movq	%rdx, %rax
+ 228 0093 4801C0   		addq	%rax, %rax
+ 229 0096 4801D0   		addq	%rdx, %rax
+ 230 0099 48C1E002 		salq	$2, %rax
+ 231 009d 4889C2   		movq	%rax, %rdx
+ 232 00a0 488B45E0 		movq	-32(%rbp), %rax
+ 233 00a4 4801D0   		addq	%rdx, %rax
+ 234              		.loc 1 76 20
+ 235 00a7 8B08     		movl	(%rax), %ecx
+ 236              		.loc 1 76 17
+ 237 00a9 0FB655FE 		movzbl	-2(%rbp), %edx
+ 238 00ad 4889D0   		movq	%rdx, %rax
+ 239 00b0 4801C0   		addq	%rax, %rax
+ 240 00b3 4801D0   		addq	%rdx, %rax
+ 241 00b6 48C1E002 		salq	$2, %rax
+ 242 00ba 4889C2   		movq	%rax, %rdx
+ 243 00bd 488B45E0 		movq	-32(%rbp), %rax
+ 244 00c1 4801C2   		addq	%rax, %rdx
+ 245              		.loc 1 76 39
+ 246 00c4 89C8     		movl	%ecx, %eax
+ 247 00c6 8D4803   		leal	3(%rax), %ecx
+ 248 00c9 85C0     		testl	%eax, %eax
+ 249 00cb 0F48C1   		cmovs	%ecx, %eax
+ 250 00ce C1F802   		sarl	$2, %eax
+ 251 00d1 8902     		movl	%eax, (%rdx)
   77:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 4;
+ 252              		.loc 1 77 17
+ 253 00d3 0FB655FE 		movzbl	-2(%rbp), %edx
+ 254 00d7 4889D0   		movq	%rdx, %rax
+ 255 00da 4801C0   		addq	%rax, %rax
+ 256 00dd 4801D0   		addq	%rdx, %rax
+ 257 00e0 48C1E002 		salq	$2, %rax
+ 258 00e4 4889C2   		movq	%rax, %rdx
+ 259 00e7 488B45E0 		movq	-32(%rbp), %rax
+ 260 00eb 4801D0   		addq	%rdx, %rax
+ 261              		.loc 1 77 20
+ 262 00ee 8B4804   		movl	4(%rax), %ecx
+ 263              		.loc 1 77 17
+ 264 00f1 0FB655FE 		movzbl	-2(%rbp), %edx
+ 265 00f5 4889D0   		movq	%rdx, %rax
+ 266 00f8 4801C0   		addq	%rax, %rax
+ 267 00fb 4801D0   		addq	%rdx, %rax
+ 268 00fe 48C1E002 		salq	$2, %rax
+ 269 0102 4889C2   		movq	%rax, %rdx
+ 270 0105 488B45E0 		movq	-32(%rbp), %rax
+ 271 0109 4801C2   		addq	%rax, %rdx
+ 272              		.loc 1 77 39
+ 273 010c 89C8     		movl	%ecx, %eax
+ 274 010e 8D4803   		leal	3(%rax), %ecx
+ 275 0111 85C0     		testl	%eax, %eax
+ 276 0113 0F48C1   		cmovs	%ecx, %eax
+ 277 0116 C1F802   		sarl	$2, %eax
+ 278 0119 894204   		movl	%eax, 4(%rdx)
   78:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 279              		.loc 1 78 5
+ 280 011c E91B0300 		jmp	.L18
+ 280      00
+ 281              	.L16:
   79:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_SIGNAL_PER_SPAD_KCPS:
   80:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  /= 2048;
+ 282              		.loc 1 80 17
+ 283 0121 0FB655FE 		movzbl	-2(%rbp), %edx
+ 284 0125 4889D0   		movq	%rdx, %rax
+ 285 0128 4801C0   		addq	%rax, %rax
+ 286 012b 4801D0   		addq	%rdx, %rax
+ 287 012e 48C1E002 		salq	$2, %rax
+ 288 0132 4889C2   		movq	%rax, %rdx
+ 289 0135 488B45E0 		movq	-32(%rbp), %rax
+ 290 0139 4801D0   		addq	%rdx, %rax
+ 291              		.loc 1 80 20
+ 292 013c 8B08     		movl	(%rax), %ecx
+ 293              		.loc 1 80 17
+ 294 013e 0FB655FE 		movzbl	-2(%rbp), %edx
+ 295 0142 4889D0   		movq	%rdx, %rax
+ 296 0145 4801C0   		addq	%rax, %rax
+ 297 0148 4801D0   		addq	%rdx, %rax
+ 298 014b 48C1E002 		salq	$2, %rax
+ 299 014f 4889C2   		movq	%rax, %rdx
+ 300 0152 488B45E0 		movq	-32(%rbp), %rax
+ 301 0156 4801C2   		addq	%rax, %rdx
+ 302              		.loc 1 80 39
+ 303 0159 89C8     		movl	%ecx, %eax
+ 304 015b 8D88FF07 		leal	2047(%rax), %ecx
+ 304      0000
+ 305 0161 85C0     		testl	%eax, %eax
+ 306 0163 0F48C1   		cmovs	%ecx, %eax
+ 307 0166 C1F80B   		sarl	$11, %eax
+ 308 0169 8902     		movl	%eax, (%rdx)
   81:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 2048;
+ 309              		.loc 1 81 17
+ 310 016b 0FB655FE 		movzbl	-2(%rbp), %edx
+ 311 016f 4889D0   		movq	%rdx, %rax
+ 312 0172 4801C0   		addq	%rax, %rax
+ 313 0175 4801D0   		addq	%rdx, %rax
+ 314 0178 48C1E002 		salq	$2, %rax
+ 315 017c 4889C2   		movq	%rax, %rdx
+ 316 017f 488B45E0 		movq	-32(%rbp), %rax
+ 317 0183 4801D0   		addq	%rdx, %rax
+ 318              		.loc 1 81 20
+ 319 0186 8B4804   		movl	4(%rax), %ecx
+ 320              		.loc 1 81 17
+ 321 0189 0FB655FE 		movzbl	-2(%rbp), %edx
+ 322 018d 4889D0   		movq	%rdx, %rax
+ 323 0190 4801C0   		addq	%rax, %rax
+ 324 0193 4801D0   		addq	%rdx, %rax
+ 325 0196 48C1E002 		salq	$2, %rax
+ 326 019a 4889C2   		movq	%rax, %rdx
+ 327 019d 488B45E0 		movq	-32(%rbp), %rax
+ 328 01a1 4801C2   		addq	%rax, %rdx
+ 329              		.loc 1 81 39
+ 330 01a4 89C8     		movl	%ecx, %eax
+ 331 01a6 8D88FF07 		leal	2047(%rax), %ecx
+ 331      0000
+ 332 01ac 85C0     		testl	%eax, %eax
+ 333 01ae 0F48C1   		cmovs	%ecx, %eax
+ 334 01b1 C1F80B   		sarl	$11, %eax
+ 335 01b4 894204   		movl	%eax, 4(%rdx)
   82:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 336              		.loc 1 82 5
+ 337 01b7 E9800200 		jmp	.L18
+ 337      00
+ 338              	.L15:
   83:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_RANGE_SIGMA_MM:
   84:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  /= 128;
+ 339              		.loc 1 84 17
+ 340 01bc 0FB655FE 		movzbl	-2(%rbp), %edx
+ 341 01c0 4889D0   		movq	%rdx, %rax
+ 342 01c3 4801C0   		addq	%rax, %rax
+ 343 01c6 4801D0   		addq	%rdx, %rax
+ 344 01c9 48C1E002 		salq	$2, %rax
+ 345 01cd 4889C2   		movq	%rax, %rdx
+ 346 01d0 488B45E0 		movq	-32(%rbp), %rax
+ 347 01d4 4801D0   		addq	%rdx, %rax
+ 348              		.loc 1 84 20
+ 349 01d7 8B08     		movl	(%rax), %ecx
+ 350              		.loc 1 84 17
+ 351 01d9 0FB655FE 		movzbl	-2(%rbp), %edx
+ 352 01dd 4889D0   		movq	%rdx, %rax
+ 353 01e0 4801C0   		addq	%rax, %rax
+ 354 01e3 4801D0   		addq	%rdx, %rax
+ 355 01e6 48C1E002 		salq	$2, %rax
+ 356 01ea 4889C2   		movq	%rax, %rdx
+ 357 01ed 488B45E0 		movq	-32(%rbp), %rax
+ 358 01f1 4801C2   		addq	%rax, %rdx
+ 359              		.loc 1 84 39
+ 360 01f4 89C8     		movl	%ecx, %eax
+ 361 01f6 8D487F   		leal	127(%rax), %ecx
+ 362 01f9 85C0     		testl	%eax, %eax
+ 363 01fb 0F48C1   		cmovs	%ecx, %eax
+ 364 01fe C1F807   		sarl	$7, %eax
+ 365 0201 8902     		movl	%eax, (%rdx)
   85:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 128;
+ 366              		.loc 1 85 17
+ 367 0203 0FB655FE 		movzbl	-2(%rbp), %edx
+ 368 0207 4889D0   		movq	%rdx, %rax
+ 369 020a 4801C0   		addq	%rax, %rax
+ 370 020d 4801D0   		addq	%rdx, %rax
+ 371 0210 48C1E002 		salq	$2, %rax
+ 372 0214 4889C2   		movq	%rax, %rdx
+ 373 0217 488B45E0 		movq	-32(%rbp), %rax
+ 374 021b 4801D0   		addq	%rdx, %rax
+ 375              		.loc 1 85 20
+ 376 021e 8B4804   		movl	4(%rax), %ecx
+ 377              		.loc 1 85 17
+ 378 0221 0FB655FE 		movzbl	-2(%rbp), %edx
+ 379 0225 4889D0   		movq	%rdx, %rax
+ 380 0228 4801C0   		addq	%rax, %rax
+ 381 022b 4801D0   		addq	%rdx, %rax
+ 382 022e 48C1E002 		salq	$2, %rax
+ 383 0232 4889C2   		movq	%rax, %rdx
+ 384 0235 488B45E0 		movq	-32(%rbp), %rax
+ 385 0239 4801C2   		addq	%rax, %rdx
+ 386              		.loc 1 85 39
+ 387 023c 89C8     		movl	%ecx, %eax
+ 388 023e 8D487F   		leal	127(%rax), %ecx
+ 389 0241 85C0     		testl	%eax, %eax
+ 390 0243 0F48C1   		cmovs	%ecx, %eax
+ 391 0246 C1F807   		sarl	$7, %eax
+ 392 0249 894204   		movl	%eax, 4(%rdx)
   86:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 393              		.loc 1 86 5
+ 394 024c E9EB0100 		jmp	.L18
+ 394      00
+ 395              	.L14:
   87:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_AMBIENT_PER_SPAD_KCPS:
   88:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  /= 2048;
+ 396              		.loc 1 88 17
+ 397 0251 0FB655FE 		movzbl	-2(%rbp), %edx
+ 398 0255 4889D0   		movq	%rdx, %rax
+ 399 0258 4801C0   		addq	%rax, %rax
+ 400 025b 4801D0   		addq	%rdx, %rax
+ 401 025e 48C1E002 		salq	$2, %rax
+ 402 0262 4889C2   		movq	%rax, %rdx
+ 403 0265 488B45E0 		movq	-32(%rbp), %rax
+ 404 0269 4801D0   		addq	%rdx, %rax
+ 405              		.loc 1 88 20
+ 406 026c 8B08     		movl	(%rax), %ecx
+ 407              		.loc 1 88 17
+ 408 026e 0FB655FE 		movzbl	-2(%rbp), %edx
+ 409 0272 4889D0   		movq	%rdx, %rax
+ 410 0275 4801C0   		addq	%rax, %rax
+ 411 0278 4801D0   		addq	%rdx, %rax
+ 412 027b 48C1E002 		salq	$2, %rax
+ 413 027f 4889C2   		movq	%rax, %rdx
+ 414 0282 488B45E0 		movq	-32(%rbp), %rax
+ 415 0286 4801C2   		addq	%rax, %rdx
+ 416              		.loc 1 88 39
+ 417 0289 89C8     		movl	%ecx, %eax
+ 418 028b 8D88FF07 		leal	2047(%rax), %ecx
+ 418      0000
+ 419 0291 85C0     		testl	%eax, %eax
+ 420 0293 0F48C1   		cmovs	%ecx, %eax
+ 421 0296 C1F80B   		sarl	$11, %eax
+ 422 0299 8902     		movl	%eax, (%rdx)
   89:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 2048;
+ 423              		.loc 1 89 17
+ 424 029b 0FB655FE 		movzbl	-2(%rbp), %edx
+ 425 029f 4889D0   		movq	%rdx, %rax
+ 426 02a2 4801C0   		addq	%rax, %rax
+ 427 02a5 4801D0   		addq	%rdx, %rax
+ 428 02a8 48C1E002 		salq	$2, %rax
+ 429 02ac 4889C2   		movq	%rax, %rdx
+ 430 02af 488B45E0 		movq	-32(%rbp), %rax
+ 431 02b3 4801D0   		addq	%rdx, %rax
+ 432              		.loc 1 89 20
+ 433 02b6 8B4804   		movl	4(%rax), %ecx
+ 434              		.loc 1 89 17
+ 435 02b9 0FB655FE 		movzbl	-2(%rbp), %edx
+ 436 02bd 4889D0   		movq	%rdx, %rax
+ 437 02c0 4801C0   		addq	%rax, %rax
+ 438 02c3 4801D0   		addq	%rdx, %rax
+ 439 02c6 48C1E002 		salq	$2, %rax
+ 440 02ca 4889C2   		movq	%rax, %rdx
+ 441 02cd 488B45E0 		movq	-32(%rbp), %rax
+ 442 02d1 4801C2   		addq	%rax, %rdx
+ 443              		.loc 1 89 39
+ 444 02d4 89C8     		movl	%ecx, %eax
+ 445 02d6 8D88FF07 		leal	2047(%rax), %ecx
+ 445      0000
+ 446 02dc 85C0     		testl	%eax, %eax
+ 447 02de 0F48C1   		cmovs	%ecx, %eax
+ 448 02e1 C1F80B   		sarl	$11, %eax
+ 449 02e4 894204   		movl	%eax, 4(%rdx)
   90:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 450              		.loc 1 90 5
+ 451 02e7 E9500100 		jmp	.L18
+ 451      00
+ 452              	.L13:
   91:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_NB_SPADS_ENABLED:
   92:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  /= 256;
+ 453              		.loc 1 92 17
+ 454 02ec 0FB655FE 		movzbl	-2(%rbp), %edx
+ 455 02f0 4889D0   		movq	%rdx, %rax
+ 456 02f3 4801C0   		addq	%rax, %rax
+ 457 02f6 4801D0   		addq	%rdx, %rax
+ 458 02f9 48C1E002 		salq	$2, %rax
+ 459 02fd 4889C2   		movq	%rax, %rdx
+ 460 0300 488B45E0 		movq	-32(%rbp), %rax
+ 461 0304 4801D0   		addq	%rdx, %rax
+ 462              		.loc 1 92 20
+ 463 0307 8B08     		movl	(%rax), %ecx
+ 464              		.loc 1 92 17
+ 465 0309 0FB655FE 		movzbl	-2(%rbp), %edx
+ 466 030d 4889D0   		movq	%rdx, %rax
+ 467 0310 4801C0   		addq	%rax, %rax
+ 468 0313 4801D0   		addq	%rdx, %rax
+ 469 0316 48C1E002 		salq	$2, %rax
+ 470 031a 4889C2   		movq	%rax, %rdx
+ 471 031d 488B45E0 		movq	-32(%rbp), %rax
+ 472 0321 4801C2   		addq	%rax, %rdx
+ 473              		.loc 1 92 39
+ 474 0324 89C8     		movl	%ecx, %eax
+ 475 0326 8D88FF00 		leal	255(%rax), %ecx
+ 475      0000
+ 476 032c 85C0     		testl	%eax, %eax
+ 477 032e 0F48C1   		cmovs	%ecx, %eax
+ 478 0331 C1F808   		sarl	$8, %eax
+ 479 0334 8902     		movl	%eax, (%rdx)
   93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 256;
+ 480              		.loc 1 93 17
+ 481 0336 0FB655FE 		movzbl	-2(%rbp), %edx
+ 482 033a 4889D0   		movq	%rdx, %rax
+ 483 033d 4801C0   		addq	%rax, %rax
+ 484 0340 4801D0   		addq	%rdx, %rax
+ 485 0343 48C1E002 		salq	$2, %rax
+ 486 0347 4889C2   		movq	%rax, %rdx
+ 487 034a 488B45E0 		movq	-32(%rbp), %rax
+ 488 034e 4801D0   		addq	%rdx, %rax
+ 489              		.loc 1 93 20
+ 490 0351 8B4804   		movl	4(%rax), %ecx
+ 491              		.loc 1 93 17
+ 492 0354 0FB655FE 		movzbl	-2(%rbp), %edx
+ 493 0358 4889D0   		movq	%rdx, %rax
+ 494 035b 4801C0   		addq	%rax, %rax
+ 495 035e 4801D0   		addq	%rdx, %rax
+ 496 0361 48C1E002 		salq	$2, %rax
+ 497 0365 4889C2   		movq	%rax, %rdx
+ 498 0368 488B45E0 		movq	-32(%rbp), %rax
+ 499 036c 4801C2   		addq	%rax, %rdx
+ 500              		.loc 1 93 39
+ 501 036f 89C8     		movl	%ecx, %eax
+ 502 0371 8D88FF00 		leal	255(%rax), %ecx
+ 502      0000
+ 503 0377 85C0     		testl	%eax, %eax
+ 504 0379 0F48C1   		cmovs	%ecx, %eax
+ 505 037c C1F808   		sarl	$8, %eax
+ 506 037f 894204   		movl	%eax, 4(%rdx)
   94:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 507              		.loc 1 94 5
+ 508 0382 E9B50000 		jmp	.L18
+ 508      00
+ 509              	.L11:
   95:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_MOTION_INDICATOR:
   96:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  /= 65535;
+ 510              		.loc 1 96 17
+ 511 0387 0FB655FE 		movzbl	-2(%rbp), %edx
+ 512 038b 4889D0   		movq	%rdx, %rax
+ 513 038e 4801C0   		addq	%rax, %rax
+ 514 0391 4801D0   		addq	%rdx, %rax
+ 515 0394 48C1E002 		salq	$2, %rax
+ 516 0398 4889C2   		movq	%rax, %rdx
+ 517 039b 488B45E0 		movq	-32(%rbp), %rax
+ 518 039f 4801D0   		addq	%rdx, %rax
+ 519              		.loc 1 96 20
+ 520 03a2 8B10     		movl	(%rax), %edx
+ 521              		.loc 1 96 17
+ 522 03a4 0FB64DFE 		movzbl	-2(%rbp), %ecx
+ 523 03a8 4889C8   		movq	%rcx, %rax
+ 524 03ab 4801C0   		addq	%rax, %rax
+ 525 03ae 4801C8   		addq	%rcx, %rax
+ 526 03b1 48C1E002 		salq	$2, %rax
+ 527 03b5 4889C1   		movq	%rax, %rcx
+ 528 03b8 488B45E0 		movq	-32(%rbp), %rax
+ 529 03bc 4801C8   		addq	%rcx, %rax
+ 530              		.loc 1 96 39
+ 531 03bf 4863CA   		movslq	%edx, %rcx
+ 532 03c2 4869C901 		imulq	$-2147450879, %rcx, %rcx
+ 532      800080
+ 533 03c9 48C1E920 		shrq	$32, %rcx
+ 534 03cd 01D1     		addl	%edx, %ecx
+ 535 03cf 89CE     		movl	%ecx, %esi
+ 536 03d1 C1FE0F   		sarl	$15, %esi
+ 537 03d4 89D1     		movl	%edx, %ecx
+ 538 03d6 C1F91F   		sarl	$31, %ecx
+ 539 03d9 29CE     		subl	%ecx, %esi
+ 540 03db 89F2     		movl	%esi, %edx
+ 541 03dd 8910     		movl	%edx, (%rax)
   97:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 65535;
+ 542              		.loc 1 97 17
+ 543 03df 0FB655FE 		movzbl	-2(%rbp), %edx
+ 544 03e3 4889D0   		movq	%rdx, %rax
+ 545 03e6 4801C0   		addq	%rax, %rax
+ 546 03e9 4801D0   		addq	%rdx, %rax
+ 547 03ec 48C1E002 		salq	$2, %rax
+ 548 03f0 4889C2   		movq	%rax, %rdx
+ 549 03f3 488B45E0 		movq	-32(%rbp), %rax
+ 550 03f7 4801D0   		addq	%rdx, %rax
+ 551              		.loc 1 97 20
+ 552 03fa 8B5004   		movl	4(%rax), %edx
+ 553              		.loc 1 97 17
+ 554 03fd 0FB64DFE 		movzbl	-2(%rbp), %ecx
+ 555 0401 4889C8   		movq	%rcx, %rax
+ 556 0404 4801C0   		addq	%rax, %rax
+ 557 0407 4801C8   		addq	%rcx, %rax
+ 558 040a 48C1E002 		salq	$2, %rax
+ 559 040e 4889C1   		movq	%rax, %rcx
+ 560 0411 488B45E0 		movq	-32(%rbp), %rax
+ 561 0415 4801C8   		addq	%rcx, %rax
+ 562              		.loc 1 97 39
+ 563 0418 4863CA   		movslq	%edx, %rcx
+ 564 041b 4869C901 		imulq	$-2147450879, %rcx, %rcx
+ 564      800080
+ 565 0422 48C1E920 		shrq	$32, %rcx
+ 566 0426 01D1     		addl	%edx, %ecx
+ 567 0428 89CE     		movl	%ecx, %esi
+ 568 042a C1FE0F   		sarl	$15, %esi
+ 569 042d 89D1     		movl	%edx, %ecx
+ 570 042f C1F91F   		sarl	$31, %ecx
+ 571 0432 29CE     		subl	%ecx, %esi
+ 572 0434 89F2     		movl	%esi, %edx
+ 573 0436 895004   		movl	%edx, 4(%rax)
   98:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 574              		.loc 1 98 5
+ 575 0439 EB01     		jmp	.L18
+ 576              	.L21:
   99:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			default:
  100:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 209              		.loc 1 100 5
- 210 00b4 21010014 		b	.L19
- 211              	.L14:
-  76:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 4;
- 212              		.loc 1 76 17
- 213 00b8 E1BF4039 		ldrb	w1, [sp, 47]
- 214 00bc E00301AA 		mov	x0, x1
- 215 00c0 00F87FD3 		lsl	x0, x0, 1
- 216 00c4 0000018B 		add	x0, x0, x1
- 217 00c8 00F47ED3 		lsl	x0, x0, 2
- 218 00cc E10300AA 		mov	x1, x0
- 219 00d0 E00B40F9 		ldr	x0, [sp, 16]
- 220 00d4 0000018B 		add	x0, x0, x1
-  76:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 4;
- 221              		.loc 1 76 20
- 222 00d8 020040B9 		ldr	w2, [x0]
-  76:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 4;
- 223              		.loc 1 76 17
- 224 00dc E1BF4039 		ldrb	w1, [sp, 47]
- 225 00e0 E00301AA 		mov	x0, x1
- 226 00e4 00F87FD3 		lsl	x0, x0, 1
- 227 00e8 0000018B 		add	x0, x0, x1
- 228 00ec 00F47ED3 		lsl	x0, x0, 2
- 229 00f0 E10300AA 		mov	x1, x0
- 230 00f4 E00B40F9 		ldr	x0, [sp, 16]
- 231 00f8 0100018B 		add	x1, x0, x1
-  76:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 4;
- 232              		.loc 1 76 39
- 233 00fc E003022A 		mov	w0, w2
- 234 0100 020C0011 		add	w2, w0, 3
- 235 0104 1F000071 		cmp	w0, 0
- 236 0108 40B0801A 		csel	w0, w2, w0, lt
- 237 010c 007C0213 		asr	w0, w0, 2
- 238 0110 200000B9 		str	w0, [x1]
-  77:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 239              		.loc 1 77 17
- 240 0114 E1BF4039 		ldrb	w1, [sp, 47]
- 241 0118 E00301AA 		mov	x0, x1
- 242 011c 00F87FD3 		lsl	x0, x0, 1
- 243 0120 0000018B 		add	x0, x0, x1
- 244 0124 00F47ED3 		lsl	x0, x0, 2
- 245 0128 E10300AA 		mov	x1, x0
- 246 012c E00B40F9 		ldr	x0, [sp, 16]
- 247 0130 0000018B 		add	x0, x0, x1
-  77:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 248              		.loc 1 77 20
- 249 0134 020440B9 		ldr	w2, [x0, 4]
-  77:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 250              		.loc 1 77 17
- 251 0138 E1BF4039 		ldrb	w1, [sp, 47]
- 252 013c E00301AA 		mov	x0, x1
- 253 0140 00F87FD3 		lsl	x0, x0, 1
- 254 0144 0000018B 		add	x0, x0, x1
- 255 0148 00F47ED3 		lsl	x0, x0, 2
- 256 014c E10300AA 		mov	x1, x0
- 257 0150 E00B40F9 		ldr	x0, [sp, 16]
- 258 0154 0100018B 		add	x1, x0, x1
-  77:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 259              		.loc 1 77 39
- 260 0158 E003022A 		mov	w0, w2
- 261 015c 020C0011 		add	w2, w0, 3
- 262 0160 1F000071 		cmp	w0, 0
- 263 0164 40B0801A 		csel	w0, w2, w0, lt
- 264 0168 007C0213 		asr	w0, w0, 2
- 265 016c 200400B9 		str	w0, [x1, 4]
-  78:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_SIGNAL_PER_SPAD_KCPS:
- 266              		.loc 1 78 5
- 267 0170 F3000014 		b	.L16
- 268              	.L15:
-  80:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 2048;
- 269              		.loc 1 80 17
- 270 0174 E1BF4039 		ldrb	w1, [sp, 47]
- 271 0178 E00301AA 		mov	x0, x1
- 272 017c 00F87FD3 		lsl	x0, x0, 1
- 273 0180 0000018B 		add	x0, x0, x1
- 274 0184 00F47ED3 		lsl	x0, x0, 2
- 275 0188 E10300AA 		mov	x1, x0
- 276 018c E00B40F9 		ldr	x0, [sp, 16]
- 277 0190 0000018B 		add	x0, x0, x1
-  80:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 2048;
- 278              		.loc 1 80 20
- 279 0194 020040B9 		ldr	w2, [x0]
-  80:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 2048;
- 280              		.loc 1 80 17
- 281 0198 E1BF4039 		ldrb	w1, [sp, 47]
- 282 019c E00301AA 		mov	x0, x1
- 283 01a0 00F87FD3 		lsl	x0, x0, 1
- 284 01a4 0000018B 		add	x0, x0, x1
- 285 01a8 00F47ED3 		lsl	x0, x0, 2
- 286 01ac E10300AA 		mov	x1, x0
- 287 01b0 E00B40F9 		ldr	x0, [sp, 16]
- 288 01b4 0100018B 		add	x1, x0, x1
-  80:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 2048;
- 289              		.loc 1 80 39
- 290 01b8 E003022A 		mov	w0, w2
- 291 01bc 02FC1F11 		add	w2, w0, 2047
- 292 01c0 1F000071 		cmp	w0, 0
- 293 01c4 40B0801A 		csel	w0, w2, w0, lt
- 294 01c8 007C0B13 		asr	w0, w0, 11
- 295 01cc 200000B9 		str	w0, [x1]
-  81:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 296              		.loc 1 81 17
- 297 01d0 E1BF4039 		ldrb	w1, [sp, 47]
- 298 01d4 E00301AA 		mov	x0, x1
- 299 01d8 00F87FD3 		lsl	x0, x0, 1
- 300 01dc 0000018B 		add	x0, x0, x1
- 301 01e0 00F47ED3 		lsl	x0, x0, 2
- 302 01e4 E10300AA 		mov	x1, x0
- 303 01e8 E00B40F9 		ldr	x0, [sp, 16]
- 304 01ec 0000018B 		add	x0, x0, x1
-  81:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 305              		.loc 1 81 20
- 306 01f0 020440B9 		ldr	w2, [x0, 4]
-  81:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 307              		.loc 1 81 17
- 308 01f4 E1BF4039 		ldrb	w1, [sp, 47]
- 309 01f8 E00301AA 		mov	x0, x1
- 310 01fc 00F87FD3 		lsl	x0, x0, 1
- 311 0200 0000018B 		add	x0, x0, x1
- 312 0204 00F47ED3 		lsl	x0, x0, 2
- 313 0208 E10300AA 		mov	x1, x0
- 314 020c E00B40F9 		ldr	x0, [sp, 16]
- 315 0210 0100018B 		add	x1, x0, x1
-  81:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 316              		.loc 1 81 39
- 317 0214 E003022A 		mov	w0, w2
- 318 0218 02FC1F11 		add	w2, w0, 2047
- 319 021c 1F000071 		cmp	w0, 0
- 320 0220 40B0801A 		csel	w0, w2, w0, lt
- 321 0224 007C0B13 		asr	w0, w0, 11
- 322 0228 200400B9 		str	w0, [x1, 4]
-  82:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_RANGE_SIGMA_MM:
- 323              		.loc 1 82 5
- 324 022c C4000014 		b	.L16
- 325              	.L13:
-  84:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 128;
- 326              		.loc 1 84 17
- 327 0230 E1BF4039 		ldrb	w1, [sp, 47]
- 328 0234 E00301AA 		mov	x0, x1
- 329 0238 00F87FD3 		lsl	x0, x0, 1
- 330 023c 0000018B 		add	x0, x0, x1
- 331 0240 00F47ED3 		lsl	x0, x0, 2
- 332 0244 E10300AA 		mov	x1, x0
- 333 0248 E00B40F9 		ldr	x0, [sp, 16]
- 334 024c 0000018B 		add	x0, x0, x1
-  84:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 128;
- 335              		.loc 1 84 20
- 336 0250 020040B9 		ldr	w2, [x0]
-  84:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 128;
- 337              		.loc 1 84 17
- 338 0254 E1BF4039 		ldrb	w1, [sp, 47]
- 339 0258 E00301AA 		mov	x0, x1
- 340 025c 00F87FD3 		lsl	x0, x0, 1
- 341 0260 0000018B 		add	x0, x0, x1
- 342 0264 00F47ED3 		lsl	x0, x0, 2
- 343 0268 E10300AA 		mov	x1, x0
- 344 026c E00B40F9 		ldr	x0, [sp, 16]
- 345 0270 0100018B 		add	x1, x0, x1
-  84:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 128;
- 346              		.loc 1 84 39
- 347 0274 E003022A 		mov	w0, w2
- 348 0278 02FC0111 		add	w2, w0, 127
- 349 027c 1F000071 		cmp	w0, 0
- 350 0280 40B0801A 		csel	w0, w2, w0, lt
- 351 0284 007C0713 		asr	w0, w0, 7
- 352 0288 200000B9 		str	w0, [x1]
-  85:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 353              		.loc 1 85 17
- 354 028c E1BF4039 		ldrb	w1, [sp, 47]
- 355 0290 E00301AA 		mov	x0, x1
- 356 0294 00F87FD3 		lsl	x0, x0, 1
- 357 0298 0000018B 		add	x0, x0, x1
- 358 029c 00F47ED3 		lsl	x0, x0, 2
- 359 02a0 E10300AA 		mov	x1, x0
- 360 02a4 E00B40F9 		ldr	x0, [sp, 16]
- 361 02a8 0000018B 		add	x0, x0, x1
-  85:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 362              		.loc 1 85 20
- 363 02ac 020440B9 		ldr	w2, [x0, 4]
-  85:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 364              		.loc 1 85 17
- 365 02b0 E1BF4039 		ldrb	w1, [sp, 47]
- 366 02b4 E00301AA 		mov	x0, x1
- 367 02b8 00F87FD3 		lsl	x0, x0, 1
- 368 02bc 0000018B 		add	x0, x0, x1
- 369 02c0 00F47ED3 		lsl	x0, x0, 2
- 370 02c4 E10300AA 		mov	x1, x0
- 371 02c8 E00B40F9 		ldr	x0, [sp, 16]
- 372 02cc 0100018B 		add	x1, x0, x1
-  85:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 373              		.loc 1 85 39
- 374 02d0 E003022A 		mov	w0, w2
- 375 02d4 02FC0111 		add	w2, w0, 127
- 376 02d8 1F000071 		cmp	w0, 0
- 377 02dc 40B0801A 		csel	w0, w2, w0, lt
- 378 02e0 007C0713 		asr	w0, w0, 7
- 379 02e4 200400B9 		str	w0, [x1, 4]
-  86:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_AMBIENT_PER_SPAD_KCPS:
- 380              		.loc 1 86 5
- 381 02e8 95000014 		b	.L16
- 382              	.L12:
-  88:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 2048;
- 383              		.loc 1 88 17
- 384 02ec E1BF4039 		ldrb	w1, [sp, 47]
- 385 02f0 E00301AA 		mov	x0, x1
- 386 02f4 00F87FD3 		lsl	x0, x0, 1
- 387 02f8 0000018B 		add	x0, x0, x1
- 388 02fc 00F47ED3 		lsl	x0, x0, 2
- 389 0300 E10300AA 		mov	x1, x0
- 390 0304 E00B40F9 		ldr	x0, [sp, 16]
- 391 0308 0000018B 		add	x0, x0, x1
-  88:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 2048;
- 392              		.loc 1 88 20
- 393 030c 020040B9 		ldr	w2, [x0]
-  88:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 2048;
- 394              		.loc 1 88 17
- 395 0310 E1BF4039 		ldrb	w1, [sp, 47]
- 396 0314 E00301AA 		mov	x0, x1
- 397 0318 00F87FD3 		lsl	x0, x0, 1
- 398 031c 0000018B 		add	x0, x0, x1
- 399 0320 00F47ED3 		lsl	x0, x0, 2
- 400 0324 E10300AA 		mov	x1, x0
- 401 0328 E00B40F9 		ldr	x0, [sp, 16]
- 402 032c 0100018B 		add	x1, x0, x1
-  88:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 2048;
- 403              		.loc 1 88 39
- 404 0330 E003022A 		mov	w0, w2
- 405 0334 02FC1F11 		add	w2, w0, 2047
- 406 0338 1F000071 		cmp	w0, 0
- 407 033c 40B0801A 		csel	w0, w2, w0, lt
- 408 0340 007C0B13 		asr	w0, w0, 11
- 409 0344 200000B9 		str	w0, [x1]
-  89:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 410              		.loc 1 89 17
- 411 0348 E1BF4039 		ldrb	w1, [sp, 47]
- 412 034c E00301AA 		mov	x0, x1
- 413 0350 00F87FD3 		lsl	x0, x0, 1
- 414 0354 0000018B 		add	x0, x0, x1
- 415 0358 00F47ED3 		lsl	x0, x0, 2
- 416 035c E10300AA 		mov	x1, x0
- 417 0360 E00B40F9 		ldr	x0, [sp, 16]
- 418 0364 0000018B 		add	x0, x0, x1
-  89:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 419              		.loc 1 89 20
- 420 0368 020440B9 		ldr	w2, [x0, 4]
-  89:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 421              		.loc 1 89 17
- 422 036c E1BF4039 		ldrb	w1, [sp, 47]
- 423 0370 E00301AA 		mov	x0, x1
- 424 0374 00F87FD3 		lsl	x0, x0, 1
- 425 0378 0000018B 		add	x0, x0, x1
- 426 037c 00F47ED3 		lsl	x0, x0, 2
- 427 0380 E10300AA 		mov	x1, x0
- 428 0384 E00B40F9 		ldr	x0, [sp, 16]
- 429 0388 0100018B 		add	x1, x0, x1
-  89:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 430              		.loc 1 89 39
- 431 038c E003022A 		mov	w0, w2
- 432 0390 02FC1F11 		add	w2, w0, 2047
- 433 0394 1F000071 		cmp	w0, 0
- 434 0398 40B0801A 		csel	w0, w2, w0, lt
- 435 039c 007C0B13 		asr	w0, w0, 11
- 436 03a0 200400B9 		str	w0, [x1, 4]
-  90:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_NB_SPADS_ENABLED:
- 437              		.loc 1 90 5
- 438 03a4 66000014 		b	.L16
- 439              	.L11:
-  92:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 256;
- 440              		.loc 1 92 17
- 441 03a8 E1BF4039 		ldrb	w1, [sp, 47]
- 442 03ac E00301AA 		mov	x0, x1
- 443 03b0 00F87FD3 		lsl	x0, x0, 1
- 444 03b4 0000018B 		add	x0, x0, x1
- 445 03b8 00F47ED3 		lsl	x0, x0, 2
- 446 03bc E10300AA 		mov	x1, x0
- 447 03c0 E00B40F9 		ldr	x0, [sp, 16]
- 448 03c4 0000018B 		add	x0, x0, x1
-  92:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 256;
- 449              		.loc 1 92 20
- 450 03c8 020040B9 		ldr	w2, [x0]
-  92:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 256;
- 451              		.loc 1 92 17
- 452 03cc E1BF4039 		ldrb	w1, [sp, 47]
- 453 03d0 E00301AA 		mov	x0, x1
- 454 03d4 00F87FD3 		lsl	x0, x0, 1
- 455 03d8 0000018B 		add	x0, x0, x1
- 456 03dc 00F47ED3 		lsl	x0, x0, 2
- 457 03e0 E10300AA 		mov	x1, x0
- 458 03e4 E00B40F9 		ldr	x0, [sp, 16]
- 459 03e8 0100018B 		add	x1, x0, x1
-  92:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 256;
- 460              		.loc 1 92 39
- 461 03ec E003022A 		mov	w0, w2
- 462 03f0 02FC0311 		add	w2, w0, 255
- 463 03f4 1F000071 		cmp	w0, 0
- 464 03f8 40B0801A 		csel	w0, w2, w0, lt
- 465 03fc 007C0813 		asr	w0, w0, 8
- 466 0400 200000B9 		str	w0, [x1]
-  93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 467              		.loc 1 93 17
- 468 0404 E1BF4039 		ldrb	w1, [sp, 47]
- 469 0408 E00301AA 		mov	x0, x1
- 470 040c 00F87FD3 		lsl	x0, x0, 1
- 471 0410 0000018B 		add	x0, x0, x1
- 472 0414 00F47ED3 		lsl	x0, x0, 2
- 473 0418 E10300AA 		mov	x1, x0
- 474 041c E00B40F9 		ldr	x0, [sp, 16]
- 475 0420 0000018B 		add	x0, x0, x1
-  93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 476              		.loc 1 93 20
- 477 0424 020440B9 		ldr	w2, [x0, 4]
-  93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 478              		.loc 1 93 17
- 479 0428 E1BF4039 		ldrb	w1, [sp, 47]
- 480 042c E00301AA 		mov	x0, x1
- 481 0430 00F87FD3 		lsl	x0, x0, 1
- 482 0434 0000018B 		add	x0, x0, x1
- 483 0438 00F47ED3 		lsl	x0, x0, 2
- 484 043c E10300AA 		mov	x1, x0
- 485 0440 E00B40F9 		ldr	x0, [sp, 16]
- 486 0444 0100018B 		add	x1, x0, x1
-  93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 487              		.loc 1 93 39
- 488 0448 E003022A 		mov	w0, w2
- 489 044c 02FC0311 		add	w2, w0, 255
- 490 0450 1F000071 		cmp	w0, 0
- 491 0454 40B0801A 		csel	w0, w2, w0, lt
- 492 0458 007C0813 		asr	w0, w0, 8
- 493 045c 200400B9 		str	w0, [x1, 4]
-  94:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_MOTION_INDICATOR:
- 494              		.loc 1 94 5
- 495 0460 37000014 		b	.L16
- 496              	.L9:
-  96:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 65535;
- 497              		.loc 1 96 17
- 498 0464 E1BF4039 		ldrb	w1, [sp, 47]
- 499 0468 E00301AA 		mov	x0, x1
- 500 046c 00F87FD3 		lsl	x0, x0, 1
- 501 0470 0000018B 		add	x0, x0, x1
- 502 0474 00F47ED3 		lsl	x0, x0, 2
- 503 0478 E10300AA 		mov	x1, x0
- 504 047c E00B40F9 		ldr	x0, [sp, 16]
- 505 0480 0000018B 		add	x0, x0, x1
-  96:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 65535;
- 506              		.loc 1 96 20
- 507 0484 010040B9 		ldr	w1, [x0]
-  96:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 65535;
- 508              		.loc 1 96 17
- 509 0488 E2BF4039 		ldrb	w2, [sp, 47]
- 510 048c E00302AA 		mov	x0, x2
- 511 0490 00F87FD3 		lsl	x0, x0, 1
- 512 0494 0000028B 		add	x0, x0, x2
- 513 0498 00F47ED3 		lsl	x0, x0, 2
- 514 049c E20300AA 		mov	x2, x0
- 515 04a0 E00B40F9 		ldr	x0, [sp, 16]
- 516 04a4 0000028B 		add	x0, x0, x2
-  96:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh /= 65535;
- 517              		.loc 1 96 39
- 518 04a8 22009052 		mov	w2, 32769
- 519 04ac 0200B072 		movk	w2, 0x8000, lsl 16
- 520 04b0 227C229B 		smull	x2, w1, w2
- 521 04b4 42FC60D3 		lsr	x2, x2, 32
- 522 04b8 2200020B 		add	w2, w1, w2
- 523 04bc 427C0F13 		asr	w2, w2, 15
- 524 04c0 217C1F13 		asr	w1, w1, 31
- 525 04c4 4100014B 		sub	w1, w2, w1
- 526 04c8 010000B9 		str	w1, [x0]
-  97:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 527              		.loc 1 97 17
- 528 04cc E1BF4039 		ldrb	w1, [sp, 47]
- 529 04d0 E00301AA 		mov	x0, x1
- 530 04d4 00F87FD3 		lsl	x0, x0, 1
- 531 04d8 0000018B 		add	x0, x0, x1
- 532 04dc 00F47ED3 		lsl	x0, x0, 2
- 533 04e0 E10300AA 		mov	x1, x0
- 534 04e4 E00B40F9 		ldr	x0, [sp, 16]
- 535 04e8 0000018B 		add	x0, x0, x1
-  97:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 536              		.loc 1 97 20
- 537 04ec 010440B9 		ldr	w1, [x0, 4]
-  97:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 538              		.loc 1 97 17
- 539 04f0 E2BF4039 		ldrb	w2, [sp, 47]
- 540 04f4 E00302AA 		mov	x0, x2
- 541 04f8 00F87FD3 		lsl	x0, x0, 1
- 542 04fc 0000028B 		add	x0, x0, x2
- 543 0500 00F47ED3 		lsl	x0, x0, 2
- 544 0504 E20300AA 		mov	x2, x0
- 545 0508 E00B40F9 		ldr	x0, [sp, 16]
- 546 050c 0000028B 		add	x0, x0, x2
-  97:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 547              		.loc 1 97 39
- 548 0510 22009052 		mov	w2, 32769
- 549 0514 0200B072 		movk	w2, 0x8000, lsl 16
- 550 0518 227C229B 		smull	x2, w1, w2
- 551 051c 42FC60D3 		lsr	x2, x2, 32
- 552 0520 2200020B 		add	w2, w1, w2
- 553 0524 427C0F13 		asr	w2, w2, 15
- 554 0528 217C1F13 		asr	w1, w1, 31
- 555 052c 4100014B 		sub	w1, w2, w1
- 556 0530 010400B9 		str	w1, [x0, 4]
-  98:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			default:
- 557              		.loc 1 98 5
- 558 0534 02000014 		b	.L16
- 559              	.L19:
- 560              		.loc 1 100 5
- 561 0538 1F2003D5 		nop
- 562              	.L16:
+ 577              		.loc 1 100 5
+ 578 043b 90       		nop
+ 579              	.L18:
   71:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	{
- 563              		.loc 1 71 51 discriminator 2
- 564 053c E0BF4039 		ldrb	w0, [sp, 47]
- 565 0540 00040011 		add	w0, w0, 1
- 566 0544 E0BF0039 		strb	w0, [sp, 47]
- 567              	.L8:
+ 580              		.loc 1 71 51 discriminator 2
+ 581 043c 0FB645FE 		movzbl	-2(%rbp), %eax
+ 582 0440 83C001   		addl	$1, %eax
+ 583 0443 8845FE   		movb	%al, -2(%rbp)
+ 584              	.L9:
   71:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	{
- 568              		.loc 1 71 15 discriminator 1
- 569 0548 E0BF4039 		ldrb	w0, [sp, 47]
- 570 054c 1FFC0071 		cmp	w0, 63
- 571 0550 89D7FF54 		bls	.L17
+ 585              		.loc 1 71 15 discriminator 1
+ 586 0446 807DFE3F 		cmpb	$63, -2(%rbp)
+ 587 044a 0F86EEFB 		jbe	.L19
+ 587      FFFF
  101:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		}
  102:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	}
  103:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  104:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	return status;
- 572              		.loc 1 104 9
- 573 0554 E0BB4039 		ldrb	w0, [sp, 46]
+ 588              		.loc 1 104 9
+ 589 0450 0FB645FF 		movzbl	-1(%rbp), %eax
  105:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** }
- 574              		.loc 1 105 1
- 575 0558 FD7BC3A8 		ldp	x29, x30, [sp], 48
- 576              	.LCFI5:
- 577              		.cfi_restore 30
- 578              		.cfi_restore 29
- 579              		.cfi_def_cfa_offset 0
- 580 055c C0035FD6 		ret
- 581              		.cfi_endproc
- 582              	.LFE2:
- 584              		.section	.text.vl53l8cx_set_detection_thresholds,"ax",@progbits
- 585              		.align	2
- 586              		.global	vl53l8cx_set_detection_thresholds
- 588              	vl53l8cx_set_detection_thresholds:
- 589              	.LFB3:
+ 590              		.loc 1 105 1
+ 591 0454 C9       		leave
+ 592              	.LCFI8:
+ 593              		.cfi_def_cfa 7, 8
+ 594 0455 C3       		ret
+ 595              		.cfi_endproc
+ 596              	.LFE2:
+ 598              		.section	.text.vl53l8cx_set_detection_thresholds,"ax",@progbits
+ 599              		.globl	vl53l8cx_set_detection_thresholds
+ 601              	vl53l8cx_set_detection_thresholds:
+ 602              	.LFB3:
  106:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  107:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** uint8_t vl53l8cx_set_detection_thresholds(
  108:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		VL53L8CX_Configuration			*p_dev,
  109:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		VL53L8CX_DetectionThresholds	*p_thresholds)
  110:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** {
- 590              		.loc 1 110 1
- 591              		.cfi_startproc
- 592 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
- 593              	.LCFI6:
- 594              		.cfi_def_cfa_offset 48
- 595              		.cfi_offset 29, -48
- 596              		.cfi_offset 30, -40
- 597 0004 FD030091 		mov	x29, sp
- 598 0008 E00F00F9 		str	x0, [sp, 24]
- 599 000c E10B00F9 		str	x1, [sp, 16]
+ 603              		.loc 1 110 1
+ 604              		.cfi_startproc
+ 605 0000 F30F1EFA 		endbr64
+ 606 0004 55       		pushq	%rbp
+ 607              	.LCFI9:
+ 608              		.cfi_def_cfa_offset 16
+ 609              		.cfi_offset 6, -16
+ 610 0005 4889E5   		movq	%rsp, %rbp
+ 611              	.LCFI10:
+ 612              		.cfi_def_cfa_register 6
+ 613 0008 4883EC30 		subq	$48, %rsp
+ 614 000c 48897DD8 		movq	%rdi, -40(%rbp)
+ 615 0010 488975D0 		movq	%rsi, -48(%rbp)
+ 616              		.loc 1 110 1
+ 617 0014 64488B04 		movq	%fs:40, %rax
+ 617      25280000 
+ 617      00
+ 618 001d 488945F8 		movq	%rax, -8(%rbp)
+ 619 0021 31C0     		xorl	%eax, %eax
  111:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	uint8_t i, status = VL53L8CX_STATUS_OK;
- 600              		.loc 1 111 13
- 601 0010 FFBB0039 		strb	wzr, [sp, 46]
+ 620              		.loc 1 111 13
+ 621 0023 C645EF00 		movb	$0, -17(%rbp)
  112:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	uint8_t grp_valid_target_cfg[] = {0x05, 0x05, 0x05, 0x05,
- 602              		.loc 1 112 10
- 603 0014 A0A08052 		mov	w0, 1285
- 604 0018 A0A0A072 		movk	w0, 0x505, lsl 16
- 605 001c E02300B9 		str	w0, [sp, 32]
- 606 0020 E02700B9 		str	w0, [sp, 36]
+ 622              		.loc 1 112 10
+ 623 0027 48B80505 		movabsq	$361700864190383365, %rax
+ 623      05050505 
+ 623      0505
+ 624 0031 488945F0 		movq	%rax, -16(%rbp)
  113:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 					0x05, 0x05, 0x05, 0x05};
  114:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  115:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	for(i = 0; i < (uint8_t) VL53L8CX_NB_THRESHOLDS; i++)
- 607              		.loc 1 115 8
- 608 0024 FFBF0039 		strb	wzr, [sp, 47]
- 609              		.loc 1 115 2
- 610 0028 0A010014 		b	.L21
- 611              	.L30:
+ 625              		.loc 1 115 8
+ 626 0035 C645EE00 		movb	$0, -18(%rbp)
+ 627              		.loc 1 115 2
+ 628 0039 E9650300 		jmp	.L23
+ 628      00
+ 629              	.L33:
  116:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	{
  117:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		switch(p_thresholds->measurement)
- 612              		.loc 1 117 22
- 613 002c E00B40F9 		ldr	x0, [sp, 16]
- 614 0030 00204039 		ldrb	w0, [x0, 8]
- 615              		.loc 1 117 3
- 616 0034 1F4C0071 		cmp	w0, 19
- 617 0038 E01A0054 		beq	.L22
- 618 003c 1F4C0071 		cmp	w0, 19
- 619 0040 0C200054 		bgt	.L32
- 620 0044 1F340071 		cmp	w0, 13
- 621 0048 80150054 		beq	.L24
- 622 004c 1F340071 		cmp	w0, 13
- 623 0050 8C1F0054 		bgt	.L32
- 624 0054 1F200071 		cmp	w0, 8
- 625 0058 20100054 		beq	.L25
- 626 005c 1F200071 		cmp	w0, 8
- 627 0060 0C1F0054 		bgt	.L32
- 628 0064 1F100071 		cmp	w0, 4
- 629 0068 C00A0054 		beq	.L26
- 630 006c 1F100071 		cmp	w0, 4
- 631 0070 8C1E0054 		bgt	.L32
- 632 0074 1F040071 		cmp	w0, 1
- 633 0078 80000054 		beq	.L27
- 634 007c 1F080071 		cmp	w0, 2
- 635 0080 20050054 		beq	.L28
+ 630              		.loc 1 117 22
+ 631 003e 488B45D0 		movq	-48(%rbp), %rax
+ 632 0042 0FB64008 		movzbl	8(%rax), %eax
+ 633 0046 0FB6C0   		movzbl	%al, %eax
+ 634              		.loc 1 117 3
+ 635 0049 83F813   		cmpl	$19, %eax
+ 636 004c 0F874603 		ja	.L36
+ 636      0000
+ 637 0052 89C0     		movl	%eax, %eax
+ 638 0054 488D1485 		leaq	0(,%rax,4), %rdx
+ 638      00000000 
+ 639 005c 488D0500 		leaq	.L26(%rip), %rax
+ 639      000000
+ 640 0063 8B0402   		movl	(%rdx,%rax), %eax
+ 641 0066 4898     		cltq
+ 642 0068 488D1500 		leaq	.L26(%rip), %rdx
+ 642      000000
+ 643 006f 4801D0   		addq	%rdx, %rax
+ 644 0072 3EFFE0   		notrack jmp	*%rax
+ 645              		.section	.rodata.vl53l8cx_set_detection_thresholds,"a",@progbits
+ 646              		.align 4
+ 647              		.align 4
+ 648              	.L26:
+ 649 0000 00000000 		.long	.L36-.L26
+ 650 0004 00000000 		.long	.L31-.L26
+ 651 0008 00000000 		.long	.L30-.L26
+ 652 000c 00000000 		.long	.L36-.L26
+ 653 0010 00000000 		.long	.L29-.L26
+ 654 0014 00000000 		.long	.L36-.L26
+ 655 0018 00000000 		.long	.L36-.L26
+ 656 001c 00000000 		.long	.L36-.L26
+ 657 0020 00000000 		.long	.L28-.L26
+ 658 0024 00000000 		.long	.L36-.L26
+ 659 0028 00000000 		.long	.L36-.L26
+ 660 002c 00000000 		.long	.L36-.L26
+ 661 0030 00000000 		.long	.L36-.L26
+ 662 0034 00000000 		.long	.L27-.L26
+ 663 0038 00000000 		.long	.L36-.L26
+ 664 003c 00000000 		.long	.L36-.L26
+ 665 0040 00000000 		.long	.L36-.L26
+ 666 0044 00000000 		.long	.L36-.L26
+ 667 0048 00000000 		.long	.L36-.L26
+ 668 004c 00000000 		.long	.L25-.L26
+ 669              		.section	.text.vl53l8cx_set_detection_thresholds
+ 670              	.L31:
  118:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		{
  119:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_DISTANCE_MM:
  120:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  *= 4;
+ 671              		.loc 1 120 17
+ 672 0075 0FB655EE 		movzbl	-18(%rbp), %edx
+ 673 0079 4889D0   		movq	%rdx, %rax
+ 674 007c 4801C0   		addq	%rax, %rax
+ 675 007f 4801D0   		addq	%rdx, %rax
+ 676 0082 48C1E002 		salq	$2, %rax
+ 677 0086 4889C2   		movq	%rax, %rdx
+ 678 0089 488B45D0 		movq	-48(%rbp), %rax
+ 679 008d 4801D0   		addq	%rdx, %rax
+ 680              		.loc 1 120 20
+ 681 0090 8B08     		movl	(%rax), %ecx
+ 682              		.loc 1 120 17
+ 683 0092 0FB655EE 		movzbl	-18(%rbp), %edx
+ 684 0096 4889D0   		movq	%rdx, %rax
+ 685 0099 4801C0   		addq	%rax, %rax
+ 686 009c 4801D0   		addq	%rdx, %rax
+ 687 009f 48C1E002 		salq	$2, %rax
+ 688 00a3 4889C2   		movq	%rax, %rdx
+ 689 00a6 488B45D0 		movq	-48(%rbp), %rax
+ 690 00aa 4801D0   		addq	%rdx, %rax
+ 691              		.loc 1 120 39
+ 692 00ad 8D148D00 		leal	0(,%rcx,4), %edx
+ 692      000000
+ 693 00b4 8910     		movl	%edx, (%rax)
  121:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 4;
+ 694              		.loc 1 121 17
+ 695 00b6 0FB655EE 		movzbl	-18(%rbp), %edx
+ 696 00ba 4889D0   		movq	%rdx, %rax
+ 697 00bd 4801C0   		addq	%rax, %rax
+ 698 00c0 4801D0   		addq	%rdx, %rax
+ 699 00c3 48C1E002 		salq	$2, %rax
+ 700 00c7 4889C2   		movq	%rax, %rdx
+ 701 00ca 488B45D0 		movq	-48(%rbp), %rax
+ 702 00ce 4801D0   		addq	%rdx, %rax
+ 703              		.loc 1 121 20
+ 704 00d1 8B4804   		movl	4(%rax), %ecx
+ 705              		.loc 1 121 17
+ 706 00d4 0FB655EE 		movzbl	-18(%rbp), %edx
+ 707 00d8 4889D0   		movq	%rdx, %rax
+ 708 00db 4801C0   		addq	%rax, %rax
+ 709 00de 4801D0   		addq	%rdx, %rax
+ 710 00e1 48C1E002 		salq	$2, %rax
+ 711 00e5 4889C2   		movq	%rax, %rdx
+ 712 00e8 488B45D0 		movq	-48(%rbp), %rax
+ 713 00ec 4801D0   		addq	%rdx, %rax
+ 714              		.loc 1 121 39
+ 715 00ef 8D148D00 		leal	0(,%rcx,4), %edx
+ 715      000000
+ 716 00f6 895004   		movl	%edx, 4(%rax)
  122:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 717              		.loc 1 122 5
+ 718 00f9 E99B0200 		jmp	.L32
+ 718      00
+ 719              	.L30:
  123:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_SIGNAL_PER_SPAD_KCPS:
  124:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  *= 2048;
+ 720              		.loc 1 124 17
+ 721 00fe 0FB655EE 		movzbl	-18(%rbp), %edx
+ 722 0102 4889D0   		movq	%rdx, %rax
+ 723 0105 4801C0   		addq	%rax, %rax
+ 724 0108 4801D0   		addq	%rdx, %rax
+ 725 010b 48C1E002 		salq	$2, %rax
+ 726 010f 4889C2   		movq	%rax, %rdx
+ 727 0112 488B45D0 		movq	-48(%rbp), %rax
+ 728 0116 4801D0   		addq	%rdx, %rax
+ 729              		.loc 1 124 20
+ 730 0119 8B08     		movl	(%rax), %ecx
+ 731              		.loc 1 124 17
+ 732 011b 0FB655EE 		movzbl	-18(%rbp), %edx
+ 733 011f 4889D0   		movq	%rdx, %rax
+ 734 0122 4801C0   		addq	%rax, %rax
+ 735 0125 4801D0   		addq	%rdx, %rax
+ 736 0128 48C1E002 		salq	$2, %rax
+ 737 012c 4889C2   		movq	%rax, %rdx
+ 738 012f 488B45D0 		movq	-48(%rbp), %rax
+ 739 0133 4801D0   		addq	%rdx, %rax
+ 740              		.loc 1 124 39
+ 741 0136 C1E10B   		sall	$11, %ecx
+ 742 0139 89CA     		movl	%ecx, %edx
+ 743 013b 8910     		movl	%edx, (%rax)
  125:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 2048;
+ 744              		.loc 1 125 17
+ 745 013d 0FB655EE 		movzbl	-18(%rbp), %edx
+ 746 0141 4889D0   		movq	%rdx, %rax
+ 747 0144 4801C0   		addq	%rax, %rax
+ 748 0147 4801D0   		addq	%rdx, %rax
+ 749 014a 48C1E002 		salq	$2, %rax
+ 750 014e 4889C2   		movq	%rax, %rdx
+ 751 0151 488B45D0 		movq	-48(%rbp), %rax
+ 752 0155 4801D0   		addq	%rdx, %rax
+ 753              		.loc 1 125 20
+ 754 0158 8B4804   		movl	4(%rax), %ecx
+ 755              		.loc 1 125 17
+ 756 015b 0FB655EE 		movzbl	-18(%rbp), %edx
+ 757 015f 4889D0   		movq	%rdx, %rax
+ 758 0162 4801C0   		addq	%rax, %rax
+ 759 0165 4801D0   		addq	%rdx, %rax
+ 760 0168 48C1E002 		salq	$2, %rax
+ 761 016c 4889C2   		movq	%rax, %rdx
+ 762 016f 488B45D0 		movq	-48(%rbp), %rax
+ 763 0173 4801D0   		addq	%rdx, %rax
+ 764              		.loc 1 125 39
+ 765 0176 C1E10B   		sall	$11, %ecx
+ 766 0179 89CA     		movl	%ecx, %edx
+ 767 017b 895004   		movl	%edx, 4(%rax)
  126:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 768              		.loc 1 126 5
+ 769 017e E9160200 		jmp	.L32
+ 769      00
+ 770              	.L29:
  127:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_RANGE_SIGMA_MM:
  128:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  *= 128;
+ 771              		.loc 1 128 17
+ 772 0183 0FB655EE 		movzbl	-18(%rbp), %edx
+ 773 0187 4889D0   		movq	%rdx, %rax
+ 774 018a 4801C0   		addq	%rax, %rax
+ 775 018d 4801D0   		addq	%rdx, %rax
+ 776 0190 48C1E002 		salq	$2, %rax
+ 777 0194 4889C2   		movq	%rax, %rdx
+ 778 0197 488B45D0 		movq	-48(%rbp), %rax
+ 779 019b 4801D0   		addq	%rdx, %rax
+ 780              		.loc 1 128 20
+ 781 019e 8B08     		movl	(%rax), %ecx
+ 782              		.loc 1 128 17
+ 783 01a0 0FB655EE 		movzbl	-18(%rbp), %edx
+ 784 01a4 4889D0   		movq	%rdx, %rax
+ 785 01a7 4801C0   		addq	%rax, %rax
+ 786 01aa 4801D0   		addq	%rdx, %rax
+ 787 01ad 48C1E002 		salq	$2, %rax
+ 788 01b1 4889C2   		movq	%rax, %rdx
+ 789 01b4 488B45D0 		movq	-48(%rbp), %rax
+ 790 01b8 4801D0   		addq	%rdx, %rax
+ 791              		.loc 1 128 39
+ 792 01bb C1E107   		sall	$7, %ecx
+ 793 01be 89CA     		movl	%ecx, %edx
+ 794 01c0 8910     		movl	%edx, (%rax)
  129:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 128;
+ 795              		.loc 1 129 17
+ 796 01c2 0FB655EE 		movzbl	-18(%rbp), %edx
+ 797 01c6 4889D0   		movq	%rdx, %rax
+ 798 01c9 4801C0   		addq	%rax, %rax
+ 799 01cc 4801D0   		addq	%rdx, %rax
+ 800 01cf 48C1E002 		salq	$2, %rax
+ 801 01d3 4889C2   		movq	%rax, %rdx
+ 802 01d6 488B45D0 		movq	-48(%rbp), %rax
+ 803 01da 4801D0   		addq	%rdx, %rax
+ 804              		.loc 1 129 20
+ 805 01dd 8B4804   		movl	4(%rax), %ecx
+ 806              		.loc 1 129 17
+ 807 01e0 0FB655EE 		movzbl	-18(%rbp), %edx
+ 808 01e4 4889D0   		movq	%rdx, %rax
+ 809 01e7 4801C0   		addq	%rax, %rax
+ 810 01ea 4801D0   		addq	%rdx, %rax
+ 811 01ed 48C1E002 		salq	$2, %rax
+ 812 01f1 4889C2   		movq	%rax, %rdx
+ 813 01f4 488B45D0 		movq	-48(%rbp), %rax
+ 814 01f8 4801D0   		addq	%rdx, %rax
+ 815              		.loc 1 129 39
+ 816 01fb C1E107   		sall	$7, %ecx
+ 817 01fe 89CA     		movl	%ecx, %edx
+ 818 0200 895004   		movl	%edx, 4(%rax)
  130:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 819              		.loc 1 130 5
+ 820 0203 E9910100 		jmp	.L32
+ 820      00
+ 821              	.L28:
  131:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_AMBIENT_PER_SPAD_KCPS:
  132:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  *= 2048;
+ 822              		.loc 1 132 17
+ 823 0208 0FB655EE 		movzbl	-18(%rbp), %edx
+ 824 020c 4889D0   		movq	%rdx, %rax
+ 825 020f 4801C0   		addq	%rax, %rax
+ 826 0212 4801D0   		addq	%rdx, %rax
+ 827 0215 48C1E002 		salq	$2, %rax
+ 828 0219 4889C2   		movq	%rax, %rdx
+ 829 021c 488B45D0 		movq	-48(%rbp), %rax
+ 830 0220 4801D0   		addq	%rdx, %rax
+ 831              		.loc 1 132 20
+ 832 0223 8B08     		movl	(%rax), %ecx
+ 833              		.loc 1 132 17
+ 834 0225 0FB655EE 		movzbl	-18(%rbp), %edx
+ 835 0229 4889D0   		movq	%rdx, %rax
+ 836 022c 4801C0   		addq	%rax, %rax
+ 837 022f 4801D0   		addq	%rdx, %rax
+ 838 0232 48C1E002 		salq	$2, %rax
+ 839 0236 4889C2   		movq	%rax, %rdx
+ 840 0239 488B45D0 		movq	-48(%rbp), %rax
+ 841 023d 4801D0   		addq	%rdx, %rax
+ 842              		.loc 1 132 39
+ 843 0240 C1E10B   		sall	$11, %ecx
+ 844 0243 89CA     		movl	%ecx, %edx
+ 845 0245 8910     		movl	%edx, (%rax)
  133:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 2048;
+ 846              		.loc 1 133 17
+ 847 0247 0FB655EE 		movzbl	-18(%rbp), %edx
+ 848 024b 4889D0   		movq	%rdx, %rax
+ 849 024e 4801C0   		addq	%rax, %rax
+ 850 0251 4801D0   		addq	%rdx, %rax
+ 851 0254 48C1E002 		salq	$2, %rax
+ 852 0258 4889C2   		movq	%rax, %rdx
+ 853 025b 488B45D0 		movq	-48(%rbp), %rax
+ 854 025f 4801D0   		addq	%rdx, %rax
+ 855              		.loc 1 133 20
+ 856 0262 8B4804   		movl	4(%rax), %ecx
+ 857              		.loc 1 133 17
+ 858 0265 0FB655EE 		movzbl	-18(%rbp), %edx
+ 859 0269 4889D0   		movq	%rdx, %rax
+ 860 026c 4801C0   		addq	%rax, %rax
+ 861 026f 4801D0   		addq	%rdx, %rax
+ 862 0272 48C1E002 		salq	$2, %rax
+ 863 0276 4889C2   		movq	%rax, %rdx
+ 864 0279 488B45D0 		movq	-48(%rbp), %rax
+ 865 027d 4801D0   		addq	%rdx, %rax
+ 866              		.loc 1 133 39
+ 867 0280 C1E10B   		sall	$11, %ecx
+ 868 0283 89CA     		movl	%ecx, %edx
+ 869 0285 895004   		movl	%edx, 4(%rax)
  134:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 870              		.loc 1 134 5
+ 871 0288 E90C0100 		jmp	.L32
+ 871      00
+ 872              	.L27:
  135:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_NB_SPADS_ENABLED:
  136:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  *= 256;
+ 873              		.loc 1 136 17
+ 874 028d 0FB655EE 		movzbl	-18(%rbp), %edx
+ 875 0291 4889D0   		movq	%rdx, %rax
+ 876 0294 4801C0   		addq	%rax, %rax
+ 877 0297 4801D0   		addq	%rdx, %rax
+ 878 029a 48C1E002 		salq	$2, %rax
+ 879 029e 4889C2   		movq	%rax, %rdx
+ 880 02a1 488B45D0 		movq	-48(%rbp), %rax
+ 881 02a5 4801D0   		addq	%rdx, %rax
+ 882              		.loc 1 136 20
+ 883 02a8 8B08     		movl	(%rax), %ecx
+ 884              		.loc 1 136 17
+ 885 02aa 0FB655EE 		movzbl	-18(%rbp), %edx
+ 886 02ae 4889D0   		movq	%rdx, %rax
+ 887 02b1 4801C0   		addq	%rax, %rax
+ 888 02b4 4801D0   		addq	%rdx, %rax
+ 889 02b7 48C1E002 		salq	$2, %rax
+ 890 02bb 4889C2   		movq	%rax, %rdx
+ 891 02be 488B45D0 		movq	-48(%rbp), %rax
+ 892 02c2 4801D0   		addq	%rdx, %rax
+ 893              		.loc 1 136 39
+ 894 02c5 C1E108   		sall	$8, %ecx
+ 895 02c8 89CA     		movl	%ecx, %edx
+ 896 02ca 8910     		movl	%edx, (%rax)
  137:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 256;
+ 897              		.loc 1 137 17
+ 898 02cc 0FB655EE 		movzbl	-18(%rbp), %edx
+ 899 02d0 4889D0   		movq	%rdx, %rax
+ 900 02d3 4801C0   		addq	%rax, %rax
+ 901 02d6 4801D0   		addq	%rdx, %rax
+ 902 02d9 48C1E002 		salq	$2, %rax
+ 903 02dd 4889C2   		movq	%rax, %rdx
+ 904 02e0 488B45D0 		movq	-48(%rbp), %rax
+ 905 02e4 4801D0   		addq	%rdx, %rax
+ 906              		.loc 1 137 20
+ 907 02e7 8B4804   		movl	4(%rax), %ecx
+ 908              		.loc 1 137 17
+ 909 02ea 0FB655EE 		movzbl	-18(%rbp), %edx
+ 910 02ee 4889D0   		movq	%rdx, %rax
+ 911 02f1 4801C0   		addq	%rax, %rax
+ 912 02f4 4801D0   		addq	%rdx, %rax
+ 913 02f7 48C1E002 		salq	$2, %rax
+ 914 02fb 4889C2   		movq	%rax, %rdx
+ 915 02fe 488B45D0 		movq	-48(%rbp), %rax
+ 916 0302 4801D0   		addq	%rdx, %rax
+ 917              		.loc 1 137 39
+ 918 0305 C1E108   		sall	$8, %ecx
+ 919 0308 89CA     		movl	%ecx, %edx
+ 920 030a 895004   		movl	%edx, 4(%rax)
  138:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 921              		.loc 1 138 5
+ 922 030d E9870000 		jmp	.L32
+ 922      00
+ 923              	.L25:
  139:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_MOTION_INDICATOR:
  140:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_low_thresh  *= 65535;
+ 924              		.loc 1 140 17
+ 925 0312 0FB655EE 		movzbl	-18(%rbp), %edx
+ 926 0316 4889D0   		movq	%rdx, %rax
+ 927 0319 4801C0   		addq	%rax, %rax
+ 928 031c 4801D0   		addq	%rdx, %rax
+ 929 031f 48C1E002 		salq	$2, %rax
+ 930 0323 4889C2   		movq	%rax, %rdx
+ 931 0326 488B45D0 		movq	-48(%rbp), %rax
+ 932 032a 4801D0   		addq	%rdx, %rax
+ 933              		.loc 1 140 20
+ 934 032d 8B10     		movl	(%rax), %edx
+ 935              		.loc 1 140 17
+ 936 032f 0FB64DEE 		movzbl	-18(%rbp), %ecx
+ 937 0333 4889C8   		movq	%rcx, %rax
+ 938 0336 4801C0   		addq	%rax, %rax
+ 939 0339 4801C8   		addq	%rcx, %rax
+ 940 033c 48C1E002 		salq	$2, %rax
+ 941 0340 4889C1   		movq	%rax, %rcx
+ 942 0343 488B45D0 		movq	-48(%rbp), %rax
+ 943 0347 4801C1   		addq	%rax, %rcx
+ 944              		.loc 1 140 39
+ 945 034a 89D0     		movl	%edx, %eax
+ 946 034c C1E010   		sall	$16, %eax
+ 947 034f 29D0     		subl	%edx, %eax
+ 948 0351 8901     		movl	%eax, (%rcx)
  141:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 65535;
+ 949              		.loc 1 141 17
+ 950 0353 0FB655EE 		movzbl	-18(%rbp), %edx
+ 951 0357 4889D0   		movq	%rdx, %rax
+ 952 035a 4801C0   		addq	%rax, %rax
+ 953 035d 4801D0   		addq	%rdx, %rax
+ 954 0360 48C1E002 		salq	$2, %rax
+ 955 0364 4889C2   		movq	%rax, %rdx
+ 956 0367 488B45D0 		movq	-48(%rbp), %rax
+ 957 036b 4801D0   		addq	%rdx, %rax
+ 958              		.loc 1 141 20
+ 959 036e 8B5004   		movl	4(%rax), %edx
+ 960              		.loc 1 141 17
+ 961 0371 0FB64DEE 		movzbl	-18(%rbp), %ecx
+ 962 0375 4889C8   		movq	%rcx, %rax
+ 963 0378 4801C0   		addq	%rax, %rax
+ 964 037b 4801C8   		addq	%rcx, %rax
+ 965 037e 48C1E002 		salq	$2, %rax
+ 966 0382 4889C1   		movq	%rax, %rcx
+ 967 0385 488B45D0 		movq	-48(%rbp), %rax
+ 968 0389 4801C1   		addq	%rax, %rcx
+ 969              		.loc 1 141 39
+ 970 038c 89D0     		movl	%edx, %eax
+ 971 038e C1E010   		sall	$16, %eax
+ 972 0391 29D0     		subl	%edx, %eax
+ 973 0393 894104   		movl	%eax, 4(%rcx)
  142:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
+ 974              		.loc 1 142 5
+ 975 0396 EB01     		jmp	.L32
+ 976              	.L36:
  143:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			default:
  144:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 636              		.loc 1 144 5
- 637 0084 EF000014 		b	.L32
- 638              	.L27:
- 120:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 4;
- 639              		.loc 1 120 17
- 640 0088 E1BF4039 		ldrb	w1, [sp, 47]
- 641 008c E00301AA 		mov	x0, x1
- 642 0090 00F87FD3 		lsl	x0, x0, 1
- 643 0094 0000018B 		add	x0, x0, x1
- 644 0098 00F47ED3 		lsl	x0, x0, 2
- 645 009c E10300AA 		mov	x1, x0
- 646 00a0 E00B40F9 		ldr	x0, [sp, 16]
- 647 00a4 0000018B 		add	x0, x0, x1
- 120:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 4;
- 648              		.loc 1 120 20
- 649 00a8 020040B9 		ldr	w2, [x0]
- 120:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 4;
- 650              		.loc 1 120 17
- 651 00ac E1BF4039 		ldrb	w1, [sp, 47]
- 652 00b0 E00301AA 		mov	x0, x1
- 653 00b4 00F87FD3 		lsl	x0, x0, 1
- 654 00b8 0000018B 		add	x0, x0, x1
- 655 00bc 00F47ED3 		lsl	x0, x0, 2
- 656 00c0 E10300AA 		mov	x1, x0
- 657 00c4 E00B40F9 		ldr	x0, [sp, 16]
- 658 00c8 0000018B 		add	x0, x0, x1
- 120:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 4;
- 659              		.loc 1 120 39
- 660 00cc 41741E53 		lsl	w1, w2, 2
- 661 00d0 010000B9 		str	w1, [x0]
- 121:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 662              		.loc 1 121 17
- 663 00d4 E1BF4039 		ldrb	w1, [sp, 47]
- 664 00d8 E00301AA 		mov	x0, x1
- 665 00dc 00F87FD3 		lsl	x0, x0, 1
- 666 00e0 0000018B 		add	x0, x0, x1
- 667 00e4 00F47ED3 		lsl	x0, x0, 2
- 668 00e8 E10300AA 		mov	x1, x0
- 669 00ec E00B40F9 		ldr	x0, [sp, 16]
- 670 00f0 0000018B 		add	x0, x0, x1
- 121:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 671              		.loc 1 121 20
- 672 00f4 020440B9 		ldr	w2, [x0, 4]
- 121:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 673              		.loc 1 121 17
- 674 00f8 E1BF4039 		ldrb	w1, [sp, 47]
- 675 00fc E00301AA 		mov	x0, x1
- 676 0100 00F87FD3 		lsl	x0, x0, 1
- 677 0104 0000018B 		add	x0, x0, x1
- 678 0108 00F47ED3 		lsl	x0, x0, 2
- 679 010c E10300AA 		mov	x1, x0
- 680 0110 E00B40F9 		ldr	x0, [sp, 16]
- 681 0114 0000018B 		add	x0, x0, x1
- 121:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 682              		.loc 1 121 39
- 683 0118 41741E53 		lsl	w1, w2, 2
- 684 011c 010400B9 		str	w1, [x0, 4]
- 122:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_SIGNAL_PER_SPAD_KCPS:
- 685              		.loc 1 122 5
- 686 0120 C9000014 		b	.L29
- 687              	.L28:
- 124:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 2048;
- 688              		.loc 1 124 17
- 689 0124 E1BF4039 		ldrb	w1, [sp, 47]
- 690 0128 E00301AA 		mov	x0, x1
- 691 012c 00F87FD3 		lsl	x0, x0, 1
- 692 0130 0000018B 		add	x0, x0, x1
- 693 0134 00F47ED3 		lsl	x0, x0, 2
- 694 0138 E10300AA 		mov	x1, x0
- 695 013c E00B40F9 		ldr	x0, [sp, 16]
- 696 0140 0000018B 		add	x0, x0, x1
- 124:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 2048;
- 697              		.loc 1 124 20
- 698 0144 020040B9 		ldr	w2, [x0]
- 124:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 2048;
- 699              		.loc 1 124 17
- 700 0148 E1BF4039 		ldrb	w1, [sp, 47]
- 701 014c E00301AA 		mov	x0, x1
- 702 0150 00F87FD3 		lsl	x0, x0, 1
- 703 0154 0000018B 		add	x0, x0, x1
- 704 0158 00F47ED3 		lsl	x0, x0, 2
- 705 015c E10300AA 		mov	x1, x0
- 706 0160 E00B40F9 		ldr	x0, [sp, 16]
- 707 0164 0000018B 		add	x0, x0, x1
- 124:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 2048;
- 708              		.loc 1 124 39
- 709 0168 41501553 		lsl	w1, w2, 11
- 710 016c 010000B9 		str	w1, [x0]
- 125:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 711              		.loc 1 125 17
- 712 0170 E1BF4039 		ldrb	w1, [sp, 47]
- 713 0174 E00301AA 		mov	x0, x1
- 714 0178 00F87FD3 		lsl	x0, x0, 1
- 715 017c 0000018B 		add	x0, x0, x1
- 716 0180 00F47ED3 		lsl	x0, x0, 2
- 717 0184 E10300AA 		mov	x1, x0
- 718 0188 E00B40F9 		ldr	x0, [sp, 16]
- 719 018c 0000018B 		add	x0, x0, x1
- 125:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 720              		.loc 1 125 20
- 721 0190 020440B9 		ldr	w2, [x0, 4]
- 125:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 722              		.loc 1 125 17
- 723 0194 E1BF4039 		ldrb	w1, [sp, 47]
- 724 0198 E00301AA 		mov	x0, x1
- 725 019c 00F87FD3 		lsl	x0, x0, 1
- 726 01a0 0000018B 		add	x0, x0, x1
- 727 01a4 00F47ED3 		lsl	x0, x0, 2
- 728 01a8 E10300AA 		mov	x1, x0
- 729 01ac E00B40F9 		ldr	x0, [sp, 16]
- 730 01b0 0000018B 		add	x0, x0, x1
- 125:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 731              		.loc 1 125 39
- 732 01b4 41501553 		lsl	w1, w2, 11
- 733 01b8 010400B9 		str	w1, [x0, 4]
- 126:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_RANGE_SIGMA_MM:
- 734              		.loc 1 126 5
- 735 01bc A2000014 		b	.L29
- 736              	.L26:
- 128:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 128;
- 737              		.loc 1 128 17
- 738 01c0 E1BF4039 		ldrb	w1, [sp, 47]
- 739 01c4 E00301AA 		mov	x0, x1
- 740 01c8 00F87FD3 		lsl	x0, x0, 1
- 741 01cc 0000018B 		add	x0, x0, x1
- 742 01d0 00F47ED3 		lsl	x0, x0, 2
- 743 01d4 E10300AA 		mov	x1, x0
- 744 01d8 E00B40F9 		ldr	x0, [sp, 16]
- 745 01dc 0000018B 		add	x0, x0, x1
- 128:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 128;
- 746              		.loc 1 128 20
- 747 01e0 020040B9 		ldr	w2, [x0]
- 128:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 128;
- 748              		.loc 1 128 17
- 749 01e4 E1BF4039 		ldrb	w1, [sp, 47]
- 750 01e8 E00301AA 		mov	x0, x1
- 751 01ec 00F87FD3 		lsl	x0, x0, 1
- 752 01f0 0000018B 		add	x0, x0, x1
- 753 01f4 00F47ED3 		lsl	x0, x0, 2
- 754 01f8 E10300AA 		mov	x1, x0
- 755 01fc E00B40F9 		ldr	x0, [sp, 16]
- 756 0200 0000018B 		add	x0, x0, x1
- 128:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 128;
- 757              		.loc 1 128 39
- 758 0204 41601953 		lsl	w1, w2, 7
- 759 0208 010000B9 		str	w1, [x0]
- 129:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 760              		.loc 1 129 17
- 761 020c E1BF4039 		ldrb	w1, [sp, 47]
- 762 0210 E00301AA 		mov	x0, x1
- 763 0214 00F87FD3 		lsl	x0, x0, 1
- 764 0218 0000018B 		add	x0, x0, x1
- 765 021c 00F47ED3 		lsl	x0, x0, 2
- 766 0220 E10300AA 		mov	x1, x0
- 767 0224 E00B40F9 		ldr	x0, [sp, 16]
- 768 0228 0000018B 		add	x0, x0, x1
- 129:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 769              		.loc 1 129 20
- 770 022c 020440B9 		ldr	w2, [x0, 4]
- 129:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 771              		.loc 1 129 17
- 772 0230 E1BF4039 		ldrb	w1, [sp, 47]
- 773 0234 E00301AA 		mov	x0, x1
- 774 0238 00F87FD3 		lsl	x0, x0, 1
- 775 023c 0000018B 		add	x0, x0, x1
- 776 0240 00F47ED3 		lsl	x0, x0, 2
- 777 0244 E10300AA 		mov	x1, x0
- 778 0248 E00B40F9 		ldr	x0, [sp, 16]
- 779 024c 0000018B 		add	x0, x0, x1
- 129:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 780              		.loc 1 129 39
- 781 0250 41601953 		lsl	w1, w2, 7
- 782 0254 010400B9 		str	w1, [x0, 4]
- 130:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_AMBIENT_PER_SPAD_KCPS:
- 783              		.loc 1 130 5
- 784 0258 7B000014 		b	.L29
- 785              	.L25:
- 132:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 2048;
- 786              		.loc 1 132 17
- 787 025c E1BF4039 		ldrb	w1, [sp, 47]
- 788 0260 E00301AA 		mov	x0, x1
- 789 0264 00F87FD3 		lsl	x0, x0, 1
- 790 0268 0000018B 		add	x0, x0, x1
- 791 026c 00F47ED3 		lsl	x0, x0, 2
- 792 0270 E10300AA 		mov	x1, x0
- 793 0274 E00B40F9 		ldr	x0, [sp, 16]
- 794 0278 0000018B 		add	x0, x0, x1
- 132:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 2048;
- 795              		.loc 1 132 20
- 796 027c 020040B9 		ldr	w2, [x0]
- 132:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 2048;
- 797              		.loc 1 132 17
- 798 0280 E1BF4039 		ldrb	w1, [sp, 47]
- 799 0284 E00301AA 		mov	x0, x1
- 800 0288 00F87FD3 		lsl	x0, x0, 1
- 801 028c 0000018B 		add	x0, x0, x1
- 802 0290 00F47ED3 		lsl	x0, x0, 2
- 803 0294 E10300AA 		mov	x1, x0
- 804 0298 E00B40F9 		ldr	x0, [sp, 16]
- 805 029c 0000018B 		add	x0, x0, x1
- 132:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 2048;
- 806              		.loc 1 132 39
- 807 02a0 41501553 		lsl	w1, w2, 11
- 808 02a4 010000B9 		str	w1, [x0]
- 133:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 809              		.loc 1 133 17
- 810 02a8 E1BF4039 		ldrb	w1, [sp, 47]
- 811 02ac E00301AA 		mov	x0, x1
- 812 02b0 00F87FD3 		lsl	x0, x0, 1
- 813 02b4 0000018B 		add	x0, x0, x1
- 814 02b8 00F47ED3 		lsl	x0, x0, 2
- 815 02bc E10300AA 		mov	x1, x0
- 816 02c0 E00B40F9 		ldr	x0, [sp, 16]
- 817 02c4 0000018B 		add	x0, x0, x1
- 133:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 818              		.loc 1 133 20
- 819 02c8 020440B9 		ldr	w2, [x0, 4]
- 133:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 820              		.loc 1 133 17
- 821 02cc E1BF4039 		ldrb	w1, [sp, 47]
- 822 02d0 E00301AA 		mov	x0, x1
- 823 02d4 00F87FD3 		lsl	x0, x0, 1
- 824 02d8 0000018B 		add	x0, x0, x1
- 825 02dc 00F47ED3 		lsl	x0, x0, 2
- 826 02e0 E10300AA 		mov	x1, x0
- 827 02e4 E00B40F9 		ldr	x0, [sp, 16]
- 828 02e8 0000018B 		add	x0, x0, x1
- 133:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 829              		.loc 1 133 39
- 830 02ec 41501553 		lsl	w1, w2, 11
- 831 02f0 010400B9 		str	w1, [x0, 4]
- 134:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_NB_SPADS_ENABLED:
- 832              		.loc 1 134 5
- 833 02f4 54000014 		b	.L29
- 834              	.L24:
- 136:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 256;
- 835              		.loc 1 136 17
- 836 02f8 E1BF4039 		ldrb	w1, [sp, 47]
- 837 02fc E00301AA 		mov	x0, x1
- 838 0300 00F87FD3 		lsl	x0, x0, 1
- 839 0304 0000018B 		add	x0, x0, x1
- 840 0308 00F47ED3 		lsl	x0, x0, 2
- 841 030c E10300AA 		mov	x1, x0
- 842 0310 E00B40F9 		ldr	x0, [sp, 16]
- 843 0314 0000018B 		add	x0, x0, x1
- 136:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 256;
- 844              		.loc 1 136 20
- 845 0318 020040B9 		ldr	w2, [x0]
- 136:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 256;
- 846              		.loc 1 136 17
- 847 031c E1BF4039 		ldrb	w1, [sp, 47]
- 848 0320 E00301AA 		mov	x0, x1
- 849 0324 00F87FD3 		lsl	x0, x0, 1
- 850 0328 0000018B 		add	x0, x0, x1
- 851 032c 00F47ED3 		lsl	x0, x0, 2
- 852 0330 E10300AA 		mov	x1, x0
- 853 0334 E00B40F9 		ldr	x0, [sp, 16]
- 854 0338 0000018B 		add	x0, x0, x1
- 136:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 256;
- 855              		.loc 1 136 39
- 856 033c 415C1853 		lsl	w1, w2, 8
- 857 0340 010000B9 		str	w1, [x0]
- 137:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 858              		.loc 1 137 17
- 859 0344 E1BF4039 		ldrb	w1, [sp, 47]
- 860 0348 E00301AA 		mov	x0, x1
- 861 034c 00F87FD3 		lsl	x0, x0, 1
- 862 0350 0000018B 		add	x0, x0, x1
- 863 0354 00F47ED3 		lsl	x0, x0, 2
- 864 0358 E10300AA 		mov	x1, x0
- 865 035c E00B40F9 		ldr	x0, [sp, 16]
- 866 0360 0000018B 		add	x0, x0, x1
- 137:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 867              		.loc 1 137 20
- 868 0364 020440B9 		ldr	w2, [x0, 4]
- 137:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 869              		.loc 1 137 17
- 870 0368 E1BF4039 		ldrb	w1, [sp, 47]
- 871 036c E00301AA 		mov	x0, x1
- 872 0370 00F87FD3 		lsl	x0, x0, 1
- 873 0374 0000018B 		add	x0, x0, x1
- 874 0378 00F47ED3 		lsl	x0, x0, 2
- 875 037c E10300AA 		mov	x1, x0
- 876 0380 E00B40F9 		ldr	x0, [sp, 16]
- 877 0384 0000018B 		add	x0, x0, x1
- 137:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 878              		.loc 1 137 39
- 879 0388 415C1853 		lsl	w1, w2, 8
- 880 038c 010400B9 		str	w1, [x0, 4]
- 138:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			case VL53L8CX_MOTION_INDICATOR:
- 881              		.loc 1 138 5
- 882 0390 2D000014 		b	.L29
- 883              	.L22:
- 140:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 65535;
- 884              		.loc 1 140 17
- 885 0394 E1BF4039 		ldrb	w1, [sp, 47]
- 886 0398 E00301AA 		mov	x0, x1
- 887 039c 00F87FD3 		lsl	x0, x0, 1
- 888 03a0 0000018B 		add	x0, x0, x1
- 889 03a4 00F47ED3 		lsl	x0, x0, 2
- 890 03a8 E10300AA 		mov	x1, x0
- 891 03ac E00B40F9 		ldr	x0, [sp, 16]
- 892 03b0 0000018B 		add	x0, x0, x1
- 140:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 65535;
- 893              		.loc 1 140 20
- 894 03b4 010040B9 		ldr	w1, [x0]
- 140:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 65535;
- 895              		.loc 1 140 17
- 896 03b8 E2BF4039 		ldrb	w2, [sp, 47]
- 897 03bc E00302AA 		mov	x0, x2
- 898 03c0 00F87FD3 		lsl	x0, x0, 1
- 899 03c4 0000028B 		add	x0, x0, x2
- 900 03c8 00F47ED3 		lsl	x0, x0, 2
- 901 03cc E20300AA 		mov	x2, x0
- 902 03d0 E00B40F9 		ldr	x0, [sp, 16]
- 903 03d4 0200028B 		add	x2, x0, x2
- 140:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				p_thresholds[i].param_high_thresh *= 65535;
- 904              		.loc 1 140 39
- 905 03d8 E003012A 		mov	w0, w1
- 906 03dc 003C1053 		lsl	w0, w0, 16
- 907 03e0 0000014B 		sub	w0, w0, w1
- 908 03e4 400000B9 		str	w0, [x2]
- 141:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 909              		.loc 1 141 17
- 910 03e8 E1BF4039 		ldrb	w1, [sp, 47]
- 911 03ec E00301AA 		mov	x0, x1
- 912 03f0 00F87FD3 		lsl	x0, x0, 1
- 913 03f4 0000018B 		add	x0, x0, x1
- 914 03f8 00F47ED3 		lsl	x0, x0, 2
- 915 03fc E10300AA 		mov	x1, x0
- 916 0400 E00B40F9 		ldr	x0, [sp, 16]
- 917 0404 0000018B 		add	x0, x0, x1
- 141:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 918              		.loc 1 141 20
- 919 0408 010440B9 		ldr	w1, [x0, 4]
- 141:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 920              		.loc 1 141 17
- 921 040c E2BF4039 		ldrb	w2, [sp, 47]
- 922 0410 E00302AA 		mov	x0, x2
- 923 0414 00F87FD3 		lsl	x0, x0, 1
- 924 0418 0000028B 		add	x0, x0, x2
- 925 041c 00F47ED3 		lsl	x0, x0, 2
- 926 0420 E20300AA 		mov	x2, x0
- 927 0424 E00B40F9 		ldr	x0, [sp, 16]
- 928 0428 0200028B 		add	x2, x0, x2
- 141:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 				break;
- 929              		.loc 1 141 39
- 930 042c E003012A 		mov	w0, w1
- 931 0430 003C1053 		lsl	w0, w0, 16
- 932 0434 0000014B 		sub	w0, w0, w1
- 933 0438 400400B9 		str	w0, [x2, 4]
- 142:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			default:
- 934              		.loc 1 142 5
- 935 043c 02000014 		b	.L29
- 936              	.L32:
- 937              		.loc 1 144 5
- 938 0440 1F2003D5 		nop
- 939              	.L29:
+ 977              		.loc 1 144 5
+ 978 0398 90       		nop
+ 979              	.L32:
  115:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	{
- 940              		.loc 1 115 52 discriminator 2
- 941 0444 E0BF4039 		ldrb	w0, [sp, 47]
- 942 0448 00040011 		add	w0, w0, 1
- 943 044c E0BF0039 		strb	w0, [sp, 47]
- 944              	.L21:
+ 980              		.loc 1 115 52 discriminator 2
+ 981 0399 0FB645EE 		movzbl	-18(%rbp), %eax
+ 982 039d 83C001   		addl	$1, %eax
+ 983 03a0 8845EE   		movb	%al, -18(%rbp)
+ 984              	.L23:
  115:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	{
- 945              		.loc 1 115 15 discriminator 1
- 946 0450 E0BF4039 		ldrb	w0, [sp, 47]
- 947 0454 1FFC0071 		cmp	w0, 63
- 948 0458 A9DEFF54 		bls	.L30
+ 985              		.loc 1 115 15 discriminator 1
+ 986 03a3 807DEE3F 		cmpb	$63, -18(%rbp)
+ 987 03a7 0F8691FC 		jbe	.L33
+ 987      FFFF
  145:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		}
  146:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	}
  147:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  148:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	/* Set valid target list */
  149:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	status |= vl53l8cx_dci_write_data(p_dev, (uint8_t*)grp_valid_target_cfg,
- 949              		.loc 1 149 12
- 950 045c E0830091 		add	x0, sp, 32
- 951 0460 03018052 		mov	w3, 8
- 952 0464 023E9752 		mov	w2, 47600
- 953 0468 E10300AA 		mov	x1, x0
- 954 046c E00F40F9 		ldr	x0, [sp, 24]
- 955 0470 00000094 		bl	vl53l8cx_dci_write_data
- 956 0474 011C0012 		and	w1, w0, 255
- 957              		.loc 1 149 9 discriminator 1
- 958 0478 E0BB4039 		ldrb	w0, [sp, 46]
- 959 047c 2000002A 		orr	w0, w1, w0
- 960 0480 E0BB0039 		strb	w0, [sp, 46]
+ 988              		.loc 1 149 12
+ 989 03ad 488D75F0 		leaq	-16(%rbp), %rsi
+ 990 03b1 488B45D8 		movq	-40(%rbp), %rax
+ 991 03b5 B9080000 		movl	$8, %ecx
+ 991      00
+ 992 03ba BAF0B900 		movl	$47600, %edx
+ 992      00
+ 993 03bf 4889C7   		movq	%rax, %rdi
+ 994 03c2 E8000000 		call	vl53l8cx_dci_write_data@PLT
+ 994      00
+ 995              		.loc 1 149 9 discriminator 1
+ 996 03c7 0845EF   		orb	%al, -17(%rbp)
  150:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			VL53L8CX_DCI_DET_THRESH_VALID_STATUS,
  151:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			(uint16_t)sizeof(grp_valid_target_cfg));
  152:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  153:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	/* Set thresholds configuration */
  154:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	status |= vl53l8cx_dci_write_data(p_dev, (uint8_t*)p_thresholds,
- 961              		.loc 1 154 12
- 962 0484 03608052 		mov	w3, 768
- 963 0488 02DD9652 		mov	w2, 46824
- 964 048c E10B40F9 		ldr	x1, [sp, 16]
- 965 0490 E00F40F9 		ldr	x0, [sp, 24]
- 966 0494 00000094 		bl	vl53l8cx_dci_write_data
- 967 0498 011C0012 		and	w1, w0, 255
- 968              		.loc 1 154 9 discriminator 1
- 969 049c E0BB4039 		ldrb	w0, [sp, 46]
- 970 04a0 2000002A 		orr	w0, w1, w0
- 971 04a4 E0BB0039 		strb	w0, [sp, 46]
+ 997              		.loc 1 154 12
+ 998 03ca 488B75D0 		movq	-48(%rbp), %rsi
+ 999 03ce 488B45D8 		movq	-40(%rbp), %rax
+ 1000 03d2 B9000300 		movl	$768, %ecx
+ 1000      00
+ 1001 03d7 BAE8B600 		movl	$46824, %edx
+ 1001      00
+ 1002 03dc 4889C7   		movq	%rax, %rdi
+ 1003 03df E8000000 		call	vl53l8cx_dci_write_data@PLT
+ 1003      00
+ 1004              		.loc 1 154 9 discriminator 1
+ 1005 03e4 0845EF   		orb	%al, -17(%rbp)
  155:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			VL53L8CX_DCI_DET_THRESH_START,
  156:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			(uint16_t)(VL53L8CX_NB_THRESHOLDS
  157:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			*sizeof(VL53L8CX_DetectionThresholds)));
  158:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  159:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	return status;
- 972              		.loc 1 159 9
- 973 04a8 E0BB4039 		ldrb	w0, [sp, 46]
+ 1006              		.loc 1 159 9
+ 1007 03e7 0FB645EF 		movzbl	-17(%rbp), %eax
  160:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** }
- 974              		.loc 1 160 1
- 975 04ac FD7BC3A8 		ldp	x29, x30, [sp], 48
- 976              	.LCFI7:
- 977              		.cfi_restore 30
- 978              		.cfi_restore 29
- 979              		.cfi_def_cfa_offset 0
- 980 04b0 C0035FD6 		ret
- 981              		.cfi_endproc
- 982              	.LFE3:
- 984              		.section	.text.vl53l8cx_get_detection_thresholds_auto_stop,"ax",@progbits
- 985              		.align	2
- 986              		.global	vl53l8cx_get_detection_thresholds_auto_stop
- 988              	vl53l8cx_get_detection_thresholds_auto_stop:
- 989              	.LFB4:
+ 1008              		.loc 1 160 1
+ 1009 03eb 488B55F8 		movq	-8(%rbp), %rdx
+ 1010 03ef 64482B14 		subq	%fs:40, %rdx
+ 1010      25280000 
+ 1010      00
+ 1011 03f8 7405     		je	.L35
+ 1012 03fa E8000000 		call	__stack_chk_fail@PLT
+ 1012      00
+ 1013              	.L35:
+ 1014 03ff C9       		leave
+ 1015              	.LCFI11:
+ 1016              		.cfi_def_cfa 7, 8
+ 1017 0400 C3       		ret
+ 1018              		.cfi_endproc
+ 1019              	.LFE3:
+ 1021              		.section	.text.vl53l8cx_get_detection_thresholds_auto_stop,"ax",@progbits
+ 1022              		.globl	vl53l8cx_get_detection_thresholds_auto_stop
+ 1024              	vl53l8cx_get_detection_thresholds_auto_stop:
+ 1025              	.LFB4:
  161:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  162:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** uint8_t vl53l8cx_get_detection_thresholds_auto_stop(
  163:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		VL53L8CX_Configuration		*p_dev,
  164:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		uint8_t				*p_auto_stop)
  165:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** {
- 990              		.loc 1 165 1
- 991              		.cfi_startproc
- 992 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
- 993              	.LCFI8:
- 994              		.cfi_def_cfa_offset 48
- 995              		.cfi_offset 29, -48
- 996              		.cfi_offset 30, -40
- 997 0004 FD030091 		mov	x29, sp
- 998 0008 E00F00F9 		str	x0, [sp, 24]
- 999 000c E10B00F9 		str	x1, [sp, 16]
+ 1026              		.loc 1 165 1
+ 1027              		.cfi_startproc
+ 1028 0000 F30F1EFA 		endbr64
+ 1029 0004 55       		pushq	%rbp
+ 1030              	.LCFI12:
+ 1031              		.cfi_def_cfa_offset 16
+ 1032              		.cfi_offset 6, -16
+ 1033 0005 4889E5   		movq	%rsp, %rbp
+ 1034              	.LCFI13:
+ 1035              		.cfi_def_cfa_register 6
+ 1036 0008 4883EC20 		subq	$32, %rsp
+ 1037 000c 48897DE8 		movq	%rdi, -24(%rbp)
+ 1038 0010 488975E0 		movq	%rsi, -32(%rbp)
  166:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	uint8_t status = VL53L8CX_STATUS_OK;
- 1000              		.loc 1 166 10
- 1001 0010 FFBF0039 		strb	wzr, [sp, 47]
+ 1039              		.loc 1 166 10
+ 1040 0014 C645FF00 		movb	$0, -1(%rbp)
  167:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  168:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	status |= vl53l8cx_dci_read_data(p_dev, (uint8_t*)p_dev->temp_buffer,
- 1002              		.loc 1 168 52
- 1003 0014 E00F40F9 		ldr	x0, [sp, 24]
- 1004 0018 00601491 		add	x0, x0, 1304
- 1005              		.loc 1 168 12
- 1006 001c 83008052 		mov	w3, 4
- 1007 0020 02709B52 		mov	w2, 56192
- 1008 0024 E10300AA 		mov	x1, x0
- 1009 0028 E00F40F9 		ldr	x0, [sp, 24]
- 1010 002c 00000094 		bl	vl53l8cx_dci_read_data
- 1011 0030 011C0012 		and	w1, w0, 255
- 1012              		.loc 1 168 9 discriminator 1
- 1013 0034 E0BF4039 		ldrb	w0, [sp, 47]
- 1014 0038 2000002A 		orr	w0, w1, w0
- 1015 003c E0BF0039 		strb	w0, [sp, 47]
+ 1041              		.loc 1 168 52
+ 1042 0018 488B45E8 		movq	-24(%rbp), %rax
+ 1043 001c 488DB018 		leaq	1304(%rax), %rsi
+ 1043      050000
+ 1044              		.loc 1 168 12
+ 1045 0023 488B45E8 		movq	-24(%rbp), %rax
+ 1046 0027 B9040000 		movl	$4, %ecx
+ 1046      00
+ 1047 002c BA80DB00 		movl	$56192, %edx
+ 1047      00
+ 1048 0031 4889C7   		movq	%rax, %rdi
+ 1049 0034 E8000000 		call	vl53l8cx_dci_read_data@PLT
+ 1049      00
+ 1050              		.loc 1 168 9 discriminator 1
+ 1051 0039 0845FF   		orb	%al, -1(%rbp)
  169:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			VL53L8CX_DCI_PIPE_CONTROL, 4);
  170:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	*p_auto_stop = p_dev->temp_buffer[0x3];
- 1016              		.loc 1 170 35
- 1017 0040 E00F40F9 		ldr	x0, [sp, 24]
- 1018 0044 016C5439 		ldrb	w1, [x0, 1307]
- 1019              		.loc 1 170 15
- 1020 0048 E00B40F9 		ldr	x0, [sp, 16]
- 1021 004c 01000039 		strb	w1, [x0]
+ 1052              		.loc 1 170 35
+ 1053 003c 488B45E8 		movq	-24(%rbp), %rax
+ 1054 0040 0FB6901B 		movzbl	1307(%rax), %edx
+ 1054      050000
+ 1055              		.loc 1 170 15
+ 1056 0047 488B45E0 		movq	-32(%rbp), %rax
+ 1057 004b 8810     		movb	%dl, (%rax)
  171:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  172:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	return status;
- 1022              		.loc 1 172 9
- 1023 0050 E0BF4039 		ldrb	w0, [sp, 47]
+ 1058              		.loc 1 172 9
+ 1059 004d 0FB645FF 		movzbl	-1(%rbp), %eax
  173:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** }
- 1024              		.loc 1 173 1
- 1025 0054 FD7BC3A8 		ldp	x29, x30, [sp], 48
- 1026              	.LCFI9:
- 1027              		.cfi_restore 30
- 1028              		.cfi_restore 29
- 1029              		.cfi_def_cfa_offset 0
- 1030 0058 C0035FD6 		ret
- 1031              		.cfi_endproc
- 1032              	.LFE4:
- 1034              		.section	.text.vl53l8cx_set_detection_thresholds_auto_stop,"ax",@progbits
- 1035              		.align	2
- 1036              		.global	vl53l8cx_set_detection_thresholds_auto_stop
- 1038              	vl53l8cx_set_detection_thresholds_auto_stop:
- 1039              	.LFB5:
+ 1060              		.loc 1 173 1
+ 1061 0051 C9       		leave
+ 1062              	.LCFI14:
+ 1063              		.cfi_def_cfa 7, 8
+ 1064 0052 C3       		ret
+ 1065              		.cfi_endproc
+ 1066              	.LFE4:
+ 1068              		.section	.text.vl53l8cx_set_detection_thresholds_auto_stop,"ax",@progbits
+ 1069              		.globl	vl53l8cx_set_detection_thresholds_auto_stop
+ 1071              	vl53l8cx_set_detection_thresholds_auto_stop:
+ 1072              	.LFB5:
  174:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  175:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** uint8_t vl53l8cx_set_detection_thresholds_auto_stop(
  176:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		VL53L8CX_Configuration		*p_dev,
  177:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 		uint8_t				auto_stop)
  178:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** {
- 1040              		.loc 1 178 1
- 1041              		.cfi_startproc
- 1042 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
- 1043              	.LCFI10:
- 1044              		.cfi_def_cfa_offset 48
- 1045              		.cfi_offset 29, -48
- 1046              		.cfi_offset 30, -40
- 1047 0004 FD030091 		mov	x29, sp
- 1048 0008 E00F00F9 		str	x0, [sp, 24]
- 1049 000c E15F0039 		strb	w1, [sp, 23]
+ 1073              		.loc 1 178 1
+ 1074              		.cfi_startproc
+ 1075 0000 F30F1EFA 		endbr64
+ 1076 0004 55       		pushq	%rbp
+ 1077              	.LCFI15:
+ 1078              		.cfi_def_cfa_offset 16
+ 1079              		.cfi_offset 6, -16
+ 1080 0005 4889E5   		movq	%rsp, %rbp
+ 1081              	.LCFI16:
+ 1082              		.cfi_def_cfa_register 6
+ 1083 0008 4883EC20 		subq	$32, %rsp
+ 1084 000c 48897DE8 		movq	%rdi, -24(%rbp)
+ 1085 0010 89F0     		movl	%esi, %eax
+ 1086 0012 8845E4   		movb	%al, -28(%rbp)
  179:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	uint8_t status = VL53L8CX_STATUS_OK;
- 1050              		.loc 1 179 10
- 1051 0010 FFBF0039 		strb	wzr, [sp, 47]
+ 1087              		.loc 1 179 10
+ 1088 0015 C645FF00 		movb	$0, -1(%rbp)
  180:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  181:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	status |= vl53l8cx_dci_replace_data(p_dev, p_dev->temp_buffer,
- 1052              		.loc 1 181 50
- 1053 0014 E00F40F9 		ldr	x0, [sp, 24]
- 1054 0018 00601491 		add	x0, x0, 1304
- 1055              		.loc 1 181 12
- 1056 001c E15F0091 		add	x1, sp, 23
- 1057 0020 66008052 		mov	w6, 3
- 1058 0024 25008052 		mov	w5, 1
- 1059 0028 E40301AA 		mov	x4, x1
- 1060 002c 83008052 		mov	w3, 4
- 1061 0030 02709B52 		mov	w2, 56192
- 1062 0034 E10300AA 		mov	x1, x0
- 1063 0038 E00F40F9 		ldr	x0, [sp, 24]
- 1064 003c 00000094 		bl	vl53l8cx_dci_replace_data
- 1065 0040 011C0012 		and	w1, w0, 255
- 1066              		.loc 1 181 9 discriminator 1
- 1067 0044 E0BF4039 		ldrb	w0, [sp, 47]
- 1068 0048 2000002A 		orr	w0, w1, w0
- 1069 004c E0BF0039 		strb	w0, [sp, 47]
+ 1089              		.loc 1 181 50
+ 1090 0019 488B45E8 		movq	-24(%rbp), %rax
+ 1091 001d 488DB018 		leaq	1304(%rax), %rsi
+ 1091      050000
+ 1092              		.loc 1 181 12
+ 1093 0024 488D55E4 		leaq	-28(%rbp), %rdx
+ 1094 0028 488B45E8 		movq	-24(%rbp), %rax
+ 1095 002c 4883EC08 		subq	$8, %rsp
+ 1096 0030 6A03     		pushq	$3
+ 1097 0032 41B90100 		movl	$1, %r9d
+ 1097      0000
+ 1098 0038 4989D0   		movq	%rdx, %r8
+ 1099 003b B9040000 		movl	$4, %ecx
+ 1099      00
+ 1100 0040 BA80DB00 		movl	$56192, %edx
+ 1100      00
+ 1101 0045 4889C7   		movq	%rax, %rdi
+ 1102 0048 E8000000 		call	vl53l8cx_dci_replace_data@PLT
+ 1102      00
+ 1103 004d 4883C410 		addq	$16, %rsp
+ 1104              		.loc 1 181 9 discriminator 1
+ 1105 0051 0845FF   		orb	%al, -1(%rbp)
  182:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 			VL53L8CX_DCI_PIPE_CONTROL, 4,
  183:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	(uint8_t*)&auto_stop, 1, 0x03);
  184:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	p_dev->is_auto_stop_enabled = (uint8_t)auto_stop;
- 1070              		.loc 1 184 30
- 1071 0050 E15F4039 		ldrb	w1, [sp, 23]
- 1072 0054 E00F40F9 		ldr	x0, [sp, 24]
- 1073 0058 01102B39 		strb	w1, [x0, 2756]
+ 1106              		.loc 1 184 30
+ 1107 0054 0FB655E4 		movzbl	-28(%rbp), %edx
+ 1108 0058 488B45E8 		movq	-24(%rbp), %rax
+ 1109 005c 8890C40A 		movb	%dl, 2756(%rax)
+ 1109      0000
  185:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 
  186:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** 	return status;
- 1074              		.loc 1 186 9
- 1075 005c E0BF4039 		ldrb	w0, [sp, 47]
+ 1110              		.loc 1 186 9
+ 1111 0062 0FB645FF 		movzbl	-1(%rbp), %eax
  187:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_detection_thresholds.c **** }
- 1076              		.loc 1 187 1
- 1077 0060 FD7BC3A8 		ldp	x29, x30, [sp], 48
- 1078              	.LCFI11:
- 1079              		.cfi_restore 30
- 1080              		.cfi_restore 29
- 1081              		.cfi_def_cfa_offset 0
- 1082 0064 C0035FD6 		ret
- 1083              		.cfi_endproc
- 1084              	.LFE5:
- 1086              		.text
- 1087              	.Letext0:
- 1088              		.file 2 "/usr/include/aarch64-linux-gnu/bits/types.h"
- 1089              		.file 3 "/usr/include/aarch64-linux-gnu/bits/stdint-intn.h"
- 1090              		.file 4 "/usr/include/aarch64-linux-gnu/bits/stdint-uintn.h"
- 1091              		.file 5 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
- 1092              		.file 6 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h"
- 1093              		.file 7 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_plugin_detection_thresholds.h"
+ 1112              		.loc 1 187 1
+ 1113 0066 C9       		leave
+ 1114              	.LCFI17:
+ 1115              		.cfi_def_cfa 7, 8
+ 1116 0067 C3       		ret
+ 1117              		.cfi_endproc
+ 1118              	.LFE5:
+ 1120              		.text
+ 1121              	.Letext0:
+ 1122              		.file 2 "/usr/include/x86_64-linux-gnu/bits/types.h"
+ 1123              		.file 3 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h"
+ 1124              		.file 4 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h"
+ 1125              		.file 5 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
+ 1126              		.file 6 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h"
+ 1127              		.file 7 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_plugin_detection_thresholds.h"
+ 2492              		.section	.note.gnu.property,"a"
+ 2493              		.align 8
+ 2494 0000 04000000 		.long	1f - 0f
+ 2495 0004 10000000 		.long	4f - 1f
+ 2496 0008 05000000 		.long	5
+ 2497              	0:
+ 2498 000c 474E5500 		.string	"GNU"
+ 2499              	1:
+ 2500              		.align 8
+ 2501 0010 020000C0 		.long	0xc0000002
+ 2502 0014 04000000 		.long	3f - 2f
+ 2503              	2:
+ 2504 0018 03000000 		.long	0x3
+ 2505              	3:
+ 2506 001c 00000000 		.align 8
+ 2507              	4:
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 vl53l8cx_plugin_detection_thresholds.c
-     /tmp/cc3XILXD.s:7      .text.vl53l8cx_get_detection_thresholds_enable:0000000000000000 $x
-     /tmp/cc3XILXD.s:10     .text.vl53l8cx_get_detection_thresholds_enable:0000000000000000 vl53l8cx_get_detection_thresholds_enable
-     /tmp/cc3XILXD.s:57     .text.vl53l8cx_set_detection_thresholds_enable:0000000000000000 $x
-     /tmp/cc3XILXD.s:60     .text.vl53l8cx_set_detection_thresholds_enable:0000000000000000 vl53l8cx_set_detection_thresholds_enable
-     /tmp/cc3XILXD.s:144    .text.vl53l8cx_get_detection_thresholds:0000000000000000 $x
-     /tmp/cc3XILXD.s:147    .text.vl53l8cx_get_detection_thresholds:0000000000000000 vl53l8cx_get_detection_thresholds
-     /tmp/cc3XILXD.s:585    .text.vl53l8cx_set_detection_thresholds:0000000000000000 $x
-     /tmp/cc3XILXD.s:588    .text.vl53l8cx_set_detection_thresholds:0000000000000000 vl53l8cx_set_detection_thresholds
-     /tmp/cc3XILXD.s:985    .text.vl53l8cx_get_detection_thresholds_auto_stop:0000000000000000 $x
-     /tmp/cc3XILXD.s:988    .text.vl53l8cx_get_detection_thresholds_auto_stop:0000000000000000 vl53l8cx_get_detection_thresholds_auto_stop
-     /tmp/cc3XILXD.s:1035   .text.vl53l8cx_set_detection_thresholds_auto_stop:0000000000000000 $x
-     /tmp/cc3XILXD.s:1038   .text.vl53l8cx_set_detection_thresholds_auto_stop:0000000000000000 vl53l8cx_set_detection_thresholds_auto_stop
-                        .eh_frame:0000000000000014 $d
+     /tmp/ccgvMcEF.s:8      .text.vl53l8cx_get_detection_thresholds_enable:0000000000000000 vl53l8cx_get_detection_thresholds_enable
+     /tmp/ccgvMcEF.s:55     .text.vl53l8cx_set_detection_thresholds_enable:0000000000000000 vl53l8cx_set_detection_thresholds_enable
+     /tmp/ccgvMcEF.s:145    .text.vl53l8cx_get_detection_thresholds:0000000000000000 vl53l8cx_get_detection_thresholds
+     /tmp/ccgvMcEF.s:601    .text.vl53l8cx_set_detection_thresholds:0000000000000000 vl53l8cx_set_detection_thresholds
+     /tmp/ccgvMcEF.s:1024   .text.vl53l8cx_get_detection_thresholds_auto_stop:0000000000000000 vl53l8cx_get_detection_thresholds_auto_stop
+     /tmp/ccgvMcEF.s:1071   .text.vl53l8cx_set_detection_thresholds_auto_stop:0000000000000000 vl53l8cx_set_detection_thresholds_auto_stop
 
 UNDEFINED SYMBOLS
 vl53l8cx_dci_read_data
 vl53l8cx_dci_replace_data
+__stack_chk_fail
 vl53l8cx_dci_write_data

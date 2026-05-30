@@ -1,651 +1,649 @@
-   1              		.arch armv8-a
-   2              		.file	"vl53l8cx_plugin_xtalk.c"
-   3              		.text
-   4              	.Ltext0:
-   5              		.file 1 "src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c"
-   6              		.section	.rodata.VL53L8CX_GET_XTALK_CMD,"a"
-   7              		.align	3
-  10              	VL53L8CX_GET_XTALK_CMD:
-  11 0000 5400     		.string	"T"
-  12 0002 00       		.string	""
-  13 0003 409FD800 		.string	"@\237\330"
-  14 0007 C09FE401 		.string	"\300\237\344\001@\237\370"
-  14      409FF800 
-  15 000f 409FFC04 		.string	"@\237\374\004\004\240\374\001"
-  15      04A0FC01 
-  15      00
-  16 0018 A10C0100 		.string	"\241\f\001"
-  17 001c A11C00   		.string	"\241\034"
-  18 001f C0A12809 		.string	"\300\241(\t\002\242H"
-  18      02A24800 
-  19 0027 40A24C00 		.string	"@\242L"
-  20 002b 81A25400 		.string	"\201\242T"
-  21 002f 81A25C00 		.string	"\201\242\\"
-  22 0033 81A26400 		.string	"\201\242d"
-  23 0037 81A26C00 		.string	"\201\242l"
-  24 003b 84A28C00 		.string	"\204\242\214"
-  25 003f 8200     		.string	"\202"
-  26 0041 00       		.string	""
-  27 0042 00       		.string	""
-  28 0043 0F070200 		.string	"\017\007\002"
-  29 0047 44       		.ascii	"D"
-  30              		.section	.rodata.VL53L8CX_CALIBRATE_XTALK,"a"
-  31              		.align	3
-  34              	VL53L8CX_CALIBRATE_XTALK:
-  35 0000 545000   		.string	"TP"
-  36 0003 8000     		.string	"\200"
-  37 0005 04080800 		.string	"\004\b\b"
-  38 0009 00       		.string	""
-  39 000a 0404AD30 		.string	"\004\004\2550"
-  39      00
-  40 000f 80030106 		.string	"\200\003\001\006\003"
-  40      0300
-  41 0015 00       		.string	""
-  42 0016 0100     		.string	"\001"
-  43 0018 AD380100 		.string	"\2558\001"
-  44 001c 01E00140 		.string	"\001\340\001@"
-  44      00
-  45 0021 1000     		.string	"\020"
-  46 0023 100100   		.string	"\020\001"
-  47 0026 0100     		.string	"\001"
-  48 0028 00       		.string	""
-  49 0029 00       		.string	""
-  50 002a 00       		.string	""
-  51 002b 01545800 		.string	"\001TX"
-  52 002f 40041A02 		.string	"@\004\032\002"
+   1              		.file	"vl53l8cx_plugin_xtalk.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.file 1 "src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c"
+   5              		.section	.rodata.VL53L8CX_GET_XTALK_CMD,"a"
+   6              		.align 32
+   9              	VL53L8CX_GET_XTALK_CMD:
+  10 0000 5400     		.string	"T"
+  11 0002 00       		.string	""
+  12 0003 409FD800 		.string	"@\237\330"
+  13 0007 C09FE401 		.string	"\300\237\344\001@\237\370"
+  13      409FF800 
+  14 000f 409FFC04 		.string	"@\237\374\004\004\240\374\001"
+  14      04A0FC01 
+  14      00
+  15 0018 A10C0100 		.string	"\241\f\001"
+  16 001c A11C00   		.string	"\241\034"
+  17 001f C0A12809 		.string	"\300\241(\t\002\242H"
+  17      02A24800 
+  18 0027 40A24C00 		.string	"@\242L"
+  19 002b 81A25400 		.string	"\201\242T"
+  20 002f 81A25C00 		.string	"\201\242\\"
+  21 0033 81A26400 		.string	"\201\242d"
+  22 0037 81A26C00 		.string	"\201\242l"
+  23 003b 84A28C00 		.string	"\204\242\214"
+  24 003f 8200     		.string	"\202"
+  25 0041 00       		.string	""
+  26 0042 00       		.string	""
+  27 0043 0F070200 		.string	"\017\007\002"
+  28 0047 44       		.ascii	"D"
+  29              		.section	.rodata.VL53L8CX_CALIBRATE_XTALK,"a"
+  30              		.align 32
+  33              	VL53L8CX_CALIBRATE_XTALK:
+  34 0000 545000   		.string	"TP"
+  35 0003 8000     		.string	"\200"
+  36 0005 04080800 		.string	"\004\b\b"
+  37 0009 00       		.string	""
+  38 000a 0404AD30 		.string	"\004\004\2550"
+  38      00
+  39 000f 80030106 		.string	"\200\003\001\006\003"
+  39      0300
+  40 0015 00       		.string	""
+  41 0016 0100     		.string	"\001"
+  42 0018 AD380100 		.string	"\2558\001"
+  43 001c 01E00140 		.string	"\001\340\001@"
+  43      00
+  44 0021 1000     		.string	"\020"
+  45 0023 100100   		.string	"\020\001"
+  46 0026 0100     		.string	"\001"
+  47 0028 00       		.string	""
+  48 0029 00       		.string	""
+  49 002a 00       		.string	""
+  50 002b 01545800 		.string	"\001TX"
+  51 002f 40041A02 		.string	"@\004\032\002"
+  51      00
+  52 0034 545C0140 		.string	"T\\\001@"
   52      00
-  53 0034 545C0140 		.string	"T\\\001@"
-  53      00
-  54 0039 0100     		.string	"\001"
-  55 003b 5100     		.string	"Q"
-  56 003d 00       		.string	""
-  57 003e 0FA00FA0 		.string	"\017\240\017\240\003\350\002\200\037@"
-  57      03E80280 
-  57      1F4000
-  58 0049 00       		.string	""
-  59 004a 0500     		.string	"\005"
-  60 004c 547000   		.string	"Tp"
-  61 004f 80032003 		.string	"\200\003 \003 "
-  61      2000
-  62 0055 00       		.string	""
-  63 0056 00       		.string	""
-  64 0057 08547801 		.string	"\bTx\001"
-  64      00
-  65 005c 011B00   		.string	"\001\033"
-  66 005f 2100     		.string	"!"
-  67 0061 3300     		.string	"3"
-  68 0063 00       		.string	""
-  69 0064 0200     		.string	"\002"
-  70 0066 00       		.string	""
-  71 0067 01040108 		.string	"\001\004\001\b\002T\210\001@"
-  71      02548801 
-  71      4000
-  72 0071 00       		.string	""
-  73 0072 00       		.string	""
-  74 0073 00       		.string	""
-  75 0074 00       		.string	""
-  76 0075 00       		.string	""
-  77 0076 00       		.string	""
-  78 0077 00       		.string	""
-  79 0078 00       		.string	""
-  80 0079 00       		.string	""
-  81 007a 00       		.string	""
-  82 007b 00       		.string	""
-  83 007c 00       		.string	""
-  84 007d 00       		.string	""
-  85 007e 00       		.string	""
-  86 007f 00       		.string	""
-  87 0080 00       		.string	""
-  88 0081 00       		.string	""
-  89 0082 0800     		.string	"\b"
-  90 0084 AD480100 		.string	"\255H\001"
-  91 0088 01F400   		.string	"\001\364"
-  92 008b 00       		.string	""
-  93 008c 030600   		.string	"\003\006"
-  94 008f 10080808 		.string	"\020\b\b\b\b"
-  94      0800
-  95 0095 00       		.string	""
-  96 0096 00       		.string	""
-  97 0097 08AD6001 		.string	"\b\255`\001"
-  97      00
-  98 009c 00       		.string	""
-  99 009d 00       		.string	""
- 100 009e 00       		.string	""
- 101 009f 8000     		.string	"\200"
- 102 00a1 00       		.string	""
- 103 00a2 00       		.string	""
- 104 00a3 00       		.string	""
- 105 00a4 201F01F4 		.string	" \037\001\364"
- 105      00
- 106 00a9 00       		.string	""
- 107 00aa 1D0AAD70 		.string	"\035\n\255p"
- 107      00
- 108 00af 800800   		.string	"\200\b"
- 109 00b2 1F4000   		.string	"\037@"
- 110 00b5 00       		.string	""
- 111 00b6 00       		.string	""
- 112 00b7 01AD7800 		.string	"\001\255x"
- 113 00bb 8000     		.string	"\200"
- 114 00bd A0032000 		.string	"\240\003 "
- 115 00c1 010190AD 		.string	"\001\001\220\255\200"
- 115      8000
- 116 00c7 4000     		.string	"@"
- 117 00c9 00       		.string	""
- 118 00ca 2800     		.string	"("
- 119 00cc AD8400   		.string	"\255\204"
- 120 00cf 8000     		.string	"\200"
- 121 00d1 00       		.string	""
- 122 00d2 3200     		.string	"2"
- 123 00d4 032000   		.string	"\003 "
- 124 00d7 00       		.string	""
- 125 00d8 AD8C00   		.string	"\255\214"
- 126 00db 800258FF 		.string	"\200\002X\3778"
- 126      3800
- 127 00e1 00       		.string	""
- 128 00e2 00       		.string	""
- 129 00e3 0CAD9401 		.string	"\f\255\224\001"
- 129      00
- 130 00e8 00       		.string	""
- 131 00e9 019000   		.string	"\001\220"
- 132 00ec FFFFFC00 		.string	"\377\377\374"
- 133 00f0 00       		.string	""
- 134 00f1 00       		.string	""
- 135 00f2 0400     		.string	"\004"
- 136 00f4 00       		.string	""
- 137 00f5 00       		.string	""
- 138 00f6 0100     		.string	"\001"
- 139 00f8 ADA400   		.string	"\255\244"
- 140 00fb C0048006 		.string	"\300\004\200\006\032"
- 140      1A00
- 141 0101 80058000 		.string	"\200\005\200"
- 142 0105 00       		.string	""
- 143 0106 0106ADB0 		.string	"\001\006\255\260"
- 143      00
- 144 010b C0048006 		.string	"\300\004\200\006\032\031"
- 144      1A1900
- 145 0112 058000   		.string	"\005\200"
- 146 0115 00       		.string	""
- 147 0116 0190ADBC 		.string	"\001\220\255\274\004@"
- 147      044000
- 148 011d 00       		.string	""
- 149 011e 00       		.string	""
- 150 011f 00       		.string	""
- 151 0120 00       		.string	""
- 152 0121 00       		.string	""
- 153 0122 00       		.string	""
- 154 0123 00       		.string	""
- 155 0124 00       		.string	""
- 156 0125 1200     		.string	"\022"
- 157 0127 2500     		.string	"%"
- 158 0129 00       		.string	""
- 159 012a 00       		.string	""
- 160 012b 0600     		.string	"\006"
- 161 012d 00       		.string	""
- 162 012e 00       		.string	""
- 163 012f 0500     		.string	"\005"
- 164 0131 00       		.string	""
- 165 0132 00       		.string	""
- 166 0133 0500     		.string	"\005"
- 167 0135 00       		.string	""
- 168 0136 00       		.string	""
- 169 0137 0600     		.string	"\006"
- 170 0139 00       		.string	""
- 171 013a 00       		.string	""
- 172 013b 0400     		.string	"\004"
- 173 013d 00       		.string	""
- 174 013e 00       		.string	""
- 175 013f 0F00     		.string	"\017"
- 176 0141 00       		.string	""
- 177 0142 00       		.string	""
- 178 0143 5A00     		.string	"Z"
- 179 0145 00       		.string	""
- 180 0146 00       		.string	""
- 181 0147 00       		.string	""
- 182 0148 00       		.string	""
- 183 0149 00       		.string	""
- 184 014a 00       		.string	""
- 185 014b 090B0C0B 		.string	"\t\013\f\013\013\003\003\021\005\001\001\001\001"
- 185      0B030311 
- 185      05010101 
- 185      0100
- 186 0159 00       		.string	""
- 187 015a 00       		.string	""
- 188 015b 00       		.string	""
- 189 015c 00       		.string	""
- 190 015d 0D00     		.string	"\r"
- 191 015f 00       		.string	""
- 192 0160 AE00     		.string	"\256"
- 193 0162 010400   		.string	"\001\004"
- 194 0165 00       		.string	""
- 195 0166 00       		.string	""
- 196 0167 0400     		.string	"\004"
- 197 0169 00       		.string	""
- 198 016a 00       		.string	""
- 199 016b 0800     		.string	"\b"
- 200 016d 00       		.string	""
- 201 016e 00       		.string	""
- 202 016f 0A00     		.string	"\n"
- 203 0171 00       		.string	""
- 204 0172 00       		.string	""
- 205 0173 0C00     		.string	"\f"
- 206 0175 00       		.string	""
- 207 0176 00       		.string	""
- 208 0177 0D00     		.string	"\r"
- 209 0179 00       		.string	""
- 210 017a 00       		.string	""
- 211 017b 0E00     		.string	"\016"
- 212 017d 00       		.string	""
- 213 017e 00       		.string	""
- 214 017f 0800     		.string	"\b"
- 215 0181 00       		.string	""
- 216 0182 00       		.string	""
- 217 0183 0800     		.string	"\b"
- 218 0185 00       		.string	""
- 219 0186 00       		.string	""
- 220 0187 1000     		.string	"\020"
- 221 0189 00       		.string	""
- 222 018a 00       		.string	""
- 223 018b 1000     		.string	"\020"
- 224 018d 00       		.string	""
- 225 018e 00       		.string	""
- 226 018f 2000     		.string	" "
- 227 0191 00       		.string	""
- 228 0192 00       		.string	""
- 229 0193 2000     		.string	" "
- 230 0195 00       		.string	""
- 231 0196 00       		.string	""
- 232 0197 0600     		.string	"\006"
- 233 0199 00       		.string	""
- 234 019a 050A0200 		.string	"\005\n\002"
- 235 019e 0C0800   		.string	"\f\b"
- 236 01a1 00       		.string	""
- 237 01a2 00       		.string	""
- 238 01a3 00       		.string	""
- 239 01a4 AE4000   		.string	"\256@"
- 240 01a7 4000     		.string	"@"
- 241 01a9 00       		.string	""
- 242 01aa 00       		.string	""
- 243 01ab FFAE4400 		.string	"\377\256D"
- 244 01af 4000     		.string	"@"
- 245 01b1 100401AE 		.string	"\020\004\001\256H"
- 245      4800
- 246 01b7 4000     		.string	"@"
- 247 01b9 00       		.string	""
- 248 01ba 1000     		.string	"\020"
- 249 01bc AE4C00   		.string	"\256L"
- 250 01bf 4000     		.string	"@"
- 251 01c1 00       		.string	""
- 252 01c2 00       		.string	""
- 253 01c3 01AE5001 		.string	"\001\256P\001@"
- 253      4000
- 254 01c9 00       		.string	""
- 255 01ca 00       		.string	""
- 256 01cb 140400   		.string	"\024\004"
- 257 01ce 2800     		.string	"("
- 258 01d0 03206C00 		.string	"\003 l"
- 259 01d4 00       		.string	""
- 260 01d5 00       		.string	""
- 261 01d6 00       		.string	""
- 262 01d7 00       		.string	""
- 263 01d8 00       		.string	""
- 264 01d9 00       		.string	""
- 265 01da 00       		.string	""
- 266 01db 00       		.string	""
- 267 01dc AE6400   		.string	"\256d"
- 268 01df 4000     		.string	"@"
- 269 01e1 00       		.string	""
- 270 01e2 00       		.string	""
- 271 01e3 01AED801 		.string	"\001\256\330\001"
- 271      00
- 272 01e8 00       		.string	""
- 273 01e9 C805DC00 		.string	"\310\005\334"
- 274 01ed 00       		.string	""
- 275 01ee 0CCD0104 		.string	"\f\315\001\004"
- 275      00
- 276 01f3 00       		.string	""
- 277 01f4 00       		.string	""
- 278 01f5 012601B5 		.string	"\001&\001\265P\002\202\243\350\243\270\2448\244(\246H\244H\247\210\247H\254\020\247\220\2
- 278      500282A3 
- 278      E8A3B8A4 
- 278      38A428A6 
- 278      48A448A7 
- 279 0219 00       		.string	""
- 280 021a 00       		.string	""
- 281 021b 00       		.string	""
- 282 021c 00       		.string	""
- 283 021d 00       		.string	""
- 284 021e 00       		.string	""
- 285 021f 00       		.string	""
- 286 0220 00       		.string	""
- 287 0221 00       		.string	""
- 288 0222 00       		.string	""
- 289 0223 00       		.string	""
- 290 0224 00       		.string	""
- 291 0225 00       		.string	""
- 292 0226 00       		.string	""
- 293 0227 00       		.string	""
- 294 0228 00       		.string	""
- 295 0229 00       		.string	""
- 296 022a 00       		.string	""
- 297 022b 00       		.string	""
- 298 022c 00       		.string	""
- 299 022d 00       		.string	""
- 300 022e 00       		.string	""
- 301 022f 00       		.string	""
- 302 0230 00       		.string	""
- 303 0231 00       		.string	""
- 304 0232 00       		.string	""
- 305 0233 00       		.string	""
- 306 0234 00       		.string	""
- 307 0235 00       		.string	""
- 308 0236 00       		.string	""
- 309 0237 00       		.string	""
- 310 0238 00       		.string	""
- 311 0239 00       		.string	""
- 312 023a 00       		.string	""
- 313 023b 00       		.string	""
- 314 023c 00       		.string	""
- 315 023d 00       		.string	""
- 316 023e 00       		.string	""
- 317 023f 00       		.string	""
- 318 0240 00       		.string	""
- 319 0241 00       		.string	""
- 320 0242 00       		.string	""
- 321 0243 00       		.string	""
- 322 0244 00       		.string	""
- 323 0245 00       		.string	""
- 324 0246 00       		.string	""
- 325 0247 00       		.string	""
- 326 0248 00       		.string	""
- 327 0249 00       		.string	""
- 328 024a 00       		.string	""
- 329 024b 00       		.string	""
- 330 024c B5A00282 		.string	"\265\240\002\202"
- 330      00
- 331 0251 880300   		.string	"\210\003"
- 332 0254 00       		.string	""
- 333 0255 8200     		.string	"\202"
- 334 0257 82040404 		.string	"\202\004\004\004\b"
- 334      0800
- 335 025d 80040109 		.string	"\200\004\001\t\002\t\b\004\004"
- 335      02090804 
- 335      0400
- 336 0267 80040104 		.string	"\200\004\001\004\001"
- 336      0100
- 337 026d 00       		.string	""
- 338 026e 00       		.string	""
- 339 026f 00       		.string	""
- 340 0270 00       		.string	""
- 341 0271 00       		.string	""
- 342 0272 00       		.string	""
- 343 0273 00       		.string	""
- 344 0274 00       		.string	""
- 345 0275 00       		.string	""
- 346 0276 00       		.string	""
- 347 0277 00       		.string	""
- 348 0278 00       		.string	""
- 349 0279 00       		.string	""
- 350 027a 00       		.string	""
- 351 027b 00       		.string	""
- 352 027c 00       		.string	""
- 353 027d 00       		.string	""
- 354 027e 00       		.string	""
- 355 027f 00       		.string	""
- 356 0280 00       		.string	""
- 357 0281 00       		.string	""
- 358 0282 00       		.string	""
- 359 0283 00       		.string	""
- 360 0284 00       		.string	""
- 361 0285 00       		.string	""
- 362 0286 00       		.string	""
- 363 0287 00       		.string	""
- 364 0288 00       		.string	""
- 365 0289 00       		.string	""
- 366 028a 00       		.string	""
- 367 028b 00       		.string	""
- 368 028c 00       		.string	""
- 369 028d 00       		.string	""
- 370 028e 00       		.string	""
- 371 028f 00       		.string	""
- 372 0290 00       		.string	""
- 373 0291 00       		.string	""
- 374 0292 00       		.string	""
- 375 0293 00       		.string	""
- 376 0294 00       		.string	""
- 377 0295 00       		.string	""
- 378 0296 00       		.string	""
- 379 0297 00       		.string	""
- 380 0298 00       		.string	""
- 381 0299 00       		.string	""
- 382 029a 00       		.string	""
- 383 029b 00       		.string	""
- 384 029c 00       		.string	""
- 385 029d 00       		.string	""
- 386 029e 00       		.string	""
- 387 029f 00       		.string	""
- 388 02a0 B5F000   		.string	"\265\360"
- 389 02a3 4000     		.string	"@"
- 390 02a5 0400     		.string	"\004"
- 391 02a7 00       		.string	""
- 392 02a8 B39C0100 		.string	"\263\234\001"
- 393 02ac 4000     		.string	"@"
- 394 02ae 051E021B 		.string	"\005\036\002\033\b|\200"
- 394      087C8000 
- 395 02b6 120100   		.string	"\022\001"
- 396 02b9 010800   		.string	"\001\b"
- 397 02bc B6C000   		.string	"\266\300"
- 398 02bf C000     		.string	"\300"
- 399 02c1 00       		.string	""
- 400 02c2 6000     		.string	"`"
- 401 02c4 00       		.string	""
- 402 02c5 00       		.string	""
- 403 02c6 2000     		.string	" "
- 404 02c8 00       		.string	""
- 405 02c9 00       		.string	""
- 406 02ca 00       		.string	""
- 407 02cb 00       		.string	""
- 408 02cc AEA800   		.string	"\256\250"
- 409 02cf 4000     		.string	"@"
- 410 02d1 00       		.string	""
- 411 02d2 0405AEAC 		.string	"\004\005\256\254"
- 411      00
- 412 02d7 800100   		.string	"\200\001"
- 413 02da 0100     		.string	"\001"
- 414 02dc 00       		.string	""
- 415 02dd 0200     		.string	"\002"
- 416 02df 00       		.string	""
- 417 02e0 AEB400   		.string	"\256\264"
- 418 02e3 4000     		.string	"@"
- 419 02e5 00       		.string	""
- 420 02e6 00       		.string	""
- 421 02e7 00       		.string	""
- 422 02e8 AEB800   		.string	"\256\270"
- 423 02eb 8100     		.string	"\201"
- 424 02ed 00       		.string	""
- 425 02ee 00       		.string	""
- 426 02ef 00       		.string	""
- 427 02f0 00       		.string	""
- 428 02f1 00       		.string	""
- 429 02f2 00       		.string	""
- 430 02f3 00       		.string	""
- 431 02f4 AEC000   		.string	"\256\300"
- 432 02f7 8100     		.string	"\201"
- 433 02f9 00       		.string	""
- 434 02fa 00       		.string	""
- 435 02fb 00       		.string	""
- 436 02fc 00       		.string	""
- 437 02fd 00       		.string	""
- 438 02fe 00       		.string	""
- 439 02ff 00       		.string	""
- 440 0300 AEC800   		.string	"\256\310"
- 441 0303 81080101 		.string	"\201\b\001\001\b"
- 441      0800
- 442 0309 00       		.string	""
- 443 030a 00       		.string	""
- 444 030b 08AED000 		.string	"\b\256\320"
- 445 030f 81010808 		.string	"\201\001\b\b\b"
- 445      0800
- 446 0315 00       		.string	""
- 447 0316 00       		.string	""
- 448 0317 01B5F400 		.string	"\001\265\364"
- 449 031b 8000     		.string	"\200"
- 450 031d 00       		.string	""
- 451 031e 00       		.string	""
- 452 031f 00       		.string	""
- 453 0320 00       		.string	""
- 454 0321 00       		.string	""
- 455 0322 00       		.string	""
- 456 0323 00       		.string	""
- 457 0324 B5FC00   		.string	"\265\374"
- 458 0327 8000     		.string	"\200"
- 459 0329 00       		.string	""
- 460 032a 00       		.string	""
- 461 032b 00       		.string	""
- 462 032c 00       		.string	""
- 463 032d 00       		.string	""
- 464 032e 00       		.string	""
- 465 032f 00       		.string	""
- 466 0330 B60400   		.string	"\266\004"
- 467 0333 4000     		.string	"@"
- 468 0335 00       		.string	""
- 469 0336 00       		.string	""
- 470 0337 00       		.string	""
- 471 0338 B60800   		.string	"\266\b"
- 472 033b 4400     		.string	"D"
- 473 033d 00       		.string	""
- 474 033e 00       		.string	""
- 475 033f 00       		.string	""
- 476 0340 00       		.string	""
- 477 0341 00       		.string	""
- 478 0342 00       		.string	""
- 479 0343 00       		.string	""
- 480 0344 00       		.string	""
- 481 0345 00       		.string	""
- 482 0346 00       		.string	""
- 483 0347 00       		.string	""
- 484 0348 00       		.string	""
- 485 0349 00       		.string	""
- 486 034a 00       		.string	""
- 487 034b 00       		.string	""
- 488 034c B61800   		.string	"\266\030"
- 489 034f 4400     		.string	"D"
- 490 0351 00       		.string	""
- 491 0352 00       		.string	""
- 492 0353 00       		.string	""
- 493 0354 00       		.string	""
- 494 0355 00       		.string	""
- 495 0356 00       		.string	""
- 496 0357 00       		.string	""
- 497 0358 00       		.string	""
- 498 0359 00       		.string	""
- 499 035a 00       		.string	""
- 500 035b 00       		.string	""
- 501 035c 00       		.string	""
- 502 035d 00       		.string	""
- 503 035e 00       		.string	""
- 504 035f 00       		.string	""
- 505 0360 B62800   		.string	"\266("
- 506 0363 4400     		.string	"D"
- 507 0365 00       		.string	""
- 508 0366 00       		.string	""
- 509 0367 00       		.string	""
- 510 0368 00       		.string	""
- 511 0369 00       		.string	""
- 512 036a 00       		.string	""
- 513 036b 00       		.string	""
- 514 036c 00       		.string	""
- 515 036d 00       		.string	""
- 516 036e 00       		.string	""
- 517 036f 00       		.string	""
- 518 0370 00       		.string	""
- 519 0371 00       		.string	""
- 520 0372 00       		.string	""
- 521 0373 00       		.string	""
- 522 0374 B63800   		.string	"\2668"
- 523 0377 4400     		.string	"D"
- 524 0379 00       		.string	""
- 525 037a 00       		.string	""
- 526 037b 00       		.string	""
- 527 037c 00       		.string	""
- 528 037d 00       		.string	""
- 529 037e 00       		.string	""
- 530 037f 00       		.string	""
- 531 0380 00       		.string	""
- 532 0381 00       		.string	""
- 533 0382 00       		.string	""
- 534 0383 00       		.string	""
- 535 0384 00       		.string	""
- 536 0385 00       		.string	""
- 537 0386 00       		.string	""
- 538 0387 00       		.string	""
- 539 0388 B6480100 		.string	"\266H\001"
- 540 038c 00       		.string	""
- 541 038d 00       		.string	""
- 542 038e 00       		.string	""
- 543 038f 00       		.string	""
- 544 0390 00       		.string	""
- 545 0391 00       		.string	""
- 546 0392 00       		.string	""
- 547 0393 00       		.string	""
- 548 0394 00       		.string	""
- 549 0395 00       		.string	""
- 550 0396 00       		.string	""
- 551 0397 00       		.string	""
- 552 0398 00       		.string	""
- 553 0399 00       		.string	""
- 554 039a 00       		.string	""
- 555 039b 00       		.string	""
- 556 039c B6580100 		.string	"\266X\001"
- 557 03a0 00       		.string	""
- 558 03a1 00       		.string	""
- 559 03a2 00       		.string	""
- 560 03a3 00       		.string	""
- 561 03a4 00       		.string	""
- 562 03a5 00       		.string	""
- 563 03a6 00       		.string	""
- 564 03a7 00       		.string	""
- 565 03a8 00       		.string	""
- 566 03a9 00       		.string	""
- 567 03aa 00       		.string	""
- 568 03ab 00       		.string	""
- 569 03ac 00       		.string	""
- 570 03ad 00       		.string	""
- 571 03ae 00       		.string	""
- 572 03af 00       		.string	""
- 573 03b0 B6680100 		.string	"\266h\001"
- 574 03b4 00       		.string	""
- 575 03b5 00       		.string	""
- 576 03b6 00       		.string	""
- 577 03b7 00       		.string	""
- 578 03b8 00       		.string	""
- 579 03b9 00       		.string	""
- 580 03ba 00       		.string	""
- 581 03bb 00       		.string	""
- 582 03bc 00       		.string	""
- 583 03bd 00       		.string	""
- 584 03be 00       		.string	""
- 585 03bf 00       		.string	""
- 586 03c0 00       		.string	""
- 587 03c1 00       		.string	""
- 588 03c2 00       		.string	""
- 589 03c3 00       		.string	""
- 590 03c4 547000   		.string	"Tp"
- 591 03c7 8000     		.string	"\200"
- 592 03c9 00       		.string	""
- 593 03ca 00       		.string	""
- 594 03cb 00       		.string	""
- 595 03cc 00       		.string	""
- 596 03cd 00       		.string	""
- 597 03ce 00       		.string	""
- 598 03cf 0200     		.string	"\002"
- 599 03d1 00       		.string	""
- 600 03d2 00       		.string	""
- 601 03d3 0F00     		.string	"\017"
- 602 03d5 0103D4   		.ascii	"\001\003\324"
- 603              		.section	.text._vl53l8cx_poll_for_answer,"ax",@progbits
- 604              		.align	2
- 606              	_vl53l8cx_poll_for_answer:
- 607              	.LFB0:
+  53 0039 0100     		.string	"\001"
+  54 003b 5100     		.string	"Q"
+  55 003d 00       		.string	""
+  56 003e 0FA00FA0 		.string	"\017\240\017\240\003\350\002\200\037@"
+  56      03E80280 
+  56      1F4000
+  57 0049 00       		.string	""
+  58 004a 0500     		.string	"\005"
+  59 004c 547000   		.string	"Tp"
+  60 004f 80032003 		.string	"\200\003 \003 "
+  60      2000
+  61 0055 00       		.string	""
+  62 0056 00       		.string	""
+  63 0057 08547801 		.string	"\bTx\001"
+  63      00
+  64 005c 011B00   		.string	"\001\033"
+  65 005f 2100     		.string	"!"
+  66 0061 3300     		.string	"3"
+  67 0063 00       		.string	""
+  68 0064 0200     		.string	"\002"
+  69 0066 00       		.string	""
+  70 0067 01040108 		.string	"\001\004\001\b\002T\210\001@"
+  70      02548801 
+  70      4000
+  71 0071 00       		.string	""
+  72 0072 00       		.string	""
+  73 0073 00       		.string	""
+  74 0074 00       		.string	""
+  75 0075 00       		.string	""
+  76 0076 00       		.string	""
+  77 0077 00       		.string	""
+  78 0078 00       		.string	""
+  79 0079 00       		.string	""
+  80 007a 00       		.string	""
+  81 007b 00       		.string	""
+  82 007c 00       		.string	""
+  83 007d 00       		.string	""
+  84 007e 00       		.string	""
+  85 007f 00       		.string	""
+  86 0080 00       		.string	""
+  87 0081 00       		.string	""
+  88 0082 0800     		.string	"\b"
+  89 0084 AD480100 		.string	"\255H\001"
+  90 0088 01F400   		.string	"\001\364"
+  91 008b 00       		.string	""
+  92 008c 030600   		.string	"\003\006"
+  93 008f 10080808 		.string	"\020\b\b\b\b"
+  93      0800
+  94 0095 00       		.string	""
+  95 0096 00       		.string	""
+  96 0097 08AD6001 		.string	"\b\255`\001"
+  96      00
+  97 009c 00       		.string	""
+  98 009d 00       		.string	""
+  99 009e 00       		.string	""
+ 100 009f 8000     		.string	"\200"
+ 101 00a1 00       		.string	""
+ 102 00a2 00       		.string	""
+ 103 00a3 00       		.string	""
+ 104 00a4 201F01F4 		.string	" \037\001\364"
+ 104      00
+ 105 00a9 00       		.string	""
+ 106 00aa 1D0AAD70 		.string	"\035\n\255p"
+ 106      00
+ 107 00af 800800   		.string	"\200\b"
+ 108 00b2 1F4000   		.string	"\037@"
+ 109 00b5 00       		.string	""
+ 110 00b6 00       		.string	""
+ 111 00b7 01AD7800 		.string	"\001\255x"
+ 112 00bb 8000     		.string	"\200"
+ 113 00bd A0032000 		.string	"\240\003 "
+ 114 00c1 010190AD 		.string	"\001\001\220\255\200"
+ 114      8000
+ 115 00c7 4000     		.string	"@"
+ 116 00c9 00       		.string	""
+ 117 00ca 2800     		.string	"("
+ 118 00cc AD8400   		.string	"\255\204"
+ 119 00cf 8000     		.string	"\200"
+ 120 00d1 00       		.string	""
+ 121 00d2 3200     		.string	"2"
+ 122 00d4 032000   		.string	"\003 "
+ 123 00d7 00       		.string	""
+ 124 00d8 AD8C00   		.string	"\255\214"
+ 125 00db 800258FF 		.string	"\200\002X\3778"
+ 125      3800
+ 126 00e1 00       		.string	""
+ 127 00e2 00       		.string	""
+ 128 00e3 0CAD9401 		.string	"\f\255\224\001"
+ 128      00
+ 129 00e8 00       		.string	""
+ 130 00e9 019000   		.string	"\001\220"
+ 131 00ec FFFFFC00 		.string	"\377\377\374"
+ 132 00f0 00       		.string	""
+ 133 00f1 00       		.string	""
+ 134 00f2 0400     		.string	"\004"
+ 135 00f4 00       		.string	""
+ 136 00f5 00       		.string	""
+ 137 00f6 0100     		.string	"\001"
+ 138 00f8 ADA400   		.string	"\255\244"
+ 139 00fb C0048006 		.string	"\300\004\200\006\032"
+ 139      1A00
+ 140 0101 80058000 		.string	"\200\005\200"
+ 141 0105 00       		.string	""
+ 142 0106 0106ADB0 		.string	"\001\006\255\260"
+ 142      00
+ 143 010b C0048006 		.string	"\300\004\200\006\032\031"
+ 143      1A1900
+ 144 0112 058000   		.string	"\005\200"
+ 145 0115 00       		.string	""
+ 146 0116 0190ADBC 		.string	"\001\220\255\274\004@"
+ 146      044000
+ 147 011d 00       		.string	""
+ 148 011e 00       		.string	""
+ 149 011f 00       		.string	""
+ 150 0120 00       		.string	""
+ 151 0121 00       		.string	""
+ 152 0122 00       		.string	""
+ 153 0123 00       		.string	""
+ 154 0124 00       		.string	""
+ 155 0125 1200     		.string	"\022"
+ 156 0127 2500     		.string	"%"
+ 157 0129 00       		.string	""
+ 158 012a 00       		.string	""
+ 159 012b 0600     		.string	"\006"
+ 160 012d 00       		.string	""
+ 161 012e 00       		.string	""
+ 162 012f 0500     		.string	"\005"
+ 163 0131 00       		.string	""
+ 164 0132 00       		.string	""
+ 165 0133 0500     		.string	"\005"
+ 166 0135 00       		.string	""
+ 167 0136 00       		.string	""
+ 168 0137 0600     		.string	"\006"
+ 169 0139 00       		.string	""
+ 170 013a 00       		.string	""
+ 171 013b 0400     		.string	"\004"
+ 172 013d 00       		.string	""
+ 173 013e 00       		.string	""
+ 174 013f 0F00     		.string	"\017"
+ 175 0141 00       		.string	""
+ 176 0142 00       		.string	""
+ 177 0143 5A00     		.string	"Z"
+ 178 0145 00       		.string	""
+ 179 0146 00       		.string	""
+ 180 0147 00       		.string	""
+ 181 0148 00       		.string	""
+ 182 0149 00       		.string	""
+ 183 014a 00       		.string	""
+ 184 014b 090B0C0B 		.string	"\t\013\f\013\013\003\003\021\005\001\001\001\001"
+ 184      0B030311 
+ 184      05010101 
+ 184      0100
+ 185 0159 00       		.string	""
+ 186 015a 00       		.string	""
+ 187 015b 00       		.string	""
+ 188 015c 00       		.string	""
+ 189 015d 0D00     		.string	"\r"
+ 190 015f 00       		.string	""
+ 191 0160 AE00     		.string	"\256"
+ 192 0162 010400   		.string	"\001\004"
+ 193 0165 00       		.string	""
+ 194 0166 00       		.string	""
+ 195 0167 0400     		.string	"\004"
+ 196 0169 00       		.string	""
+ 197 016a 00       		.string	""
+ 198 016b 0800     		.string	"\b"
+ 199 016d 00       		.string	""
+ 200 016e 00       		.string	""
+ 201 016f 0A00     		.string	"\n"
+ 202 0171 00       		.string	""
+ 203 0172 00       		.string	""
+ 204 0173 0C00     		.string	"\f"
+ 205 0175 00       		.string	""
+ 206 0176 00       		.string	""
+ 207 0177 0D00     		.string	"\r"
+ 208 0179 00       		.string	""
+ 209 017a 00       		.string	""
+ 210 017b 0E00     		.string	"\016"
+ 211 017d 00       		.string	""
+ 212 017e 00       		.string	""
+ 213 017f 0800     		.string	"\b"
+ 214 0181 00       		.string	""
+ 215 0182 00       		.string	""
+ 216 0183 0800     		.string	"\b"
+ 217 0185 00       		.string	""
+ 218 0186 00       		.string	""
+ 219 0187 1000     		.string	"\020"
+ 220 0189 00       		.string	""
+ 221 018a 00       		.string	""
+ 222 018b 1000     		.string	"\020"
+ 223 018d 00       		.string	""
+ 224 018e 00       		.string	""
+ 225 018f 2000     		.string	" "
+ 226 0191 00       		.string	""
+ 227 0192 00       		.string	""
+ 228 0193 2000     		.string	" "
+ 229 0195 00       		.string	""
+ 230 0196 00       		.string	""
+ 231 0197 0600     		.string	"\006"
+ 232 0199 00       		.string	""
+ 233 019a 050A0200 		.string	"\005\n\002"
+ 234 019e 0C0800   		.string	"\f\b"
+ 235 01a1 00       		.string	""
+ 236 01a2 00       		.string	""
+ 237 01a3 00       		.string	""
+ 238 01a4 AE4000   		.string	"\256@"
+ 239 01a7 4000     		.string	"@"
+ 240 01a9 00       		.string	""
+ 241 01aa 00       		.string	""
+ 242 01ab FFAE4400 		.string	"\377\256D"
+ 243 01af 4000     		.string	"@"
+ 244 01b1 100401AE 		.string	"\020\004\001\256H"
+ 244      4800
+ 245 01b7 4000     		.string	"@"
+ 246 01b9 00       		.string	""
+ 247 01ba 1000     		.string	"\020"
+ 248 01bc AE4C00   		.string	"\256L"
+ 249 01bf 4000     		.string	"@"
+ 250 01c1 00       		.string	""
+ 251 01c2 00       		.string	""
+ 252 01c3 01AE5001 		.string	"\001\256P\001@"
+ 252      4000
+ 253 01c9 00       		.string	""
+ 254 01ca 00       		.string	""
+ 255 01cb 140400   		.string	"\024\004"
+ 256 01ce 2800     		.string	"("
+ 257 01d0 03206C00 		.string	"\003 l"
+ 258 01d4 00       		.string	""
+ 259 01d5 00       		.string	""
+ 260 01d6 00       		.string	""
+ 261 01d7 00       		.string	""
+ 262 01d8 00       		.string	""
+ 263 01d9 00       		.string	""
+ 264 01da 00       		.string	""
+ 265 01db 00       		.string	""
+ 266 01dc AE6400   		.string	"\256d"
+ 267 01df 4000     		.string	"@"
+ 268 01e1 00       		.string	""
+ 269 01e2 00       		.string	""
+ 270 01e3 01AED801 		.string	"\001\256\330\001"
+ 270      00
+ 271 01e8 00       		.string	""
+ 272 01e9 C805DC00 		.string	"\310\005\334"
+ 273 01ed 00       		.string	""
+ 274 01ee 0CCD0104 		.string	"\f\315\001\004"
+ 274      00
+ 275 01f3 00       		.string	""
+ 276 01f4 00       		.string	""
+ 277 01f5 012601B5 		.string	"\001&\001\265P\002\202\243\350\243\270\2448\244(\246H\244H\247\210\247H\254\020\247\220\2
+ 277      500282A3 
+ 277      E8A3B8A4 
+ 277      38A428A6 
+ 277      48A448A7 
+ 278 0219 00       		.string	""
+ 279 021a 00       		.string	""
+ 280 021b 00       		.string	""
+ 281 021c 00       		.string	""
+ 282 021d 00       		.string	""
+ 283 021e 00       		.string	""
+ 284 021f 00       		.string	""
+ 285 0220 00       		.string	""
+ 286 0221 00       		.string	""
+ 287 0222 00       		.string	""
+ 288 0223 00       		.string	""
+ 289 0224 00       		.string	""
+ 290 0225 00       		.string	""
+ 291 0226 00       		.string	""
+ 292 0227 00       		.string	""
+ 293 0228 00       		.string	""
+ 294 0229 00       		.string	""
+ 295 022a 00       		.string	""
+ 296 022b 00       		.string	""
+ 297 022c 00       		.string	""
+ 298 022d 00       		.string	""
+ 299 022e 00       		.string	""
+ 300 022f 00       		.string	""
+ 301 0230 00       		.string	""
+ 302 0231 00       		.string	""
+ 303 0232 00       		.string	""
+ 304 0233 00       		.string	""
+ 305 0234 00       		.string	""
+ 306 0235 00       		.string	""
+ 307 0236 00       		.string	""
+ 308 0237 00       		.string	""
+ 309 0238 00       		.string	""
+ 310 0239 00       		.string	""
+ 311 023a 00       		.string	""
+ 312 023b 00       		.string	""
+ 313 023c 00       		.string	""
+ 314 023d 00       		.string	""
+ 315 023e 00       		.string	""
+ 316 023f 00       		.string	""
+ 317 0240 00       		.string	""
+ 318 0241 00       		.string	""
+ 319 0242 00       		.string	""
+ 320 0243 00       		.string	""
+ 321 0244 00       		.string	""
+ 322 0245 00       		.string	""
+ 323 0246 00       		.string	""
+ 324 0247 00       		.string	""
+ 325 0248 00       		.string	""
+ 326 0249 00       		.string	""
+ 327 024a 00       		.string	""
+ 328 024b 00       		.string	""
+ 329 024c B5A00282 		.string	"\265\240\002\202"
+ 329      00
+ 330 0251 880300   		.string	"\210\003"
+ 331 0254 00       		.string	""
+ 332 0255 8200     		.string	"\202"
+ 333 0257 82040404 		.string	"\202\004\004\004\b"
+ 333      0800
+ 334 025d 80040109 		.string	"\200\004\001\t\002\t\b\004\004"
+ 334      02090804 
+ 334      0400
+ 335 0267 80040104 		.string	"\200\004\001\004\001"
+ 335      0100
+ 336 026d 00       		.string	""
+ 337 026e 00       		.string	""
+ 338 026f 00       		.string	""
+ 339 0270 00       		.string	""
+ 340 0271 00       		.string	""
+ 341 0272 00       		.string	""
+ 342 0273 00       		.string	""
+ 343 0274 00       		.string	""
+ 344 0275 00       		.string	""
+ 345 0276 00       		.string	""
+ 346 0277 00       		.string	""
+ 347 0278 00       		.string	""
+ 348 0279 00       		.string	""
+ 349 027a 00       		.string	""
+ 350 027b 00       		.string	""
+ 351 027c 00       		.string	""
+ 352 027d 00       		.string	""
+ 353 027e 00       		.string	""
+ 354 027f 00       		.string	""
+ 355 0280 00       		.string	""
+ 356 0281 00       		.string	""
+ 357 0282 00       		.string	""
+ 358 0283 00       		.string	""
+ 359 0284 00       		.string	""
+ 360 0285 00       		.string	""
+ 361 0286 00       		.string	""
+ 362 0287 00       		.string	""
+ 363 0288 00       		.string	""
+ 364 0289 00       		.string	""
+ 365 028a 00       		.string	""
+ 366 028b 00       		.string	""
+ 367 028c 00       		.string	""
+ 368 028d 00       		.string	""
+ 369 028e 00       		.string	""
+ 370 028f 00       		.string	""
+ 371 0290 00       		.string	""
+ 372 0291 00       		.string	""
+ 373 0292 00       		.string	""
+ 374 0293 00       		.string	""
+ 375 0294 00       		.string	""
+ 376 0295 00       		.string	""
+ 377 0296 00       		.string	""
+ 378 0297 00       		.string	""
+ 379 0298 00       		.string	""
+ 380 0299 00       		.string	""
+ 381 029a 00       		.string	""
+ 382 029b 00       		.string	""
+ 383 029c 00       		.string	""
+ 384 029d 00       		.string	""
+ 385 029e 00       		.string	""
+ 386 029f 00       		.string	""
+ 387 02a0 B5F000   		.string	"\265\360"
+ 388 02a3 4000     		.string	"@"
+ 389 02a5 0400     		.string	"\004"
+ 390 02a7 00       		.string	""
+ 391 02a8 B39C0100 		.string	"\263\234\001"
+ 392 02ac 4000     		.string	"@"
+ 393 02ae 051E021B 		.string	"\005\036\002\033\b|\200"
+ 393      087C8000 
+ 394 02b6 120100   		.string	"\022\001"
+ 395 02b9 010800   		.string	"\001\b"
+ 396 02bc B6C000   		.string	"\266\300"
+ 397 02bf C000     		.string	"\300"
+ 398 02c1 00       		.string	""
+ 399 02c2 6000     		.string	"`"
+ 400 02c4 00       		.string	""
+ 401 02c5 00       		.string	""
+ 402 02c6 2000     		.string	" "
+ 403 02c8 00       		.string	""
+ 404 02c9 00       		.string	""
+ 405 02ca 00       		.string	""
+ 406 02cb 00       		.string	""
+ 407 02cc AEA800   		.string	"\256\250"
+ 408 02cf 4000     		.string	"@"
+ 409 02d1 00       		.string	""
+ 410 02d2 0405AEAC 		.string	"\004\005\256\254"
+ 410      00
+ 411 02d7 800100   		.string	"\200\001"
+ 412 02da 0100     		.string	"\001"
+ 413 02dc 00       		.string	""
+ 414 02dd 0200     		.string	"\002"
+ 415 02df 00       		.string	""
+ 416 02e0 AEB400   		.string	"\256\264"
+ 417 02e3 4000     		.string	"@"
+ 418 02e5 00       		.string	""
+ 419 02e6 00       		.string	""
+ 420 02e7 00       		.string	""
+ 421 02e8 AEB800   		.string	"\256\270"
+ 422 02eb 8100     		.string	"\201"
+ 423 02ed 00       		.string	""
+ 424 02ee 00       		.string	""
+ 425 02ef 00       		.string	""
+ 426 02f0 00       		.string	""
+ 427 02f1 00       		.string	""
+ 428 02f2 00       		.string	""
+ 429 02f3 00       		.string	""
+ 430 02f4 AEC000   		.string	"\256\300"
+ 431 02f7 8100     		.string	"\201"
+ 432 02f9 00       		.string	""
+ 433 02fa 00       		.string	""
+ 434 02fb 00       		.string	""
+ 435 02fc 00       		.string	""
+ 436 02fd 00       		.string	""
+ 437 02fe 00       		.string	""
+ 438 02ff 00       		.string	""
+ 439 0300 AEC800   		.string	"\256\310"
+ 440 0303 81080101 		.string	"\201\b\001\001\b"
+ 440      0800
+ 441 0309 00       		.string	""
+ 442 030a 00       		.string	""
+ 443 030b 08AED000 		.string	"\b\256\320"
+ 444 030f 81010808 		.string	"\201\001\b\b\b"
+ 444      0800
+ 445 0315 00       		.string	""
+ 446 0316 00       		.string	""
+ 447 0317 01B5F400 		.string	"\001\265\364"
+ 448 031b 8000     		.string	"\200"
+ 449 031d 00       		.string	""
+ 450 031e 00       		.string	""
+ 451 031f 00       		.string	""
+ 452 0320 00       		.string	""
+ 453 0321 00       		.string	""
+ 454 0322 00       		.string	""
+ 455 0323 00       		.string	""
+ 456 0324 B5FC00   		.string	"\265\374"
+ 457 0327 8000     		.string	"\200"
+ 458 0329 00       		.string	""
+ 459 032a 00       		.string	""
+ 460 032b 00       		.string	""
+ 461 032c 00       		.string	""
+ 462 032d 00       		.string	""
+ 463 032e 00       		.string	""
+ 464 032f 00       		.string	""
+ 465 0330 B60400   		.string	"\266\004"
+ 466 0333 4000     		.string	"@"
+ 467 0335 00       		.string	""
+ 468 0336 00       		.string	""
+ 469 0337 00       		.string	""
+ 470 0338 B60800   		.string	"\266\b"
+ 471 033b 4400     		.string	"D"
+ 472 033d 00       		.string	""
+ 473 033e 00       		.string	""
+ 474 033f 00       		.string	""
+ 475 0340 00       		.string	""
+ 476 0341 00       		.string	""
+ 477 0342 00       		.string	""
+ 478 0343 00       		.string	""
+ 479 0344 00       		.string	""
+ 480 0345 00       		.string	""
+ 481 0346 00       		.string	""
+ 482 0347 00       		.string	""
+ 483 0348 00       		.string	""
+ 484 0349 00       		.string	""
+ 485 034a 00       		.string	""
+ 486 034b 00       		.string	""
+ 487 034c B61800   		.string	"\266\030"
+ 488 034f 4400     		.string	"D"
+ 489 0351 00       		.string	""
+ 490 0352 00       		.string	""
+ 491 0353 00       		.string	""
+ 492 0354 00       		.string	""
+ 493 0355 00       		.string	""
+ 494 0356 00       		.string	""
+ 495 0357 00       		.string	""
+ 496 0358 00       		.string	""
+ 497 0359 00       		.string	""
+ 498 035a 00       		.string	""
+ 499 035b 00       		.string	""
+ 500 035c 00       		.string	""
+ 501 035d 00       		.string	""
+ 502 035e 00       		.string	""
+ 503 035f 00       		.string	""
+ 504 0360 B62800   		.string	"\266("
+ 505 0363 4400     		.string	"D"
+ 506 0365 00       		.string	""
+ 507 0366 00       		.string	""
+ 508 0367 00       		.string	""
+ 509 0368 00       		.string	""
+ 510 0369 00       		.string	""
+ 511 036a 00       		.string	""
+ 512 036b 00       		.string	""
+ 513 036c 00       		.string	""
+ 514 036d 00       		.string	""
+ 515 036e 00       		.string	""
+ 516 036f 00       		.string	""
+ 517 0370 00       		.string	""
+ 518 0371 00       		.string	""
+ 519 0372 00       		.string	""
+ 520 0373 00       		.string	""
+ 521 0374 B63800   		.string	"\2668"
+ 522 0377 4400     		.string	"D"
+ 523 0379 00       		.string	""
+ 524 037a 00       		.string	""
+ 525 037b 00       		.string	""
+ 526 037c 00       		.string	""
+ 527 037d 00       		.string	""
+ 528 037e 00       		.string	""
+ 529 037f 00       		.string	""
+ 530 0380 00       		.string	""
+ 531 0381 00       		.string	""
+ 532 0382 00       		.string	""
+ 533 0383 00       		.string	""
+ 534 0384 00       		.string	""
+ 535 0385 00       		.string	""
+ 536 0386 00       		.string	""
+ 537 0387 00       		.string	""
+ 538 0388 B6480100 		.string	"\266H\001"
+ 539 038c 00       		.string	""
+ 540 038d 00       		.string	""
+ 541 038e 00       		.string	""
+ 542 038f 00       		.string	""
+ 543 0390 00       		.string	""
+ 544 0391 00       		.string	""
+ 545 0392 00       		.string	""
+ 546 0393 00       		.string	""
+ 547 0394 00       		.string	""
+ 548 0395 00       		.string	""
+ 549 0396 00       		.string	""
+ 550 0397 00       		.string	""
+ 551 0398 00       		.string	""
+ 552 0399 00       		.string	""
+ 553 039a 00       		.string	""
+ 554 039b 00       		.string	""
+ 555 039c B6580100 		.string	"\266X\001"
+ 556 03a0 00       		.string	""
+ 557 03a1 00       		.string	""
+ 558 03a2 00       		.string	""
+ 559 03a3 00       		.string	""
+ 560 03a4 00       		.string	""
+ 561 03a5 00       		.string	""
+ 562 03a6 00       		.string	""
+ 563 03a7 00       		.string	""
+ 564 03a8 00       		.string	""
+ 565 03a9 00       		.string	""
+ 566 03aa 00       		.string	""
+ 567 03ab 00       		.string	""
+ 568 03ac 00       		.string	""
+ 569 03ad 00       		.string	""
+ 570 03ae 00       		.string	""
+ 571 03af 00       		.string	""
+ 572 03b0 B6680100 		.string	"\266h\001"
+ 573 03b4 00       		.string	""
+ 574 03b5 00       		.string	""
+ 575 03b6 00       		.string	""
+ 576 03b7 00       		.string	""
+ 577 03b8 00       		.string	""
+ 578 03b9 00       		.string	""
+ 579 03ba 00       		.string	""
+ 580 03bb 00       		.string	""
+ 581 03bc 00       		.string	""
+ 582 03bd 00       		.string	""
+ 583 03be 00       		.string	""
+ 584 03bf 00       		.string	""
+ 585 03c0 00       		.string	""
+ 586 03c1 00       		.string	""
+ 587 03c2 00       		.string	""
+ 588 03c3 00       		.string	""
+ 589 03c4 547000   		.string	"Tp"
+ 590 03c7 8000     		.string	"\200"
+ 591 03c9 00       		.string	""
+ 592 03ca 00       		.string	""
+ 593 03cb 00       		.string	""
+ 594 03cc 00       		.string	""
+ 595 03cd 00       		.string	""
+ 596 03ce 00       		.string	""
+ 597 03cf 0200     		.string	"\002"
+ 598 03d1 00       		.string	""
+ 599 03d2 00       		.string	""
+ 600 03d3 0F00     		.string	"\017"
+ 601 03d5 0103D4   		.ascii	"\001\003\324"
+ 602              		.section	.text._vl53l8cx_poll_for_answer,"ax",@progbits
+ 604              	_vl53l8cx_poll_for_answer:
+ 605              	.LFB0:
    1:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** /**
    2:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****   *
    3:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****   * Copyright (c) 2021 STMicroelectronics.
@@ -670,120 +668,122 @@
   22:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		uint16_t 				address,
   23:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		uint8_t 				expected_value)
   24:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** {
- 608              		.loc 1 24 1
- 609              		.cfi_startproc
- 610 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
- 611              	.LCFI0:
- 612              		.cfi_def_cfa_offset 48
- 613              		.cfi_offset 29, -48
- 614              		.cfi_offset 30, -40
- 615 0004 FD030091 		mov	x29, sp
- 616 0008 E00F00F9 		str	x0, [sp, 24]
- 617 000c E12F0079 		strh	w1, [sp, 22]
- 618 0010 E2570039 		strb	w2, [sp, 21]
+ 606              		.loc 1 24 1
+ 607              		.cfi_startproc
+ 608 0000 F30F1EFA 		endbr64
+ 609 0004 55       		pushq	%rbp
+ 610              	.LCFI0:
+ 611              		.cfi_def_cfa_offset 16
+ 612              		.cfi_offset 6, -16
+ 613 0005 4889E5   		movq	%rsp, %rbp
+ 614              	.LCFI1:
+ 615              		.cfi_def_cfa_register 6
+ 616 0008 4883EC20 		subq	$32, %rsp
+ 617 000c 48897DE8 		movq	%rdi, -24(%rbp)
+ 618 0010 89F1     		movl	%esi, %ecx
+ 619 0012 89D0     		movl	%edx, %eax
+ 620 0014 89CA     		movl	%ecx, %edx
+ 621 0016 668955E4 		movw	%dx, -28(%rbp)
+ 622 001a 8845E0   		movb	%al, -32(%rbp)
   25:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t status = VL53L8CX_STATUS_OK;
- 619              		.loc 1 25 10
- 620 0014 FFBF0039 		strb	wzr, [sp, 47]
+ 623              		.loc 1 25 10
+ 624 001d C645FE00 		movb	$0, -2(%rbp)
   26:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t timeout = 0;
- 621              		.loc 1 26 10
- 622 0018 FFBB0039 		strb	wzr, [sp, 46]
- 623              	.L5:
+ 625              		.loc 1 26 10
+ 626 0021 C645FF00 		movb	$0, -1(%rbp)
+ 627              	.L5:
   27:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
   28:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	do {
   29:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= VL53L8CX_RdMulti(&(p_dev->platform), 
- 624              		.loc 1 29 13
- 625 001c E40F40F9 		ldr	x4, [sp, 24]
   30:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                   address, p_dev->temp_buffer, 4);
- 626              		.loc 1 30 49
- 627 0020 E00F40F9 		ldr	x0, [sp, 24]
- 628 0024 00601491 		add	x0, x0, 1304
+ 628              		.loc 1 30 49
+ 629 0025 488B45E8 		movq	-24(%rbp), %rax
+ 630 0029 488D9018 		leaq	1304(%rax), %rdx
+ 630      050000
   29:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                   address, p_dev->temp_buffer, 4);
- 629              		.loc 1 29 13
- 630 0028 83008052 		mov	w3, 4
- 631 002c E20300AA 		mov	x2, x0
- 632 0030 E12F4079 		ldrh	w1, [sp, 22]
- 633 0034 E00304AA 		mov	x0, x4
- 634 0038 00000094 		bl	VL53L8CX_RdMulti
+ 631              		.loc 1 29 13
+ 632 0030 0FB775E4 		movzwl	-28(%rbp), %esi
+ 633 0034 488B45E8 		movq	-24(%rbp), %rax
+ 634 0038 B9040000 		movl	$4, %ecx
+ 634      00
+ 635 003d 4889C7   		movq	%rax, %rdi
+ 636 0040 E8000000 		call	VL53L8CX_RdMulti@PLT
+ 636      00
   29:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                   address, p_dev->temp_buffer, 4);
- 635              		.loc 1 29 10 discriminator 1
- 636 003c 011C0013 		sxtb	w1, w0
- 637 0040 E0BFC039 		ldrsb	w0, [sp, 47]
- 638 0044 2000002A 		orr	w0, w1, w0
- 639 0048 001C0013 		sxtb	w0, w0
- 640 004c E0BF0039 		strb	w0, [sp, 47]
+ 637              		.loc 1 29 10 discriminator 1
+ 638 0045 89C2     		movl	%eax, %edx
+ 639 0047 0FB645FE 		movzbl	-2(%rbp), %eax
+ 640 004b 09D0     		orl	%edx, %eax
+ 641 004d 8845FE   		movb	%al, -2(%rbp)
   31:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= VL53L8CX_WaitMs(&(p_dev->platform), 10);
- 641              		.loc 1 31 13
- 642 0050 E00F40F9 		ldr	x0, [sp, 24]
- 643 0054 41018052 		mov	w1, 10
- 644 0058 00000094 		bl	VL53L8CX_WaitMs
- 645              		.loc 1 31 10 discriminator 1
- 646 005c 011C0013 		sxtb	w1, w0
- 647 0060 E0BFC039 		ldrsb	w0, [sp, 47]
- 648 0064 2000002A 		orr	w0, w1, w0
- 649 0068 001C0013 		sxtb	w0, w0
- 650 006c E0BF0039 		strb	w0, [sp, 47]
+ 642              		.loc 1 31 13
+ 643 0050 488B45E8 		movq	-24(%rbp), %rax
+ 644 0054 BE0A0000 		movl	$10, %esi
+ 644      00
+ 645 0059 4889C7   		movq	%rax, %rdi
+ 646 005c E8000000 		call	VL53L8CX_WaitMs@PLT
+ 646      00
+ 647              		.loc 1 31 10 discriminator 1
+ 648 0061 89C2     		movl	%eax, %edx
+ 649 0063 0FB645FE 		movzbl	-2(%rbp), %eax
+ 650 0067 09D0     		orl	%edx, %eax
+ 651 0069 8845FE   		movb	%al, -2(%rbp)
   32:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		
   33:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                 /* 2s timeout or FW error*/
   34:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		if((timeout >= (uint8_t)200) 
- 651              		.loc 1 34 5
- 652 0070 E0BB4039 		ldrb	w0, [sp, 46]
- 653 0074 1F1C0371 		cmp	w0, 199
- 654 0078 A8000054 		bhi	.L2
+ 652              		.loc 1 34 5
+ 653 006c 807DFFC7 		cmpb	$-57, -1(%rbp)
+ 654 0070 770F     		ja	.L2
   35:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                    || (p_dev->temp_buffer[2] >= (uint8_t) 0x7f))
  655              		.loc 1 35 42
- 656 007c E00F40F9 		ldr	x0, [sp, 24]
- 657 0080 00685439 		ldrb	w0, [x0, 1306]
+ 656 0072 488B45E8 		movq	-24(%rbp), %rax
+ 657 0076 0FB6801A 		movzbl	1306(%rax), %eax
+ 657      050000
  658              		.loc 1 35 20
- 659 0084 1FF80171 		cmp	w0, 126
- 660 0088 C9000054 		bls	.L3
+ 659 007d 3C7E     		cmpb	$126, %al
+ 660 007f 7606     		jbe	.L3
  661              	.L2:
   36:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		{
   37:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			status |= VL53L8CX_MCU_ERROR;
  662              		.loc 1 37 11
- 663 008c E1BF4039 		ldrb	w1, [sp, 47]
- 664 0090 40088052 		mov	w0, 66
- 665 0094 2000002A 		orr	w0, w1, w0
- 666 0098 E0BF0039 		strb	w0, [sp, 47]
+ 663 0081 804DFE42 		orb	$66, -2(%rbp)
   38:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			break;
- 667              		.loc 1 38 4
- 668 009c 09000014 		b	.L4
- 669              	.L3:
+ 664              		.loc 1 38 4
+ 665 0085 EB1A     		jmp	.L4
+ 666              	.L3:
   39:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		}
   40:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                 else
   41:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                 {
   42:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                   timeout++;
- 670              		.loc 1 42 26
- 671 00a0 E0BB4039 		ldrb	w0, [sp, 46]
- 672 00a4 00040011 		add	w0, w0, 1
- 673 00a8 E0BB0039 		strb	w0, [sp, 46]
+ 667              		.loc 1 42 26
+ 668 0087 0FB645FF 		movzbl	-1(%rbp), %eax
+ 669 008b 83C001   		addl	$1, %eax
+ 670 008e 8845FF   		movb	%al, -1(%rbp)
   43:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                 }
   44:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	}while ((p_dev->temp_buffer[0x1]) != expected_value);
- 674              		.loc 1 44 29
- 675 00ac E00F40F9 		ldr	x0, [sp, 24]
- 676 00b0 00645439 		ldrb	w0, [x0, 1305]
- 677              		.loc 1 44 36
- 678 00b4 E1574039 		ldrb	w1, [sp, 21]
- 679 00b8 3F00006B 		cmp	w1, w0
- 680 00bc 01FBFF54 		bne	.L5
- 681              	.L4:
+ 671              		.loc 1 44 29
+ 672 0091 488B45E8 		movq	-24(%rbp), %rax
+ 673 0095 0FB68019 		movzbl	1305(%rax), %eax
+ 673      050000
+ 674              		.loc 1 44 36
+ 675 009c 3845E0   		cmpb	%al, -32(%rbp)
+ 676 009f 7584     		jne	.L5
+ 677              	.L4:
   45:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****         
   46:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	return status;
- 682              		.loc 1 46 9
- 683 00c0 E0BF4039 		ldrb	w0, [sp, 47]
+ 678              		.loc 1 46 9
+ 679 00a1 0FB645FE 		movzbl	-2(%rbp), %eax
   47:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** }
- 684              		.loc 1 47 1
- 685 00c4 FD7BC3A8 		ldp	x29, x30, [sp], 48
- 686              	.LCFI1:
- 687              		.cfi_restore 30
- 688              		.cfi_restore 29
- 689              		.cfi_def_cfa_offset 0
- 690 00c8 C0035FD6 		ret
- 691              		.cfi_endproc
- 692              	.LFE0:
- 694              		.section	.text._vl53l8cx_program_output_config,"ax",@progbits
- 695              		.align	2
- 697              	_vl53l8cx_program_output_config:
- 698              	.LFB1:
+ 680              		.loc 1 47 1
+ 681 00a5 C9       		leave
+ 682              	.LCFI2:
+ 683              		.cfi_def_cfa 7, 8
+ 684 00a6 C3       		ret
+ 685              		.cfi_endproc
+ 686              	.LFE0:
+ 688              		.section	.text._vl53l8cx_program_output_config,"ax",@progbits
+ 690              	_vl53l8cx_program_output_config:
+ 691              	.LFB1:
   48:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
   49:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** /*
   50:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****  * Inner function, not available outside this file. This function is used to
@@ -793,50 +793,67 @@
   54:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** static uint8_t _vl53l8cx_program_output_config(
   55:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		VL53L8CX_Configuration 		 *p_dev)
   56:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** {
- 699              		.loc 1 56 1
- 700              		.cfi_startproc
- 701 0000 FD7BB6A9 		stp	x29, x30, [sp, -160]!
- 702              	.LCFI2:
- 703              		.cfi_def_cfa_offset 160
- 704              		.cfi_offset 29, -160
- 705              		.cfi_offset 30, -152
- 706 0004 FD030091 		mov	x29, sp
- 707 0008 E00F00F9 		str	x0, [sp, 24]
+ 692              		.loc 1 56 1
+ 693              		.cfi_startproc
+ 694 0000 F30F1EFA 		endbr64
+ 695 0004 55       		pushq	%rbp
+ 696              	.LCFI3:
+ 697              		.cfi_def_cfa_offset 16
+ 698              		.cfi_offset 6, -16
+ 699 0005 4889E5   		movq	%rsp, %rbp
+ 700              	.LCFI4:
+ 701              		.cfi_def_cfa_register 6
+ 702 0008 4881EC90 		subq	$144, %rsp
+ 702      000000
+ 703 000f 4889BD78 		movq	%rdi, -136(%rbp)
+ 703      FFFFFF
+ 704              		.loc 1 56 1
+ 705 0016 64488B04 		movq	%fs:40, %rax
+ 705      25280000 
+ 705      00
+ 706 001f 488945F8 		movq	%rax, -8(%rbp)
+ 707 0023 31C0     		xorl	%eax, %eax
   57:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t resolution, status = VL53L8CX_STATUS_OK;
  708              		.loc 1 57 22
- 709 000c FF6F0239 		strb	wzr, [sp, 155]
+ 709 0025 C6458B00 		movb	$0, -117(%rbp)
   58:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint32_t i;
   59:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint32_t header_config[2] = {0, 0};
  710              		.loc 1 59 11
- 711 0010 FF8300B9 		str	wzr, [sp, 128]
- 712 0014 FF8700B9 		str	wzr, [sp, 132]
+ 711 0029 C7459800 		movl	$0, -104(%rbp)
+ 711      000000
+ 712 0030 C7459C00 		movl	$0, -100(%rbp)
+ 712      000000
   60:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	union Block_header *bh_ptr;
   61:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
   62:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_get_resolution(p_dev, &resolution);
  713              		.loc 1 62 12
- 714 0018 E03F0291 		add	x0, sp, 143
- 715 001c E10300AA 		mov	x1, x0
- 716 0020 E00F40F9 		ldr	x0, [sp, 24]
- 717 0024 00000094 		bl	vl53l8cx_get_resolution
- 718 0028 011C0012 		and	w1, w0, 255
+ 714 0037 488D558A 		leaq	-118(%rbp), %rdx
+ 715 003b 488B8578 		movq	-136(%rbp), %rax
+ 715      FFFFFF
+ 716 0042 4889D6   		movq	%rdx, %rsi
+ 717 0045 4889C7   		movq	%rax, %rdi
+ 718 0048 E8000000 		call	vl53l8cx_get_resolution@PLT
+ 718      00
  719              		.loc 1 62 9 discriminator 1
- 720 002c E06F4239 		ldrb	w0, [sp, 155]
- 721 0030 2000002A 		orr	w0, w1, w0
- 722 0034 E06F0239 		strb	w0, [sp, 155]
+ 720 004d 08458B   		orb	%al, -117(%rbp)
   63:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	p_dev->data_read_size = 0;
- 723              		.loc 1 63 24
- 724 0038 E00F40F9 		ldr	x0, [sp, 24]
- 725 003c 1F1000B9 		str	wzr, [x0, 16]
+ 721              		.loc 1 63 24
+ 722 0050 488B8578 		movq	-136(%rbp), %rax
+ 722      FFFFFF
+ 723 0057 C7401000 		movl	$0, 16(%rax)
+ 723      000000
   64:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
   65:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	/* Enable mandatory output (meta and common data) */
   66:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint32_t output_bh_enable[] = {
- 726              		.loc 1 66 11
- 727 0040 C0FFBF12 		mov	w0, 131071
- 728 0044 E07300B9 		str	w0, [sp, 112]
- 729 0048 FF7700B9 		str	wzr, [sp, 116]
- 730 004c FF7B00B9 		str	wzr, [sp, 120]
- 731 0050 0000B852 		mov	w0, -1073741824
- 732 0054 E07F00B9 		str	w0, [sp, 124]
+ 724              		.loc 1 66 11
+ 725 005e C745A0FF 		movl	$131071, -96(%rbp)
+ 725      FF0100
+ 726 0065 C745A400 		movl	$0, -92(%rbp)
+ 726      000000
+ 727 006c C745A800 		movl	$0, -88(%rbp)
+ 727      000000
+ 728 0073 C745AC00 		movl	$-1073741824, -84(%rbp)
+ 728      0000C0
   67:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			0x0001FFFFU,
   68:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			0x00000000U,
   69:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			0x00000000U,
@@ -844,20 +861,41 @@
   71:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
   72:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	/* Send addresses of possible output */
   73:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint32_t output[] ={
- 733              		.loc 1 73 11
- 734 0058 00000090 		adrp	x0, .LC0
- 735 005c 01000091 		add	x1, x0, :lo12:.LC0
- 736 0060 E0A30091 		add	x0, sp, 40
- 737 0064 3C00C03D 		ldr	q28, [x1]
- 738 0068 3D04C03D 		ldr	q29, [x1, 16]
- 739 006c 3E08C03D 		ldr	q30, [x1, 32]
- 740 0070 3F0CC03D 		ldr	q31, [x1, 48]
- 741 0074 214040B9 		ldr	w1, [x1, 64]
- 742 0078 1C00803D 		str	q28, [x0]
- 743 007c 1D04803D 		str	q29, [x0, 16]
- 744 0080 1E08803D 		str	q30, [x0, 32]
- 745 0084 1F0C803D 		str	q31, [x0, 48]
- 746 0088 014000B9 		str	w1, [x0, 64]
+ 729              		.loc 1 73 11
+ 730 007a C745B00D 		movl	$13, -80(%rbp)
+ 730      000000
+ 731 0081 C745B440 		movl	$1409286208, -76(%rbp)
+ 731      000054
+ 732 0088 C745B8C0 		movl	$-1613233984, -72(%rbp)
+ 732      00D89F
+ 733 008f C745BC40 		movl	$-1612447424, -68(%rbp)
+ 733      01E49F
+ 734 0096 C745C040 		movl	$-1611136960, -64(%rbp)
+ 734      00F89F
+ 735 009d C745C404 		movl	$-1610873852, -60(%rbp)
+ 735      04FC9F
+ 736 00a4 C745C800 		movl	$-1594097408, -56(%rbp)
+ 736      01FCA0
+ 737 00ab C745CC00 		movl	$-1593048832, -52(%rbp)
+ 737      010CA1
+ 738 00b2 C745D0C0 		movl	$-1592000320, -48(%rbp)
+ 738      001CA1
+ 739 00b9 C745D402 		movl	$-1591211774, -44(%rbp)
+ 739      0928A1
+ 740 00c0 C745D840 		movl	$-1572339648, -40(%rbp)
+ 740      0048A2
+ 741 00c7 C745DC81 		movl	$-1572077439, -36(%rbp)
+ 741      004CA2
+ 742 00ce C745E081 		movl	$-1571553151, -32(%rbp)
+ 742      0054A2
+ 743 00d5 C745E481 		movl	$-1571028863, -28(%rbp)
+ 743      005CA2
+ 744 00dc C745E881 		movl	$-1570504575, -24(%rbp)
+ 744      0064A2
+ 745 00e3 C745EC84 		movl	$-1569980284, -20(%rbp)
+ 745      006CA2
+ 746 00ea C745F082 		movl	$-1567883134, -16(%rbp)
+ 746      008CA2
   74:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			0x0000000DU,
   75:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			0x54000040U,
   76:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			0x9FD800C0U,
@@ -879,293 +917,294 @@
   92:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	/* Update data size */
   93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	for (i = 0; i < (uint32_t)(sizeof(output)/sizeof(uint32_t)); i++)
  747              		.loc 1 93 9
- 748 008c FF9F00B9 		str	wzr, [sp, 156]
+ 748 00f1 C7458C00 		movl	$0, -116(%rbp)
+ 748      000000
  749              		.loc 1 93 2
- 750 0090 60000014 		b	.L8
+ 750 00f8 E9410100 		jmp	.L8
+ 750      00
  751              	.L16:
   94:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	{
   95:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		if ((output[i] == (uint8_t)0) 
  752              		.loc 1 95 14
- 753 0094 E09F40B9 		ldr	w0, [sp, 156]
- 754 0098 00F47ED3 		lsl	x0, x0, 2
- 755 009c E1A30091 		add	x1, sp, 40
- 756 00a0 206860B8 		ldr	w0, [x1, x0]
- 757              		.loc 1 95 6
- 758 00a4 1F000071 		cmp	w0, 0
- 759 00a8 C00A0054 		beq	.L18
+ 753 00fd 8B458C   		movl	-116(%rbp), %eax
+ 754 0100 8B4485B0 		movl	-80(%rbp,%rax,4), %eax
+ 755              		.loc 1 95 6
+ 756 0104 85C0     		testl	%eax, %eax
+ 757 0106 0F842D01 		je	.L19
+ 757      0000
   96:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                     || ((output_bh_enable[i/(uint32_t)32]
- 760              		.loc 1 96 44
- 761 00ac E09F40B9 		ldr	w0, [sp, 156]
- 762 00b0 007C0553 		lsr	w0, w0, 5
- 763              		.loc 1 96 42
- 764 00b4 E003002A 		uxtw	x0, w0
- 765 00b8 00F47ED3 		lsl	x0, x0, 2
- 766 00bc E1C30191 		add	x1, sp, 112
- 767 00c0 216860B8 		ldr	w1, [x1, x0]
+ 758              		.loc 1 96 44
+ 759 010c 8B458C   		movl	-116(%rbp), %eax
+ 760 010f C1E805   		shrl	$5, %eax
+ 761              		.loc 1 96 42
+ 762 0112 89C0     		movl	%eax, %eax
+ 763 0114 8B4485A0 		movl	-96(%rbp,%rax,4), %eax
   97:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                          &((uint32_t)1 << (i%(uint32_t)32))) == (uint32_t)0))
- 768              		.loc 1 97 45
- 769 00c4 E09F40B9 		ldr	w0, [sp, 156]
- 770 00c8 00100012 		and	w0, w0, 31
- 771              		.loc 1 97 40
- 772 00cc 22008052 		mov	w2, 1
- 773 00d0 4020C01A 		lsl	w0, w2, w0
- 774              		.loc 1 97 26
- 775 00d4 2000000A 		and	w0, w1, w0
+ 764              		.loc 1 97 45
+ 765 0118 8B558C   		movl	-116(%rbp), %edx
+ 766 011b 83E21F   		andl	$31, %edx
+ 767              		.loc 1 97 40
+ 768 011e BE010000 		movl	$1, %esi
+ 768      00
+ 769 0123 89D1     		movl	%edx, %ecx
+ 770 0125 D3E6     		sall	%cl, %esi
+ 771 0127 89F2     		movl	%esi, %edx
+ 772              		.loc 1 97 26
+ 773 0129 21D0     		andl	%edx, %eax
   96:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                     || ((output_bh_enable[i/(uint32_t)32]
- 776              		.loc 1 96 21
- 777 00d8 1F000071 		cmp	w0, 0
- 778 00dc 20090054 		beq	.L18
+ 774              		.loc 1 96 21
+ 775 012b 85C0     		testl	%eax, %eax
+ 776 012d 0F840601 		je	.L19
+ 776      0000
   98:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		{
   99:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			continue;
  100:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		}
  101:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  102:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		bh_ptr = (union Block_header *)&(output[i]);
- 779              		.loc 1 102 10
- 780 00e0 E1A30091 		add	x1, sp, 40
- 781 00e4 E09F40B9 		ldr	w0, [sp, 156]
- 782 00e8 00F47ED3 		lsl	x0, x0, 2
- 783 00ec 2000008B 		add	x0, x1, x0
- 784 00f0 E04B00F9 		str	x0, [sp, 144]
+ 777              		.loc 1 102 10
+ 778 0133 488D45B0 		leaq	-80(%rbp), %rax
+ 779 0137 8B558C   		movl	-116(%rbp), %edx
+ 780 013a 48C1E202 		salq	$2, %rdx
+ 781 013e 4801D0   		addq	%rdx, %rax
+ 782 0141 48894590 		movq	%rax, -112(%rbp)
  103:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		if (((uint8_t)bh_ptr->type >= (uint8_t)0x1) 
- 785              		.loc 1 103 30
- 786 00f4 E04B40F9 		ldr	x0, [sp, 144]
- 787 00f8 000040B9 		ldr	w0, [x0]
- 788 00fc 000C0012 		and	w0, w0, 15
- 789              		.loc 1 103 6
- 790 0100 1F000071 		cmp	w0, 0
- 791 0104 00060054 		beq	.L12
+ 783              		.loc 1 103 30
+ 784 0145 488B4590 		movq	-112(%rbp), %rax
+ 785 0149 0FB600   		movzbl	(%rax), %eax
+ 786 014c 83E00F   		andl	$15, %eax
+ 787              		.loc 1 103 6
+ 788 014f 84C0     		testb	%al, %al
+ 789 0151 0F84A500 		je	.L12
+ 789      0000
  104:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                     && ((uint8_t)bh_ptr->type < (uint8_t)0x0d))
- 792              		.loc 1 104 40
- 793 0108 E04B40F9 		ldr	x0, [sp, 144]
- 794 010c 000040B9 		ldr	w0, [x0]
- 795 0110 000C40D3 		ubfx	x0, x0, 0, 4
- 796 0114 001C0012 		and	w0, w0, 255
- 797              		.loc 1 104 21
- 798 0118 1F300071 		cmp	w0, 12
- 799 011c 48050054 		bhi	.L12
+ 790              		.loc 1 104 40
+ 791 0157 488B4590 		movq	-112(%rbp), %rax
+ 792 015b 0FB600   		movzbl	(%rax), %eax
+ 793 015e 83E00F   		andl	$15, %eax
+ 794              		.loc 1 104 21
+ 795 0161 3C0C     		cmpb	$12, %al
+ 796 0163 0F879300 		ja	.L12
+ 796      0000
  105:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		{
  106:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			if ((bh_ptr->idx >= (uint16_t)0x54d0) 
- 800              		.loc 1 106 15
- 801 0120 E04B40F9 		ldr	x0, [sp, 144]
- 802 0124 01044079 		ldrh	w1, [x0, 2]
- 803              		.loc 1 106 7
- 804 0128 E0998A52 		mov	w0, 21711
- 805 012c 3F00006B 		cmp	w1, w0
- 806 0130 C9010054 		bls	.L13
+ 797              		.loc 1 106 15
+ 798 0169 488B4590 		movq	-112(%rbp), %rax
+ 799 016d 0FB74002 		movzwl	2(%rax), %eax
+ 800              		.loc 1 106 7
+ 801 0171 663DCF54 		cmpw	$21711, %ax
+ 802 0175 762F     		jbe	.L13
  107:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                             && (bh_ptr->idx < (uint16_t)(0x54d0 + 960)))
- 807              		.loc 1 107 39
- 808 0134 E04B40F9 		ldr	x0, [sp, 144]
- 809 0138 01044079 		ldrh	w1, [x0, 2]
- 810              		.loc 1 107 29
- 811 013c E0118B52 		mov	w0, 22671
- 812 0140 3F00006B 		cmp	w1, w0
- 813 0144 28010054 		bhi	.L13
+ 803              		.loc 1 107 39
+ 804 0177 488B4590 		movq	-112(%rbp), %rax
+ 805 017b 0FB74002 		movzwl	2(%rax), %eax
+ 806              		.loc 1 107 29
+ 807 017f 663D8F58 		cmpw	$22671, %ax
+ 808 0183 7721     		ja	.L13
  108:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			{
  109:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				bh_ptr->size = resolution;
- 814              		.loc 1 109 18
- 815 0148 E03F4239 		ldrb	w0, [sp, 143]
- 816 014c 002C0012 		and	w0, w0, 4095
- 817 0150 023C0012 		and	w2, w0, 65535
- 818 0154 E14B40F9 		ldr	x1, [sp, 144]
- 819 0158 200040B9 		ldr	w0, [x1]
- 820 015c 402C1C33 		bfi	w0, w2, 4, 12
- 821 0160 200000B9 		str	w0, [x1]
- 822 0164 08000014 		b	.L14
- 823              	.L13:
+ 809              		.loc 1 109 18
+ 810 0185 0FB6458A 		movzbl	-118(%rbp), %eax
+ 811 0189 0FB6C0   		movzbl	%al, %eax
+ 812 018c 6625FF0F 		andw	$4095, %ax
+ 813 0190 488B5590 		movq	-112(%rbp), %rdx
+ 814 0194 C1E004   		sall	$4, %eax
+ 815 0197 89C1     		movl	%eax, %ecx
+ 816 0199 0FB702   		movzwl	(%rdx), %eax
+ 817 019c 83E00F   		andl	$15, %eax
+ 818 019f 09C8     		orl	%ecx, %eax
+ 819 01a1 668902   		movw	%ax, (%rdx)
+ 820 01a4 EB1F     		jmp	.L14
+ 821              	.L13:
  110:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			}	
  111:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			else 
  112:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			{
  113:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				bh_ptr->size = (uint8_t)(resolution 
- 824              		.loc 1 113 20
- 825 0168 E03F4239 		ldrb	w0, [sp, 143]
- 826 016c 002C0012 		and	w0, w0, 4095
- 827 0170 023C0012 		and	w2, w0, 65535
- 828              		.loc 1 113 18
- 829 0174 E14B40F9 		ldr	x1, [sp, 144]
- 830 0178 200040B9 		ldr	w0, [x1]
- 831 017c 402C1C33 		bfi	w0, w2, 4, 12
- 832 0180 200000B9 		str	w0, [x1]
- 833              	.L14:
+ 822              		.loc 1 113 20
+ 823 01a6 0FB6458A 		movzbl	-118(%rbp), %eax
+ 824 01aa 0FB6C0   		movzbl	%al, %eax
+ 825 01ad 6625FF0F 		andw	$4095, %ax
+ 826              		.loc 1 113 18
+ 827 01b1 488B5590 		movq	-112(%rbp), %rdx
+ 828 01b5 C1E004   		sall	$4, %eax
+ 829 01b8 89C1     		movl	%eax, %ecx
+ 830 01ba 0FB702   		movzwl	(%rdx), %eax
+ 831 01bd 83E00F   		andl	$15, %eax
+ 832 01c0 09C8     		orl	%ecx, %eax
+ 833 01c2 668902   		movw	%ax, (%rdx)
+ 834              	.L14:
  114:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                   * (uint8_t)VL53L8CX_NB_TARGET_PER_ZONE);
  115:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			}
  116:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  117:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                         
  118:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->data_read_size += bh_ptr->type * bh_ptr->size;
- 834              		.loc 1 118 9
- 835 0184 E00F40F9 		ldr	x0, [sp, 24]
- 836 0188 001040B9 		ldr	w0, [x0, 16]
- 837              		.loc 1 118 35
- 838 018c E14B40F9 		ldr	x1, [sp, 144]
- 839 0190 210040B9 		ldr	w1, [x1]
- 840 0194 210C40D3 		ubfx	x1, x1, 0, 4
- 841 0198 211C0012 		and	w1, w1, 255
- 842 019c E203012A 		mov	w2, w1
+ 835              		.loc 1 118 9
+ 836 01c5 488B8578 		movq	-136(%rbp), %rax
+ 836      FFFFFF
+ 837 01cc 8B4810   		movl	16(%rax), %ecx
+ 838              		.loc 1 118 35
+ 839 01cf 488B4590 		movq	-112(%rbp), %rax
+ 840 01d3 0FB600   		movzbl	(%rax), %eax
+ 841 01d6 83E00F   		andl	$15, %eax
+ 842 01d9 0FB6D0   		movzbl	%al, %edx
  843              		.loc 1 118 50
- 844 01a0 E14B40F9 		ldr	x1, [sp, 144]
- 845 01a4 210040B9 		ldr	w1, [x1]
- 846 01a8 213C44D3 		ubfx	x1, x1, 4, 12
- 847 01ac 213C0012 		and	w1, w1, 65535
+ 844 01dc 488B4590 		movq	-112(%rbp), %rax
+ 845 01e0 0FB700   		movzwl	(%rax), %eax
+ 846 01e3 66C1E804 		shrw	$4, %ax
+ 847 01e7 0FB7C0   		movzwl	%ax, %eax
  848              		.loc 1 118 42
- 849 01b0 417C011B 		mul	w1, w2, w1
+ 849 01ea 0FAFC2   		imull	%edx, %eax
  850              		.loc 1 118 26
- 851 01b4 0100010B 		add	w1, w0, w1
- 852 01b8 E00F40F9 		ldr	x0, [sp, 24]
- 853 01bc 011000B9 		str	w1, [x0, 16]
- 854 01c0 0A000014 		b	.L15
+ 851 01ed 8D1401   		leal	(%rcx,%rax), %edx
+ 852 01f0 488B8578 		movq	-136(%rbp), %rax
+ 852      FFFFFF
+ 853 01f7 895010   		movl	%edx, 16(%rax)
+ 854 01fa EB24     		jmp	.L15
  855              	.L12:
  119:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		}
  120:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		else
  121:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		{
  122:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->data_read_size += bh_ptr->size;
  856              		.loc 1 122 9
- 857 01c4 E00F40F9 		ldr	x0, [sp, 24]
- 858 01c8 001040B9 		ldr	w0, [x0, 16]
+ 857 01fc 488B8578 		movq	-136(%rbp), %rax
+ 857      FFFFFF
+ 858 0203 8B5010   		movl	16(%rax), %edx
  859              		.loc 1 122 35
- 860 01cc E14B40F9 		ldr	x1, [sp, 144]
- 861 01d0 210040B9 		ldr	w1, [x1]
- 862 01d4 213C44D3 		ubfx	x1, x1, 4, 12
- 863 01d8 213C0012 		and	w1, w1, 65535
+ 860 0206 488B4590 		movq	-112(%rbp), %rax
+ 861 020a 0FB700   		movzwl	(%rax), %eax
+ 862 020d 66C1E804 		shrw	$4, %ax
+ 863 0211 0FB7C0   		movzwl	%ax, %eax
  864              		.loc 1 122 26
- 865 01dc 0100010B 		add	w1, w0, w1
- 866 01e0 E00F40F9 		ldr	x0, [sp, 24]
- 867 01e4 011000B9 		str	w1, [x0, 16]
+ 865 0214 01C2     		addl	%eax, %edx
+ 866 0216 488B8578 		movq	-136(%rbp), %rax
+ 866      FFFFFF
+ 867 021d 895010   		movl	%edx, 16(%rax)
  868              	.L15:
  123:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		}
  124:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  125:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		p_dev->data_read_size += (uint32_t)4;
  869              		.loc 1 125 8
- 870 01e8 E00F40F9 		ldr	x0, [sp, 24]
- 871 01ec 001040B9 		ldr	w0, [x0, 16]
+ 870 0220 488B8578 		movq	-136(%rbp), %rax
+ 870      FFFFFF
+ 871 0227 8B4010   		movl	16(%rax), %eax
  872              		.loc 1 125 25
- 873 01f0 01100011 		add	w1, w0, 4
- 874 01f4 E00F40F9 		ldr	x0, [sp, 24]
- 875 01f8 011000B9 		str	w1, [x0, 16]
- 876 01fc 02000014 		b	.L11
- 877              	.L18:
+ 873 022a 8D5004   		leal	4(%rax), %edx
+ 874 022d 488B8578 		movq	-136(%rbp), %rax
+ 874      FFFFFF
+ 875 0234 895010   		movl	%edx, 16(%rax)
+ 876 0237 EB01     		jmp	.L11
+ 877              	.L19:
   99:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		}
  878              		.loc 1 99 4
- 879 0200 1F2003D5 		nop
+ 879 0239 90       		nop
  880              	.L11:
   93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	{
  881              		.loc 1 93 64 discriminator 2
- 882 0204 E09F40B9 		ldr	w0, [sp, 156]
- 883 0208 00040011 		add	w0, w0, 1
- 884 020c E09F00B9 		str	w0, [sp, 156]
- 885              	.L8:
+ 882 023a 83458C01 		addl	$1, -116(%rbp)
+ 883              	.L8:
   93:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	{
- 886              		.loc 1 93 16 discriminator 1
- 887 0210 E09F40B9 		ldr	w0, [sp, 156]
- 888 0214 1F400071 		cmp	w0, 16
- 889 0218 E9F3FF54 		bls	.L16
+ 884              		.loc 1 93 16 discriminator 1
+ 885 023e 837D8C10 		cmpl	$16, -116(%rbp)
+ 886 0242 0F86B5FE 		jbe	.L16
+ 886      FFFF
  126:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	}
  127:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	p_dev->data_read_size += (uint32_t)24;
- 890              		.loc 1 127 7
- 891 021c E00F40F9 		ldr	x0, [sp, 24]
- 892 0220 001040B9 		ldr	w0, [x0, 16]
- 893              		.loc 1 127 24
- 894 0224 01600011 		add	w1, w0, 24
- 895 0228 E00F40F9 		ldr	x0, [sp, 24]
- 896 022c 011000B9 		str	w1, [x0, 16]
+ 887              		.loc 1 127 7
+ 888 0248 488B8578 		movq	-136(%rbp), %rax
+ 888      FFFFFF
+ 889 024f 8B4010   		movl	16(%rax), %eax
+ 890              		.loc 1 127 24
+ 891 0252 8D5018   		leal	24(%rax), %edx
+ 892 0255 488B8578 		movq	-136(%rbp), %rax
+ 892      FFFFFF
+ 893 025c 895010   		movl	%edx, 16(%rax)
  128:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  129:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_dci_write_data(p_dev,
- 897              		.loc 1 129 12
- 898 0230 E0A30091 		add	x0, sp, 40
- 899 0234 83088052 		mov	w3, 68
- 900 0238 02309B52 		mov	w2, 55680
- 901 023c E10300AA 		mov	x1, x0
- 902 0240 E00F40F9 		ldr	x0, [sp, 24]
- 903 0244 00000094 		bl	vl53l8cx_dci_write_data
- 904 0248 011C0012 		and	w1, w0, 255
- 905              		.loc 1 129 9 discriminator 1
- 906 024c E06F4239 		ldrb	w0, [sp, 155]
- 907 0250 2000002A 		orr	w0, w1, w0
- 908 0254 E06F0239 		strb	w0, [sp, 155]
+ 894              		.loc 1 129 12
+ 895 025f 488D75B0 		leaq	-80(%rbp), %rsi
+ 896 0263 488B8578 		movq	-136(%rbp), %rax
+ 896      FFFFFF
+ 897 026a B9440000 		movl	$68, %ecx
+ 897      00
+ 898 026f BA80D900 		movl	$55680, %edx
+ 898      00
+ 899 0274 4889C7   		movq	%rax, %rdi
+ 900 0277 E8000000 		call	vl53l8cx_dci_write_data@PLT
+ 900      00
+ 901              		.loc 1 129 9 discriminator 1
+ 902 027c 08458B   		orb	%al, -117(%rbp)
  130:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			(uint8_t*)&(output), 
  131:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                         VL53L8CX_DCI_OUTPUT_LIST, (uint16_t)sizeof(output));
  132:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****         
  133:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	header_config[0] = p_dev->data_read_size;
- 909              		.loc 1 133 26
- 910 0258 E00F40F9 		ldr	x0, [sp, 24]
- 911 025c 001040B9 		ldr	w0, [x0, 16]
- 912              		.loc 1 133 19
- 913 0260 E08300B9 		str	w0, [sp, 128]
+ 903              		.loc 1 133 26
+ 904 027f 488B8578 		movq	-136(%rbp), %rax
+ 904      FFFFFF
+ 905 0286 8B4010   		movl	16(%rax), %eax
+ 906              		.loc 1 133 19
+ 907 0289 894598   		movl	%eax, -104(%rbp)
  134:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	header_config[1] = i + (uint32_t)1;
- 914              		.loc 1 134 23
- 915 0264 E09F40B9 		ldr	w0, [sp, 156]
- 916 0268 00040011 		add	w0, w0, 1
- 917              		.loc 1 134 19
- 918 026c E08700B9 		str	w0, [sp, 132]
+ 908              		.loc 1 134 23
+ 909 028c 8B458C   		movl	-116(%rbp), %eax
+ 910 028f 83C001   		addl	$1, %eax
+ 911              		.loc 1 134 19
+ 912 0292 89459C   		movl	%eax, -100(%rbp)
  135:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  136:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_dci_write_data(p_dev, (uint8_t*)&(header_config),
- 919              		.loc 1 136 12
- 920 0270 E0030291 		add	x0, sp, 128
- 921 0274 03018052 		mov	w3, 8
- 922 0278 022D9B52 		mov	w2, 55656
- 923 027c E10300AA 		mov	x1, x0
- 924 0280 E00F40F9 		ldr	x0, [sp, 24]
- 925 0284 00000094 		bl	vl53l8cx_dci_write_data
- 926 0288 011C0012 		and	w1, w0, 255
- 927              		.loc 1 136 9 discriminator 1
- 928 028c E06F4239 		ldrb	w0, [sp, 155]
- 929 0290 2000002A 		orr	w0, w1, w0
- 930 0294 E06F0239 		strb	w0, [sp, 155]
+ 913              		.loc 1 136 12
+ 914 0295 488D7598 		leaq	-104(%rbp), %rsi
+ 915 0299 488B8578 		movq	-136(%rbp), %rax
+ 915      FFFFFF
+ 916 02a0 B9080000 		movl	$8, %ecx
+ 916      00
+ 917 02a5 BA68D900 		movl	$55656, %edx
+ 917      00
+ 918 02aa 4889C7   		movq	%rax, %rdi
+ 919 02ad E8000000 		call	vl53l8cx_dci_write_data@PLT
+ 919      00
+ 920              		.loc 1 136 9 discriminator 1
+ 921 02b2 08458B   		orb	%al, -117(%rbp)
  137:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			VL53L8CX_DCI_OUTPUT_CONFIG,
  138:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                         (uint16_t)sizeof(header_config));
  139:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_dci_write_data(p_dev, (uint8_t*)&(output_bh_enable),
- 931              		.loc 1 139 12
- 932 0298 E0C30191 		add	x0, sp, 112
- 933 029c 03028052 		mov	w3, 16
- 934 02a0 022E9B52 		mov	w2, 55664
- 935 02a4 E10300AA 		mov	x1, x0
- 936 02a8 E00F40F9 		ldr	x0, [sp, 24]
- 937 02ac 00000094 		bl	vl53l8cx_dci_write_data
- 938 02b0 011C0012 		and	w1, w0, 255
- 939              		.loc 1 139 9 discriminator 1
- 940 02b4 E06F4239 		ldrb	w0, [sp, 155]
- 941 02b8 2000002A 		orr	w0, w1, w0
- 942 02bc E06F0239 		strb	w0, [sp, 155]
+ 922              		.loc 1 139 12
+ 923 02b5 488D75A0 		leaq	-96(%rbp), %rsi
+ 924 02b9 488B8578 		movq	-136(%rbp), %rax
+ 924      FFFFFF
+ 925 02c0 B9100000 		movl	$16, %ecx
+ 925      00
+ 926 02c5 BA70D900 		movl	$55664, %edx
+ 926      00
+ 927 02ca 4889C7   		movq	%rax, %rdi
+ 928 02cd E8000000 		call	vl53l8cx_dci_write_data@PLT
+ 928      00
+ 929              		.loc 1 139 9 discriminator 1
+ 930 02d2 08458B   		orb	%al, -117(%rbp)
  140:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			VL53L8CX_DCI_OUTPUT_ENABLES,
  141:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                         (uint16_t)sizeof(output_bh_enable));
  142:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  143:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	return status;
- 943              		.loc 1 143 9
- 944 02c0 E06F4239 		ldrb	w0, [sp, 155]
+ 931              		.loc 1 143 9
+ 932 02d5 0FB6458B 		movzbl	-117(%rbp), %eax
  144:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** }
- 945              		.loc 1 144 1
- 946 02c4 FD7BCAA8 		ldp	x29, x30, [sp], 160
- 947              	.LCFI3:
- 948              		.cfi_restore 30
- 949              		.cfi_restore 29
- 950              		.cfi_def_cfa_offset 0
- 951 02c8 C0035FD6 		ret
- 952              		.cfi_endproc
- 953              	.LFE1:
- 955              		.section	.rodata
- 956              		.align	3
- 957              	.LC0:
- 958 0000 0D000000 		.word	13
- 959 0004 40000054 		.word	1409286208
- 960 0008 C000D89F 		.word	-1613233984
- 961 000c 4001E49F 		.word	-1612447424
- 962 0010 4000F89F 		.word	-1611136960
- 963 0014 0404FC9F 		.word	-1610873852
- 964 0018 0001FCA0 		.word	-1594097408
- 965 001c 00010CA1 		.word	-1593048832
- 966 0020 C0001CA1 		.word	-1592000320
- 967 0024 020928A1 		.word	-1591211774
- 968 0028 400048A2 		.word	-1572339648
- 969 002c 81004CA2 		.word	-1572077439
- 970 0030 810054A2 		.word	-1571553151
- 971 0034 81005CA2 		.word	-1571028863
- 972 0038 810064A2 		.word	-1570504575
- 973 003c 84006CA2 		.word	-1569980284
- 974 0040 82008CA2 		.word	-1567883134
- 975              		.section	.text._vl53l8cx_program_output_config
- 976              		.section	.text.vl53l8cx_calibrate_xtalk,"ax",@progbits
- 977              		.align	2
- 978              		.global	vl53l8cx_calibrate_xtalk
- 980              	vl53l8cx_calibrate_xtalk:
- 981              	.LFB2:
+ 933              		.loc 1 144 1
+ 934 02d9 488B55F8 		movq	-8(%rbp), %rdx
+ 935 02dd 64482B14 		subq	%fs:40, %rdx
+ 935      25280000 
+ 935      00
+ 936 02e6 7405     		je	.L18
+ 937 02e8 E8000000 		call	__stack_chk_fail@PLT
+ 937      00
+ 938              	.L18:
+ 939 02ed C9       		leave
+ 940              	.LCFI5:
+ 941              		.cfi_def_cfa 7, 8
+ 942 02ee C3       		ret
+ 943              		.cfi_endproc
+ 944              	.LFE1:
+ 946              		.section	.text.vl53l8cx_calibrate_xtalk,"ax",@progbits
+ 947              		.globl	vl53l8cx_calibrate_xtalk
+ 949              	vl53l8cx_calibrate_xtalk:
+ 950              	.LFB2:
  145:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  146:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** uint8_t vl53l8cx_calibrate_xtalk(
  147:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		VL53L8CX_Configuration		*p_dev,
@@ -1173,1156 +1212,1314 @@
  149:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		uint8_t				nb_samples,
  150:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		uint16_t			distance_mm)
  151:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** {
- 982              		.loc 1 151 1
- 983              		.cfi_startproc
- 984 0000 FD7BBAA9 		stp	x29, x30, [sp, -96]!
- 985              	.LCFI4:
- 986              		.cfi_def_cfa_offset 96
- 987              		.cfi_offset 29, -96
- 988              		.cfi_offset 30, -88
- 989 0004 FD030091 		mov	x29, sp
- 990 0008 E00F00F9 		str	x0, [sp, 24]
- 991 000c E12F0079 		strh	w1, [sp, 22]
- 992 0010 E2570039 		strb	w2, [sp, 21]
- 993 0014 E3270079 		strh	w3, [sp, 18]
+ 951              		.loc 1 151 1
+ 952              		.cfi_startproc
+ 953 0000 F30F1EFA 		endbr64
+ 954 0004 55       		pushq	%rbp
+ 955              	.LCFI6:
+ 956              		.cfi_def_cfa_offset 16
+ 957              		.cfi_offset 6, -16
+ 958 0005 4889E5   		movq	%rsp, %rbp
+ 959              	.LCFI7:
+ 960              		.cfi_def_cfa_register 6
+ 961 0008 53       		pushq	%rbx
+ 962 0009 4883EC68 		subq	$104, %rsp
+ 963              		.cfi_offset 3, -24
+ 964 000d 48897DA8 		movq	%rdi, -88(%rbp)
+ 965 0011 89C8     		movl	%ecx, %eax
+ 966 0013 89F1     		movl	%esi, %ecx
+ 967 0015 66894DA4 		movw	%cx, -92(%rbp)
+ 968 0019 8855A0   		movb	%dl, -96(%rbp)
+ 969 001c 6689459C 		movw	%ax, -100(%rbp)
+ 970              		.loc 1 151 1
+ 971 0020 64488B04 		movq	%fs:40, %rax
+ 971      25280000 
+ 971      00
+ 972 0029 488945E8 		movq	%rax, -24(%rbp)
+ 973 002d 31C0     		xorl	%eax, %eax
  152:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint16_t timeout = 0;
- 994              		.loc 1 152 11
- 995 0018 FFBF0079 		strh	wzr, [sp, 94]
+ 974              		.loc 1 152 11
+ 975 002f 66C745C6 		movw	$0, -58(%rbp)
+ 975      0000
  153:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t cmd[] = {0x00, 0x03, 0x00, 0x00};
- 996              		.loc 1 153 10
- 997 001c 00608052 		mov	w0, 768
- 998 0020 E04B00B9 		str	w0, [sp, 72]
+ 976              		.loc 1 153 10
+ 977 0035 C745DC00 		movl	$768, -36(%rbp)
+ 977      030000
  154:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t footer[] = {0x00, 0x00, 0x00, 0x0F, 0x00, 0x01, 0x03, 0x04};
- 999              		.loc 1 154 10
- 1000 0024 00E0A1D2 		mov	x0, 251658240
- 1001 0028 0020C0F2 		movk	x0, 0x100, lsl 32
- 1002 002c 6080E0F2 		movk	x0, 0x403, lsl 48
- 1003 0030 E02300F9 		str	x0, [sp, 64]
+ 978              		.loc 1 154 10
+ 979 003c 48B80000 		movabsq	$289075900845129728, %rax
+ 979      000F0001 
+ 979      0304
+ 980 0046 488945E0 		movq	%rax, -32(%rbp)
  155:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t continue_loop = 1, status = VL53L8CX_STATUS_OK;
- 1004              		.loc 1 155 10
- 1005 0034 20008052 		mov	w0, 1
- 1006 0038 E0770139 		strb	w0, [sp, 93]
- 1007              		.loc 1 155 29
- 1008 003c FF730139 		strb	wzr, [sp, 92]
+ 981              		.loc 1 155 10
+ 982 004a C645C001 		movb	$1, -64(%rbp)
+ 983              		.loc 1 155 29
+ 984 004e C645C100 		movb	$0, -63(%rbp)
  156:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  157:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t resolution, frequency, target_order, sharp_prct, ranging_mode;
  158:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint32_t integration_time_ms, xtalk_margin;
  159:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****         
  160:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint16_t reflectance = reflectance_percent;
- 1009              		.loc 1 160 11
- 1010 0040 E02F4079 		ldrh	w0, [sp, 22]
- 1011 0044 E05F0079 		strh	w0, [sp, 46]
+ 985              		.loc 1 160 11
+ 986 0052 0FB745A4 		movzwl	-92(%rbp), %eax
+ 987 0056 668945C2 		movw	%ax, -62(%rbp)
  161:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t	samples = nb_samples;
- 1012              		.loc 1 161 10
- 1013 0048 E0574039 		ldrb	w0, [sp, 21]
- 1014 004c E0B70039 		strb	w0, [sp, 45]
+ 988              		.loc 1 161 10
+ 989 005a 0FB645A0 		movzbl	-96(%rbp), %eax
+ 990 005e 8845BF   		movb	%al, -65(%rbp)
  162:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint16_t distance = distance_mm;
- 1015              		.loc 1 162 11
- 1016 0050 E0274079 		ldrh	w0, [sp, 18]
- 1017 0054 E0570079 		strh	w0, [sp, 42]
+ 991              		.loc 1 162 11
+ 992 0061 0FB7459C 		movzwl	-100(%rbp), %eax
+ 993 0065 668945C4 		movw	%ax, -60(%rbp)
  163:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t *default_xtalk_ptr;
  164:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  165:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	/* Get initial configuration */
  166:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_get_resolution(p_dev, &resolution);
- 1018              		.loc 1 166 12
- 1019 0058 E0FF0091 		add	x0, sp, 63
- 1020 005c E10300AA 		mov	x1, x0
- 1021 0060 E00F40F9 		ldr	x0, [sp, 24]
- 1022 0064 00000094 		bl	vl53l8cx_get_resolution
- 1023 0068 011C0012 		and	w1, w0, 255
- 1024              		.loc 1 166 9 discriminator 1
- 1025 006c E0734139 		ldrb	w0, [sp, 92]
- 1026 0070 2000002A 		orr	w0, w1, w0
- 1027 0074 E0730139 		strb	w0, [sp, 92]
+ 994              		.loc 1 166 12
+ 995 0069 488D55BA 		leaq	-70(%rbp), %rdx
+ 996 006d 488B45A8 		movq	-88(%rbp), %rax
+ 997 0071 4889D6   		movq	%rdx, %rsi
+ 998 0074 4889C7   		movq	%rax, %rdi
+ 999 0077 E8000000 		call	vl53l8cx_get_resolution@PLT
+ 999      00
+ 1000              		.loc 1 166 9 discriminator 1
+ 1001 007c 0845C1   		orb	%al, -63(%rbp)
  167:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_get_ranging_frequency_hz(p_dev, &frequency);
- 1028              		.loc 1 167 12
- 1029 0078 E0FB0091 		add	x0, sp, 62
- 1030 007c E10300AA 		mov	x1, x0
- 1031 0080 E00F40F9 		ldr	x0, [sp, 24]
- 1032 0084 00000094 		bl	vl53l8cx_get_ranging_frequency_hz
- 1033 0088 011C0012 		and	w1, w0, 255
- 1034              		.loc 1 167 9 discriminator 1
- 1035 008c E0734139 		ldrb	w0, [sp, 92]
- 1036 0090 2000002A 		orr	w0, w1, w0
- 1037 0094 E0730139 		strb	w0, [sp, 92]
+ 1002              		.loc 1 167 12
+ 1003 007f 488D55BB 		leaq	-69(%rbp), %rdx
+ 1004 0083 488B45A8 		movq	-88(%rbp), %rax
+ 1005 0087 4889D6   		movq	%rdx, %rsi
+ 1006 008a 4889C7   		movq	%rax, %rdi
+ 1007 008d E8000000 		call	vl53l8cx_get_ranging_frequency_hz@PLT
+ 1007      00
+ 1008              		.loc 1 167 9 discriminator 1
+ 1009 0092 0845C1   		orb	%al, -63(%rbp)
  168:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_get_integration_time_ms(p_dev, &integration_time_ms);
- 1038              		.loc 1 168 12
- 1039 0098 E0D30091 		add	x0, sp, 52
- 1040 009c E10300AA 		mov	x1, x0
- 1041 00a0 E00F40F9 		ldr	x0, [sp, 24]
- 1042 00a4 00000094 		bl	vl53l8cx_get_integration_time_ms
- 1043 00a8 011C0012 		and	w1, w0, 255
- 1044              		.loc 1 168 9 discriminator 1
- 1045 00ac E0734139 		ldrb	w0, [sp, 92]
- 1046 00b0 2000002A 		orr	w0, w1, w0
- 1047 00b4 E0730139 		strb	w0, [sp, 92]
+ 1010              		.loc 1 168 12
+ 1011 0095 488D55C8 		leaq	-56(%rbp), %rdx
+ 1012 0099 488B45A8 		movq	-88(%rbp), %rax
+ 1013 009d 4889D6   		movq	%rdx, %rsi
+ 1014 00a0 4889C7   		movq	%rax, %rdi
+ 1015 00a3 E8000000 		call	vl53l8cx_get_integration_time_ms@PLT
+ 1015      00
+ 1016              		.loc 1 168 9 discriminator 1
+ 1017 00a8 0845C1   		orb	%al, -63(%rbp)
  169:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_get_sharpener_percent(p_dev, &sharp_prct);
- 1048              		.loc 1 169 12
- 1049 00b8 E0F30091 		add	x0, sp, 60
- 1050 00bc E10300AA 		mov	x1, x0
- 1051 00c0 E00F40F9 		ldr	x0, [sp, 24]
- 1052 00c4 00000094 		bl	vl53l8cx_get_sharpener_percent
- 1053 00c8 011C0012 		and	w1, w0, 255
- 1054              		.loc 1 169 9 discriminator 1
- 1055 00cc E0734139 		ldrb	w0, [sp, 92]
- 1056 00d0 2000002A 		orr	w0, w1, w0
- 1057 00d4 E0730139 		strb	w0, [sp, 92]
+ 1018              		.loc 1 169 12
+ 1019 00ab 488D55BD 		leaq	-67(%rbp), %rdx
+ 1020 00af 488B45A8 		movq	-88(%rbp), %rax
+ 1021 00b3 4889D6   		movq	%rdx, %rsi
+ 1022 00b6 4889C7   		movq	%rax, %rdi
+ 1023 00b9 E8000000 		call	vl53l8cx_get_sharpener_percent@PLT
+ 1023      00
+ 1024              		.loc 1 169 9 discriminator 1
+ 1025 00be 0845C1   		orb	%al, -63(%rbp)
  170:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_get_target_order(p_dev, &target_order);
- 1058              		.loc 1 170 12
- 1059 00d8 E0F70091 		add	x0, sp, 61
- 1060 00dc E10300AA 		mov	x1, x0
- 1061 00e0 E00F40F9 		ldr	x0, [sp, 24]
- 1062 00e4 00000094 		bl	vl53l8cx_get_target_order
- 1063 00e8 011C0012 		and	w1, w0, 255
- 1064              		.loc 1 170 9 discriminator 1
- 1065 00ec E0734139 		ldrb	w0, [sp, 92]
- 1066 00f0 2000002A 		orr	w0, w1, w0
- 1067 00f4 E0730139 		strb	w0, [sp, 92]
+ 1026              		.loc 1 170 12
+ 1027 00c1 488D55BC 		leaq	-68(%rbp), %rdx
+ 1028 00c5 488B45A8 		movq	-88(%rbp), %rax
+ 1029 00c9 4889D6   		movq	%rdx, %rsi
+ 1030 00cc 4889C7   		movq	%rax, %rdi
+ 1031 00cf E8000000 		call	vl53l8cx_get_target_order@PLT
+ 1031      00
+ 1032              		.loc 1 170 9 discriminator 1
+ 1033 00d4 0845C1   		orb	%al, -63(%rbp)
  171:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_get_xtalk_margin(p_dev, &xtalk_margin);
- 1068              		.loc 1 171 12
- 1069 00f8 E0C30091 		add	x0, sp, 48
- 1070 00fc E10300AA 		mov	x1, x0
- 1071 0100 E00F40F9 		ldr	x0, [sp, 24]
- 1072 0104 00000094 		bl	vl53l8cx_get_xtalk_margin
- 1073 0108 011C0012 		and	w1, w0, 255
- 1074              		.loc 1 171 9 discriminator 1
- 1075 010c E0734139 		ldrb	w0, [sp, 92]
- 1076 0110 2000002A 		orr	w0, w1, w0
- 1077 0114 E0730139 		strb	w0, [sp, 92]
+ 1034              		.loc 1 171 12
+ 1035 00d7 488D55CC 		leaq	-52(%rbp), %rdx
+ 1036 00db 488B45A8 		movq	-88(%rbp), %rax
+ 1037 00df 4889D6   		movq	%rdx, %rsi
+ 1038 00e2 4889C7   		movq	%rax, %rdi
+ 1039 00e5 E8000000 		call	vl53l8cx_get_xtalk_margin
+ 1039      00
+ 1040              		.loc 1 171 9 discriminator 1
+ 1041 00ea 0845C1   		orb	%al, -63(%rbp)
  172:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_get_ranging_mode(p_dev, &ranging_mode);
- 1078              		.loc 1 172 12
- 1079 0118 E0EF0091 		add	x0, sp, 59
- 1080 011c E10300AA 		mov	x1, x0
- 1081 0120 E00F40F9 		ldr	x0, [sp, 24]
- 1082 0124 00000094 		bl	vl53l8cx_get_ranging_mode
- 1083 0128 011C0012 		and	w1, w0, 255
- 1084              		.loc 1 172 9 discriminator 1
- 1085 012c E0734139 		ldrb	w0, [sp, 92]
- 1086 0130 2000002A 		orr	w0, w1, w0
- 1087 0134 E0730139 		strb	w0, [sp, 92]
+ 1042              		.loc 1 172 12
+ 1043 00ed 488D55BE 		leaq	-66(%rbp), %rdx
+ 1044 00f1 488B45A8 		movq	-88(%rbp), %rax
+ 1045 00f5 4889D6   		movq	%rdx, %rsi
+ 1046 00f8 4889C7   		movq	%rax, %rdi
+ 1047 00fb E8000000 		call	vl53l8cx_get_ranging_mode@PLT
+ 1047      00
+ 1048              		.loc 1 172 9 discriminator 1
+ 1049 0100 0845C1   		orb	%al, -63(%rbp)
  173:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  174:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	/* Check input arguments validity */
  175:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	if(((reflectance < (uint16_t)1) || (reflectance > (uint16_t)99))
- 1088              		.loc 1 175 19
- 1089 0138 E05F4079 		ldrh	w0, [sp, 46]
- 1090              		.loc 1 175 4
- 1091 013c 1F000071 		cmp	w0, 0
- 1092 0140 00020054 		beq	.L20
- 1093              		.loc 1 175 50 discriminator 1
- 1094 0144 E05F4079 		ldrh	w0, [sp, 46]
- 1095              		.loc 1 175 34 discriminator 1
- 1096 0148 1F8C0171 		cmp	w0, 99
- 1097 014c A8010054 		bhi	.L20
+ 1050              		.loc 1 175 19
+ 1051 0103 0FB745C2 		movzwl	-62(%rbp), %eax
+ 1052              		.loc 1 175 4
+ 1053 0107 6685C0   		testw	%ax, %ax
+ 1054 010a 742E     		je	.L21
+ 1055              		.loc 1 175 50 discriminator 1
+ 1056 010c 0FB745C2 		movzwl	-62(%rbp), %eax
+ 1057              		.loc 1 175 34 discriminator 1
+ 1058 0110 6683F863 		cmpw	$99, %ax
+ 1059 0114 7724     		ja	.L21
  176:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		|| ((distance < (uint16_t)600) || (distance > (uint16_t)3000))
- 1098              		.loc 1 176 17
- 1099 0150 E0574079 		ldrh	w0, [sp, 42]
- 1100              		.loc 1 176 3
- 1101 0154 1F5C0971 		cmp	w0, 599
- 1102 0158 49010054 		bls	.L20
- 1103              		.loc 1 176 47 discriminator 1
- 1104 015c E0574079 		ldrh	w0, [sp, 42]
- 1105              		.loc 1 176 34 discriminator 1
- 1106 0160 1FE02E71 		cmp	w0, 3000
- 1107 0164 E8000054 		bhi	.L20
+ 1060              		.loc 1 176 17
+ 1061 0116 0FB745C4 		movzwl	-60(%rbp), %eax
+ 1062              		.loc 1 176 3
+ 1063 011a 663D5702 		cmpw	$599, %ax
+ 1064 011e 761A     		jbe	.L21
+ 1065              		.loc 1 176 47 discriminator 1
+ 1066 0120 0FB745C4 		movzwl	-60(%rbp), %eax
+ 1067              		.loc 1 176 34 discriminator 1
+ 1068 0124 663DB80B 		cmpw	$3000, %ax
+ 1069 0128 7710     		ja	.L21
  177:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		|| ((samples < (uint8_t)1) || (samples > (uint8_t)16)))
- 1108              		.loc 1 177 16
- 1109 0168 E0B74039 		ldrb	w0, [sp, 45]
- 1110              		.loc 1 177 3
- 1111 016c 1F000071 		cmp	w0, 0
- 1112 0170 80000054 		beq	.L20
- 1113              		.loc 1 177 42 discriminator 1
- 1114 0174 E0B74039 		ldrb	w0, [sp, 45]
- 1115              		.loc 1 177 30 discriminator 1
- 1116 0178 1F400071 		cmp	w0, 16
- 1117 017c A9000054 		bls	.L21
- 1118              	.L20:
+ 1070              		.loc 1 177 16
+ 1071 012a 0FB645BF 		movzbl	-65(%rbp), %eax
+ 1072              		.loc 1 177 3
+ 1073 012e 84C0     		testb	%al, %al
+ 1074 0130 7408     		je	.L21
+ 1075              		.loc 1 177 42 discriminator 1
+ 1076 0132 0FB645BF 		movzbl	-65(%rbp), %eax
+ 1077              		.loc 1 177 30 discriminator 1
+ 1078 0136 3C10     		cmpb	$16, %al
+ 1079 0138 7609     		jbe	.L22
+ 1080              	.L21:
  178:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	{
  179:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= VL53L8CX_STATUS_INVALID_PARAM;
- 1119              		.loc 1 179 10
- 1120 0180 E0734139 		ldrb	w0, [sp, 92]
- 1121 0184 00180032 		orr	w0, w0, 127
- 1122 0188 E0730139 		strb	w0, [sp, 92]
- 1123 018c B2000014 		b	.L22
- 1124              	.L21:
+ 1081              		.loc 1 179 10
+ 1082 013a 804DC17F 		orb	$127, -63(%rbp)
+ 1083 013e E99A0200 		jmp	.L23
+ 1083      00
+ 1084              	.L22:
  180:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	}
  181:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	else
  182:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	{
  183:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= vl53l8cx_set_resolution(p_dev,
- 1125              		.loc 1 183 13
- 1126 0190 01088052 		mov	w1, 64
- 1127 0194 E00F40F9 		ldr	x0, [sp, 24]
- 1128 0198 00000094 		bl	vl53l8cx_set_resolution
- 1129 019c 011C0012 		and	w1, w0, 255
- 1130              		.loc 1 183 10 discriminator 1
- 1131 01a0 E0734139 		ldrb	w0, [sp, 92]
- 1132 01a4 2000002A 		orr	w0, w1, w0
- 1133 01a8 E0730139 		strb	w0, [sp, 92]
+ 1085              		.loc 1 183 13
+ 1086 0143 488B45A8 		movq	-88(%rbp), %rax
+ 1087 0147 BE400000 		movl	$64, %esi
+ 1087      00
+ 1088 014c 4889C7   		movq	%rax, %rdi
+ 1089 014f E8000000 		call	vl53l8cx_set_resolution@PLT
+ 1089      00
+ 1090              		.loc 1 183 10 discriminator 1
+ 1091 0154 0845C1   		orb	%al, -63(%rbp)
  184:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				VL53L8CX_RESOLUTION_8X8);
  185:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  186:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		/* Send Xtalk calibration buffer */
  187:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                 (void)memcpy(p_dev->temp_buffer, VL53L8CX_CALIBRATE_XTALK,
- 1134              		.loc 1 187 35
- 1135 01ac E00F40F9 		ldr	x0, [sp, 24]
- 1136 01b0 01601491 		add	x1, x0, 1304
- 1137              		.loc 1 187 23
- 1138 01b4 00000090 		adrp	x0, VL53L8CX_CALIBRATE_XTALK
- 1139 01b8 00000091 		add	x0, x0, :lo12:VL53L8CX_CALIBRATE_XTALK
- 1140 01bc E30301AA 		mov	x3, x1
- 1141 01c0 E10300AA 		mov	x1, x0
- 1142 01c4 007B80D2 		mov	x0, 984
- 1143 01c8 E20300AA 		mov	x2, x0
- 1144 01cc E00303AA 		mov	x0, x3
- 1145 01d0 00000094 		bl	memcpy
+ 1092              		.loc 1 187 35
+ 1093 0157 488B45A8 		movq	-88(%rbp), %rax
+ 1094 015b 48051805 		addq	$1304, %rax
+ 1094      0000
+ 1095              		.loc 1 187 23
+ 1096 0161 488D1500 		leaq	VL53L8CX_CALIBRATE_XTALK(%rip), %rdx
+ 1096      000000
+ 1097 0168 B9D80300 		movl	$984, %ecx
+ 1097      00
+ 1098 016d 488B32   		movq	(%rdx), %rsi
+ 1099 0170 488930   		movq	%rsi, (%rax)
+ 1100 0173 89CE     		movl	%ecx, %esi
+ 1101 0175 4801C6   		addq	%rax, %rsi
+ 1102 0178 488D7E08 		leaq	8(%rsi), %rdi
+ 1103 017c 89CE     		movl	%ecx, %esi
+ 1104 017e 4801D6   		addq	%rdx, %rsi
+ 1105 0181 4883C608 		addq	$8, %rsi
+ 1106 0185 488B76F0 		movq	-16(%rsi), %rsi
+ 1107 0189 488977F0 		movq	%rsi, -16(%rdi)
+ 1108 018d 488D7808 		leaq	8(%rax), %rdi
+ 1109 0191 4883E7F8 		andq	$-8, %rdi
+ 1110 0195 4829F8   		subq	%rdi, %rax
+ 1111 0198 4829C2   		subq	%rax, %rdx
+ 1112 019b 01C1     		addl	%eax, %ecx
+ 1113 019d 83E1F8   		andl	$-8, %ecx
+ 1114 01a0 89C8     		movl	%ecx, %eax
+ 1115 01a2 C1E803   		shrl	$3, %eax
+ 1116 01a5 89C0     		movl	%eax, %eax
+ 1117 01a7 4889D6   		movq	%rdx, %rsi
+ 1118 01aa 4889C1   		movq	%rax, %rcx
+ 1119 01ad F348A5   		rep movsq
  188:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                        sizeof(VL53L8CX_CALIBRATE_XTALK));
  189:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= VL53L8CX_WrMulti(&(p_dev->platform), 0x2c28,
- 1146              		.loc 1 189 13
- 1147 01d4 E40F40F9 		ldr	x4, [sp, 24]
  190:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				p_dev->temp_buffer, 
- 1148              		.loc 1 190 10
- 1149 01d8 E00F40F9 		ldr	x0, [sp, 24]
- 1150 01dc 00601491 		add	x0, x0, 1304
+ 1120              		.loc 1 190 10
+ 1121 01b0 488B45A8 		movq	-88(%rbp), %rax
+ 1122 01b4 488D9018 		leaq	1304(%rax), %rdx
+ 1122      050000
  189:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				p_dev->temp_buffer, 
- 1151              		.loc 1 189 13
- 1152 01e0 037B8052 		mov	w3, 984
- 1153 01e4 E20300AA 		mov	x2, x0
- 1154 01e8 01858552 		mov	w1, 11304
- 1155 01ec E00304AA 		mov	x0, x4
- 1156 01f0 00000094 		bl	VL53L8CX_WrMulti
+ 1123              		.loc 1 189 13
+ 1124 01bb 488B45A8 		movq	-88(%rbp), %rax
+ 1125 01bf B9D80300 		movl	$984, %ecx
+ 1125      00
+ 1126 01c4 BE282C00 		movl	$11304, %esi
+ 1126      00
+ 1127 01c9 4889C7   		movq	%rax, %rdi
+ 1128 01cc E8000000 		call	VL53L8CX_WrMulti@PLT
+ 1128      00
  189:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				p_dev->temp_buffer, 
- 1157              		.loc 1 189 10 discriminator 1
- 1158 01f4 011C0013 		sxtb	w1, w0
- 1159 01f8 E073C139 		ldrsb	w0, [sp, 92]
- 1160 01fc 2000002A 		orr	w0, w1, w0
- 1161 0200 001C0013 		sxtb	w0, w0
- 1162 0204 E0730139 		strb	w0, [sp, 92]
+ 1129              		.loc 1 189 10 discriminator 1
+ 1130 01d1 89C2     		movl	%eax, %edx
+ 1131 01d3 0FB645C1 		movzbl	-63(%rbp), %eax
+ 1132 01d7 09D0     		orl	%edx, %eax
+ 1133 01d9 8845C1   		movb	%al, -63(%rbp)
  191:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                        (uint16_t)sizeof(VL53L8CX_CALIBRATE_XTALK));
  192:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= _vl53l8cx_poll_for_answer(p_dev,
- 1163              		.loc 1 192 13
- 1164 0208 62008052 		mov	w2, 3
- 1165 020c 01808552 		mov	w1, 11264
- 1166 0210 E00F40F9 		ldr	x0, [sp, 24]
- 1167 0214 00000094 		bl	_vl53l8cx_poll_for_answer
- 1168 0218 011C0012 		and	w1, w0, 255
- 1169              		.loc 1 192 10 discriminator 1
- 1170 021c E0734139 		ldrb	w0, [sp, 92]
- 1171 0220 2000002A 		orr	w0, w1, w0
- 1172 0224 E0730139 		strb	w0, [sp, 92]
+ 1134              		.loc 1 192 13
+ 1135 01dc 488B45A8 		movq	-88(%rbp), %rax
+ 1136 01e0 BA030000 		movl	$3, %edx
+ 1136      00
+ 1137 01e5 BE002C00 		movl	$11264, %esi
+ 1137      00
+ 1138 01ea 4889C7   		movq	%rax, %rdi
+ 1139 01ed E8000000 		call	_vl53l8cx_poll_for_answer
+ 1139      00
+ 1140              		.loc 1 192 10 discriminator 1
+ 1141 01f2 0845C1   		orb	%al, -63(%rbp)
  193:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				VL53L8CX_UI_CMD_STATUS, 0x3);
  194:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  195:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		/* Format input argument */
  196:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		reflectance = reflectance * (uint16_t)16;
- 1173              		.loc 1 196 15
- 1174 0228 E05F4079 		ldrh	w0, [sp, 46]
- 1175 022c 002C1C53 		ubfiz	w0, w0, 4, 12
- 1176 0230 003C0012 		and	w0, w0, 65535
- 1177 0234 E05F0079 		strh	w0, [sp, 46]
+ 1142              		.loc 1 196 15
+ 1143 01f5 0FB745C2 		movzwl	-62(%rbp), %eax
+ 1144 01f9 C1E004   		sall	$4, %eax
+ 1145 01fc 668945C2 		movw	%ax, -62(%rbp)
  197:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		distance = distance * (uint16_t)4;
- 1178              		.loc 1 197 12
- 1179 0238 E0574079 		ldrh	w0, [sp, 42]
- 1180 023c 00341E53 		ubfiz	w0, w0, 2, 14
- 1181 0240 003C0012 		and	w0, w0, 65535
- 1182 0244 E0570079 		strh	w0, [sp, 42]
+ 1146              		.loc 1 197 12
+ 1147 0200 0FB745C4 		movzwl	-60(%rbp), %eax
+ 1148 0204 C1E002   		sall	$2, %eax
+ 1149 0207 668945C4 		movw	%ax, -60(%rbp)
  198:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  199:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		/* Update required fields */
  200:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= vl53l8cx_dci_replace_data(p_dev, p_dev->temp_buffer,
- 1183              		.loc 1 200 51
- 1184 0248 E00F40F9 		ldr	x0, [sp, 24]
- 1185 024c 00601491 		add	x0, x0, 1304
- 1186              		.loc 1 200 13
- 1187 0250 E1AB0091 		add	x1, sp, 42
- 1188 0254 06008052 		mov	w6, 0
- 1189 0258 45008052 		mov	w5, 2
- 1190 025c E40301AA 		mov	x4, x1
- 1191 0260 03018052 		mov	w3, 8
- 1192 0264 028E8A52 		mov	w2, 21616
- 1193 0268 E10300AA 		mov	x1, x0
- 1194 026c E00F40F9 		ldr	x0, [sp, 24]
- 1195 0270 00000094 		bl	vl53l8cx_dci_replace_data
- 1196 0274 011C0012 		and	w1, w0, 255
- 1197              		.loc 1 200 10 discriminator 1
- 1198 0278 E0734139 		ldrb	w0, [sp, 92]
- 1199 027c 2000002A 		orr	w0, w1, w0
- 1200 0280 E0730139 		strb	w0, [sp, 92]
+ 1150              		.loc 1 200 51
+ 1151 020b 488B45A8 		movq	-88(%rbp), %rax
+ 1152 020f 488DB018 		leaq	1304(%rax), %rsi
+ 1152      050000
+ 1153              		.loc 1 200 13
+ 1154 0216 488D55C4 		leaq	-60(%rbp), %rdx
+ 1155 021a 488B45A8 		movq	-88(%rbp), %rax
+ 1156 021e 4883EC08 		subq	$8, %rsp
+ 1157 0222 6A00     		pushq	$0
+ 1158 0224 41B90200 		movl	$2, %r9d
+ 1158      0000
+ 1159 022a 4989D0   		movq	%rdx, %r8
+ 1160 022d B9080000 		movl	$8, %ecx
+ 1160      00
+ 1161 0232 BA705400 		movl	$21616, %edx
+ 1161      00
+ 1162 0237 4889C7   		movq	%rax, %rdi
+ 1163 023a E8000000 		call	vl53l8cx_dci_replace_data@PLT
+ 1163      00
+ 1164 023f 4883C410 		addq	$16, %rsp
+ 1165              		.loc 1 200 10 discriminator 1
+ 1166 0243 0845C1   		orb	%al, -63(%rbp)
  201:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				VL53L8CX_DCI_CAL_CFG, 8,
  202:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                 (uint8_t*)&distance, 2, 0x00);
  203:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  204:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= vl53l8cx_dci_replace_data(p_dev, p_dev->temp_buffer,
- 1201              		.loc 1 204 51
- 1202 0284 E00F40F9 		ldr	x0, [sp, 24]
- 1203 0288 00601491 		add	x0, x0, 1304
- 1204              		.loc 1 204 13
- 1205 028c E1BB0091 		add	x1, sp, 46
- 1206 0290 46008052 		mov	w6, 2
- 1207 0294 45008052 		mov	w5, 2
- 1208 0298 E40301AA 		mov	x4, x1
- 1209 029c 03018052 		mov	w3, 8
- 1210 02a0 028E8A52 		mov	w2, 21616
- 1211 02a4 E10300AA 		mov	x1, x0
- 1212 02a8 E00F40F9 		ldr	x0, [sp, 24]
- 1213 02ac 00000094 		bl	vl53l8cx_dci_replace_data
- 1214 02b0 011C0012 		and	w1, w0, 255
- 1215              		.loc 1 204 10 discriminator 1
- 1216 02b4 E0734139 		ldrb	w0, [sp, 92]
- 1217 02b8 2000002A 		orr	w0, w1, w0
- 1218 02bc E0730139 		strb	w0, [sp, 92]
+ 1167              		.loc 1 204 51
+ 1168 0246 488B45A8 		movq	-88(%rbp), %rax
+ 1169 024a 488DB018 		leaq	1304(%rax), %rsi
+ 1169      050000
+ 1170              		.loc 1 204 13
+ 1171 0251 488D55C2 		leaq	-62(%rbp), %rdx
+ 1172 0255 488B45A8 		movq	-88(%rbp), %rax
+ 1173 0259 4883EC08 		subq	$8, %rsp
+ 1174 025d 6A02     		pushq	$2
+ 1175 025f 41B90200 		movl	$2, %r9d
+ 1175      0000
+ 1176 0265 4989D0   		movq	%rdx, %r8
+ 1177 0268 B9080000 		movl	$8, %ecx
+ 1177      00
+ 1178 026d BA705400 		movl	$21616, %edx
+ 1178      00
+ 1179 0272 4889C7   		movq	%rax, %rdi
+ 1180 0275 E8000000 		call	vl53l8cx_dci_replace_data@PLT
+ 1180      00
+ 1181 027a 4883C410 		addq	$16, %rsp
+ 1182              		.loc 1 204 10 discriminator 1
+ 1183 027e 0845C1   		orb	%al, -63(%rbp)
  205:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				VL53L8CX_DCI_CAL_CFG, 8,
  206:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                 (uint8_t*)&reflectance, 2,0x02);
  207:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  208:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= vl53l8cx_dci_replace_data(p_dev, p_dev->temp_buffer,
- 1219              		.loc 1 208 51
- 1220 02c0 E00F40F9 		ldr	x0, [sp, 24]
- 1221 02c4 00601491 		add	x0, x0, 1304
- 1222              		.loc 1 208 13
- 1223 02c8 E1B70091 		add	x1, sp, 45
- 1224 02cc 86008052 		mov	w6, 4
- 1225 02d0 25008052 		mov	w5, 1
- 1226 02d4 E40301AA 		mov	x4, x1
- 1227 02d8 03018052 		mov	w3, 8
- 1228 02dc 028E8A52 		mov	w2, 21616
- 1229 02e0 E10300AA 		mov	x1, x0
- 1230 02e4 E00F40F9 		ldr	x0, [sp, 24]
- 1231 02e8 00000094 		bl	vl53l8cx_dci_replace_data
- 1232 02ec 011C0012 		and	w1, w0, 255
- 1233              		.loc 1 208 10 discriminator 1
- 1234 02f0 E0734139 		ldrb	w0, [sp, 92]
- 1235 02f4 2000002A 		orr	w0, w1, w0
- 1236 02f8 E0730139 		strb	w0, [sp, 92]
+ 1184              		.loc 1 208 51
+ 1185 0281 488B45A8 		movq	-88(%rbp), %rax
+ 1186 0285 488DB018 		leaq	1304(%rax), %rsi
+ 1186      050000
+ 1187              		.loc 1 208 13
+ 1188 028c 488D55BF 		leaq	-65(%rbp), %rdx
+ 1189 0290 488B45A8 		movq	-88(%rbp), %rax
+ 1190 0294 4883EC08 		subq	$8, %rsp
+ 1191 0298 6A04     		pushq	$4
+ 1192 029a 41B90100 		movl	$1, %r9d
+ 1192      0000
+ 1193 02a0 4989D0   		movq	%rdx, %r8
+ 1194 02a3 B9080000 		movl	$8, %ecx
+ 1194      00
+ 1195 02a8 BA705400 		movl	$21616, %edx
+ 1195      00
+ 1196 02ad 4889C7   		movq	%rax, %rdi
+ 1197 02b0 E8000000 		call	vl53l8cx_dci_replace_data@PLT
+ 1197      00
+ 1198 02b5 4883C410 		addq	$16, %rsp
+ 1199              		.loc 1 208 10 discriminator 1
+ 1200 02b9 0845C1   		orb	%al, -63(%rbp)
  209:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				VL53L8CX_DCI_CAL_CFG, 8,
  210:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                 (uint8_t*)&samples, 1, 0x04);
  211:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  212:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		/* Program output for Xtalk calibration */
  213:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= _vl53l8cx_program_output_config(p_dev);
- 1237              		.loc 1 213 13
- 1238 02fc E00F40F9 		ldr	x0, [sp, 24]
- 1239 0300 00000094 		bl	_vl53l8cx_program_output_config
- 1240 0304 011C0012 		and	w1, w0, 255
- 1241              		.loc 1 213 10 discriminator 1
- 1242 0308 E0734139 		ldrb	w0, [sp, 92]
- 1243 030c 2000002A 		orr	w0, w1, w0
- 1244 0310 E0730139 		strb	w0, [sp, 92]
+ 1201              		.loc 1 213 13
+ 1202 02bc 488B45A8 		movq	-88(%rbp), %rax
+ 1203 02c0 4889C7   		movq	%rax, %rdi
+ 1204 02c3 E8000000 		call	_vl53l8cx_program_output_config
+ 1204      00
+ 1205              		.loc 1 213 10 discriminator 1
+ 1206 02c8 0845C1   		orb	%al, -63(%rbp)
  214:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  215:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		/* Start ranging session */
  216:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= VL53L8CX_WrMulti(&(p_dev->platform),
- 1245              		.loc 1 216 13
- 1246 0314 E00F40F9 		ldr	x0, [sp, 24]
- 1247 0318 E1230191 		add	x1, sp, 72
- 1248 031c 83008052 		mov	w3, 4
- 1249 0320 E20301AA 		mov	x2, x1
- 1250 0324 81FF8552 		mov	w1, 12284
- 1251 0328 00000094 		bl	VL53L8CX_WrMulti
- 1252              		.loc 1 216 10 discriminator 1
- 1253 032c 011C0013 		sxtb	w1, w0
- 1254 0330 E073C139 		ldrsb	w0, [sp, 92]
- 1255 0334 2000002A 		orr	w0, w1, w0
- 1256 0338 001C0013 		sxtb	w0, w0
- 1257 033c E0730139 		strb	w0, [sp, 92]
+ 1207              		.loc 1 216 13
+ 1208 02cb 488B45A8 		movq	-88(%rbp), %rax
+ 1209 02cf 488D55DC 		leaq	-36(%rbp), %rdx
+ 1210 02d3 B9040000 		movl	$4, %ecx
+ 1210      00
+ 1211 02d8 BEFC2F00 		movl	$12284, %esi
+ 1211      00
+ 1212 02dd 4889C7   		movq	%rax, %rdi
+ 1213 02e0 E8000000 		call	VL53L8CX_WrMulti@PLT
+ 1213      00
+ 1214              		.loc 1 216 10 discriminator 1
+ 1215 02e5 89C2     		movl	%eax, %edx
+ 1216 02e7 0FB645C1 		movzbl	-63(%rbp), %eax
+ 1217 02eb 09D0     		orl	%edx, %eax
+ 1218 02ed 8845C1   		movb	%al, -63(%rbp)
  217:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				VL53L8CX_UI_CMD_END - (uint16_t)(4 - 1),
  218:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				(uint8_t*)cmd, sizeof(cmd));
  219:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= _vl53l8cx_poll_for_answer(p_dev,
- 1258              		.loc 1 219 13
- 1259 0340 62008052 		mov	w2, 3
- 1260 0344 01808552 		mov	w1, 11264
- 1261 0348 E00F40F9 		ldr	x0, [sp, 24]
- 1262 034c 00000094 		bl	_vl53l8cx_poll_for_answer
- 1263 0350 011C0012 		and	w1, w0, 255
- 1264              		.loc 1 219 10 discriminator 1
- 1265 0354 E0734139 		ldrb	w0, [sp, 92]
- 1266 0358 2000002A 		orr	w0, w1, w0
- 1267 035c E0730139 		strb	w0, [sp, 92]
- 1268              	.L27:
+ 1219              		.loc 1 219 13
+ 1220 02f0 488B45A8 		movq	-88(%rbp), %rax
+ 1221 02f4 BA030000 		movl	$3, %edx
+ 1221      00
+ 1222 02f9 BE002C00 		movl	$11264, %esi
+ 1222      00
+ 1223 02fe 4889C7   		movq	%rax, %rdi
+ 1224 0301 E8000000 		call	_vl53l8cx_poll_for_answer
+ 1224      00
+ 1225              		.loc 1 219 10 discriminator 1
+ 1226 0306 0845C1   		orb	%al, -63(%rbp)
+ 1227              	.L28:
  220:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				VL53L8CX_UI_CMD_STATUS, 0x3);
  221:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  222:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		/* Wait for end of calibration */
  223:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		do {
  224:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			status |= VL53L8CX_RdMulti(&(p_dev->platform), 
- 1269              		.loc 1 224 14
- 1270 0360 E40F40F9 		ldr	x4, [sp, 24]
  225:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                           0x0, p_dev->temp_buffer, 4);
- 1271              		.loc 1 225 53
- 1272 0364 E00F40F9 		ldr	x0, [sp, 24]
- 1273 0368 00601491 		add	x0, x0, 1304
+ 1228              		.loc 1 225 53
+ 1229 0309 488B45A8 		movq	-88(%rbp), %rax
+ 1230 030d 488D9018 		leaq	1304(%rax), %rdx
+ 1230      050000
  224:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                           0x0, p_dev->temp_buffer, 4);
- 1274              		.loc 1 224 14
- 1275 036c 83008052 		mov	w3, 4
- 1276 0370 E20300AA 		mov	x2, x0
- 1277 0374 01008052 		mov	w1, 0
- 1278 0378 E00304AA 		mov	x0, x4
- 1279 037c 00000094 		bl	VL53L8CX_RdMulti
+ 1231              		.loc 1 224 14
+ 1232 0314 488B45A8 		movq	-88(%rbp), %rax
+ 1233 0318 B9040000 		movl	$4, %ecx
+ 1233      00
+ 1234 031d BE000000 		movl	$0, %esi
+ 1234      00
+ 1235 0322 4889C7   		movq	%rax, %rdi
+ 1236 0325 E8000000 		call	VL53L8CX_RdMulti@PLT
+ 1236      00
  224:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                           0x0, p_dev->temp_buffer, 4);
- 1280              		.loc 1 224 11 discriminator 1
- 1281 0380 011C0013 		sxtb	w1, w0
- 1282 0384 E073C139 		ldrsb	w0, [sp, 92]
- 1283 0388 2000002A 		orr	w0, w1, w0
- 1284 038c 001C0013 		sxtb	w0, w0
- 1285 0390 E0730139 		strb	w0, [sp, 92]
+ 1237              		.loc 1 224 11 discriminator 1
+ 1238 032a 89C2     		movl	%eax, %edx
+ 1239 032c 0FB645C1 		movzbl	-63(%rbp), %eax
+ 1240 0330 09D0     		orl	%edx, %eax
+ 1241 0332 8845C1   		movb	%al, -63(%rbp)
  226:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			if(p_dev->temp_buffer[0] != VL53L8CX_STATUS_ERROR)
- 1286              		.loc 1 226 25
- 1287 0394 E00F40F9 		ldr	x0, [sp, 24]
- 1288 0398 00605439 		ldrb	w0, [x0, 1304]
- 1289              		.loc 1 226 6
- 1290 039c 1FFC0371 		cmp	w0, 255
- 1291 03a0 00030054 		beq	.L23
+ 1242              		.loc 1 226 25
+ 1243 0335 488B45A8 		movq	-88(%rbp), %rax
+ 1244 0339 0FB68018 		movzbl	1304(%rax), %eax
+ 1244      050000
+ 1245              		.loc 1 226 6
+ 1246 0340 3CFF     		cmpb	$-1, %al
+ 1247 0342 7456     		je	.L24
  227:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			{
  228:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				/* Coverglass too good for Xtalk calibration */
  229:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				if((p_dev->temp_buffer[2] >= (uint8_t)0x7f) &&
- 1292              		.loc 1 229 27
- 1293 03a4 E00F40F9 		ldr	x0, [sp, 24]
- 1294 03a8 00685439 		ldrb	w0, [x0, 1306]
- 1295              		.loc 1 229 7
- 1296 03ac 1FF80171 		cmp	w0, 126
- 1297 03b0 49020054 		bls	.L24
+ 1248              		.loc 1 229 27
+ 1249 0344 488B45A8 		movq	-88(%rbp), %rax
+ 1250 0348 0FB6801A 		movzbl	1306(%rax), %eax
+ 1250      050000
+ 1251              		.loc 1 229 7
+ 1252 034f 3C7E     		cmpb	$126, %al
+ 1253 0351 7641     		jbe	.L25
  230:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				(((uint16_t)(p_dev->temp_buffer[3] & 
- 1298              		.loc 1 230 36
- 1299 03b4 E00F40F9 		ldr	x0, [sp, 24]
- 1300 03b8 006C5439 		ldrb	w0, [x0, 1307]
+ 1254              		.loc 1 230 36
+ 1255 0353 488B45A8 		movq	-88(%rbp), %rax
+ 1256 0357 0FB6801B 		movzbl	1307(%rax), %eax
+ 1256      050000
  231:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                  (uint16_t)0x80) >> 7) == (uint16_t)1))
- 1301              		.loc 1 231 50
- 1302 03bc 007C0753 		lsr	w0, w0, 7
- 1303 03c0 001C0012 		and	w0, w0, 255
+ 1257              		.loc 1 231 50
+ 1258 035e C0E807   		shrb	$7, %al
  229:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				(((uint16_t)(p_dev->temp_buffer[3] & 
- 1304              		.loc 1 229 49 discriminator 1
- 1305 03c4 1F040071 		cmp	w0, 1
- 1306 03c8 81010054 		bne	.L24
+ 1259              		.loc 1 229 49 discriminator 1
+ 1260 0361 3C01     		cmpb	$1, %al
+ 1261 0363 752F     		jne	.L25
  232:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				{
  233:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 					default_xtalk_ptr = p_dev->default_xtalk;
- 1307              		.loc 1 233 24
- 1308 03cc E00F40F9 		ldr	x0, [sp, 24]
- 1309 03d0 001040F9 		ldr	x0, [x0, 32]
- 1310 03d4 E02B00F9 		str	x0, [sp, 80]
+ 1262              		.loc 1 233 24
+ 1263 0365 488B45A8 		movq	-88(%rbp), %rax
+ 1264 0369 488B4020 		movq	32(%rax), %rax
+ 1265 036d 488945D0 		movq	%rax, -48(%rbp)
  234:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 					(void)memcpy(p_dev->xtalk_data, 
- 1311              		.loc 1 234 24
- 1312 03d8 E00F40F9 		ldr	x0, [sp, 24]
- 1313 03dc 00400891 		add	x0, x0, 528
- 1314              		.loc 1 234 12
- 1315 03e0 026180D2 		mov	x2, 776
- 1316 03e4 E12B40F9 		ldr	x1, [sp, 80]
- 1317 03e8 00000094 		bl	memcpy
+ 1266              		.loc 1 234 24
+ 1267 0371 488B45A8 		movq	-88(%rbp), %rax
+ 1268 0375 488D8810 		leaq	528(%rax), %rcx
+ 1268      020000
+ 1269              		.loc 1 234 12
+ 1270 037c 488B45D0 		movq	-48(%rbp), %rax
+ 1271 0380 BA080300 		movl	$776, %edx
+ 1271      00
+ 1272 0385 4889C6   		movq	%rax, %rsi
+ 1273 0388 4889CF   		movq	%rcx, %rdi
+ 1274 038b E8000000 		call	memcpy@PLT
+ 1274      00
  235:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 						default_xtalk_ptr,
  236:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 						sizeof(p_dev->xtalk_data));
  237:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 					status |= VL53L8CX_STATUS_XTALK_FAILED;
- 1318              		.loc 1 237 13
- 1319 03ec E0734139 		ldrb	w0, [sp, 92]
- 1320 03f0 00001E32 		orr	w0, w0, 4
- 1321 03f4 E0730139 		strb	w0, [sp, 92]
- 1322              	.L24:
+ 1275              		.loc 1 237 13
+ 1276 0390 804DC104 		orb	$4, -63(%rbp)
+ 1277              	.L25:
  238:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				}
  239:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				continue_loop = (uint8_t)0;
- 1323              		.loc 1 239 19
- 1324 03f8 FF770139 		strb	wzr, [sp, 93]
- 1325 03fc 13000014 		b	.L25
- 1326              	.L23:
+ 1278              		.loc 1 239 19
+ 1279 0394 C645C000 		movb	$0, -64(%rbp)
+ 1280 0398 EB39     		jmp	.L26
+ 1281              	.L24:
  240:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			}
  241:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			else if(timeout >= (uint16_t)400)
- 1327              		.loc 1 241 11
- 1328 0400 E0BF4079 		ldrh	w0, [sp, 94]
- 1329 0404 1F3C0671 		cmp	w0, 399
- 1330 0408 A9000054 		bls	.L26
+ 1282              		.loc 1 241 11
+ 1283 039a 66817DC6 		cmpw	$399, -58(%rbp)
+ 1283      8F01
+ 1284 03a0 760A     		jbe	.L27
  242:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			{
  243:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				status |= VL53L8CX_STATUS_ERROR;
- 1331              		.loc 1 243 12
- 1332 040c 00008012 		mov	w0, -1
- 1333 0410 E0730139 		strb	w0, [sp, 92]
+ 1285              		.loc 1 243 12
+ 1286 03a2 C645C1FF 		movb	$-1, -63(%rbp)
  244:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				continue_loop = (uint8_t)0;
- 1334              		.loc 1 244 19
- 1335 0414 FF770139 		strb	wzr, [sp, 93]
- 1336 0418 0C000014 		b	.L25
- 1337              	.L26:
+ 1287              		.loc 1 244 19
+ 1288 03a6 C645C000 		movb	$0, -64(%rbp)
+ 1289 03aa EB27     		jmp	.L26
+ 1290              	.L27:
  245:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			}
  246:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			else
  247:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			{
  248:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				timeout++;
- 1338              		.loc 1 248 12
- 1339 041c E0BF4079 		ldrh	w0, [sp, 94]
- 1340 0420 00040011 		add	w0, w0, 1
- 1341 0424 E0BF0079 		strh	w0, [sp, 94]
+ 1291              		.loc 1 248 12
+ 1292 03ac 0FB745C6 		movzwl	-58(%rbp), %eax
+ 1293 03b0 83C001   		addl	$1, %eax
+ 1294 03b3 668945C6 		movw	%ax, -58(%rbp)
  249:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				status |= VL53L8CX_WaitMs(&(p_dev->platform), 50);
- 1342              		.loc 1 249 15
- 1343 0428 E00F40F9 		ldr	x0, [sp, 24]
- 1344 042c 41068052 		mov	w1, 50
- 1345 0430 00000094 		bl	VL53L8CX_WaitMs
- 1346              		.loc 1 249 12 discriminator 1
- 1347 0434 011C0013 		sxtb	w1, w0
- 1348 0438 E073C139 		ldrsb	w0, [sp, 92]
- 1349 043c 2000002A 		orr	w0, w1, w0
- 1350 0440 001C0013 		sxtb	w0, w0
- 1351 0444 E0730139 		strb	w0, [sp, 92]
- 1352              	.L25:
+ 1295              		.loc 1 249 15
+ 1296 03b7 488B45A8 		movq	-88(%rbp), %rax
+ 1297 03bb BE320000 		movl	$50, %esi
+ 1297      00
+ 1298 03c0 4889C7   		movq	%rax, %rdi
+ 1299 03c3 E8000000 		call	VL53L8CX_WaitMs@PLT
+ 1299      00
+ 1300              		.loc 1 249 12 discriminator 1
+ 1301 03c8 89C2     		movl	%eax, %edx
+ 1302 03ca 0FB645C1 		movzbl	-63(%rbp), %eax
+ 1303 03ce 09D0     		orl	%edx, %eax
+ 1304 03d0 8845C1   		movb	%al, -63(%rbp)
+ 1305              	.L26:
  250:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			}
  251:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  252:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		}while (continue_loop == (uint8_t)1);
- 1353              		.loc 1 252 25
- 1354 0448 E0774139 		ldrb	w0, [sp, 93]
- 1355 044c 1F040071 		cmp	w0, 1
- 1356 0450 80F8FF54 		beq	.L27
- 1357              	.L22:
+ 1306              		.loc 1 252 25
+ 1307 03d3 807DC001 		cmpb	$1, -64(%rbp)
+ 1308 03d7 0F842CFF 		je	.L28
+ 1308      FFFF
+ 1309              	.L23:
  253:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	}
  254:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  255:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	/* Save Xtalk data into the Xtalk buffer */
  256:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****         (void)memcpy(p_dev->temp_buffer, VL53L8CX_GET_XTALK_CMD,
- 1358              		.loc 1 256 27
- 1359 0454 E00F40F9 		ldr	x0, [sp, 24]
- 1360 0458 02601491 		add	x2, x0, 1304
- 1361              		.loc 1 256 15
- 1362 045c 00000090 		adrp	x0, VL53L8CX_GET_XTALK_CMD
- 1363 0460 01000091 		add	x1, x0, :lo12:VL53L8CX_GET_XTALK_CMD
- 1364 0464 E00302AA 		mov	x0, x2
- 1365 0468 3C00C03D 		ldr	q28, [x1]
- 1366 046c 3D04C03D 		ldr	q29, [x1, 16]
- 1367 0470 3E08C03D 		ldr	q30, [x1, 32]
- 1368 0474 3F0CC03D 		ldr	q31, [x1, 48]
- 1369 0478 212040F9 		ldr	x1, [x1, 64]
- 1370 047c 1C00803D 		str	q28, [x0]
- 1371 0480 1D04803D 		str	q29, [x0, 16]
- 1372 0484 1E08803D 		str	q30, [x0, 32]
- 1373 0488 1F0C803D 		str	q31, [x0, 48]
- 1374 048c 012000F9 		str	x1, [x0, 64]
+ 1310              		.loc 1 256 27
+ 1311 03dd 488B45A8 		movq	-88(%rbp), %rax
+ 1312 03e1 48051805 		addq	$1304, %rax
+ 1312      0000
+ 1313              		.loc 1 256 15
+ 1314 03e7 488B0D00 		movq	VL53L8CX_GET_XTALK_CMD(%rip), %rcx
+ 1314      000000
+ 1315 03ee 488B1D00 		movq	8+VL53L8CX_GET_XTALK_CMD(%rip), %rbx
+ 1315      000000
+ 1316 03f5 488908   		movq	%rcx, (%rax)
+ 1317 03f8 48895808 		movq	%rbx, 8(%rax)
+ 1318 03fc 488B0D00 		movq	16+VL53L8CX_GET_XTALK_CMD(%rip), %rcx
+ 1318      000000
+ 1319 0403 488B1D00 		movq	24+VL53L8CX_GET_XTALK_CMD(%rip), %rbx
+ 1319      000000
+ 1320 040a 48894810 		movq	%rcx, 16(%rax)
+ 1321 040e 48895818 		movq	%rbx, 24(%rax)
+ 1322 0412 488B0D00 		movq	32+VL53L8CX_GET_XTALK_CMD(%rip), %rcx
+ 1322      000000
+ 1323 0419 488B1D00 		movq	40+VL53L8CX_GET_XTALK_CMD(%rip), %rbx
+ 1323      000000
+ 1324 0420 48894820 		movq	%rcx, 32(%rax)
+ 1325 0424 48895828 		movq	%rbx, 40(%rax)
+ 1326 0428 488B0D00 		movq	48+VL53L8CX_GET_XTALK_CMD(%rip), %rcx
+ 1326      000000
+ 1327 042f 488B1D00 		movq	56+VL53L8CX_GET_XTALK_CMD(%rip), %rbx
+ 1327      000000
+ 1328 0436 48894830 		movq	%rcx, 48(%rax)
+ 1329 043a 48895838 		movq	%rbx, 56(%rax)
+ 1330 043e 488B1500 		movq	64+VL53L8CX_GET_XTALK_CMD(%rip), %rdx
+ 1330      000000
+ 1331 0445 48895040 		movq	%rdx, 64(%rax)
  257:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                sizeof(VL53L8CX_GET_XTALK_CMD));
  258:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= VL53L8CX_WrMulti(&(p_dev->platform), 0x2fb8,
- 1375              		.loc 1 258 12
- 1376 0490 E40F40F9 		ldr	x4, [sp, 24]
  259:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->temp_buffer, 
- 1377              		.loc 1 259 9
- 1378 0494 E00F40F9 		ldr	x0, [sp, 24]
- 1379 0498 00601491 		add	x0, x0, 1304
+ 1332              		.loc 1 259 9
+ 1333 0449 488B45A8 		movq	-88(%rbp), %rax
+ 1334 044d 488D9018 		leaq	1304(%rax), %rdx
+ 1334      050000
  258:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->temp_buffer, 
- 1380              		.loc 1 258 12
- 1381 049c 03098052 		mov	w3, 72
- 1382 04a0 E20300AA 		mov	x2, x0
- 1383 04a4 01F78552 		mov	w1, 12216
- 1384 04a8 E00304AA 		mov	x0, x4
- 1385 04ac 00000094 		bl	VL53L8CX_WrMulti
+ 1335              		.loc 1 258 12
+ 1336 0454 488B45A8 		movq	-88(%rbp), %rax
+ 1337 0458 B9480000 		movl	$72, %ecx
+ 1337      00
+ 1338 045d BEB82F00 		movl	$12216, %esi
+ 1338      00
+ 1339 0462 4889C7   		movq	%rax, %rdi
+ 1340 0465 E8000000 		call	VL53L8CX_WrMulti@PLT
+ 1340      00
  258:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->temp_buffer, 
- 1386              		.loc 1 258 9 discriminator 1
- 1387 04b0 011C0013 		sxtb	w1, w0
- 1388 04b4 E073C139 		ldrsb	w0, [sp, 92]
- 1389 04b8 2000002A 		orr	w0, w1, w0
- 1390 04bc 001C0013 		sxtb	w0, w0
- 1391 04c0 E0730139 		strb	w0, [sp, 92]
+ 1341              		.loc 1 258 9 discriminator 1
+ 1342 046a 89C2     		movl	%eax, %edx
+ 1343 046c 0FB645C1 		movzbl	-63(%rbp), %eax
+ 1344 0470 09D0     		orl	%edx, %eax
+ 1345 0472 8845C1   		movb	%al, -63(%rbp)
  260:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                         (uint16_t)sizeof(VL53L8CX_GET_XTALK_CMD));
  261:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= _vl53l8cx_poll_for_answer(p_dev,VL53L8CX_UI_CMD_STATUS, 0x03);
- 1392              		.loc 1 261 12
- 1393 04c4 62008052 		mov	w2, 3
- 1394 04c8 01808552 		mov	w1, 11264
- 1395 04cc E00F40F9 		ldr	x0, [sp, 24]
- 1396 04d0 00000094 		bl	_vl53l8cx_poll_for_answer
- 1397 04d4 011C0012 		and	w1, w0, 255
- 1398              		.loc 1 261 9 discriminator 1
- 1399 04d8 E0734139 		ldrb	w0, [sp, 92]
- 1400 04dc 2000002A 		orr	w0, w1, w0
- 1401 04e0 E0730139 		strb	w0, [sp, 92]
+ 1346              		.loc 1 261 12
+ 1347 0475 488B45A8 		movq	-88(%rbp), %rax
+ 1348 0479 BA030000 		movl	$3, %edx
+ 1348      00
+ 1349 047e BE002C00 		movl	$11264, %esi
+ 1349      00
+ 1350 0483 4889C7   		movq	%rax, %rdi
+ 1351 0486 E8000000 		call	_vl53l8cx_poll_for_answer
+ 1351      00
+ 1352              		.loc 1 261 9 discriminator 1
+ 1353 048b 0845C1   		orb	%al, -63(%rbp)
  262:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= VL53L8CX_RdMulti(&(p_dev->platform), VL53L8CX_UI_CMD_START,
- 1402              		.loc 1 262 12
- 1403 04e4 E40F40F9 		ldr	x4, [sp, 24]
  263:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->temp_buffer, 
- 1404              		.loc 1 263 9
- 1405 04e8 E00F40F9 		ldr	x0, [sp, 24]
- 1406 04ec 00601491 		add	x0, x0, 1304
+ 1354              		.loc 1 263 9
+ 1355 048e 488B45A8 		movq	-88(%rbp), %rax
+ 1356 0492 488D9018 		leaq	1304(%rax), %rdx
+ 1356      050000
  262:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= VL53L8CX_RdMulti(&(p_dev->platform), VL53L8CX_UI_CMD_START,
- 1407              		.loc 1 262 12
- 1408 04f0 83618052 		mov	w3, 780
- 1409 04f4 E20300AA 		mov	x2, x0
- 1410 04f8 81808552 		mov	w1, 11268
- 1411 04fc E00304AA 		mov	x0, x4
- 1412 0500 00000094 		bl	VL53L8CX_RdMulti
+ 1357              		.loc 1 262 12
+ 1358 0499 488B45A8 		movq	-88(%rbp), %rax
+ 1359 049d B90C0300 		movl	$780, %ecx
+ 1359      00
+ 1360 04a2 BE042C00 		movl	$11268, %esi
+ 1360      00
+ 1361 04a7 4889C7   		movq	%rax, %rdi
+ 1362 04aa E8000000 		call	VL53L8CX_RdMulti@PLT
+ 1362      00
  262:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= VL53L8CX_RdMulti(&(p_dev->platform), VL53L8CX_UI_CMD_START,
- 1413              		.loc 1 262 9 discriminator 1
- 1414 0504 011C0013 		sxtb	w1, w0
- 1415 0508 E073C139 		ldrsb	w0, [sp, 92]
- 1416 050c 2000002A 		orr	w0, w1, w0
- 1417 0510 001C0013 		sxtb	w0, w0
- 1418 0514 E0730139 		strb	w0, [sp, 92]
+ 1363              		.loc 1 262 9 discriminator 1
+ 1364 04af 89C2     		movl	%eax, %edx
+ 1365 04b1 0FB645C1 		movzbl	-63(%rbp), %eax
+ 1366 04b5 09D0     		orl	%edx, %eax
+ 1367 04b7 8845C1   		movb	%al, -63(%rbp)
  264:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                         VL53L8CX_XTALK_BUFFER_SIZE + (uint16_t)4);
  265:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  266:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	(void)memcpy(&(p_dev->xtalk_data[0]), &(p_dev->temp_buffer[8]),
- 1419              		.loc 1 266 15
- 1420 0518 E00F40F9 		ldr	x0, [sp, 24]
- 1421 051c 03400891 		add	x3, x0, 528
- 1422              		.loc 1 266 40
- 1423 0520 E00F40F9 		ldr	x0, [sp, 24]
- 1424 0524 00801491 		add	x0, x0, 1312
- 1425              		.loc 1 266 8
- 1426 0528 026080D2 		mov	x2, 768
- 1427 052c E10300AA 		mov	x1, x0
- 1428 0530 E00303AA 		mov	x0, x3
- 1429 0534 00000094 		bl	memcpy
+ 1368              		.loc 1 266 40
+ 1369 04ba 488B45A8 		movq	-88(%rbp), %rax
+ 1370 04be 488D8820 		leaq	1312(%rax), %rcx
+ 1370      050000
+ 1371              		.loc 1 266 15
+ 1372 04c5 488B45A8 		movq	-88(%rbp), %rax
+ 1373 04c9 48051002 		addq	$528, %rax
+ 1373      0000
+ 1374              		.loc 1 266 8
+ 1375 04cf BA000300 		movl	$768, %edx
+ 1375      00
+ 1376 04d4 4889CE   		movq	%rcx, %rsi
+ 1377 04d7 4889C7   		movq	%rax, %rdi
+ 1378 04da E8000000 		call	memcpy@PLT
+ 1378      00
  267:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			VL53L8CX_XTALK_BUFFER_SIZE - (uint16_t)8);
  268:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	(void)memcpy(&(p_dev->xtalk_data[VL53L8CX_XTALK_BUFFER_SIZE
- 1430              		.loc 1 268 15
- 1431 0538 E00F40F9 		ldr	x0, [sp, 24]
- 1432 053c 00401491 		add	x0, x0, 1296
- 1433              		.loc 1 268 8
- 1434 0540 E12340F9 		ldr	x1, [sp, 64]
- 1435 0544 010000F9 		str	x1, [x0]
+ 1379              		.loc 1 268 15
+ 1380 04df 488B45A8 		movq	-88(%rbp), %rax
+ 1381 04e3 488D9010 		leaq	1296(%rax), %rdx
+ 1381      050000
+ 1382              		.loc 1 268 8
+ 1383 04ea 488B45E0 		movq	-32(%rbp), %rax
+ 1384 04ee 488902   		movq	%rax, (%rdx)
  269:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                        - (uint16_t)8]), footer, sizeof(footer));
  270:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  271:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	/* Reset default buffer */
  272:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= VL53L8CX_WrMulti(&(p_dev->platform), 0x2c34,
- 1436              		.loc 1 272 12
- 1437 0548 E40F40F9 		ldr	x4, [sp, 24]
- 1438 054c E00F40F9 		ldr	x0, [sp, 24]
- 1439 0550 000C40F9 		ldr	x0, [x0, 24]
- 1440 0554 83798052 		mov	w3, 972
- 1441 0558 E20300AA 		mov	x2, x0
- 1442 055c 81868552 		mov	w1, 11316
- 1443 0560 E00304AA 		mov	x0, x4
- 1444 0564 00000094 		bl	VL53L8CX_WrMulti
- 1445              		.loc 1 272 9 discriminator 1
- 1446 0568 011C0013 		sxtb	w1, w0
- 1447 056c E073C139 		ldrsb	w0, [sp, 92]
- 1448 0570 2000002A 		orr	w0, w1, w0
- 1449 0574 001C0013 		sxtb	w0, w0
- 1450 0578 E0730139 		strb	w0, [sp, 92]
+ 1385              		.loc 1 272 12
+ 1386 04f1 488B45A8 		movq	-88(%rbp), %rax
+ 1387 04f5 488B5018 		movq	24(%rax), %rdx
+ 1388 04f9 488B45A8 		movq	-88(%rbp), %rax
+ 1389 04fd B9CC0300 		movl	$972, %ecx
+ 1389      00
+ 1390 0502 BE342C00 		movl	$11316, %esi
+ 1390      00
+ 1391 0507 4889C7   		movq	%rax, %rdi
+ 1392 050a E8000000 		call	VL53L8CX_WrMulti@PLT
+ 1392      00
+ 1393              		.loc 1 272 9 discriminator 1
+ 1394 050f 89C2     		movl	%eax, %edx
+ 1395 0511 0FB645C1 		movzbl	-63(%rbp), %eax
+ 1396 0515 09D0     		orl	%edx, %eax
+ 1397 0517 8845C1   		movb	%al, -63(%rbp)
  273:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->default_configuration,
  274:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			VL53L8CX_CONFIGURATION_SIZE);
  275:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= _vl53l8cx_poll_for_answer(p_dev,VL53L8CX_UI_CMD_STATUS, 0x03);
- 1451              		.loc 1 275 12
- 1452 057c 62008052 		mov	w2, 3
- 1453 0580 01808552 		mov	w1, 11264
- 1454 0584 E00F40F9 		ldr	x0, [sp, 24]
- 1455 0588 00000094 		bl	_vl53l8cx_poll_for_answer
- 1456 058c 011C0012 		and	w1, w0, 255
- 1457              		.loc 1 275 9 discriminator 1
- 1458 0590 E0734139 		ldrb	w0, [sp, 92]
- 1459 0594 2000002A 		orr	w0, w1, w0
- 1460 0598 E0730139 		strb	w0, [sp, 92]
+ 1398              		.loc 1 275 12
+ 1399 051a 488B45A8 		movq	-88(%rbp), %rax
+ 1400 051e BA030000 		movl	$3, %edx
+ 1400      00
+ 1401 0523 BE002C00 		movl	$11264, %esi
+ 1401      00
+ 1402 0528 4889C7   		movq	%rax, %rdi
+ 1403 052b E8000000 		call	_vl53l8cx_poll_for_answer
+ 1403      00
+ 1404              		.loc 1 275 9 discriminator 1
+ 1405 0530 0845C1   		orb	%al, -63(%rbp)
  276:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  277:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	/* Reset initial configuration */
  278:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_set_resolution(p_dev, resolution);
- 1461              		.loc 1 278 12
- 1462 059c E0FF4039 		ldrb	w0, [sp, 63]
- 1463 05a0 E103002A 		mov	w1, w0
- 1464 05a4 E00F40F9 		ldr	x0, [sp, 24]
- 1465 05a8 00000094 		bl	vl53l8cx_set_resolution
- 1466 05ac 011C0012 		and	w1, w0, 255
- 1467              		.loc 1 278 9 discriminator 1
- 1468 05b0 E0734139 		ldrb	w0, [sp, 92]
- 1469 05b4 2000002A 		orr	w0, w1, w0
- 1470 05b8 E0730139 		strb	w0, [sp, 92]
+ 1406              		.loc 1 278 12
+ 1407 0533 0FB645BA 		movzbl	-70(%rbp), %eax
+ 1408 0537 0FB6D0   		movzbl	%al, %edx
+ 1409 053a 488B45A8 		movq	-88(%rbp), %rax
+ 1410 053e 89D6     		movl	%edx, %esi
+ 1411 0540 4889C7   		movq	%rax, %rdi
+ 1412 0543 E8000000 		call	vl53l8cx_set_resolution@PLT
+ 1412      00
+ 1413              		.loc 1 278 9 discriminator 1
+ 1414 0548 0845C1   		orb	%al, -63(%rbp)
  279:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_set_ranging_frequency_hz(p_dev, frequency);
- 1471              		.loc 1 279 12
- 1472 05bc E0FB4039 		ldrb	w0, [sp, 62]
- 1473 05c0 E103002A 		mov	w1, w0
- 1474 05c4 E00F40F9 		ldr	x0, [sp, 24]
- 1475 05c8 00000094 		bl	vl53l8cx_set_ranging_frequency_hz
- 1476 05cc 011C0012 		and	w1, w0, 255
- 1477              		.loc 1 279 9 discriminator 1
- 1478 05d0 E0734139 		ldrb	w0, [sp, 92]
- 1479 05d4 2000002A 		orr	w0, w1, w0
- 1480 05d8 E0730139 		strb	w0, [sp, 92]
+ 1415              		.loc 1 279 12
+ 1416 054b 0FB645BB 		movzbl	-69(%rbp), %eax
+ 1417 054f 0FB6D0   		movzbl	%al, %edx
+ 1418 0552 488B45A8 		movq	-88(%rbp), %rax
+ 1419 0556 89D6     		movl	%edx, %esi
+ 1420 0558 4889C7   		movq	%rax, %rdi
+ 1421 055b E8000000 		call	vl53l8cx_set_ranging_frequency_hz@PLT
+ 1421      00
+ 1422              		.loc 1 279 9 discriminator 1
+ 1423 0560 0845C1   		orb	%al, -63(%rbp)
  280:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_set_integration_time_ms(p_dev, integration_time_ms);
- 1481              		.loc 1 280 12
- 1482 05dc E03740B9 		ldr	w0, [sp, 52]
- 1483 05e0 E103002A 		mov	w1, w0
- 1484 05e4 E00F40F9 		ldr	x0, [sp, 24]
- 1485 05e8 00000094 		bl	vl53l8cx_set_integration_time_ms
- 1486 05ec 011C0012 		and	w1, w0, 255
- 1487              		.loc 1 280 9 discriminator 1
- 1488 05f0 E0734139 		ldrb	w0, [sp, 92]
- 1489 05f4 2000002A 		orr	w0, w1, w0
- 1490 05f8 E0730139 		strb	w0, [sp, 92]
+ 1424              		.loc 1 280 12
+ 1425 0563 8B55C8   		movl	-56(%rbp), %edx
+ 1426 0566 488B45A8 		movq	-88(%rbp), %rax
+ 1427 056a 89D6     		movl	%edx, %esi
+ 1428 056c 4889C7   		movq	%rax, %rdi
+ 1429 056f E8000000 		call	vl53l8cx_set_integration_time_ms@PLT
+ 1429      00
+ 1430              		.loc 1 280 9 discriminator 1
+ 1431 0574 0845C1   		orb	%al, -63(%rbp)
  281:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_set_sharpener_percent(p_dev, sharp_prct);
- 1491              		.loc 1 281 12
- 1492 05fc E0F34039 		ldrb	w0, [sp, 60]
- 1493 0600 E103002A 		mov	w1, w0
- 1494 0604 E00F40F9 		ldr	x0, [sp, 24]
- 1495 0608 00000094 		bl	vl53l8cx_set_sharpener_percent
- 1496 060c 011C0012 		and	w1, w0, 255
- 1497              		.loc 1 281 9 discriminator 1
- 1498 0610 E0734139 		ldrb	w0, [sp, 92]
- 1499 0614 2000002A 		orr	w0, w1, w0
- 1500 0618 E0730139 		strb	w0, [sp, 92]
+ 1432              		.loc 1 281 12
+ 1433 0577 0FB645BD 		movzbl	-67(%rbp), %eax
+ 1434 057b 0FB6D0   		movzbl	%al, %edx
+ 1435 057e 488B45A8 		movq	-88(%rbp), %rax
+ 1436 0582 89D6     		movl	%edx, %esi
+ 1437 0584 4889C7   		movq	%rax, %rdi
+ 1438 0587 E8000000 		call	vl53l8cx_set_sharpener_percent@PLT
+ 1438      00
+ 1439              		.loc 1 281 9 discriminator 1
+ 1440 058c 0845C1   		orb	%al, -63(%rbp)
  282:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_set_target_order(p_dev, target_order);
- 1501              		.loc 1 282 12
- 1502 061c E0F74039 		ldrb	w0, [sp, 61]
- 1503 0620 E103002A 		mov	w1, w0
- 1504 0624 E00F40F9 		ldr	x0, [sp, 24]
- 1505 0628 00000094 		bl	vl53l8cx_set_target_order
- 1506 062c 011C0012 		and	w1, w0, 255
- 1507              		.loc 1 282 9 discriminator 1
- 1508 0630 E0734139 		ldrb	w0, [sp, 92]
- 1509 0634 2000002A 		orr	w0, w1, w0
- 1510 0638 E0730139 		strb	w0, [sp, 92]
+ 1441              		.loc 1 282 12
+ 1442 058f 0FB645BC 		movzbl	-68(%rbp), %eax
+ 1443 0593 0FB6D0   		movzbl	%al, %edx
+ 1444 0596 488B45A8 		movq	-88(%rbp), %rax
+ 1445 059a 89D6     		movl	%edx, %esi
+ 1446 059c 4889C7   		movq	%rax, %rdi
+ 1447 059f E8000000 		call	vl53l8cx_set_target_order@PLT
+ 1447      00
+ 1448              		.loc 1 282 9 discriminator 1
+ 1449 05a4 0845C1   		orb	%al, -63(%rbp)
  283:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_set_xtalk_margin(p_dev, xtalk_margin);
- 1511              		.loc 1 283 12
- 1512 063c E03340B9 		ldr	w0, [sp, 48]
- 1513 0640 E103002A 		mov	w1, w0
- 1514 0644 E00F40F9 		ldr	x0, [sp, 24]
- 1515 0648 00000094 		bl	vl53l8cx_set_xtalk_margin
- 1516 064c 011C0012 		and	w1, w0, 255
- 1517              		.loc 1 283 9 discriminator 1
- 1518 0650 E0734139 		ldrb	w0, [sp, 92]
- 1519 0654 2000002A 		orr	w0, w1, w0
- 1520 0658 E0730139 		strb	w0, [sp, 92]
+ 1450              		.loc 1 283 12
+ 1451 05a7 8B55CC   		movl	-52(%rbp), %edx
+ 1452 05aa 488B45A8 		movq	-88(%rbp), %rax
+ 1453 05ae 89D6     		movl	%edx, %esi
+ 1454 05b0 4889C7   		movq	%rax, %rdi
+ 1455 05b3 E8000000 		call	vl53l8cx_set_xtalk_margin
+ 1455      00
+ 1456              		.loc 1 283 9 discriminator 1
+ 1457 05b8 0845C1   		orb	%al, -63(%rbp)
  284:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_set_ranging_mode(p_dev, ranging_mode);
- 1521              		.loc 1 284 12
- 1522 065c E0EF4039 		ldrb	w0, [sp, 59]
- 1523 0660 E103002A 		mov	w1, w0
- 1524 0664 E00F40F9 		ldr	x0, [sp, 24]
- 1525 0668 00000094 		bl	vl53l8cx_set_ranging_mode
- 1526 066c 011C0012 		and	w1, w0, 255
- 1527              		.loc 1 284 9 discriminator 1
- 1528 0670 E0734139 		ldrb	w0, [sp, 92]
- 1529 0674 2000002A 		orr	w0, w1, w0
- 1530 0678 E0730139 		strb	w0, [sp, 92]
+ 1458              		.loc 1 284 12
+ 1459 05bb 0FB645BE 		movzbl	-66(%rbp), %eax
+ 1460 05bf 0FB6D0   		movzbl	%al, %edx
+ 1461 05c2 488B45A8 		movq	-88(%rbp), %rax
+ 1462 05c6 89D6     		movl	%edx, %esi
+ 1463 05c8 4889C7   		movq	%rax, %rdi
+ 1464 05cb E8000000 		call	vl53l8cx_set_ranging_mode@PLT
+ 1464      00
+ 1465              		.loc 1 284 9 discriminator 1
+ 1466 05d0 0845C1   		orb	%al, -63(%rbp)
  285:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  286:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	return status;
- 1531              		.loc 1 286 9
- 1532 067c E0734139 		ldrb	w0, [sp, 92]
+ 1467              		.loc 1 286 9
+ 1468 05d3 0FB645C1 		movzbl	-63(%rbp), %eax
  287:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** }
- 1533              		.loc 1 287 1
- 1534 0680 FD7BC6A8 		ldp	x29, x30, [sp], 96
- 1535              	.LCFI5:
- 1536              		.cfi_restore 30
- 1537              		.cfi_restore 29
- 1538              		.cfi_def_cfa_offset 0
- 1539 0684 C0035FD6 		ret
- 1540              		.cfi_endproc
- 1541              	.LFE2:
- 1543              		.section	.text.vl53l8cx_get_caldata_xtalk,"ax",@progbits
- 1544              		.align	2
- 1545              		.global	vl53l8cx_get_caldata_xtalk
- 1547              	vl53l8cx_get_caldata_xtalk:
- 1548              	.LFB3:
+ 1469              		.loc 1 287 1
+ 1470 05d7 488B55E8 		movq	-24(%rbp), %rdx
+ 1471 05db 64482B14 		subq	%fs:40, %rdx
+ 1471      25280000 
+ 1471      00
+ 1472 05e4 7405     		je	.L30
+ 1473 05e6 E8000000 		call	__stack_chk_fail@PLT
+ 1473      00
+ 1474              	.L30:
+ 1475 05eb 488B5DF8 		movq	-8(%rbp), %rbx
+ 1476 05ef C9       		leave
+ 1477              	.LCFI8:
+ 1478              		.cfi_def_cfa 7, 8
+ 1479 05f0 C3       		ret
+ 1480              		.cfi_endproc
+ 1481              	.LFE2:
+ 1483              		.section	.text.vl53l8cx_get_caldata_xtalk,"ax",@progbits
+ 1484              		.globl	vl53l8cx_get_caldata_xtalk
+ 1486              	vl53l8cx_get_caldata_xtalk:
+ 1487              	.LFB3:
  288:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  289:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** uint8_t vl53l8cx_get_caldata_xtalk(
  290:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		VL53L8CX_Configuration		*p_dev,
  291:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		uint8_t				*p_xtalk_data)
  292:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** {
- 1549              		.loc 1 292 1
- 1550              		.cfi_startproc
- 1551 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
- 1552              	.LCFI6:
- 1553              		.cfi_def_cfa_offset 48
- 1554              		.cfi_offset 29, -48
- 1555              		.cfi_offset 30, -40
- 1556 0004 FD030091 		mov	x29, sp
- 1557 0008 E00F00F9 		str	x0, [sp, 24]
- 1558 000c E10B00F9 		str	x1, [sp, 16]
+ 1488              		.loc 1 292 1
+ 1489              		.cfi_startproc
+ 1490 0000 F30F1EFA 		endbr64
+ 1491 0004 55       		pushq	%rbp
+ 1492              	.LCFI9:
+ 1493              		.cfi_def_cfa_offset 16
+ 1494              		.cfi_offset 6, -16
+ 1495 0005 4889E5   		movq	%rsp, %rbp
+ 1496              	.LCFI10:
+ 1497              		.cfi_def_cfa_register 6
+ 1498 0008 53       		pushq	%rbx
+ 1499 0009 4883EC38 		subq	$56, %rsp
+ 1500              		.cfi_offset 3, -24
+ 1501 000d 48897DC8 		movq	%rdi, -56(%rbp)
+ 1502 0011 488975C0 		movq	%rsi, -64(%rbp)
+ 1503              		.loc 1 292 1
+ 1504 0015 64488B04 		movq	%fs:40, %rax
+ 1504      25280000 
+ 1504      00
+ 1505 001e 488945E8 		movq	%rax, -24(%rbp)
+ 1506 0022 31C0     		xorl	%eax, %eax
  293:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t status = VL53L8CX_STATUS_OK, resolution;
- 1559              		.loc 1 293 10
- 1560 0010 FFBF0039 		strb	wzr, [sp, 47]
+ 1507              		.loc 1 293 10
+ 1508 0024 C645DF00 		movb	$0, -33(%rbp)
  294:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t footer[] = {0x00, 0x00, 0x00, 0x0F, 0x00, 0x01, 0x03, 0x04};
- 1561              		.loc 1 294 10
- 1562 0014 00E0A1D2 		mov	x0, 251658240
- 1563 0018 0020C0F2 		movk	x0, 0x100, lsl 32
- 1564 001c 6080E0F2 		movk	x0, 0x403, lsl 48
- 1565 0020 E01300F9 		str	x0, [sp, 32]
+ 1509              		.loc 1 294 10
+ 1510 0028 48B80000 		movabsq	$289075900845129728, %rax
+ 1510      000F0001 
+ 1510      0304
+ 1511 0032 488945E0 		movq	%rax, -32(%rbp)
  295:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  296:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_get_resolution(p_dev, &resolution);
- 1566              		.loc 1 296 12
- 1567 0024 E0BB0091 		add	x0, sp, 46
- 1568 0028 E10300AA 		mov	x1, x0
- 1569 002c E00F40F9 		ldr	x0, [sp, 24]
- 1570 0030 00000094 		bl	vl53l8cx_get_resolution
- 1571 0034 011C0012 		and	w1, w0, 255
- 1572              		.loc 1 296 9 discriminator 1
- 1573 0038 E0BF4039 		ldrb	w0, [sp, 47]
- 1574 003c 2000002A 		orr	w0, w1, w0
- 1575 0040 E0BF0039 		strb	w0, [sp, 47]
+ 1512              		.loc 1 296 12
+ 1513 0036 488D55DE 		leaq	-34(%rbp), %rdx
+ 1514 003a 488B45C8 		movq	-56(%rbp), %rax
+ 1515 003e 4889D6   		movq	%rdx, %rsi
+ 1516 0041 4889C7   		movq	%rax, %rdi
+ 1517 0044 E8000000 		call	vl53l8cx_get_resolution@PLT
+ 1517      00
+ 1518              		.loc 1 296 9 discriminator 1
+ 1519 0049 0845DF   		orb	%al, -33(%rbp)
  297:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_set_resolution(p_dev, VL53L8CX_RESOLUTION_8X8);
- 1576              		.loc 1 297 12
- 1577 0044 01088052 		mov	w1, 64
- 1578 0048 E00F40F9 		ldr	x0, [sp, 24]
- 1579 004c 00000094 		bl	vl53l8cx_set_resolution
- 1580 0050 011C0012 		and	w1, w0, 255
- 1581              		.loc 1 297 9 discriminator 1
- 1582 0054 E0BF4039 		ldrb	w0, [sp, 47]
- 1583 0058 2000002A 		orr	w0, w1, w0
- 1584 005c E0BF0039 		strb	w0, [sp, 47]
+ 1520              		.loc 1 297 12
+ 1521 004c 488B45C8 		movq	-56(%rbp), %rax
+ 1522 0050 BE400000 		movl	$64, %esi
+ 1522      00
+ 1523 0055 4889C7   		movq	%rax, %rdi
+ 1524 0058 E8000000 		call	vl53l8cx_set_resolution@PLT
+ 1524      00
+ 1525              		.loc 1 297 9 discriminator 1
+ 1526 005d 0845DF   		orb	%al, -33(%rbp)
  298:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  299:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****         (void)memcpy(p_dev->temp_buffer, VL53L8CX_GET_XTALK_CMD,
- 1585              		.loc 1 299 27
- 1586 0060 E00F40F9 		ldr	x0, [sp, 24]
- 1587 0064 02601491 		add	x2, x0, 1304
- 1588              		.loc 1 299 15
- 1589 0068 00000090 		adrp	x0, VL53L8CX_GET_XTALK_CMD
- 1590 006c 01000091 		add	x1, x0, :lo12:VL53L8CX_GET_XTALK_CMD
- 1591 0070 E00302AA 		mov	x0, x2
- 1592 0074 3C00C03D 		ldr	q28, [x1]
- 1593 0078 3D04C03D 		ldr	q29, [x1, 16]
- 1594 007c 3E08C03D 		ldr	q30, [x1, 32]
- 1595 0080 3F0CC03D 		ldr	q31, [x1, 48]
- 1596 0084 212040F9 		ldr	x1, [x1, 64]
- 1597 0088 1C00803D 		str	q28, [x0]
- 1598 008c 1D04803D 		str	q29, [x0, 16]
- 1599 0090 1E08803D 		str	q30, [x0, 32]
- 1600 0094 1F0C803D 		str	q31, [x0, 48]
- 1601 0098 012000F9 		str	x1, [x0, 64]
+ 1527              		.loc 1 299 27
+ 1528 0060 488B45C8 		movq	-56(%rbp), %rax
+ 1529 0064 48051805 		addq	$1304, %rax
+ 1529      0000
+ 1530              		.loc 1 299 15
+ 1531 006a 488B0D00 		movq	VL53L8CX_GET_XTALK_CMD(%rip), %rcx
+ 1531      000000
+ 1532 0071 488B1D00 		movq	8+VL53L8CX_GET_XTALK_CMD(%rip), %rbx
+ 1532      000000
+ 1533 0078 488908   		movq	%rcx, (%rax)
+ 1534 007b 48895808 		movq	%rbx, 8(%rax)
+ 1535 007f 488B0D00 		movq	16+VL53L8CX_GET_XTALK_CMD(%rip), %rcx
+ 1535      000000
+ 1536 0086 488B1D00 		movq	24+VL53L8CX_GET_XTALK_CMD(%rip), %rbx
+ 1536      000000
+ 1537 008d 48894810 		movq	%rcx, 16(%rax)
+ 1538 0091 48895818 		movq	%rbx, 24(%rax)
+ 1539 0095 488B0D00 		movq	32+VL53L8CX_GET_XTALK_CMD(%rip), %rcx
+ 1539      000000
+ 1540 009c 488B1D00 		movq	40+VL53L8CX_GET_XTALK_CMD(%rip), %rbx
+ 1540      000000
+ 1541 00a3 48894820 		movq	%rcx, 32(%rax)
+ 1542 00a7 48895828 		movq	%rbx, 40(%rax)
+ 1543 00ab 488B0D00 		movq	48+VL53L8CX_GET_XTALK_CMD(%rip), %rcx
+ 1543      000000
+ 1544 00b2 488B1D00 		movq	56+VL53L8CX_GET_XTALK_CMD(%rip), %rbx
+ 1544      000000
+ 1545 00b9 48894830 		movq	%rcx, 48(%rax)
+ 1546 00bd 48895838 		movq	%rbx, 56(%rax)
+ 1547 00c1 488B1500 		movq	64+VL53L8CX_GET_XTALK_CMD(%rip), %rdx
+ 1547      000000
+ 1548 00c8 48895040 		movq	%rdx, 64(%rax)
  300:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                sizeof(VL53L8CX_GET_XTALK_CMD));
  301:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= VL53L8CX_WrMulti(&(p_dev->platform), 0x2fb8,
- 1602              		.loc 1 301 12
- 1603 009c E40F40F9 		ldr	x4, [sp, 24]
  302:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->temp_buffer,  sizeof(VL53L8CX_GET_XTALK_CMD));
- 1604              		.loc 1 302 9
- 1605 00a0 E00F40F9 		ldr	x0, [sp, 24]
- 1606 00a4 00601491 		add	x0, x0, 1304
+ 1549              		.loc 1 302 9
+ 1550 00cc 488B45C8 		movq	-56(%rbp), %rax
+ 1551 00d0 488D9018 		leaq	1304(%rax), %rdx
+ 1551      050000
  301:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->temp_buffer,  sizeof(VL53L8CX_GET_XTALK_CMD));
- 1607              		.loc 1 301 12
- 1608 00a8 03098052 		mov	w3, 72
- 1609 00ac E20300AA 		mov	x2, x0
- 1610 00b0 01F78552 		mov	w1, 12216
- 1611 00b4 E00304AA 		mov	x0, x4
- 1612 00b8 00000094 		bl	VL53L8CX_WrMulti
+ 1552              		.loc 1 301 12
+ 1553 00d7 488B45C8 		movq	-56(%rbp), %rax
+ 1554 00db B9480000 		movl	$72, %ecx
+ 1554      00
+ 1555 00e0 BEB82F00 		movl	$12216, %esi
+ 1555      00
+ 1556 00e5 4889C7   		movq	%rax, %rdi
+ 1557 00e8 E8000000 		call	VL53L8CX_WrMulti@PLT
+ 1557      00
  301:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->temp_buffer,  sizeof(VL53L8CX_GET_XTALK_CMD));
- 1613              		.loc 1 301 9 discriminator 1
- 1614 00bc 011C0013 		sxtb	w1, w0
- 1615 00c0 E0BFC039 		ldrsb	w0, [sp, 47]
- 1616 00c4 2000002A 		orr	w0, w1, w0
- 1617 00c8 001C0013 		sxtb	w0, w0
- 1618 00cc E0BF0039 		strb	w0, [sp, 47]
+ 1558              		.loc 1 301 9 discriminator 1
+ 1559 00ed 89C2     		movl	%eax, %edx
+ 1560 00ef 0FB645DF 		movzbl	-33(%rbp), %eax
+ 1561 00f3 09D0     		orl	%edx, %eax
+ 1562 00f5 8845DF   		movb	%al, -33(%rbp)
  303:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= _vl53l8cx_poll_for_answer(p_dev,VL53L8CX_UI_CMD_STATUS, 0x03);
- 1619              		.loc 1 303 12
- 1620 00d0 62008052 		mov	w2, 3
- 1621 00d4 01808552 		mov	w1, 11264
- 1622 00d8 E00F40F9 		ldr	x0, [sp, 24]
- 1623 00dc 00000094 		bl	_vl53l8cx_poll_for_answer
- 1624 00e0 011C0012 		and	w1, w0, 255
- 1625              		.loc 1 303 9 discriminator 1
- 1626 00e4 E0BF4039 		ldrb	w0, [sp, 47]
- 1627 00e8 2000002A 		orr	w0, w1, w0
- 1628 00ec E0BF0039 		strb	w0, [sp, 47]
+ 1563              		.loc 1 303 12
+ 1564 00f8 488B45C8 		movq	-56(%rbp), %rax
+ 1565 00fc BA030000 		movl	$3, %edx
+ 1565      00
+ 1566 0101 BE002C00 		movl	$11264, %esi
+ 1566      00
+ 1567 0106 4889C7   		movq	%rax, %rdi
+ 1568 0109 E8000000 		call	_vl53l8cx_poll_for_answer
+ 1568      00
+ 1569              		.loc 1 303 9 discriminator 1
+ 1570 010e 0845DF   		orb	%al, -33(%rbp)
  304:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= VL53L8CX_RdMulti(&(p_dev->platform), VL53L8CX_UI_CMD_START,
- 1629              		.loc 1 304 12
- 1630 00f0 E40F40F9 		ldr	x4, [sp, 24]
  305:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			p_dev->temp_buffer, 
- 1631              		.loc 1 305 9
- 1632 00f4 E00F40F9 		ldr	x0, [sp, 24]
- 1633 00f8 00601491 		add	x0, x0, 1304
+ 1571              		.loc 1 305 9
+ 1572 0111 488B45C8 		movq	-56(%rbp), %rax
+ 1573 0115 488D9018 		leaq	1304(%rax), %rdx
+ 1573      050000
  304:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= VL53L8CX_RdMulti(&(p_dev->platform), VL53L8CX_UI_CMD_START,
- 1634              		.loc 1 304 12
- 1635 00fc 83618052 		mov	w3, 780
- 1636 0100 E20300AA 		mov	x2, x0
- 1637 0104 81808552 		mov	w1, 11268
- 1638 0108 E00304AA 		mov	x0, x4
- 1639 010c 00000094 		bl	VL53L8CX_RdMulti
+ 1574              		.loc 1 304 12
+ 1575 011c 488B45C8 		movq	-56(%rbp), %rax
+ 1576 0120 B90C0300 		movl	$780, %ecx
+ 1576      00
+ 1577 0125 BE042C00 		movl	$11268, %esi
+ 1577      00
+ 1578 012a 4889C7   		movq	%rax, %rdi
+ 1579 012d E8000000 		call	VL53L8CX_RdMulti@PLT
+ 1579      00
  304:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= VL53L8CX_RdMulti(&(p_dev->platform), VL53L8CX_UI_CMD_START,
- 1640              		.loc 1 304 9 discriminator 1
- 1641 0110 011C0013 		sxtb	w1, w0
- 1642 0114 E0BFC039 		ldrsb	w0, [sp, 47]
- 1643 0118 2000002A 		orr	w0, w1, w0
- 1644 011c 001C0013 		sxtb	w0, w0
- 1645 0120 E0BF0039 		strb	w0, [sp, 47]
+ 1580              		.loc 1 304 9 discriminator 1
+ 1581 0132 89C2     		movl	%eax, %edx
+ 1582 0134 0FB645DF 		movzbl	-33(%rbp), %eax
+ 1583 0138 09D0     		orl	%edx, %eax
+ 1584 013a 8845DF   		movb	%al, -33(%rbp)
  306:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                         VL53L8CX_XTALK_BUFFER_SIZE + (uint16_t)4);
  307:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  308:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	(void)memcpy(&(p_xtalk_data[0]), &(p_dev->temp_buffer[8]),
- 1646              		.loc 1 308 35
- 1647 0124 E00F40F9 		ldr	x0, [sp, 24]
- 1648 0128 00801491 		add	x0, x0, 1312
- 1649              		.loc 1 308 8
- 1650 012c 026080D2 		mov	x2, 768
- 1651 0130 E10300AA 		mov	x1, x0
- 1652 0134 E00B40F9 		ldr	x0, [sp, 16]
- 1653 0138 00000094 		bl	memcpy
+ 1585              		.loc 1 308 35
+ 1586 013d 488B45C8 		movq	-56(%rbp), %rax
+ 1587 0141 488D8820 		leaq	1312(%rax), %rcx
+ 1587      050000
+ 1588              		.loc 1 308 8
+ 1589 0148 488B45C0 		movq	-64(%rbp), %rax
+ 1590 014c BA000300 		movl	$768, %edx
+ 1590      00
+ 1591 0151 4889CE   		movq	%rcx, %rsi
+ 1592 0154 4889C7   		movq	%rax, %rdi
+ 1593 0157 E8000000 		call	memcpy@PLT
+ 1593      00
  309:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			VL53L8CX_XTALK_BUFFER_SIZE-(uint16_t)8);
  310:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	(void)memcpy(&(p_xtalk_data[VL53L8CX_XTALK_BUFFER_SIZE - (uint16_t)8]),
- 1654              		.loc 1 310 15
- 1655 013c E00B40F9 		ldr	x0, [sp, 16]
- 1656 0140 00000C91 		add	x0, x0, 768
- 1657              		.loc 1 310 8
- 1658 0144 E11340F9 		ldr	x1, [sp, 32]
- 1659 0148 010000F9 		str	x1, [x0]
+ 1594              		.loc 1 310 15
+ 1595 015c 488B45C0 		movq	-64(%rbp), %rax
+ 1596 0160 488D9000 		leaq	768(%rax), %rdx
+ 1596      030000
+ 1597              		.loc 1 310 8
+ 1598 0167 488B45E0 		movq	-32(%rbp), %rax
+ 1599 016b 488902   		movq	%rax, (%rdx)
  311:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			footer, sizeof(footer));
  312:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  313:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_set_resolution(p_dev, resolution);
- 1660              		.loc 1 313 12
- 1661 014c E0BB4039 		ldrb	w0, [sp, 46]
- 1662 0150 E103002A 		mov	w1, w0
- 1663 0154 E00F40F9 		ldr	x0, [sp, 24]
- 1664 0158 00000094 		bl	vl53l8cx_set_resolution
- 1665 015c 011C0012 		and	w1, w0, 255
- 1666              		.loc 1 313 9 discriminator 1
- 1667 0160 E0BF4039 		ldrb	w0, [sp, 47]
- 1668 0164 2000002A 		orr	w0, w1, w0
- 1669 0168 E0BF0039 		strb	w0, [sp, 47]
+ 1600              		.loc 1 313 12
+ 1601 016e 0FB645DE 		movzbl	-34(%rbp), %eax
+ 1602 0172 0FB6D0   		movzbl	%al, %edx
+ 1603 0175 488B45C8 		movq	-56(%rbp), %rax
+ 1604 0179 89D6     		movl	%edx, %esi
+ 1605 017b 4889C7   		movq	%rax, %rdi
+ 1606 017e E8000000 		call	vl53l8cx_set_resolution@PLT
+ 1606      00
+ 1607              		.loc 1 313 9 discriminator 1
+ 1608 0183 0845DF   		orb	%al, -33(%rbp)
  314:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  315:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	return status;
- 1670              		.loc 1 315 9
- 1671 016c E0BF4039 		ldrb	w0, [sp, 47]
+ 1609              		.loc 1 315 9
+ 1610 0186 0FB645DF 		movzbl	-33(%rbp), %eax
  316:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** }
- 1672              		.loc 1 316 1
- 1673 0170 FD7BC3A8 		ldp	x29, x30, [sp], 48
- 1674              	.LCFI7:
- 1675              		.cfi_restore 30
- 1676              		.cfi_restore 29
- 1677              		.cfi_def_cfa_offset 0
- 1678 0174 C0035FD6 		ret
- 1679              		.cfi_endproc
- 1680              	.LFE3:
- 1682              		.section	.text.vl53l8cx_set_caldata_xtalk,"ax",@progbits
- 1683              		.align	2
- 1684              		.global	vl53l8cx_set_caldata_xtalk
- 1686              	vl53l8cx_set_caldata_xtalk:
- 1687              	.LFB4:
+ 1611              		.loc 1 316 1
+ 1612 018a 488B55E8 		movq	-24(%rbp), %rdx
+ 1613 018e 64482B14 		subq	%fs:40, %rdx
+ 1613      25280000 
+ 1613      00
+ 1614 0197 7405     		je	.L33
+ 1615 0199 E8000000 		call	__stack_chk_fail@PLT
+ 1615      00
+ 1616              	.L33:
+ 1617 019e 488B5DF8 		movq	-8(%rbp), %rbx
+ 1618 01a2 C9       		leave
+ 1619              	.LCFI11:
+ 1620              		.cfi_def_cfa 7, 8
+ 1621 01a3 C3       		ret
+ 1622              		.cfi_endproc
+ 1623              	.LFE3:
+ 1625              		.section	.text.vl53l8cx_set_caldata_xtalk,"ax",@progbits
+ 1626              		.globl	vl53l8cx_set_caldata_xtalk
+ 1628              	vl53l8cx_set_caldata_xtalk:
+ 1629              	.LFB4:
  317:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  318:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** uint8_t vl53l8cx_set_caldata_xtalk(
  319:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		VL53L8CX_Configuration		*p_dev,
  320:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		uint8_t				*p_xtalk_data)
  321:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** {
- 1688              		.loc 1 321 1
- 1689              		.cfi_startproc
- 1690 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
- 1691              	.LCFI8:
- 1692              		.cfi_def_cfa_offset 48
- 1693              		.cfi_offset 29, -48
- 1694              		.cfi_offset 30, -40
- 1695 0004 FD030091 		mov	x29, sp
- 1696 0008 E00F00F9 		str	x0, [sp, 24]
- 1697 000c E10B00F9 		str	x1, [sp, 16]
+ 1630              		.loc 1 321 1
+ 1631              		.cfi_startproc
+ 1632 0000 F30F1EFA 		endbr64
+ 1633 0004 55       		pushq	%rbp
+ 1634              	.LCFI12:
+ 1635              		.cfi_def_cfa_offset 16
+ 1636              		.cfi_offset 6, -16
+ 1637 0005 4889E5   		movq	%rsp, %rbp
+ 1638              	.LCFI13:
+ 1639              		.cfi_def_cfa_register 6
+ 1640 0008 4883EC20 		subq	$32, %rsp
+ 1641 000c 48897DE8 		movq	%rdi, -24(%rbp)
+ 1642 0010 488975E0 		movq	%rsi, -32(%rbp)
+ 1643              		.loc 1 321 1
+ 1644 0014 64488B04 		movq	%fs:40, %rax
+ 1644      25280000 
+ 1644      00
+ 1645 001d 488945F8 		movq	%rax, -8(%rbp)
+ 1646 0021 31C0     		xorl	%eax, %eax
  322:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t resolution, status = VL53L8CX_STATUS_OK;
- 1698              		.loc 1 322 22
- 1699 0010 FFBF0039 		strb	wzr, [sp, 47]
+ 1647              		.loc 1 322 22
+ 1648 0023 C645F700 		movb	$0, -9(%rbp)
  323:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  324:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_get_resolution(p_dev, &resolution);
- 1700              		.loc 1 324 12
- 1701 0014 E0BB0091 		add	x0, sp, 46
- 1702 0018 E10300AA 		mov	x1, x0
- 1703 001c E00F40F9 		ldr	x0, [sp, 24]
- 1704 0020 00000094 		bl	vl53l8cx_get_resolution
- 1705 0024 011C0012 		and	w1, w0, 255
- 1706              		.loc 1 324 9 discriminator 1
- 1707 0028 E0BF4039 		ldrb	w0, [sp, 47]
- 1708 002c 2000002A 		orr	w0, w1, w0
- 1709 0030 E0BF0039 		strb	w0, [sp, 47]
+ 1649              		.loc 1 324 12
+ 1650 0027 488D55F6 		leaq	-10(%rbp), %rdx
+ 1651 002b 488B45E8 		movq	-24(%rbp), %rax
+ 1652 002f 4889D6   		movq	%rdx, %rsi
+ 1653 0032 4889C7   		movq	%rax, %rdi
+ 1654 0035 E8000000 		call	vl53l8cx_get_resolution@PLT
+ 1654      00
+ 1655              		.loc 1 324 9 discriminator 1
+ 1656 003a 0845F7   		orb	%al, -9(%rbp)
  325:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	(void)memcpy(p_dev->xtalk_data, p_xtalk_data, VL53L8CX_XTALK_BUFFER_SIZE);
- 1710              		.loc 1 325 20
- 1711 0034 E00F40F9 		ldr	x0, [sp, 24]
- 1712 0038 00400891 		add	x0, x0, 528
- 1713              		.loc 1 325 8
- 1714 003c 026180D2 		mov	x2, 776
- 1715 0040 E10B40F9 		ldr	x1, [sp, 16]
- 1716 0044 00000094 		bl	memcpy
+ 1657              		.loc 1 325 20
+ 1658 003d 488B45E8 		movq	-24(%rbp), %rax
+ 1659 0041 488D8810 		leaq	528(%rax), %rcx
+ 1659      020000
+ 1660              		.loc 1 325 8
+ 1661 0048 488B45E0 		movq	-32(%rbp), %rax
+ 1662 004c BA080300 		movl	$776, %edx
+ 1662      00
+ 1663 0051 4889C6   		movq	%rax, %rsi
+ 1664 0054 4889CF   		movq	%rcx, %rdi
+ 1665 0057 E8000000 		call	memcpy@PLT
+ 1665      00
  326:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_set_resolution(p_dev, resolution);
- 1717              		.loc 1 326 12
- 1718 0048 E0BB4039 		ldrb	w0, [sp, 46]
- 1719 004c E103002A 		mov	w1, w0
- 1720 0050 E00F40F9 		ldr	x0, [sp, 24]
- 1721 0054 00000094 		bl	vl53l8cx_set_resolution
- 1722 0058 011C0012 		and	w1, w0, 255
- 1723              		.loc 1 326 9 discriminator 1
- 1724 005c E0BF4039 		ldrb	w0, [sp, 47]
- 1725 0060 2000002A 		orr	w0, w1, w0
- 1726 0064 E0BF0039 		strb	w0, [sp, 47]
+ 1666              		.loc 1 326 12
+ 1667 005c 0FB645F6 		movzbl	-10(%rbp), %eax
+ 1668 0060 0FB6D0   		movzbl	%al, %edx
+ 1669 0063 488B45E8 		movq	-24(%rbp), %rax
+ 1670 0067 89D6     		movl	%edx, %esi
+ 1671 0069 4889C7   		movq	%rax, %rdi
+ 1672 006c E8000000 		call	vl53l8cx_set_resolution@PLT
+ 1672      00
+ 1673              		.loc 1 326 9 discriminator 1
+ 1674 0071 0845F7   		orb	%al, -9(%rbp)
  327:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  328:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	return status;
- 1727              		.loc 1 328 9
- 1728 0068 E0BF4039 		ldrb	w0, [sp, 47]
+ 1675              		.loc 1 328 9
+ 1676 0074 0FB645F7 		movzbl	-9(%rbp), %eax
  329:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** }
- 1729              		.loc 1 329 1
- 1730 006c FD7BC3A8 		ldp	x29, x30, [sp], 48
- 1731              	.LCFI9:
- 1732              		.cfi_restore 30
- 1733              		.cfi_restore 29
- 1734              		.cfi_def_cfa_offset 0
- 1735 0070 C0035FD6 		ret
- 1736              		.cfi_endproc
- 1737              	.LFE4:
- 1739              		.section	.text.vl53l8cx_get_xtalk_margin,"ax",@progbits
- 1740              		.align	2
- 1741              		.global	vl53l8cx_get_xtalk_margin
- 1743              	vl53l8cx_get_xtalk_margin:
- 1744              	.LFB5:
+ 1677              		.loc 1 329 1
+ 1678 0078 488B55F8 		movq	-8(%rbp), %rdx
+ 1679 007c 64482B14 		subq	%fs:40, %rdx
+ 1679      25280000 
+ 1679      00
+ 1680 0085 7405     		je	.L36
+ 1681 0087 E8000000 		call	__stack_chk_fail@PLT
+ 1681      00
+ 1682              	.L36:
+ 1683 008c C9       		leave
+ 1684              	.LCFI14:
+ 1685              		.cfi_def_cfa 7, 8
+ 1686 008d C3       		ret
+ 1687              		.cfi_endproc
+ 1688              	.LFE4:
+ 1690              		.section	.text.vl53l8cx_get_xtalk_margin,"ax",@progbits
+ 1691              		.globl	vl53l8cx_get_xtalk_margin
+ 1693              	vl53l8cx_get_xtalk_margin:
+ 1694              	.LFB5:
  330:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  331:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** uint8_t vl53l8cx_get_xtalk_margin(
  332:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		VL53L8CX_Configuration		*p_dev,
  333:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		uint32_t			*p_xtalk_margin)
  334:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** {
- 1745              		.loc 1 334 1
- 1746              		.cfi_startproc
- 1747 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
- 1748              	.LCFI10:
- 1749              		.cfi_def_cfa_offset 48
- 1750              		.cfi_offset 29, -48
- 1751              		.cfi_offset 30, -40
- 1752 0004 FD030091 		mov	x29, sp
- 1753 0008 E00F00F9 		str	x0, [sp, 24]
- 1754 000c E10B00F9 		str	x1, [sp, 16]
+ 1695              		.loc 1 334 1
+ 1696              		.cfi_startproc
+ 1697 0000 F30F1EFA 		endbr64
+ 1698 0004 55       		pushq	%rbp
+ 1699              	.LCFI15:
+ 1700              		.cfi_def_cfa_offset 16
+ 1701              		.cfi_offset 6, -16
+ 1702 0005 4889E5   		movq	%rsp, %rbp
+ 1703              	.LCFI16:
+ 1704              		.cfi_def_cfa_register 6
+ 1705 0008 4883EC20 		subq	$32, %rsp
+ 1706 000c 48897DE8 		movq	%rdi, -24(%rbp)
+ 1707 0010 488975E0 		movq	%rsi, -32(%rbp)
  335:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t status = VL53L8CX_STATUS_OK;
- 1755              		.loc 1 335 10
- 1756 0010 FFBF0039 		strb	wzr, [sp, 47]
+ 1708              		.loc 1 335 10
+ 1709 0014 C645FF00 		movb	$0, -1(%rbp)
  336:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  337:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	status |= vl53l8cx_dci_read_data(p_dev, (uint8_t*)p_dev->temp_buffer,
- 1757              		.loc 1 337 52
- 1758 0014 E00F40F9 		ldr	x0, [sp, 24]
- 1759 0018 00601491 		add	x0, x0, 1304
- 1760              		.loc 1 337 12
- 1761 001c 03028052 		mov	w3, 16
- 1762 0020 82B29552 		mov	w2, 44436
- 1763 0024 E10300AA 		mov	x1, x0
- 1764 0028 E00F40F9 		ldr	x0, [sp, 24]
- 1765 002c 00000094 		bl	vl53l8cx_dci_read_data
- 1766 0030 011C0012 		and	w1, w0, 255
- 1767              		.loc 1 337 9 discriminator 1
- 1768 0034 E0BF4039 		ldrb	w0, [sp, 47]
- 1769 0038 2000002A 		orr	w0, w1, w0
- 1770 003c E0BF0039 		strb	w0, [sp, 47]
+ 1710              		.loc 1 337 52
+ 1711 0018 488B45E8 		movq	-24(%rbp), %rax
+ 1712 001c 488DB018 		leaq	1304(%rax), %rsi
+ 1712      050000
+ 1713              		.loc 1 337 12
+ 1714 0023 488B45E8 		movq	-24(%rbp), %rax
+ 1715 0027 B9100000 		movl	$16, %ecx
+ 1715      00
+ 1716 002c BA94AD00 		movl	$44436, %edx
+ 1716      00
+ 1717 0031 4889C7   		movq	%rax, %rdi
+ 1718 0034 E8000000 		call	vl53l8cx_dci_read_data@PLT
+ 1718      00
+ 1719              		.loc 1 337 9 discriminator 1
+ 1720 0039 0845FF   		orb	%al, -1(%rbp)
  338:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 			VL53L8CX_DCI_XTALK_CFG, 16);
  339:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  340:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	(void)memcpy(p_xtalk_margin, p_dev->temp_buffer, 4);
- 1771              		.loc 1 340 36
- 1772 0040 E00F40F9 		ldr	x0, [sp, 24]
- 1773 0044 00601491 		add	x0, x0, 1304
- 1774              		.loc 1 340 8
- 1775 0048 010040B9 		ldr	w1, [x0]
- 1776 004c E00B40F9 		ldr	x0, [sp, 16]
- 1777 0050 010000B9 		str	w1, [x0]
+ 1721              		.loc 1 340 36
+ 1722 003c 488B45E8 		movq	-24(%rbp), %rax
+ 1723 0040 48051805 		addq	$1304, %rax
+ 1723      0000
+ 1724              		.loc 1 340 8
+ 1725 0046 8B10     		movl	(%rax), %edx
+ 1726 0048 488B45E0 		movq	-32(%rbp), %rax
+ 1727 004c 8910     		movl	%edx, (%rax)
  341:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	*p_xtalk_margin = *p_xtalk_margin/(uint32_t)2048;
- 1778              		.loc 1 341 20
- 1779 0054 E00B40F9 		ldr	x0, [sp, 16]
- 1780 0058 000040B9 		ldr	w0, [x0]
- 1781              		.loc 1 341 35
- 1782 005c 017C0B53 		lsr	w1, w0, 11
- 1783              		.loc 1 341 18
- 1784 0060 E00B40F9 		ldr	x0, [sp, 16]
- 1785 0064 010000B9 		str	w1, [x0]
+ 1728              		.loc 1 341 20
+ 1729 004e 488B45E0 		movq	-32(%rbp), %rax
+ 1730 0052 8B00     		movl	(%rax), %eax
+ 1731              		.loc 1 341 35
+ 1732 0054 C1E80B   		shrl	$11, %eax
+ 1733 0057 89C2     		movl	%eax, %edx
+ 1734              		.loc 1 341 18
+ 1735 0059 488B45E0 		movq	-32(%rbp), %rax
+ 1736 005d 8910     		movl	%edx, (%rax)
  342:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  343:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	return status;
- 1786              		.loc 1 343 9
- 1787 0068 E0BF4039 		ldrb	w0, [sp, 47]
+ 1737              		.loc 1 343 9
+ 1738 005f 0FB645FF 		movzbl	-1(%rbp), %eax
  344:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** }
- 1788              		.loc 1 344 1
- 1789 006c FD7BC3A8 		ldp	x29, x30, [sp], 48
- 1790              	.LCFI11:
- 1791              		.cfi_restore 30
- 1792              		.cfi_restore 29
- 1793              		.cfi_def_cfa_offset 0
- 1794 0070 C0035FD6 		ret
- 1795              		.cfi_endproc
- 1796              	.LFE5:
- 1798              		.section	.text.vl53l8cx_set_xtalk_margin,"ax",@progbits
- 1799              		.align	2
- 1800              		.global	vl53l8cx_set_xtalk_margin
- 1802              	vl53l8cx_set_xtalk_margin:
- 1803              	.LFB6:
+ 1739              		.loc 1 344 1
+ 1740 0063 C9       		leave
+ 1741              	.LCFI17:
+ 1742              		.cfi_def_cfa 7, 8
+ 1743 0064 C3       		ret
+ 1744              		.cfi_endproc
+ 1745              	.LFE5:
+ 1747              		.section	.text.vl53l8cx_set_xtalk_margin,"ax",@progbits
+ 1748              		.globl	vl53l8cx_set_xtalk_margin
+ 1750              	vl53l8cx_set_xtalk_margin:
+ 1751              	.LFB6:
  345:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  346:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** uint8_t vl53l8cx_set_xtalk_margin(
  347:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		VL53L8CX_Configuration		*p_dev,
  348:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		uint32_t			xtalk_margin)
  349:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** {
- 1804              		.loc 1 349 1
- 1805              		.cfi_startproc
- 1806 0000 FD7BBDA9 		stp	x29, x30, [sp, -48]!
- 1807              	.LCFI12:
- 1808              		.cfi_def_cfa_offset 48
- 1809              		.cfi_offset 29, -48
- 1810              		.cfi_offset 30, -40
- 1811 0004 FD030091 		mov	x29, sp
- 1812 0008 E00F00F9 		str	x0, [sp, 24]
- 1813 000c E11700B9 		str	w1, [sp, 20]
+ 1752              		.loc 1 349 1
+ 1753              		.cfi_startproc
+ 1754 0000 F30F1EFA 		endbr64
+ 1755 0004 55       		pushq	%rbp
+ 1756              	.LCFI18:
+ 1757              		.cfi_def_cfa_offset 16
+ 1758              		.cfi_offset 6, -16
+ 1759 0005 4889E5   		movq	%rsp, %rbp
+ 1760              	.LCFI19:
+ 1761              		.cfi_def_cfa_register 6
+ 1762 0008 4883EC20 		subq	$32, %rsp
+ 1763 000c 48897DE8 		movq	%rdi, -24(%rbp)
+ 1764 0010 8975E4   		movl	%esi, -28(%rbp)
+ 1765              		.loc 1 349 1
+ 1766 0013 64488B04 		movq	%fs:40, %rax
+ 1766      25280000 
+ 1766      00
+ 1767 001c 488945F8 		movq	%rax, -8(%rbp)
+ 1768 0020 31C0     		xorl	%eax, %eax
  350:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	uint8_t status = VL53L8CX_STATUS_OK;
- 1814              		.loc 1 350 10
- 1815 0010 FFBF0039 		strb	wzr, [sp, 47]
+ 1769              		.loc 1 350 10
+ 1770 0022 C645F300 		movb	$0, -13(%rbp)
  351:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****         uint32_t margin_kcps = xtalk_margin;
- 1816              		.loc 1 351 18
- 1817 0014 E01740B9 		ldr	w0, [sp, 20]
- 1818 0018 E02B00B9 		str	w0, [sp, 40]
+ 1771              		.loc 1 351 18
+ 1772 0026 8B45E4   		movl	-28(%rbp), %eax
+ 1773 0029 8945F4   		movl	%eax, -12(%rbp)
  352:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  353:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	if(margin_kcps > (uint32_t)10000)
- 1819              		.loc 1 353 17
- 1820 001c E12B40B9 		ldr	w1, [sp, 40]
- 1821              		.loc 1 353 4
- 1822 0020 00E28452 		mov	w0, 10000
- 1823 0024 3F00006B 		cmp	w1, w0
- 1824 0028 A9000054 		bls	.L36
+ 1774              		.loc 1 353 17
+ 1775 002c 8B45F4   		movl	-12(%rbp), %eax
+ 1776              		.loc 1 353 4
+ 1777 002f 3D102700 		cmpl	$10000, %eax
+ 1777      00
+ 1778 0034 7606     		jbe	.L40
  354:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	{
  355:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= VL53L8CX_STATUS_INVALID_PARAM;
- 1825              		.loc 1 355 10
- 1826 002c E0BF4039 		ldrb	w0, [sp, 47]
- 1827 0030 00180032 		orr	w0, w0, 127
- 1828 0034 E0BF0039 		strb	w0, [sp, 47]
- 1829 0038 13000014 		b	.L37
- 1830              	.L36:
+ 1779              		.loc 1 355 10
+ 1780 0036 804DF37F 		orb	$127, -13(%rbp)
+ 1781 003a EB44     		jmp	.L41
+ 1782              	.L40:
  356:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	}
  357:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	else
  358:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	{
  359:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		margin_kcps = margin_kcps*(uint32_t)2048;
- 1831              		.loc 1 359 28
- 1832 003c E02B40B9 		ldr	w0, [sp, 40]
- 1833 0040 00501553 		lsl	w0, w0, 11
- 1834              		.loc 1 359 15
- 1835 0044 E02B00B9 		str	w0, [sp, 40]
+ 1783              		.loc 1 359 28
+ 1784 003c 8B45F4   		movl	-12(%rbp), %eax
+ 1785 003f C1E00B   		sall	$11, %eax
+ 1786              		.loc 1 359 15
+ 1787 0042 8945F4   		movl	%eax, -12(%rbp)
  360:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 		status |= vl53l8cx_dci_replace_data(p_dev, p_dev->temp_buffer,
- 1836              		.loc 1 360 51
- 1837 0048 E00F40F9 		ldr	x0, [sp, 24]
- 1838 004c 00601491 		add	x0, x0, 1304
- 1839              		.loc 1 360 13
- 1840 0050 E1A30091 		add	x1, sp, 40
- 1841 0054 06008052 		mov	w6, 0
- 1842 0058 85008052 		mov	w5, 4
- 1843 005c E40301AA 		mov	x4, x1
- 1844 0060 03028052 		mov	w3, 16
- 1845 0064 82B29552 		mov	w2, 44436
- 1846 0068 E10300AA 		mov	x1, x0
- 1847 006c E00F40F9 		ldr	x0, [sp, 24]
- 1848 0070 00000094 		bl	vl53l8cx_dci_replace_data
- 1849 0074 011C0012 		and	w1, w0, 255
- 1850              		.loc 1 360 10 discriminator 1
- 1851 0078 E0BF4039 		ldrb	w0, [sp, 47]
- 1852 007c 2000002A 		orr	w0, w1, w0
- 1853 0080 E0BF0039 		strb	w0, [sp, 47]
- 1854              	.L37:
+ 1788              		.loc 1 360 51
+ 1789 0045 488B45E8 		movq	-24(%rbp), %rax
+ 1790 0049 488DB018 		leaq	1304(%rax), %rsi
+ 1790      050000
+ 1791              		.loc 1 360 13
+ 1792 0050 488D55F4 		leaq	-12(%rbp), %rdx
+ 1793 0054 488B45E8 		movq	-24(%rbp), %rax
+ 1794 0058 4883EC08 		subq	$8, %rsp
+ 1795 005c 6A00     		pushq	$0
+ 1796 005e 41B90400 		movl	$4, %r9d
+ 1796      0000
+ 1797 0064 4989D0   		movq	%rdx, %r8
+ 1798 0067 B9100000 		movl	$16, %ecx
+ 1798      00
+ 1799 006c BA94AD00 		movl	$44436, %edx
+ 1799      00
+ 1800 0071 4889C7   		movq	%rax, %rdi
+ 1801 0074 E8000000 		call	vl53l8cx_dci_replace_data@PLT
+ 1801      00
+ 1802 0079 4883C410 		addq	$16, %rsp
+ 1803              		.loc 1 360 10 discriminator 1
+ 1804 007d 0845F3   		orb	%al, -13(%rbp)
+ 1805              	.L41:
  361:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 				VL53L8CX_DCI_XTALK_CFG, 16,
  362:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c ****                                 (uint8_t*)&margin_kcps, 4, 0x00);
  363:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	}
  364:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 
  365:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** 	return status;
- 1855              		.loc 1 365 9
- 1856 0084 E0BF4039 		ldrb	w0, [sp, 47]
+ 1806              		.loc 1 365 9
+ 1807 0080 0FB645F3 		movzbl	-13(%rbp), %eax
  366:src/Flightlib/vl53l8cx_driver/Core/Src/vl53l8cx/vl53l8cx_plugin_xtalk.c **** }
- 1857              		.loc 1 366 1
- 1858 0088 FD7BC3A8 		ldp	x29, x30, [sp], 48
- 1859              	.LCFI13:
- 1860              		.cfi_restore 30
- 1861              		.cfi_restore 29
- 1862              		.cfi_def_cfa_offset 0
- 1863 008c C0035FD6 		ret
- 1864              		.cfi_endproc
- 1865              	.LFE6:
- 1867              		.text
- 1868              	.Letext0:
- 1869              		.file 2 "/usr/include/aarch64-linux-gnu/bits/types.h"
- 1870              		.file 3 "/usr/include/aarch64-linux-gnu/bits/stdint-intn.h"
- 1871              		.file 4 "/usr/include/aarch64-linux-gnu/bits/stdint-uintn.h"
- 1872              		.file 5 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
- 1873              		.file 6 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h"
- 1874              		.file 7 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_plugin_xtalk.h"
- 1875              		.file 8 "/usr/include/string.h"
+ 1808              		.loc 1 366 1
+ 1809 0084 488B55F8 		movq	-8(%rbp), %rdx
+ 1810 0088 64482B14 		subq	%fs:40, %rdx
+ 1810      25280000 
+ 1810      00
+ 1811 0091 7405     		je	.L43
+ 1812 0093 E8000000 		call	__stack_chk_fail@PLT
+ 1812      00
+ 1813              	.L43:
+ 1814 0098 C9       		leave
+ 1815              	.LCFI20:
+ 1816              		.cfi_def_cfa 7, 8
+ 1817 0099 C3       		ret
+ 1818              		.cfi_endproc
+ 1819              	.LFE6:
+ 1821              		.text
+ 1822              	.Letext0:
+ 1823              		.file 2 "/usr/include/x86_64-linux-gnu/bits/types.h"
+ 1824              		.file 3 "/usr/include/x86_64-linux-gnu/bits/stdint-intn.h"
+ 1825              		.file 4 "/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h"
+ 1826              		.file 5 "/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h"
+ 1827              		.file 6 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_platform.h"
+ 1828              		.file 7 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_api.h"
+ 1829              		.file 8 "src/Flightlib/vl53l8cx_driver/Core/Inc/vl53l8cx/vl53l8cx_plugin_xtalk.h"
+ 1830              		.file 9 "/usr/include/string.h"
+ 4087              		.section	.note.gnu.property,"a"
+ 4088              		.align 8
+ 4089 0000 04000000 		.long	1f - 0f
+ 4090 0004 10000000 		.long	4f - 1f
+ 4091 0008 05000000 		.long	5
+ 4092              	0:
+ 4093 000c 474E5500 		.string	"GNU"
+ 4094              	1:
+ 4095              		.align 8
+ 4096 0010 020000C0 		.long	0xc0000002
+ 4097 0014 04000000 		.long	3f - 2f
+ 4098              	2:
+ 4099 0018 03000000 		.long	0x3
+ 4100              	3:
+ 4101 001c 00000000 		.align 8
+ 4102              	4:
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 vl53l8cx_plugin_xtalk.c
-     /tmp/ccSJQCrc.s:7      .rodata.VL53L8CX_GET_XTALK_CMD:0000000000000000 $d
-     /tmp/ccSJQCrc.s:10     .rodata.VL53L8CX_GET_XTALK_CMD:0000000000000000 VL53L8CX_GET_XTALK_CMD
-     /tmp/ccSJQCrc.s:31     .rodata.VL53L8CX_CALIBRATE_XTALK:0000000000000000 $d
-     /tmp/ccSJQCrc.s:34     .rodata.VL53L8CX_CALIBRATE_XTALK:0000000000000000 VL53L8CX_CALIBRATE_XTALK
-     /tmp/ccSJQCrc.s:604    .text._vl53l8cx_poll_for_answer:0000000000000000 $x
-     /tmp/ccSJQCrc.s:606    .text._vl53l8cx_poll_for_answer:0000000000000000 _vl53l8cx_poll_for_answer
-     /tmp/ccSJQCrc.s:695    .text._vl53l8cx_program_output_config:0000000000000000 $x
-     /tmp/ccSJQCrc.s:697    .text._vl53l8cx_program_output_config:0000000000000000 _vl53l8cx_program_output_config
-     /tmp/ccSJQCrc.s:956    .rodata:0000000000000000 $d
-     /tmp/ccSJQCrc.s:977    .text.vl53l8cx_calibrate_xtalk:0000000000000000 $x
-     /tmp/ccSJQCrc.s:980    .text.vl53l8cx_calibrate_xtalk:0000000000000000 vl53l8cx_calibrate_xtalk
-     /tmp/ccSJQCrc.s:1743   .text.vl53l8cx_get_xtalk_margin:0000000000000000 vl53l8cx_get_xtalk_margin
-     /tmp/ccSJQCrc.s:1802   .text.vl53l8cx_set_xtalk_margin:0000000000000000 vl53l8cx_set_xtalk_margin
-     /tmp/ccSJQCrc.s:1544   .text.vl53l8cx_get_caldata_xtalk:0000000000000000 $x
-     /tmp/ccSJQCrc.s:1547   .text.vl53l8cx_get_caldata_xtalk:0000000000000000 vl53l8cx_get_caldata_xtalk
-     /tmp/ccSJQCrc.s:1683   .text.vl53l8cx_set_caldata_xtalk:0000000000000000 $x
-     /tmp/ccSJQCrc.s:1686   .text.vl53l8cx_set_caldata_xtalk:0000000000000000 vl53l8cx_set_caldata_xtalk
-     /tmp/ccSJQCrc.s:1740   .text.vl53l8cx_get_xtalk_margin:0000000000000000 $x
-     /tmp/ccSJQCrc.s:1799   .text.vl53l8cx_set_xtalk_margin:0000000000000000 $x
-                        .eh_frame:0000000000000014 $d
+     /tmp/ccxBp5dn.s:9      .rodata.VL53L8CX_GET_XTALK_CMD:0000000000000000 VL53L8CX_GET_XTALK_CMD
+     /tmp/ccxBp5dn.s:33     .rodata.VL53L8CX_CALIBRATE_XTALK:0000000000000000 VL53L8CX_CALIBRATE_XTALK
+     /tmp/ccxBp5dn.s:604    .text._vl53l8cx_poll_for_answer:0000000000000000 _vl53l8cx_poll_for_answer
+     /tmp/ccxBp5dn.s:690    .text._vl53l8cx_program_output_config:0000000000000000 _vl53l8cx_program_output_config
+     /tmp/ccxBp5dn.s:949    .text.vl53l8cx_calibrate_xtalk:0000000000000000 vl53l8cx_calibrate_xtalk
+     /tmp/ccxBp5dn.s:1693   .text.vl53l8cx_get_xtalk_margin:0000000000000000 vl53l8cx_get_xtalk_margin
+     /tmp/ccxBp5dn.s:1750   .text.vl53l8cx_set_xtalk_margin:0000000000000000 vl53l8cx_set_xtalk_margin
+     /tmp/ccxBp5dn.s:1486   .text.vl53l8cx_get_caldata_xtalk:0000000000000000 vl53l8cx_get_caldata_xtalk
+     /tmp/ccxBp5dn.s:1628   .text.vl53l8cx_set_caldata_xtalk:0000000000000000 vl53l8cx_set_caldata_xtalk
 
 UNDEFINED SYMBOLS
 VL53L8CX_RdMulti
 VL53L8CX_WaitMs
 vl53l8cx_get_resolution
 vl53l8cx_dci_write_data
+__stack_chk_fail
 vl53l8cx_get_ranging_frequency_hz
 vl53l8cx_get_integration_time_ms
 vl53l8cx_get_sharpener_percent
 vl53l8cx_get_target_order
 vl53l8cx_get_ranging_mode
 vl53l8cx_set_resolution
-memcpy
 VL53L8CX_WrMulti
 vl53l8cx_dci_replace_data
+memcpy
 vl53l8cx_set_ranging_frequency_hz
 vl53l8cx_set_integration_time_ms
 vl53l8cx_set_sharpener_percent
